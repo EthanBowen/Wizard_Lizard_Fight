@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 189195221}
   - component: {fileID: 189195220}
   - component: {fileID: 189195219}
-  - component: {fileID: 189195222}
   - component: {fileID: 189195223}
   m_Layer: 0
   m_Name: Secret_Wizard
@@ -225,21 +224,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &189195222
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189195218}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b84e89dd279b83c46a7955f4ecdd64ca, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &189195223
 Animator:
   serializedVersion: 3
