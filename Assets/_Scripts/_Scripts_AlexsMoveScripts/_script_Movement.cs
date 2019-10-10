@@ -8,10 +8,42 @@ public class _script_Movement : MonoBehaviour
     //private bool shield;
     public float MovementSpeed = 0.5f;
     public float DiagonalMoveSpeedMultiplier = 1f;
-    private float horizontal, vertical;
+    private float horizontalP1, verticalP1, horizontalP2, verticalP2;
     Rigidbody2D Body;
     //public GameObject PlayerShield;
 
+
+    // Singleton behavior
+    private static _script_Movement _instance_Player01;
+    private static _script_Movement _instance_Player02;
+    private static _script_Movement _instance_Player03;
+    private static _script_Movement _instance_Player04;
+
+    // Awake is called before Start
+    private void Awake()
+    {
+        // Initialize which player owns this
+        if (_instance_Player01 == null || _instance_Player01 == this)
+        {
+            _instance_Player01 = this;
+        }
+        else if (_instance_Player02 == null || _instance_Player02 == this)
+        {
+            _instance_Player02 = this;
+        }
+        else if (_instance_Player03 == null || _instance_Player03 == this)
+        {
+            _instance_Player03 = this;
+        }
+        else if (_instance_Player04 == null || _instance_Player04 == this)
+        {
+            _instance_Player04 = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,31 +59,62 @@ public class _script_Movement : MonoBehaviour
     }
 
 
-    private void MovePlayer()
+    private void MovePlayer01()
     {
         
         Vector2 pos = Body.velocity;
-        if (vertical != 0)
+        if (verticalP1 != 0)
         {
-            pos.y = MovementSpeed * Mathf.Sign(vertical);
+            pos.y = MovementSpeed * Mathf.Sign(verticalP1);
         }
         else
         {
             pos.y = 0;
         }
-        if (horizontal != 0)
+        if (horizontalP1 != 0)
         {
-            pos.x = MovementSpeed * Mathf.Sign(horizontal);
+            pos.x = MovementSpeed * Mathf.Sign(horizontalP1);
         }
         else
         {
             pos.x = 0;
         }
-        if (vertical != 0 && horizontal != 0)
+        if (verticalP1 != 0 && horizontalP1 != 0)
         {
             float average = MovementSpeed / 2;
-            pos.x = average * Mathf.Sign(horizontal);
-            pos.y = average * Mathf.Sign(vertical);
+            pos.x = average * Mathf.Sign(horizontalP1);
+            pos.y = average * Mathf.Sign(verticalP1);
+        }
+
+        Body.velocity = pos;
+        return;
+    }
+
+    private void MovePlayer02()
+    {
+
+        Vector2 pos = Body.velocity;
+        if (verticalP2 != 0)
+        {
+            pos.y = MovementSpeed * Mathf.Sign(verticalP2);
+        }
+        else
+        {
+            pos.y = 0;
+        }
+        if (horizontalP2 != 0)
+        {
+            pos.x = MovementSpeed * Mathf.Sign(horizontalP2);
+        }
+        else
+        {
+            pos.x = 0;
+        }
+        if (verticalP2 != 0 && horizontalP2 != 0)
+        {
+            float average = MovementSpeed / 2;
+            pos.x = average * Mathf.Sign(horizontalP2);
+            pos.y = average * Mathf.Sign(verticalP2);
         }
 
         Body.velocity = pos;
@@ -60,15 +123,20 @@ public class _script_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (this == _instance_Player01)
+            MovePlayer01();
+        if (this == _instance_Player02)
+            MovePlayer02();
         //Abilities();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontalP1 = Input.GetAxisRaw("Horizontal");
+        verticalP1 = Input.GetAxisRaw("Vertical");
+        horizontalP2 = Input.GetAxisRaw("Horizontal P2");
+        verticalP2 = Input.GetAxisRaw("Vertical P2");
         /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -78,6 +146,14 @@ public class _script_Movement : MonoBehaviour
         {
             shield = false;
         }*/
+        if (Input.GetButtonDown("Test Button P1") && (this == _instance_Player01))
+        {
+            Debug.Log("Test button pressed [PLAYER 1]");
+        }
+        if (Input.GetButtonDown("Test Button P2") && (this == _instance_Player02))
+        {
+            Debug.Log("Test button pressed [PLAYER 2]");
+        }
     }
 
     //private GameObject shieldup;
