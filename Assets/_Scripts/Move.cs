@@ -28,21 +28,24 @@ public class Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             up = true;
+            Walk.SetBool("Walking", true);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             down = true;
+            Walk.SetBool("Walking", true);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             right = true;
             SR.flipX = false;
-            Walk.StartPlayback();
+            Walk.SetBool("Walking", true);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             left = true;
             SR.flipX = true;
+            Walk.SetBool("Walking", true);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -115,6 +118,10 @@ public class Move : MonoBehaviour
         if (left)
         {
             transform.Translate(-speed, 0, 0);
+        }
+        if(!up && !down && !left && !right)
+        {
+            Walk.SetBool("Walking", false);
         }
 
     }
