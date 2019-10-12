@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class _script_SceneController_v01 : MonoBehaviour
 {
+    public int NumberOfPlayers = 2;
+    public GameObject PlayerObject;
+
     // Keep track of all the controllers
 
     // Keep track of the player objects
+    private List<GameObject> ListOfPlayers;
 
     // 
 
@@ -33,7 +37,13 @@ public class _script_SceneController_v01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ListOfPlayers = new List<GameObject>();
+        for (int index = 0; index < NumberOfPlayers; ++index)
+        {
+            GameObject character = Instantiate(PlayerObject);
+            Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
+            character.transform.position = spawnpoint;
+        }
     }
 
     // Update is called once per frame

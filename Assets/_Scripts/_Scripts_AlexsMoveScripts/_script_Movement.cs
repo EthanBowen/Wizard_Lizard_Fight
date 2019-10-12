@@ -6,9 +6,9 @@ public class _script_Movement : MonoBehaviour
 {
 
     //private bool shield;
-    public float MovementSpeed = 0.5f;
+    public float MovementSpeed = 5f;
     public float DiagonalMoveSpeedMultiplier = 1f;
-    private float horizontalP1, verticalP1, horizontalP2, verticalP2;
+    private float horizontalP1, verticalP1;
     Rigidbody2D Body;
     //public GameObject PlayerShield;
 
@@ -81,15 +81,16 @@ public class _script_Movement : MonoBehaviour
         }
         if (verticalP1 != 0 && horizontalP1 != 0)
         {
-            float average = MovementSpeed / 2;
-            pos.x = average * Mathf.Sign(horizontalP1);
-            pos.y = average * Mathf.Sign(verticalP1);
+            //float average = Mathf.Sqrt(MovementSpeed);
+            float average = Mathf.Sqrt(Mathf.Pow(horizontalP1, 2) + Mathf.Pow(verticalP1,2));
+            pos.x = average * MovementSpeed * Mathf.Sign(horizontalP1);
+            pos.y = average * MovementSpeed * Mathf.Sign(verticalP1);
         }
 
         Body.velocity = pos;
         return;
     }
-
+    /*
     private void MovePlayer02()
     {
 
@@ -112,31 +113,51 @@ public class _script_Movement : MonoBehaviour
         }
         if (verticalP2 != 0 && horizontalP2 != 0)
         {
-            float average = MovementSpeed / 2;
+            float average = 
             pos.x = average * Mathf.Sign(horizontalP2);
             pos.y = average * Mathf.Sign(verticalP2);
         }
 
         Body.velocity = pos;
         return;
-    }
+    }*/
 
     private void FixedUpdate()
     {
         if (this == _instance_Player01)
             MovePlayer01();
+        /*
         if (this == _instance_Player02)
-            MovePlayer02();
+            MovePlayer02();*/
         //Abilities();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalP1 = Input.GetAxisRaw("P1_horiz_left");
-        verticalP1 = Input.GetAxisRaw("P1_vert_left");
-        horizontalP2 = Input.GetAxisRaw("P1_horiz_right");
-        verticalP2 = Input.GetAxisRaw("P1_vert_right");
+        if (Input.GetAxisRaw("P1_horiz_dpad") != 0) {
+            horizontalP1 = Input.GetAxisRaw("P1_horiz_dpad");
+        }
+        else if ((Input.GetAxisRaw("P1_horiz_left") != 0))
+        {
+            horizontalP1 = Input.GetAxisRaw("P1_horiz_left");
+        }
+        else
+        {
+            horizontalP1 = 0;
+        }
+        if (Input.GetAxisRaw("P1_vert_dpad") != 0)
+        {
+            verticalP1 = Input.GetAxisRaw("P1_vert_dpad");
+        }
+        else if ((Input.GetAxisRaw("P1_vert_left") != 0))
+        {
+            verticalP1 = Input.GetAxisRaw("P1_vert_left");
+        }
+        else
+        {
+            verticalP1 = 0;
+        }
         /*
         if (Input.GetKeyDown(KeyCode.Space))
         {

@@ -308,7 +308,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: P2_horiz_dpad
     descriptiveName: Player 2's Horizontal D-Pad Movement
@@ -369,10 +369,10 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 6
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: P2_vert_dpad
     descriptiveName: Player 2's Vertical D-Pad Movement
@@ -426,7 +426,7 @@ InputManager:
     descriptiveName: Player 1's Start Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 9
+    positiveButton: joystick 1 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -490,7 +490,7 @@ InputManager:
     descriptiveName: Player 1's Select Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 8
+    positiveButton: joystick 1 button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -554,7 +554,7 @@ InputManager:
     descriptiveName: Player 1's "A" Button (Bottommost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 1
+    positiveButton: joystick 1 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -618,7 +618,7 @@ InputManager:
     descriptiveName: Player 1's "X" Button (Leftmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 0
+    positiveButton: joystick 1 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -682,7 +682,7 @@ InputManager:
     descriptiveName: Player 1's "B" Button (Rightmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 2
+    positiveButton: joystick 1 button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
