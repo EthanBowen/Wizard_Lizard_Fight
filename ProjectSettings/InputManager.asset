@@ -68,7 +68,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P3_horiz_left
     descriptiveName: Player 3's Horizontal Left Stick Movement
@@ -132,7 +132,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P3_vert_left
     descriptiveName: Player 3's Vertical Left Stick Movement
@@ -180,7 +180,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: P2_horiz_right
     descriptiveName: Player 2's Horizontal Right Stick Movement
@@ -244,7 +244,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 4
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: P2_vert_right
     descriptiveName: Player 2's Vertical Right Stick Movement
@@ -442,7 +442,7 @@ InputManager:
     descriptiveName: Player 2's Start Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 9
+    positiveButton: joystick 2 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -506,7 +506,7 @@ InputManager:
     descriptiveName: Player 2's Select Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 8
+    positiveButton: joystick 2 button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -570,7 +570,7 @@ InputManager:
     descriptiveName: Player 2's "A" Button (Bottommost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 1
+    positiveButton: joystick 2 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -634,7 +634,7 @@ InputManager:
     descriptiveName: Player 2's "X" Button (Leftmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 0
+    positiveButton: joystick 2 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -698,7 +698,7 @@ InputManager:
     descriptiveName: Player 2's "B" Button (Rightmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 2
+    positiveButton: joystick 2 button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3

@@ -8,20 +8,25 @@ public class _script_Movement : MonoBehaviour
     //private bool shield;
     public float MovementSpeed = 5f;
     public float DiagonalMoveSpeedMultiplier = 1f;
-    private float horizontalP1, verticalP1;
+
+    
+    public float horizontal, vertical;
     Rigidbody2D Body;
     //public GameObject PlayerShield;
 
 
     // Singleton behavior
-    private static _script_Movement _instance_Player01;
+    /*private static _script_Movement _instance_Player01;
     private static _script_Movement _instance_Player02;
     private static _script_Movement _instance_Player03;
     private static _script_Movement _instance_Player04;
+    */
+    public int ID;
 
     // Awake is called before Start
     private void Awake()
     {
+        /*
         // Initialize which player owns this
         if (_instance_Player01 == null || _instance_Player01 == this)
         {
@@ -42,7 +47,7 @@ public class _script_Movement : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
-        }
+        }*/
     }
 
     // Start is called before the first frame update
@@ -59,32 +64,32 @@ public class _script_Movement : MonoBehaviour
     }
 
 
-    private void MovePlayer01()
+    private void MovePlayer()
     {
         
         Vector2 pos = Body.velocity;
-        if (verticalP1 != 0)
+        if (vertical != 0)
         {
-            pos.y = MovementSpeed * Mathf.Sign(verticalP1);
+            pos.y = MovementSpeed * Mathf.Sign(vertical);
         }
         else
         {
             pos.y = 0;
         }
-        if (horizontalP1 != 0)
+        if (horizontal != 0)
         {
-            pos.x = MovementSpeed * Mathf.Sign(horizontalP1);
+            pos.x = MovementSpeed * Mathf.Sign(horizontal);
         }
         else
         {
             pos.x = 0;
         }
-        if (verticalP1 != 0 && horizontalP1 != 0)
+        if (vertical != 0 && horizontal != 0)
         {
             //float average = Mathf.Sqrt(MovementSpeed);
-            float average = Mathf.Sqrt(Mathf.Pow(horizontalP1, 2) + Mathf.Pow(verticalP1,2));
-            pos.x = average * MovementSpeed * Mathf.Sign(horizontalP1);
-            pos.y = average * MovementSpeed * Mathf.Sign(verticalP1);
+            float average = Mathf.Sqrt(Mathf.Pow(horizontal, 2) + Mathf.Pow(vertical,2));
+            pos.x = average * MovementSpeed * Mathf.Sign(horizontal);
+            pos.y = average * MovementSpeed * Mathf.Sign(vertical);
         }
 
         Body.velocity = pos;
@@ -124,8 +129,10 @@ public class _script_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (this == _instance_Player01)
-            MovePlayer01();
+        //if (this == _instance_Player01)
+        {
+            MovePlayer();
+        }
         /*
         if (this == _instance_Player02)
             MovePlayer02();*/
@@ -135,6 +142,7 @@ public class _script_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetAxisRaw("P1_horiz_dpad") != 0) {
             horizontalP1 = Input.GetAxisRaw("P1_horiz_dpad");
         }
@@ -158,7 +166,7 @@ public class _script_Movement : MonoBehaviour
         {
             verticalP1 = 0;
         }
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             shield = true;
@@ -168,6 +176,7 @@ public class _script_Movement : MonoBehaviour
             shield = false;
         }*/
 
+        /*
         if (Input.GetButtonDown("P1_button_start"))
         {
             Debug.Log("[PLAYER 1] Button \"START\" pressed");
@@ -220,8 +229,17 @@ public class _script_Movement : MonoBehaviour
         }
 
 
+        */
 
+    }
 
+    /*
+     * Called when the lower face button "A" button is pressed.
+     */
+    public void button_lower()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        return;
     }
 
     //private GameObject shieldup;
