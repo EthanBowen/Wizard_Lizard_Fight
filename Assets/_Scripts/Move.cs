@@ -24,104 +24,115 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.gameObject.activeSelf)
+        {
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            up = true;
-            Walk.SetBool("Walking", true);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            down = true;
-            Walk.SetBool("Walking", true);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            right = true;
-            SR.flipX = false;
-            Walk.SetBool("Walking", true);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            left = true;
-            SR.flipX = true;
-            Walk.SetBool("Walking", true);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            WhiteMag.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            RedMag.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            BlueMag.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            GreenMag.Play();
-        }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                up = true;
+                Walk.SetBool("Walking", true);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                down = true;
+                Walk.SetBool("Walking", true);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                right = true;
+                SR.flipX = false;
+                Walk.SetBool("Walking", true);
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                left = true;
+                SR.flipX = true;
+                Walk.SetBool("Walking", true);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                WhiteMag.Play();
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                RedMag.Play();
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                BlueMag.Play();
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                GreenMag.Play();
+            }
 
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            up = false;
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            down = false;
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            right = false;
-            Walk.StopPlayback();
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            left = false;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            WhiteMag.Clear();
-            WhiteMag.Pause();
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            RedMag.Clear();
-            RedMag.Pause();
-        }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            BlueMag.Clear();
-            BlueMag.Pause();
-        }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            GreenMag.Clear();
-            GreenMag.Pause();
-        }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                up = false;
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                down = false;
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                right = false;
+                Walk.StopPlayback();
+            }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                left = false;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                WhiteMag.Clear();
+                WhiteMag.Pause();
+            }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                RedMag.Clear();
+                RedMag.Pause();
+            }
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                BlueMag.Clear();
+                BlueMag.Pause();
+            }
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                GreenMag.Clear();
+                GreenMag.Pause();
+            }
 
-        if (up)
-        {
-            transform.Translate(0, speed, 0);
+            if (up)
+            {
+                transform.Translate(0, speed, 0);
+            }
+            if (down)
+            {
+                transform.Translate(0, -speed, 0);
+            }
+            if (right)
+            {
+                transform.Translate(speed, 0, 0);
+
+            }
+            if (left)
+            {
+                transform.Translate(-speed, 0, 0);
+            }
+            if (!up && !down && !left && !right)
+            {
+                Walk.SetBool("Walking", false);
+            }
         }
-        if (down)
+        else
         {
-            transform.Translate(0, -speed, 0);
-        }
-        if (right)
-        {
-            transform.Translate(speed, 0, 0);
-           
-        }
-        if (left)
-        {
-            transform.Translate(-speed, 0, 0);
-        }
-        if(!up && !down && !left && !right)
-        {
-            Walk.SetBool("Walking", false);
+            if(Walk.GetBool("Walking"))
+            {
+                Walk.SetBool("Walking", false);
+                up = down = left = right = false;
+            }
         }
 
     }
