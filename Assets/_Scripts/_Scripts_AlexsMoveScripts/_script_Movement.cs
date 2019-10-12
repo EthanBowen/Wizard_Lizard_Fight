@@ -133,10 +133,10 @@ public class _script_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalP1 = Input.GetAxisRaw("Horizontal");
-        verticalP1 = Input.GetAxisRaw("Vertical");
-        horizontalP2 = Input.GetAxisRaw("Horizontal P2");
-        verticalP2 = Input.GetAxisRaw("Vertical P2");
+        horizontalP1 = Input.GetAxisRaw("P1_horiz_left");
+        verticalP1 = Input.GetAxisRaw("P1_vert_left");
+        horizontalP2 = Input.GetAxisRaw("P1_horiz_right");
+        verticalP2 = Input.GetAxisRaw("P1_vert_right");
         /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -146,14 +146,61 @@ public class _script_Movement : MonoBehaviour
         {
             shield = false;
         }*/
-        if (Input.GetButtonDown("Test Button P1") && (this == _instance_Player01))
+
+        if (Input.GetButtonDown("P1_button_start"))
         {
-            Debug.Log("Test button pressed [PLAYER 1]");
+            Debug.Log("[PLAYER 1] Button \"START\" pressed");
         }
-        if (Input.GetButtonDown("Test Button P2") && (this == _instance_Player02))
+        if (Input.GetButtonDown("P1_button_select"))
         {
-            Debug.Log("Test button pressed [PLAYER 2]");
+            Debug.Log("[PLAYER 1] Button \"SELECT\" pressed");
         }
+        if (Input.GetButtonDown("P1_button_down"))
+        {
+            Debug.Log("[PLAYER 1] Button \"A\" pressed");
+        }
+        if (Input.GetButtonDown("P1_button_right"))
+        {
+            Debug.Log("[PLAYER 1] Button \"B\" pressed");
+        }
+        if (Input.GetButtonDown("P1_button_left"))
+        {
+            Debug.Log("[PLAYER 1] Button \"X\" pressed");
+        }
+        if (Input.GetButtonDown("P1_button_up"))
+        {
+            Debug.Log("[PLAYER 1] Button \"Y\" pressed");
+        }
+
+
+        if (Input.GetButtonDown("P2_button_start"))
+        {
+            Debug.Log("---[PLAYER 2] Button \"START\" pressed");
+        }
+        if (Input.GetButtonDown("P2_button_select"))
+        {
+            Debug.Log("---[PLAYER 2] Button \"SELECT\" pressed");
+        }
+        if (Input.GetButtonDown("P2_button_down"))
+        {
+            Debug.Log("---[PLAYER 2] Button \"A\" pressed");
+        }
+        if (Input.GetButtonDown("P2_button_right"))
+        {
+            Debug.Log("---[PLAYER 2] Button \"B\" pressed");
+        }
+        if (Input.GetButtonDown("P2_button_left"))
+        {
+            Debug.Log("---[PLAYER 2] Button \"X\" pressed");
+        }
+        if (Input.GetButtonDown("P2_button_up"))
+        {
+            Debug.Log("---[PLAYER 2] Button \"Y\" pressed");
+        }
+
+
+
+
     }
 
     //private GameObject shieldup;
@@ -190,5 +237,7 @@ public class _script_Movement : MonoBehaviour
     {
 
     }
+
+
 
 }
