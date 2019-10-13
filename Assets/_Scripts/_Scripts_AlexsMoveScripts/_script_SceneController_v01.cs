@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class _script_SceneController_v01 : MonoBehaviour
 {
     public int NumberOfPlayers = 2;
     public GameObject PlayerObject;
+    public float PlayerMovementSpeed = 5f;
 
     // Keep track of all the controllers
 
@@ -44,47 +46,36 @@ public class _script_SceneController_v01 : MonoBehaviour
             GameObject character = Instantiate(PlayerObject);
             Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
             character.transform.position = spawnpoint;
+            _script_Movement character_script = character.GetComponent<_script_Movement>();
+            character_script.MovementSpeed = PlayerMovementSpeed;
             character.GetComponent<_script_Movement>().ID = index + 1;
             ListOfPlayers.Add(index + 1, character);
         }
     }
 
-    private float P1_horiz_move, P1_vert_move;
-    private bool button_lower;
+    private float PLAYER_horiz_move, PLAYER_vert_move;
+    private bool button_lower, button_left, button_right, button_up, button_select, button_start;
 
     // Update is called once per frame
     void Update()
     {
-        _script_Movement playercontroller = null;
+        // Iterates through each player and transmits input actions
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
-            switch (index) {
-                case (1):
-                    ReadPlayerInputs(index);
-                    playercontroller = ListOfPlayers[index].GetComponent<_script_Movement>();
-                    if (playercontroller != null)
-                    {
-                        playercontroller.horizontal = P1_horiz_move;
-                        playercontroller.vertical = P1_vert_move;
-                        /// TODO: Convert this functionality into an event-based system?
-                        if (button_lower)
-                            playercontroller.button_lower();
-                    }
-                    break;
-                case (2):
-                    ReadPlayerInputs(index);
-                    playercontroller = ListOfPlayers[index].GetComponent<_script_Movement>();
-                    if (playercontroller != null)
-                    {
-                        playercontroller.horizontal = P1_horiz_move;
-                        playercontroller.vertical = P1_vert_move;
-                        /// TODO: Convert this functionality into an event-based system?
-                        if (button_lower)
-                            playercontroller.button_lower();
-                    }
-                    break;
-                default:
-                    break;
+            ReadPlayerInputs(index);
+            _script_Movement playercontroller = ListOfPlayers[index].GetComponent<_script_Movement>();
+            if (playercontroller != null)
+            {
+                playercontroller.horizontal = PLAYER_horiz_move;
+                playercontroller.vertical = PLAYER_vert_move;
+                /// TODO: Convert this functionality into an event-based system?
+                if (button_lower)
+                    playercontroller.button_lower();
+                // Restart the scene by pressing start
+                if (button_start)
+                {
+                    SceneManager.LoadScene("_Scene_AlexTestEnviron");
+                }
             }
         }
 
@@ -98,33 +89,40 @@ public class _script_SceneController_v01 : MonoBehaviour
     private void ReadPlayerInputs(int PlayerInputList)
     {
         /* MOVEMENT */
+        // Horizontal movement
         if (Input.GetAxisRaw((InputNames[PlayerInputList])[1]) != 0)
         {
-            P1_horiz_move = Input.GetAxisRaw((InputNames[PlayerInputList])[1]);
+            PLAYER_horiz_move = Input.GetAxisRaw((InputNames[PlayerInputList])[1]);
         }
         else if ((Input.GetAxisRaw((InputNames[PlayerInputList])[0]) != 0))
         {
-            P1_horiz_move = Input.GetAxisRaw((InputNames[PlayerInputList])[0]);
+            PLAYER_horiz_move = Input.GetAxisRaw((InputNames[PlayerInputList])[0]);
         }
         else
         {
-            P1_horiz_move = 0;
+            PLAYER_horiz_move = 0;
         }
+        // Vertical movement
         if (Input.GetAxisRaw((InputNames[PlayerInputList])[3]) != 0)
         {
-            P1_vert_move = Input.GetAxisRaw((InputNames[PlayerInputList])[3]);
+            PLAYER_vert_move = Input.GetAxisRaw((InputNames[PlayerInputList])[3]);
         }
         else if ((Input.GetAxisRaw((InputNames[PlayerInputList])[2]) != 0))
         {
-            P1_vert_move = Input.GetAxisRaw((InputNames[PlayerInputList])[2]);
+            PLAYER_vert_move = Input.GetAxisRaw((InputNames[PlayerInputList])[2]);
         }
         else
         {
-            P1_vert_move = 0;
+            PLAYER_vert_move = 0;
         }
 
         /* BUTTON PRESSES */
         button_lower = Input.GetButtonDown((InputNames[PlayerInputList])[4]) ? true : false;
+        button_left = Input.GetButtonDown((InputNames[PlayerInputList])[5]) ? true : false;
+        button_right = Input.GetButtonDown((InputNames[PlayerInputList])[6]) ? true : false;
+        button_up = Input.GetButtonDown((InputNames[PlayerInputList])[7]) ? true : false;
+        button_select = Input.GetButtonDown((InputNames[PlayerInputList])[8]) ? true : false;
+        button_start = Input.GetButtonDown((InputNames[PlayerInputList])[9]) ? true : false;
 
         return;
     }
@@ -142,25 +140,72 @@ public class _script_SceneController_v01 : MonoBehaviour
         InputNames = new Dictionary<int, Dictionary<int, string>>();
 
         // Player 1's input list
-        Dictionary<int, string> P1_Inputlist = new Dictionary<int, string>();
-        P1_Inputlist[0] = "P1_horiz_left";
-        P1_Inputlist[1] = "P1_horiz_dpad";
-        P1_Inputlist[2] = "P1_vert_left";
-        P1_Inputlist[3] = "P1_vert_dpad";
-        P1_Inputlist[4] = "P1_button_down";
+        Dictionary<int, string> P1_Inputlist = new Dictionary<int, string>
+        {
+            [0] = "P1_horiz_left",
+            [1] = "P1_horiz_dpad",
+            [2] = "P1_vert_left",
+            [3] = "P1_vert_dpad",
+            [4] = "P1_button_down",
+            [5] = "P1_button_left",
+            [6] = "P1_button_right",
+            [7] = "P1_button_up",
+            [8] = "P1_button_select",
+            [9] = "P1_button_start"
+        };
 
         InputNames[1] = P1_Inputlist;
 
         // Player 2's input list
-        Dictionary<int, string> P2_Inputlist = new Dictionary<int, string>();
-        P2_Inputlist[0] = "P2_horiz_left";
-        P2_Inputlist[1] = "P2_horiz_dpad";
-        P2_Inputlist[2] = "P2_vert_left";
-        P2_Inputlist[3] = "P2_vert_dpad";
-        P2_Inputlist[4] = "P2_button_down";
+        Dictionary<int, string> P2_Inputlist = new Dictionary<int, string>
+        {
+            [0] = "P2_horiz_left",
+            [1] = "P2_horiz_dpad",
+            [2] = "P2_vert_left",
+            [3] = "P2_vert_dpad",
+            [4] = "P2_button_down",
+            [5] = "P2_button_left",
+            [6] = "P2_button_right",
+            [7] = "P2_button_up",
+            [8] = "P2_button_select",
+            [9] = "P2_button_start"
+        };
 
         InputNames[2] = P2_Inputlist;
 
+        // Player 3's input list
+        Dictionary<int, string> P3_Inputlist = new Dictionary<int, string>
+        {
+            [0] = "P3_horiz_left",
+            [1] = "P3_horiz_dpad",
+            [2] = "P3_vert_left",
+            [3] = "P3_vert_dpad",
+            [4] = "P3_button_down",
+            [5] = "P3_button_left",
+            [6] = "P3_button_right",
+            [7] = "P3_button_up",
+            [8] = "P3_button_select",
+            [9] = "P3_button_start"
+        };
+
+        InputNames[3] = P3_Inputlist;
+
+        // Player 4's input list
+        Dictionary<int, string> P4_Inputlist = new Dictionary<int, string>
+        {
+            [0] = "P4_horiz_left",
+            [1] = "P4_horiz_dpad",
+            [2] = "P4_vert_left",
+            [3] = "P4_vert_dpad",
+            [4] = "P4_button_down",
+            [5] = "P4_button_left",
+            [6] = "P4_button_right",
+            [7] = "P4_button_up",
+            [8] = "P4_button_select",
+            [9] = "P4_button_start"
+        };
+
+        InputNames[4] = P4_Inputlist;
     }
 
 }

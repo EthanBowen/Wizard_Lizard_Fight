@@ -84,7 +84,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_horiz_left
     descriptiveName: Player 4's Horizontal Left Stick Movement
@@ -100,7 +100,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_vert_left
     descriptiveName: Player 1's Vertical Left Stick Movement
@@ -148,7 +148,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_vert_left
     descriptiveName: Player 4's Vertical Left Stick Movement
@@ -164,7 +164,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 1
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_horiz_right
     descriptiveName: Player 1's Horizontal Right Stick Movement
@@ -212,7 +212,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_horiz_right
     descriptiveName: Player 4's Horizontal Right Stick Movement
@@ -228,7 +228,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 2
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_vert_right
     descriptiveName: Player 1's Vertical Right Stick Movement
@@ -276,7 +276,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 4
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_vert_right
     descriptiveName: Player 4's Vertical Right Stick Movement
@@ -292,7 +292,7 @@ InputManager:
     invert: 1
     type: 2
     axis: 4
-    joyNum: 2
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_horiz_dpad
     descriptiveName: Player 1's Horizontal D-Pad Movement
@@ -340,7 +340,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_horiz_dpad
     descriptiveName: Player 4's Horizontal D-Pad Movement
@@ -356,7 +356,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 2
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_vert_dpad
     descriptiveName: Player 1's Vertical D-Pad Movement
@@ -385,7 +385,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 6
     joyNum: 2
@@ -401,10 +401,10 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 6
-    joyNum: 2
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_vert_dpad
     descriptiveName: Player 4's Vertical D-Pad Movement
@@ -417,10 +417,10 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 6
-    joyNum: 2
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_button_start
     descriptiveName: Player 1's Start Button
@@ -458,7 +458,7 @@ InputManager:
     descriptiveName: Player 3's Start Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 3 button 9
+    positiveButton: joystick 3 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -474,7 +474,7 @@ InputManager:
     descriptiveName: Player 4's Start Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 4 button 9
+    positiveButton: joystick 4 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -522,7 +522,7 @@ InputManager:
     descriptiveName: Player 3's Select Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 3 button 8
+    positiveButton: joystick 3 button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -532,13 +532,13 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_button_select
     descriptiveName: Player 4's Select Button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 4 button 8
+    positiveButton: joystick 4 button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -548,7 +548,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_button_down
     descriptiveName: Player 1's "A" Button (Bottommost Button)
@@ -586,7 +586,7 @@ InputManager:
     descriptiveName: Player 3's "A" Button (Bottommost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 3 button 1
+    positiveButton: joystick 3 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -596,13 +596,13 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_button_down
     descriptiveName: Player 4's "A" Button (Bottommost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 4 button 1
+    positiveButton: joystick 4 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -612,7 +612,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_button_left
     descriptiveName: Player 1's "X" Button (Leftmost Button)
@@ -650,7 +650,7 @@ InputManager:
     descriptiveName: Player 3's "X" Button (Leftmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 3 button 0
+    positiveButton: joystick 3 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -660,13 +660,13 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_button_left
     descriptiveName: Player 4's "X" Button (Leftmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 4 button 0
+    positiveButton: joystick 4 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -676,7 +676,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_button_right
     descriptiveName: Player 1's "B" Button (Rightmost Button)
@@ -714,7 +714,7 @@ InputManager:
     descriptiveName: Player 3's "B" Button (Rightmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 3 button 2
+    positiveButton: joystick 3 button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -724,13 +724,13 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_button_right
     descriptiveName: Player 4's "B" Button (Rightmost Button)
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 4 button 2
+    positiveButton: joystick 4 button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -740,7 +740,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_button_up
     descriptiveName: Player 1's "Y" Button (Upmost Button)
@@ -788,7 +788,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: P4_button_up
     descriptiveName: Player 4's "Y" Button (Upmost Button)
@@ -804,7 +804,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 4
   - serializedVersion: 3
     m_Name: P1_button_R1
     descriptiveName: Player 1's "R1" Button
