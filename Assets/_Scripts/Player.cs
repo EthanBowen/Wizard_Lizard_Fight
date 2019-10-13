@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Variables for player movement
+    public float MovementSpeed = 5f;
+    public float DiagonalMoveSpeedMultiplier = 1f;
+
+    // Variables for player info
     public int maxHealth = 1000;
     public int fireDamage = 4;
     public int waterDamage = 40;
-    private int playerNum = 0;
+
+    public int ID = 0;
 
     private int health;
 
@@ -16,6 +22,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Rigidbody2D>().freezeRotation = true;
         Respawn();
     }
 
@@ -29,8 +36,50 @@ public class Player : MonoBehaviour
     {
     }
 
+    public void MovePlayer(float horizontal, float vertical)
+    {
+
+        Vector2 pos = this.gameObject.transform.position;
+        if (vertical != 0)
+        {
+            pos.y += MovementSpeed * Mathf.Sign(vertical);
+        }
+        //else
+        //{
+        //    pos.y = 0;
+        //}
+        if (horizontal != 0)
+        {
+            pos.x += MovementSpeed * Mathf.Sign(horizontal);
+        }
+        //else
+        //{
+        //    pos.x = 0;
+        //}
+        if (vertical != 0 && horizontal != 0)
+        {
+            //float average = Mathf.Sqrt(MovementSpeed);
+            float average = Mathf.Sqrt(Mathf.Pow(horizontal, 2) + Mathf.Pow(vertical, 2));
+            pos.x += average * MovementSpeed * Mathf.Sign(horizontal);
+            pos.y += average * MovementSpeed * Mathf.Sign(vertical);
+        }
+
+        this.gameObject.transform.position = pos;
+        return;
+    }
+
+    /*
+     * Called when the lower face button "A" button is pressed.
+     */
+    public void button_lower()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        return;
+    }
+
     private void OnParticleCollision(GameObject other)
     {
+        //other.get
         if (other.tag.Equals("Fire"))
         {
             health -= fireDamage;
@@ -46,7 +95,7 @@ public class Player : MonoBehaviour
     private void Respawn()
     {
         health = maxHealth;
-        switch(playerNum) 
+        switch(ID) 
         {
             case 2:
                 this.gameObject.transform.position = new Vector3(10.0f, 10.0f);
