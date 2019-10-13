@@ -13,10 +13,11 @@ public class Player : MonoBehaviour
     public int fireDamage = 4;
     public int waterDamage = 40;
     public int score = 0;
+    private bool dead;
 
     public int ID = 0;
 
-    private int health;
+    public int health;
 
     private GameController gameController;
 
@@ -93,6 +94,11 @@ public class Player : MonoBehaviour
         return;
     }
 
+    public void Aim(float horizontal, float vertical)
+    {
+        
+    }
+
     public void CastMagic(bool wind, bool fire, bool water, bool earth)
     {
         if(wind)
@@ -164,16 +170,22 @@ public class Player : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        //other.get
-        if (other.tag.Equals("Fire"))
+        if (!dead)
         {
-            health -= fireDamage;
-        }
+            //other.get
+            if (other.tag.Equals("Fire"))
+            {
+                health -= fireDamage;
+            }
 
-        if (health <= 0)
-        {
-            this.gameObject.SetActive(false);
-            Invoke("Respawn", 5);
+            if (health <= 0)
+            {
+                dead = true;
+                other.GetComponent<PlayerAttack>().ReportPoint();
+                this.gameObject.SetActive(false);
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                Invoke("Respawn", 5);
+            }
         }
     }
 
@@ -201,8 +213,9 @@ public class Player : MonoBehaviour
                 break;
 
         }
-
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
         this.gameObject.SetActive(true);
+        dead = false;
            
     }
 }
