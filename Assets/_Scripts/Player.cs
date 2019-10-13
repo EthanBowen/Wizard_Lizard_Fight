@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Variables for player movement
-    public float MovementSpeed = 5f;
-    public float DiagonalMoveSpeedMultiplier = 1f;
+    public float movementSpeed = 5f;
+    public float diagonalMoveSpeedMultiplier = 1f;
 
     // Variables for player info
     public int maxHealth = 1000;
@@ -17,11 +17,22 @@ public class Player : MonoBehaviour
 
     private int health;
 
-    public GameController gameController;
+    private GameController gameController;
+
+    // Controls animations
+    private SpriteRenderer sprite;
+    private Animator anim;
+    public ParticleSystem RedMag;
+    public ParticleSystem FireSpell;
+    public ParticleSystem GreenMag;
+    public ParticleSystem BlueMag;
+    public ParticleSystem WhiteMag;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().freezeRotation = true;
         Respawn();
     }
@@ -38,42 +49,122 @@ public class Player : MonoBehaviour
 
     public void MovePlayer(float horizontal, float vertical)
     {
+        if (horizontal != 0 || vertical != 0)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
+
+        if(horizontal > 0)
+        {
+            sprite.flipX = false;
+        }
+        else if(horizontal < 0)
+        {
+            sprite.flipX = true;
+        }
 
         Vector2 pos = this.gameObject.transform.position;
-        if (vertical != 0)
-        {
-            pos.y += MovementSpeed * Mathf.Sign(vertical);
-        }
-        //else
-        //{
-        //    pos.y = 0;
-        //}
-        if (horizontal != 0)
-        {
-            pos.x += MovementSpeed * Mathf.Sign(horizontal);
-        }
-        //else
-        //{
-        //    pos.x = 0;
-        //}
         if (vertical != 0 && horizontal != 0)
         {
-            //float average = Mathf.Sqrt(MovementSpeed);
-            float average = Mathf.Sqrt(Mathf.Pow(horizontal, 2) + Mathf.Pow(vertical, 2));
-            pos.x += average * MovementSpeed * Mathf.Sign(horizontal);
-            pos.y += average * MovementSpeed * Mathf.Sign(vertical);
+            pos.x += 0.70710678f * movementSpeed * Mathf.Sign(horizontal);
+            pos.y += 0.70710678f * movementSpeed * Mathf.Sign(vertical);
+        }
+        else
+        {
+            if (vertical != 0)
+            {
+                pos.y += movementSpeed * Mathf.Sign(vertical);
+            }
+
+            if (horizontal != 0)
+            {
+                pos.x += movementSpeed * Mathf.Sign(horizontal);
+            }
         }
 
         this.gameObject.transform.position = pos;
+        
         return;
+    }
+
+    public void CastMagic(bool wind, bool fire, bool water, bool earth)
+    {
+        if(wind)
+        {
+            WhiteMag.Play();
+        }
+        else
+        {
+            WhiteMag.Pause();
+            WhiteMag.Clear();
+        }
+        if (fire)
+        {
+            RedMag.Play();
+        }
+        else
+        {
+            RedMag.Pause();
+            RedMag.Clear();
+        }
+        if (water)
+        {
+            BlueMag.Play();
+        }
+        else
+        {
+            BlueMag.Pause();
+            BlueMag.Clear();
+        }
+        if (earth)
+        {
+            GreenMag.Play();
+        }
+        else
+        {
+            GreenMag.Pause();
+            GreenMag.Clear();
+        }
+
+
     }
 
     /*
      * Called when the lower face button "A" button is pressed.
      */
-    public void button_lower()
+    public void StartWind()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        WhiteMag.Play();
+    }
+     public void StopWind()
+    {
+        WhiteMag.Pause();
+        WhiteMag.Clear();
+    }
+
+    public void StartFire()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        RedMag.Play();
+        FireSpell.Play();
+    }
+    public void StopFire()
+    {
+        RedMag.Pause();
+        RedMag.Clear();
+        FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+    }
+
+
+    public void button_right()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+        RedMag.Play();
         return;
     }
 

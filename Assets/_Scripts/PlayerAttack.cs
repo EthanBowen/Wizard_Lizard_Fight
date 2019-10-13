@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private int PlayerID;
+    public int PlayerID;
+    private Player owner;
     public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        owner = gameObject.GetComponentInParent<Player>();
+        PlayerID = owner.ID;
     }
 
     // Update is called once per frame

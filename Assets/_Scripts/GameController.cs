@@ -47,10 +47,10 @@ public class GameController : MonoBehaviour
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
             GameObject character = Instantiate(PlayerObject);
-            Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
-            character.transform.position = spawnpoint;
+            //Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
+            //character.transform.position = spawnpoint;
             Player character_script = character.GetComponent<Player>();
-            character_script.MovementSpeed = PlayerMovementSpeed;
+            character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
     /* INPUTS FOR EACH PLAYER */
     private float PLAYER_horiz_move, PLAYER_vert_move, PLAYER_horiz_aim, PLAYER_vert_aim;
     private bool button_lower, button_left, button_right, button_up, button_select, button_start;
+    private bool button_lower_stop, button_left_stop, button_right_stop, button_up_stop;
 
     // Update is called once per frame
     void Update()
@@ -73,8 +74,24 @@ public class GameController : MonoBehaviour
             {
                 playercontroller.MovePlayer(PLAYER_horiz_move, PLAYER_vert_move);
                 /// TODO: Convert this functionality into an event-based system?
-                if (button_lower)
-                    playercontroller.button_lower();
+                if(button_lower)
+                {
+                    playercontroller.StartWind();
+                }
+                if(button_lower_stop)
+                {
+                    playercontroller.StopWind();
+                }
+                if (button_left)
+                {
+                    playercontroller.StartFire();
+                }
+                if (button_left_stop)
+                {
+                    playercontroller.StopFire();
+                }
+                //playercontroller.CastMagic(button_lower, button_left, button_right, button_up);
+
                 // Restart the scene by pressing start
                 if (button_start)
                 {
@@ -137,16 +154,22 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            PLAYER_vert_move = 0;
+            PLAYER_vert_aim = 0;
         }
 
         /* BUTTON PRESSES */
-        button_lower = Input.GetButtonDown((InputNames[PlayerInputList])[4]) ? true : false;
+        button_lower = Input.GetButtonDown((InputNames[PlayerInputList])[4]);
         button_left = Input.GetButtonDown((InputNames[PlayerInputList])[5]) ? true : false;
         button_right = Input.GetButtonDown((InputNames[PlayerInputList])[6]) ? true : false;
         button_up = Input.GetButtonDown((InputNames[PlayerInputList])[7]) ? true : false;
         button_select = Input.GetButtonDown((InputNames[PlayerInputList])[8]) ? true : false;
         button_start = Input.GetButtonDown((InputNames[PlayerInputList])[9]) ? true : false;
+
+        /* BUTTON Releases */
+        button_lower_stop = Input.GetButtonUp((InputNames[PlayerInputList])[4]) ? true : false;
+        button_left_stop = Input.GetButtonUp((InputNames[PlayerInputList])[5]) ? true : false;
+        button_right_stop = Input.GetButtonUp((InputNames[PlayerInputList])[6]) ? true : false;
+        button_up_stop = Input.GetButtonUp((InputNames[PlayerInputList])[7]) ? true : false;
 
         return;
     }
