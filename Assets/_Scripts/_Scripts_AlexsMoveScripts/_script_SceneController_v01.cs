@@ -72,6 +72,12 @@ public class _script_SceneController_v01 : MonoBehaviour
                 /// TODO: Convert this functionality into an event-based system?
                 if (button_lower)
                     playercontroller.button_lower();
+                if (button_right)
+                    playercontroller.button_right();
+                if (button_left)
+                    playercontroller.button_left();
+                if (button_up)
+                    playercontroller.button_up();
                 // Restart the scene by pressing start
                 if (button_start)
                 {
@@ -134,7 +140,7 @@ public class _script_SceneController_v01 : MonoBehaviour
         }
         else
         {
-            PLAYER_vert_move = 0;
+            PLAYER_vert_aim = 0;
         }
 
         /* BUTTON PRESSES */

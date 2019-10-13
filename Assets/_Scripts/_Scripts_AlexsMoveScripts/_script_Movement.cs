@@ -242,6 +242,33 @@ public class _script_Movement : MonoBehaviour
         return;
     }
 
+    /*
+    * Called when the lower face button "A" button is pressed.
+    */
+    public void button_right()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+        return;
+    }
+
+    /*
+    * Called when the lower face button "A" button is pressed.
+    */
+    public void button_left()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"X\" pressed");
+        return;
+    }
+
+    /*
+    * Called when the lower face button "A" button is pressed.
+    */
+    public void button_up()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"Y\" pressed");
+        return;
+    }
+
     //private GameObject shieldup;
     /*
     private void Abilities()
