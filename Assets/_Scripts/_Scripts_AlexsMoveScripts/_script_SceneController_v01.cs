@@ -8,17 +8,22 @@ public class _script_SceneController_v01 : MonoBehaviour
     public int NumberOfPlayers = 2;
     public GameObject PlayerObject;
     public float PlayerMovementSpeed = 5f;
+    public float CameraZoomDefault = 5f;
+    public float CameraZoomOffset = 2f;
+    public float CameraZoomDefaultMin = 5f;
+    public float CameraZoomDefaultMax = 30f;
 
-    // Keep track of all the controllers
+    // Player spawn locations
+    public List<Vector2> PlayerSpawnLocations;
 
     // Keep track of the player objects
     private Dictionary<int, GameObject> ListOfPlayers;
 
+    // Provide access to the camera object this script is attached to.
+    private Camera camera;
     // 
 
-    // 
-
-
+    
 
     // Singleton behavior
     private static _script_SceneController_v01 _instance_SceneController;
@@ -33,18 +38,39 @@ public class _script_SceneController_v01 : MonoBehaviour
         {
             _instance_SceneController = this;
         }
+
+        camera = GetComponent<Camera>();
+        if (camera == null)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("Scene Controller script must be attached to a camera");
+        }
+
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        HotfixTimer = 0;
+
+
+        FocusPoints = new List<Vector2>();
+        PlayerPositions = new List<Vector2>();
+
+        Vector3[] Spawnpoints = new Vector3[5];
+        
+        Spawnpoints[0] = new Vector3(-1.5f, 1.5f);
+        Spawnpoints[1] = new Vector3(1.5f, -1.5f);
+        Spawnpoints[2] = new Vector3(1.5f, 1.5f);
+        Spawnpoints[3] = new Vector3(-1.5f, -1.5f);
+
         InstantiatePlayerInputList();
         ListOfPlayers = new Dictionary<int, GameObject>();
         for (int index = 0; index < NumberOfPlayers; ++index)
         {
             GameObject character = Instantiate(PlayerObject);
-            Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
+            Vector3 spawnpoint = Spawnpoints[index];
             character.transform.position = spawnpoint;
             _script_Movement character_script = character.GetComponent<_script_Movement>();
             character_script.MovementSpeed = PlayerMovementSpeed;
@@ -57,9 +83,16 @@ public class _script_SceneController_v01 : MonoBehaviour
     private float PLAYER_horiz_move, PLAYER_vert_move, PLAYER_horiz_aim, PLAYER_vert_aim;
     private bool button_lower, button_left, button_right, button_up, button_select, button_start;
 
+    private List<Vector2> FocusPoints;
+    private List<Vector2> PlayerPositions;
+    float x_sum, y_sum, cam_size, x_dist_min, x_dist_max, y_dist_min, y_dist_max, x_dist, y_dist;
+    int numPoints;
+    int HotfixTimer;
+
     // Update is called once per frame
     void Update()
     {
+        PlayerPositions.Clear();
         // Iterates through each player and transmits input actions
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
@@ -83,9 +116,90 @@ public class _script_SceneController_v01 : MonoBehaviour
                 {
                     SceneManager.LoadScene("_Scene_AlexTestEnviron");
                 }
+
+                PlayerPositions.Add(new Vector2(playercontroller.transform.position.x, playercontroller.transform.position.y));
             }
         }
+        CameraMovement(PlayerPositions);
+    }
 
+
+    /*
+     * Reads the list of points of focus the camera is based upon.
+     * 
+     * Input list is the list of dynamic objects that change frequently.
+     * TODO: fix how the input vectors are determined.
+     */
+    private void CameraMovement(List<Vector2> AdditionalFocusPoints)
+    {
+        // AdditionalFocusPoints is expected to be remade.
+        foreach(Vector2 others in FocusPoints)
+        {
+            AdditionalFocusPoints.Add(others);
+        }
+
+        x_sum = y_sum = 0f;
+        x_dist_min = y_dist_min = 10000f;
+        x_dist_max = y_dist_max = -10000f;
+        numPoints = 0;
+        // Move the camera so that it's focused on the center of the focus points.
+        foreach (Vector2 point in AdditionalFocusPoints)
+        {
+            // min/max distance between points
+            if (x_dist_min > point.x)
+                x_dist_min = point.x;
+            if (x_dist_max < point.x)
+                x_dist_max = point.x;
+            if (y_dist_min > point.y)
+                y_dist_min = point.y;
+            if (y_dist_max < point.y)
+                y_dist_max = point.y;
+
+            // Distance between all points
+            x_sum += point.x;
+            y_sum += point.y;
+            numPoints++;
+        }
+
+        cam_size = 0;
+        camera.transform.position = new Vector3((x_sum / numPoints), (y_sum / numPoints), -10);
+        x_dist = (x_dist_max - x_dist_min) * (9f / 16f);
+        y_dist = (y_dist_max - y_dist_min);
+        if ((x_dist) > (y_dist))
+            cam_size = x_dist;
+        else
+            cam_size = y_dist;
+
+        cam_size += CameraZoomOffset;
+        cam_size /= 2;
+
+        if (cam_size < CameraZoomDefaultMin)
+        {
+            if (HotfixTimer >= 120)
+            {
+                Debug.Log("---- Cam Size set to minimum. cam size previously: " + cam_size);
+            }
+            cam_size = CameraZoomDefaultMin;
+        }
+        if (cam_size > CameraZoomDefaultMax)
+        {
+            if (HotfixTimer >= 120)
+            {
+                Debug.Log("---- Cam Size set to MAX. cam size previously: " + cam_size);
+            }
+            cam_size = CameraZoomDefaultMax;
+        }
+
+        camera.orthographicSize = cam_size;
+
+        /*
+        if (HotfixTimer >= 120)
+        {
+            Debug.Log("x difference: " + x_dist + " ---- y difference: " + y_dist);
+            Debug.Log("Camera Size: " + cam_size + " versus: " + camera.orthographicSize);
+            HotfixTimer = 0;
+        }
+        HotfixTimer++;*/
     }
 
     /**
