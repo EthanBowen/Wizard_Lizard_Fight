@@ -53,7 +53,8 @@ public class _script_SceneController_v01 : MonoBehaviour
         }
     }
 
-    private float PLAYER_horiz_move, PLAYER_vert_move;
+    /* INPUTS FOR EACH PLAYER */
+    private float PLAYER_horiz_move, PLAYER_vert_move, PLAYER_horiz_aim, PLAYER_vert_aim;
     private bool button_lower, button_left, button_right, button_up, button_select, button_start;
 
     // Update is called once per frame
@@ -116,6 +117,26 @@ public class _script_SceneController_v01 : MonoBehaviour
             PLAYER_vert_move = 0;
         }
 
+        // Right stick aiming
+        // Horizontal aim
+        if (Input.GetAxisRaw((InputNames[PlayerInputList])[10]) != 0)
+        {
+            PLAYER_horiz_aim = Input.GetAxisRaw((InputNames[PlayerInputList])[10]);
+        }
+        else
+        {
+            PLAYER_horiz_aim = 0;
+        }
+        // Vertical aim
+        if (Input.GetAxisRaw((InputNames[PlayerInputList])[11]) != 0)
+        {
+            PLAYER_vert_aim = Input.GetAxisRaw((InputNames[PlayerInputList])[11]);
+        }
+        else
+        {
+            PLAYER_vert_move = 0;
+        }
+
         /* BUTTON PRESSES */
         button_lower = Input.GetButtonDown((InputNames[PlayerInputList])[4]) ? true : false;
         button_left = Input.GetButtonDown((InputNames[PlayerInputList])[5]) ? true : false;
@@ -151,7 +172,9 @@ public class _script_SceneController_v01 : MonoBehaviour
             [6] = "P1_button_right",
             [7] = "P1_button_up",
             [8] = "P1_button_select",
-            [9] = "P1_button_start"
+            [9] = "P1_button_start",
+            [10] = "P1_horiz_right",
+            [11] = "P1_vert_right"
         };
 
         InputNames[1] = P1_Inputlist;
@@ -168,7 +191,9 @@ public class _script_SceneController_v01 : MonoBehaviour
             [6] = "P2_button_right",
             [7] = "P2_button_up",
             [8] = "P2_button_select",
-            [9] = "P2_button_start"
+            [9] = "P2_button_start",
+            [10] = "P2_horiz_right",
+            [11] = "P2_vert_right"
         };
 
         InputNames[2] = P2_Inputlist;
@@ -185,7 +210,9 @@ public class _script_SceneController_v01 : MonoBehaviour
             [6] = "P3_button_right",
             [7] = "P3_button_up",
             [8] = "P3_button_select",
-            [9] = "P3_button_start"
+            [9] = "P3_button_start",
+            [10] = "P3_horiz_right",
+            [11] = "P3_vert_right"
         };
 
         InputNames[3] = P3_Inputlist;
@@ -202,7 +229,9 @@ public class _script_SceneController_v01 : MonoBehaviour
             [6] = "P4_button_right",
             [7] = "P4_button_up",
             [8] = "P4_button_select",
-            [9] = "P4_button_start"
+            [9] = "P4_button_start",
+            [10] = "P4_horiz_right",
+            [11] = "P4_vert_right"
         };
 
         InputNames[4] = P4_Inputlist;
