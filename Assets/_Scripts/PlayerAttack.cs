@@ -6,7 +6,6 @@ public class PlayerAttack : MonoBehaviour
 {
     public int PlayerID;
     private Player owner;
-    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +32,6 @@ public class PlayerAttack : MonoBehaviour
 
     public void ReportPoint()
     {
-        
+        owner.IncreaseScore();
     }
 }

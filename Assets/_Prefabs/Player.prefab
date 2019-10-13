@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 7649336005895779571}
   - component: {fileID: 2291650774877390287}
   - component: {fileID: 2636477195041405959}
+  - component: {fileID: -797831700610317195}
   - component: {fileID: 4558608008498264398}
   - component: {fileID: 6448434123201450951}
   - component: {fileID: 5937992824312999496}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7932757349884422459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -114,6 +115,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3, y: 2.13}
   m_EdgeRadius: 0
+--- !u!58 &-797831700610317195
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932757349884422459}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!50 &4558608008498264398
 Rigidbody2D:
   serializedVersion: 4
@@ -152,8 +169,10 @@ MonoBehaviour:
   maxHealth: 1000
   fireDamage: 4
   waterDamage: 40
+  score: 0
   ID: 0
   RedMag: {fileID: 1791190899752136579}
+  FireSpell: {fileID: 1917731532324603714}
   GreenMag: {fileID: 1730928279813106867}
   BlueMag: {fileID: 629948205837271147}
   WhiteMag: {fileID: 1431731550304033319}
@@ -329,6 +348,12 @@ PrefabInstance:
 --- !u!4 &5628535840902982363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
+    type: 3}
+  m_PrefabInstance: {fileID: 792931367436268271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1917731532324603714 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
     type: 3}
   m_PrefabInstance: {fileID: 792931367436268271}
   m_PrefabAsset: {fileID: 0}

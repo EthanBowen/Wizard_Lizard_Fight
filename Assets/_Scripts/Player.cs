@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 1000;
     public int fireDamage = 4;
     public int waterDamage = 40;
+    public int score = 0;
 
     public int ID = 0;
 
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        score = 0;
         Respawn();
     }
 
@@ -149,7 +151,7 @@ public class Player : MonoBehaviour
 
     public void StartFire()
     {
-        Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
         RedMag.Play();
         FireSpell.Play();
     }
@@ -158,14 +160,6 @@ public class Player : MonoBehaviour
         RedMag.Pause();
         RedMag.Clear();
         FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-    }
-
-
-    public void button_right()
-    {
-        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
-        RedMag.Play();
-        return;
     }
 
     private void OnParticleCollision(GameObject other)
@@ -181,6 +175,11 @@ public class Player : MonoBehaviour
             this.gameObject.SetActive(false);
             Invoke("Respawn", 5);
         }
+    }
+
+    public void IncreaseScore()
+    {
+        score++;
     }
 
     private void Respawn()

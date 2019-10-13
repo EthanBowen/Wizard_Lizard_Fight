@@ -82,11 +82,11 @@ public class GameController : MonoBehaviour
                 {
                     playercontroller.StopWind();
                 }
-                if (button_left)
+                if (button_right)
                 {
                     playercontroller.StartFire();
                 }
-                if (button_left_stop)
+                if (button_right_stop)
                 {
                     playercontroller.StopFire();
                 }
