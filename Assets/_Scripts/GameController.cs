@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
             _instance_SceneController = this;
         }
 
-        camera = GetComponent<Camera>();
+        camera = gameObject.GetComponent<Camera>();
         if (camera == null)
         {
             Destroy(this.gameObject);
@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
     int HotfixTimer;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Reset's the FocusPoints on the players
         PlayerPositions.Clear();
@@ -94,7 +94,9 @@ public class GameController : MonoBehaviour
             Player playercontroller = ListOfPlayers[index].GetComponent<Player>();
             if (playercontroller != null)
             {
-                playercontroller.MovePlayer(PLAYER_horiz_move, PLAYER_vert_move);
+                playercontroller.horizontal = PLAYER_horiz_move;
+                playercontroller.vertical = PLAYER_vert_move;
+                playercontroller.MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
                 /// TODO: Convert this functionality into an event-based system?
                 if(button_lower)
                 {

@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     public int score = 0;
     private bool dead;
 
+    public float horizontal = 0, vertical = 0;
+    private Rigidbody2D body;
+
+    private bool fire, wind, water, earth;
+
     public int ID = 0;
 
     public int health;
@@ -33,6 +38,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        body = gameObject.GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
         anim = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().freezeRotation = true;
@@ -50,7 +57,7 @@ public class Player : MonoBehaviour
     {
     }
 
-    public void MovePlayer(float horizontal, float vertical)
+    public void MovePlayer()//float horizontal, float vertical)
     {
         if (horizontal != 0 || vertical != 0)
         {
@@ -70,27 +77,19 @@ public class Player : MonoBehaviour
             sprite.flipX = true;
         }
 
-        Vector2 pos = this.gameObject.transform.position;
-        if (vertical != 0 && horizontal != 0)
-        {
-            pos.x += 0.70710678f * movementSpeed * Mathf.Sign(horizontal);
-            pos.y += 0.70710678f * movementSpeed * Mathf.Sign(vertical);
-        }
-        else
-        {
-            if (vertical != 0)
-            {
-                pos.y += movementSpeed * Mathf.Sign(vertical);
-            }
-
-            if (horizontal != 0)
-            {
-                pos.x += movementSpeed * Mathf.Sign(horizontal);
-            }
-        }
-
-        this.gameObject.transform.position = pos;
+        Vector2 pos = new Vector2();
         
+        pos.x = movementSpeed * horizontal;
+        pos.y = movementSpeed * vertical;
+
+        if(wind)
+        {
+            pos.x *= 2;
+            pos.y *= 2;
+        }
+       
+        body.velocity = pos;//this.gameObject.transform.position = pos;
+
         return;
     }
 
@@ -99,58 +98,20 @@ public class Player : MonoBehaviour
         
     }
 
-    public void CastMagic(bool wind, bool fire, bool water, bool earth)
-    {
-        if(wind)
-        {
-            WhiteMag.Play();
-        }
-        else
-        {
-            WhiteMag.Pause();
-            WhiteMag.Clear();
-        }
-        if (fire)
-        {
-            RedMag.Play();
-        }
-        else
-        {
-            RedMag.Pause();
-            RedMag.Clear();
-        }
-        if (water)
-        {
-            BlueMag.Play();
-        }
-        else
-        {
-            BlueMag.Pause();
-            BlueMag.Clear();
-        }
-        if (earth)
-        {
-            GreenMag.Play();
-        }
-        else
-        {
-            GreenMag.Pause();
-            GreenMag.Clear();
-        }
-
-
-    }
-
     /*
      * Called when the lower face button "A" button is pressed.
      */
     public void StartWind()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        wind = true;
+        //movementSpeed *= 5;
         WhiteMag.Play();
     }
      public void StopWind()
     {
+        wind = false;
+        //movementSpeed /= 5;
         WhiteMag.Pause();
         WhiteMag.Clear();
     }
@@ -158,11 +119,13 @@ public class Player : MonoBehaviour
     public void StartFire()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+        fire = true;
         RedMag.Play();
         FireSpell.Play();
     }
     public void StopFire()
     {
+        fire = false;
         RedMag.Pause();
         RedMag.Clear();
         FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -180,11 +143,8 @@ public class Player : MonoBehaviour
 
             if (health <= 0)
             {
-                dead = true;
                 other.GetComponent<PlayerAttack>().ReportPoint();
-                this.gameObject.SetActive(false);
-                gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                Invoke("Respawn", 5);
+                Die();
             }
         }
     }
@@ -192,6 +152,15 @@ public class Player : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
+    }
+
+    private void Die()
+    {
+        dead = true;
+        fire = wind = water = earth = false;
+        this.gameObject.SetActive(false);
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        Invoke("Respawn", 5);
     }
 
     private void Respawn()
