@@ -9,9 +9,9 @@ public class _script_SceneController_v01 : MonoBehaviour
     public GameObject PlayerObject;
     public float PlayerMovementSpeed = 5f;
     public float CameraZoomDefault = 5f;
-    public float CameraZoomOffset = 2f;
+    public float CameraZoomOffset = 5f;
     public float CameraZoomDefaultMin = 5f;
-    public float CameraZoomDefaultMax = 30f;
+    public float CameraZoomDefaultMax = 15f;
 
     // Player spawn locations
     public List<Vector2> PlayerSpawnLocations;
