@@ -53,24 +53,27 @@ public class _script_SceneController_v01 : MonoBehaviour
     void Start()
     {
         HotfixTimer = 0;
-
-
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
 
-        Vector3[] Spawnpoints = new Vector3[5];
-        
-        Spawnpoints[0] = new Vector3(-1.5f, 1.5f);
-        Spawnpoints[1] = new Vector3(1.5f, -1.5f);
-        Spawnpoints[2] = new Vector3(1.5f, 1.5f);
-        Spawnpoints[3] = new Vector3(-1.5f, -1.5f);
+        GameObject[] respawns = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
+
+        List<Vector3> spawnpoints = new List<Vector3>();
+        foreach(GameObject spawn in respawns)
+        {
+            spawnpoints.Add(spawn.transform.position);
+        }
 
         InstantiatePlayerInputList();
         ListOfPlayers = new Dictionary<int, GameObject>();
         for (int index = 0; index < NumberOfPlayers; ++index)
         {
             GameObject character = Instantiate(PlayerObject);
-            Vector3 spawnpoint = Spawnpoints[index];
+            Vector3 spawnpoint;
+            if (!(spawnpoints.Count < NumberOfPlayers))
+                spawnpoint = spawnpoints[index];
+            else
+                spawnpoint = new Vector3(index, index);
             character.transform.position = spawnpoint;
             _script_Movement character_script = character.GetComponent<_script_Movement>();
             character_script.MovementSpeed = PlayerMovementSpeed;
