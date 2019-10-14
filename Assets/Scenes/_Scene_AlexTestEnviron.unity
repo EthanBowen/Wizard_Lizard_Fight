@@ -135,12 +135,12 @@ PrefabInstance:
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3374445
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.396877
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
@@ -249,12 +249,12 @@ PrefabInstance:
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3629105
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2074785
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
@@ -13389,12 +13389,12 @@ PrefabInstance:
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.57
+      value: 1.73
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
@@ -13539,7 +13539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c82317334ea20418f2cea0aaef341e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfPlayers: 4
+  NumberOfPlayers: 3
   PlayerObject: {fileID: 206820834939566674, guid: ab8f57f4324892b4899f2605ae8c71d0,
     type: 3}
   PlayerMovementSpeed: 5
@@ -13563,12 +13563,12 @@ PrefabInstance:
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5708935
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2285638
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: 3464541856401875975, guid: 53aa8df47af435c49b36821bb286cd96,
         type: 3}
