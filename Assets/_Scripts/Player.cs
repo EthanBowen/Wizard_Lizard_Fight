@@ -90,12 +90,14 @@ public class Player : MonoBehaviour
        
         body.velocity = pos;//this.gameObject.transform.position = pos;
 
+        Aim();
+
         return;
     }
 
-    public void Aim(float horizontal, float vertical)
+    public void Aim()
     {
-        
+        FireSpell.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
     }
 
     /*
@@ -119,6 +121,7 @@ public class Player : MonoBehaviour
     public void StartFire()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+        
         fire = true;
         RedMag.Play();
         FireSpell.Play();
@@ -135,16 +138,19 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            //other.get
-            if (other.tag.Equals("Fire"))
+            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
             {
-                health -= fireDamage;
-            }
+                //other.get
+                if (other.tag.Equals("Fire"))
+                {
+                    health -= fireDamage;
+                }
 
-            if (health <= 0)
-            {
-                other.GetComponent<PlayerAttack>().ReportPoint();
-                Die();
+                if (health <= 0)
+                {
+                    other.GetComponent<PlayerAttack>().ReportPoint();
+                    Die();
+                }
             }
         }
     }
