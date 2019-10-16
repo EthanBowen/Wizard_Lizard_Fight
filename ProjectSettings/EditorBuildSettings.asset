@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_Scene_AlexTestEnviron.unity
     guid: 49a9e5bd536e60d4a941103c5613ffea
+  - enabled: 1
+    path: Assets/Scenes/GameEnd.unity
+    guid: ff12b1f5aec96cf4a8283b80485bd1d9
   m_configObjects: {}

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1268933500309583277}
   - component: {fileID: 600379903891098833}
   - component: {fileID: -2180376099539432212}
-  - component: {fileID: 8034925533242175454}
   m_Layer: 0
   m_Name: Flamethrower
   m_TagString: Fire
@@ -3556,7 +3555,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 1
     collisionMode: 1
@@ -3731,7 +3730,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 1000
-    radiusScale: 1
+    radiusScale: 0.0001
     collidesWith:
       serializedVersion: 2
       m_Bits: 23
@@ -4767,29 +4766,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerID: 0
---- !u!61 &8034925533242175454
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2407093921468661885}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -8}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.033552, y: 22.571474}
-  m_EdgeRadius: 0

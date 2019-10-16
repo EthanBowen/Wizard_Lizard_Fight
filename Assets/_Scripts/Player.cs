@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //FireSpell.gameObject.GetComponent<Collider2D>().enabled = fire;
     }
 
     public void MovePlayer()//float horizontal, float vertical)
@@ -133,10 +134,12 @@ public class Player : MonoBehaviour
         fire = true;
         RedMag.Play();
         FireSpell.Play();
+       
     }
     public void StopFire()
     {
         fire = false;
+        
         RedMag.Pause();
         RedMag.Clear();
         FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -163,7 +166,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (!dead)
         {
@@ -194,6 +197,7 @@ public class Player : MonoBehaviour
     {
         dead = true;
         fire = wind = water = earth = false;
+        
         this.gameObject.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         Invoke("Respawn", 5);
