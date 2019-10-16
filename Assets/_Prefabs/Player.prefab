@@ -169,13 +169,15 @@ MonoBehaviour:
   movementSpeed: 5
   diagonalMoveSpeedMultiplier: 1
   maxHealth: 1000
-  fireDamage: 4
-  waterDamage: 40
+  maxMP: 100
+  fireDamage: 8
+  waterDamage: 400
   score: 0
   horizontal: 0
   vertical: 0
   ID: 0
   health: 0
+  MP: 0
   RedMag: {fileID: 1791190899752136579}
   FireSpell: {fileID: 1917731532324603714}
   GreenMag: {fileID: 1730928279813106867}
