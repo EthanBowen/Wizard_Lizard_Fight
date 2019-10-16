@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     // Variables for player info
     public int maxHealth = 1000;
+    public float maxMP = 100;
     public int fireDamage = 4;
     public int waterDamage = 40;
     public int score = 0;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     public int ID = 0;
 
     public int health;
+    public float MP;
+    public Vector3 SpawnPoint;
 
     private GameController gameController;
 
@@ -56,7 +59,29 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //FireSpell.gameObject.GetComponent<Collider2D>().enabled = fire;
+        if(fire)
+        {
+            MP -= 1;
+        }
+        if (wind)
+        {
+            MP -= 1;
+        }
+
+        if(!fire && !wind && MP < maxMP)
+        {
+            MP += 5;
+        }
+        if(MP > maxMP)
+        {
+            MP = maxMP;
+        }
+
+        if(MP <= 0)
+        {
+            StopFire();
+            StopWind();
+        }
     }
 
     public void MovePlayer()//float horizontal, float vertical)
@@ -206,7 +231,8 @@ public class Player : MonoBehaviour
     private void Respawn()
     {
         health = maxHealth;
-        switch(ID) 
+        MP = maxMP;
+        /*switch(ID) 
         {
             case 2:
                 this.gameObject.transform.position = new Vector3(10.0f, 10.0f);
@@ -221,7 +247,8 @@ public class Player : MonoBehaviour
                 this.gameObject.transform.position = new Vector3(-10.0f, 10.0f);
                 break;
 
-        }
+        }*/
+        this.gameObject.transform.position = SpawnPoint;
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         this.gameObject.SetActive(true);
         dead = false;
