@@ -13,6 +13,12 @@ public class _script_SceneController_v01 : MonoBehaviour
     public float CameraZoomDefaultMin = 5f;
     public float CameraZoomDefaultMax = 15f;
 
+    // music_main is the AudioSource through which music will play.
+    // music_main (and AudioSources in general) *play* AudioClips. They're the speaker, so to speak.
+    public AudioSource music_main;
+    public AudioClip music_battle;
+    private bool music_play;
+
     // Player spawn locations
     public List<Vector2> PlayerSpawnLocations;
 
@@ -55,6 +61,11 @@ public class _script_SceneController_v01 : MonoBehaviour
         HotfixTimer = 0;
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
+        
+        // Sets the music player to play the battle music.
+        music_main.clip = music_battle;
+        music_main.loop = true;
+        music_main.Play();
 
         GameObject[] respawns = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
 
@@ -117,6 +128,7 @@ public class _script_SceneController_v01 : MonoBehaviour
                 // Restart the scene by pressing start
                 if (button_start)
                 {
+                    music_main.Stop();
                     SceneManager.LoadScene("_Scene_AlexTestEnviron");
                 }
 
