@@ -304,11 +304,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 794545537669601889, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -379,6 +374,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameTrail
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
 --- !u!4 &190418261448385491 stripped
@@ -417,22 +417,22 @@ PrefabInstance:
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
@@ -442,12 +442,12 @@ PrefabInstance:
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
@@ -468,6 +468,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034925533242175454, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034925533242175454, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034925533242175454, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2912b30d5f640146af43075a47fdb55, type: 3}
@@ -667,11 +687,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 3150672845197675527, guid: 97e2b640892921048ab022d729796a01,
-        type: 3}
-      propertyPath: m_Name
-      value: Green Magic
-      objectReference: {fileID: 0}
     - target: {fileID: 3150672845197675524, guid: 97e2b640892921048ab022d729796a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -742,6 +757,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3150672845197675527, guid: 97e2b640892921048ab022d729796a01,
+        type: 3}
+      propertyPath: m_Name
+      value: Green Magic
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e2b640892921048ab022d729796a01, type: 3}
 --- !u!4 &1730928279813106866 stripped
@@ -763,11 +783,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 6795799249026082506, guid: 67e1ae6be95f6074080d1455fa55d50f,
-        type: 3}
-      propertyPath: m_Name
-      value: Red Magic
-      objectReference: {fileID: 0}
     - target: {fileID: 6795799249026082505, guid: 67e1ae6be95f6074080d1455fa55d50f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -837,6 +852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795799249026082506, guid: 67e1ae6be95f6074080d1455fa55d50f,
+        type: 3}
+      propertyPath: m_Name
+      value: Red Magic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e1ae6be95f6074080d1455fa55d50f, type: 3}
