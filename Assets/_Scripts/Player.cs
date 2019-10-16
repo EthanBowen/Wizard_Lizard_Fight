@@ -163,6 +163,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!dead)
+        {
+            GameObject other = collision.gameObject;
+            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
+            {
+                //other.get
+                if (other.tag.Equals("Fire"))
+                {
+                    health -= fireDamage;
+                }
+
+                if (health <= 0)
+                {
+                    other.GetComponent<PlayerAttack>().ReportPoint();
+                    Die();
+                }
+            }
+        }
+    }
+
     public void IncreaseScore()
     {
         score++;
