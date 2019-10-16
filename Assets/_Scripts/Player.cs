@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public ParticleSystem GreenMag;
     public ParticleSystem BlueMag;
     public ParticleSystem WhiteMag;
+    public ParticleSystem WindSpell;
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +63,15 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("Walking", true);
+            if(wind && !WindSpell.isPlaying)
+            {
+                WindSpell.Play();
+            }
         }
         else
         {
             anim.SetBool("Walking", false);
+            WindSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if(horizontal > 0)
@@ -98,6 +104,7 @@ public class Player : MonoBehaviour
     public void Aim()
     {
         FireSpell.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        WindSpell.transform.LookAt(new Vector2(transform.position.x - horizontal, transform.position.y - vertical));
     }
 
     /*
@@ -116,6 +123,7 @@ public class Player : MonoBehaviour
         //movementSpeed /= 5;
         WhiteMag.Pause();
         WhiteMag.Clear();
+        WindSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     public void StartFire()

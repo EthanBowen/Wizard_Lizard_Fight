@@ -119,7 +119,12 @@ public class GameController : MonoBehaviour
                 // Restart the scene by pressing start
                 if (button_start)
                 {
-                    SceneManager.LoadScene("EthansTest");
+                    SceneManager.LoadScene("Game");
+                }
+
+                if (playercontroller.score >= 3)
+                {
+                    SceneManager.LoadScene("GameEnd");
                 }
 
                 // Add the player's new position as a FocusPoint for the camera
