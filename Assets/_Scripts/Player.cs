@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        //gameObject.GetComponent<SpriteRenderer>().
         score = 0;
         Respawn();
     }
@@ -174,28 +175,6 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
-            {
-                //other.get
-                if (other.tag.Equals("Fire"))
-                {
-                    health -= fireDamage;
-                }
-
-                if (health <= 0)
-                {
-                    other.GetComponent<PlayerAttack>().ReportPoint();
-                    Die();
-                }
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if (!dead)
-        {
-            GameObject other = collision.gameObject;
             if (ID != other.GetComponent<PlayerAttack>().PlayerID)
             {
                 //other.get
