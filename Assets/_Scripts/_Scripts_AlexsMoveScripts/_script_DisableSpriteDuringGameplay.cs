@@ -18,6 +18,7 @@ public class _script_DisableSpriteDuringGameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initial behavior is based on whether the sprite is enabled/disabled during gameplay
         if (objectSprite != null)
         {
             if (HideDuringGameplay)
@@ -37,6 +38,13 @@ public class _script_DisableSpriteDuringGameplay : MonoBehaviour
 
     }
 
+    /**
+     * EVENT
+     * --- Call when Debug Mode changes state
+     * 
+     * ACTION
+     * --- Enables/disables the sprite attached to this gameobject.
+     */
     public void event_DebugMode(bool state)
     {
         if (objectSprite != null)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -39,6 +40,12 @@ public class Player : MonoBehaviour
     public ParticleSystem WhiteMag;
     public ParticleSystem WindSpell;
 
+
+    // The player reads only their own inputs from this class. 
+    public _script_ReadInputs inputs;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +62,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        inputs.ReadPlayerInputs();
         
+        horizontal = inputs.PLAYER_horiz_move;
+        vertical = inputs.PLAYER_vert_move;
+        MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
+        /// TODO: Convert this functionality into an event-based system?
+        if (inputs.button_lower)
+        {
+            StartWind();
+        }
+        if (inputs.button_lower_stop)
+        {
+            StopWind();
+        }
+        if (inputs.button_right)
+        {
+            StartFire();
+        }
+        if (inputs.button_right_stop)
+        {
+            StopFire();
+        }
     }
 
     private void FixedUpdate()
@@ -233,4 +261,13 @@ public class Player : MonoBehaviour
         dead = false;
            
     }
+
+
+
+
+    public void event_input_Wind(bool buttondown)
+    {
+        Debug.Log("Player " + ID + " detected Wind button input event: " + buttondown);
+    }
+
 }

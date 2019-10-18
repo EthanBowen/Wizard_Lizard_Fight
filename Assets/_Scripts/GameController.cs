@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class GameController : MonoBehaviour
     public AudioClip music_battle;
     private bool music_play;
 
+    // Event system WIP 
+    public DebugModeEvent event_DebugModeEvent;
+
 
     // Singleton behavior
     private static GameController _instance_SceneController;
@@ -61,7 +65,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HotfixTimer = 0;
+        Initialization_SetUpEventSystemFor_HideableSprites();
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
 
@@ -97,6 +101,7 @@ public class GameController : MonoBehaviour
             character_script.SpawnPoint = spawnpoint;
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
+            character_script.inputs = new _script_ReadInputs(index);
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
         }
@@ -114,9 +119,7 @@ public class GameController : MonoBehaviour
 
     private List<Vector2> FocusPoints;
     private List<Vector2> PlayerPositions;
-    float x_sum, y_sum, cam_size, x_dist_min, x_dist_max, y_dist_min, y_dist_max, x_dist, y_dist;
-    int numPoints;
-    int HotfixTimer;
+    float cam_size, x_dist_min, x_dist_max, y_dist_min, y_dist_max, x_dist, y_dist;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -130,15 +133,16 @@ public class GameController : MonoBehaviour
             Player playercontroller = ListOfPlayers[index].GetComponent<Player>();
             if (playercontroller != null)
             {
+                /*
                 playercontroller.horizontal = PLAYER_horiz_move;
                 playercontroller.vertical = PLAYER_vert_move;
                 playercontroller.MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
                 /// TODO: Convert this functionality into an event-based system?
-                if(button_lower)
+                if (button_lower)
                 {
                     playercontroller.StartWind();
                 }
-                if(button_lower_stop)
+                if (button_lower_stop)
                 {
                     playercontroller.StopWind();
                 }
@@ -151,13 +155,14 @@ public class GameController : MonoBehaviour
                     playercontroller.StopFire();
                 }
                 //playercontroller.CastMagic(button_lower, button_left, button_right, button_up);
-
+                */
                 // Restart the scene by pressing start
                 if (button_start)
                 {
                     SceneManager.LoadScene("Game");
                 }
 
+                // TODO: Move to event based system.
                 if (playercontroller.score >= 5)
                 {
                     winner = playercontroller.ID;
@@ -179,6 +184,7 @@ public class GameController : MonoBehaviour
 
 
 
+
     /*
      * Reads the list of points of focus the camera is based upon.
      * 
@@ -192,11 +198,8 @@ public class GameController : MonoBehaviour
         {
             AdditionalFocusPoints.Add(others);
         }
-
-        x_sum = y_sum = 0f;
         x_dist_min = y_dist_min = 10000f;
         x_dist_max = y_dist_max = -10000f;
-        numPoints = 0;
         // Move the camera so that it's focused on the center of the focus points.
         foreach (Vector2 point in AdditionalFocusPoints)
         {
@@ -209,17 +212,13 @@ public class GameController : MonoBehaviour
                 y_dist_min = point.y;
             if (y_dist_max < point.y)
                 y_dist_max = point.y;
-
-            // Distance between all points
-            x_sum += point.x;
-            y_sum += point.y;
-            numPoints++;
         }
 
         cam_size = 0;
-        camera.transform.position = new Vector3((x_sum / numPoints), (y_sum / numPoints), -10);
         x_dist = (x_dist_max - x_dist_min) * (9f / 16f);
         y_dist = (y_dist_max - y_dist_min);
+
+        camera.transform.position = new Vector3(((x_dist_max + x_dist_min) / 2), ((y_dist_max + y_dist_min) / 2), -10);
         if ((x_dist) > (y_dist))
             cam_size = x_dist;
         else
@@ -230,33 +229,16 @@ public class GameController : MonoBehaviour
 
         if (cam_size < CameraZoomDefaultMin)
         {
-            if (HotfixTimer >= 120)
-            {
-                Debug.Log("---- Cam Size set to minimum. cam size previously: " + cam_size);
-            }
             cam_size = CameraZoomDefaultMin;
         }
         if (cam_size > CameraZoomDefaultMax)
         {
-            if (HotfixTimer >= 120)
-            {
-                Debug.Log("---- Cam Size set to MAX. cam size previously: " + cam_size);
-            }
             cam_size = CameraZoomDefaultMax;
         }
 
         camera.orthographicSize = cam_size;
-
-        /*
-        if (HotfixTimer >= 120)
-        {
-            Debug.Log("x difference: " + x_dist + " ---- y difference: " + y_dist);
-            Debug.Log("Camera Size: " + cam_size + " versus: " + camera.orthographicSize);
-            HotfixTimer = 0;
-        }
-        HotfixTimer++;*/
+        return;
     }
-
     /**
      * Reads the player's inputs.
      * 
@@ -418,4 +400,40 @@ public class GameController : MonoBehaviour
         InputNames[4] = P4_Inputlist;
     }
 
+    /**
+    * Some objects have developer sprites (like spawn points). These should have scripts attached that control their visibility during gameplay.
+    * This will enable the notification system for those objects, so that we can control when they're visible/invisible.
+    */
+    private void Initialization_SetUpEventSystemFor_HideableSprites()
+    {
+        if (event_DebugModeEvent == null)
+        {
+            event_DebugModeEvent = new DebugModeEvent();
+        }
+        _script_DisableSpriteDuringGameplay[] HideableSprites = FindObjectsOfType<_script_DisableSpriteDuringGameplay>();
+        foreach (_script_DisableSpriteDuringGameplay grabbedscript in HideableSprites)
+        {
+            event_DebugModeEvent.AddListener(grabbedscript.event_DebugMode);
+        }
+
+    }
+
+
+    private PlayerInputsEvent event_playerinput;
+    /**
+     * Sets up the event system for player inputs based on the given ID.
+     * 
+     */
+    private void Initialization_SetUpEventSystemFor_PlayerInputs(int playerID, Player player)
+    {
+        if (event_playerinput == null)
+        {
+            event_playerinput = new PlayerInputsEvent();
+        }
+
+
+        event_playerinput.AddListener(player.event_input_Wind);
+    }
+
 }
+

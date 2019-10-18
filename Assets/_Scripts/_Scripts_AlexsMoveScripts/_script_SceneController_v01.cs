@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
+/*
 public class DebugModeEvent : UnityEvent<bool>
 {
 
-};
+};*/
 
 public class _script_SceneController_v01 : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class _script_SceneController_v01 : MonoBehaviour
     // Provide access to the camera object this script is attached to.
     private Camera camera;
 
+    // Event system WIP 
     public DebugModeEvent event_DebugModeEvent;
     
 
