@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     // Variables for player info
     public int maxHealth = 1000;
+    public float maxMP = 100;
     public int fireDamage = 4;
     public int waterDamage = 40;
     public int score = 0;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     public int ID = 0;
 
     public int health;
+    public float MP;
+    public Vector3 SpawnPoint;
 
     private GameController gameController;
 
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
     public ParticleSystem GreenMag;
     public ParticleSystem BlueMag;
     public ParticleSystem WhiteMag;
+    public ParticleSystem WindSpell;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +47,7 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        //gameObject.GetComponent<SpriteRenderer>().
         score = 0;
         Respawn();
     }
@@ -55,6 +60,29 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(fire)
+        {
+            MP -= 1;
+        }
+        if (wind)
+        {
+            MP -= 1;
+        }
+
+        if(!fire && !wind && MP < maxMP)
+        {
+            MP += 5;
+        }
+        if(MP > maxMP)
+        {
+            MP = maxMP;
+        }
+
+        if(MP <= 0)
+        {
+            StopFire();
+            StopWind();
+        }
     }
 
     public void MovePlayer()//float horizontal, float vertical)
@@ -62,10 +90,15 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("Walking", true);
+            if(wind && !WindSpell.isPlaying)
+            {
+                WindSpell.Play();
+            }
         }
         else
         {
             anim.SetBool("Walking", false);
+            WindSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if(horizontal > 0)
@@ -90,12 +123,15 @@ public class Player : MonoBehaviour
        
         body.velocity = pos;//this.gameObject.transform.position = pos;
 
+        Aim();
+
         return;
     }
 
-    public void Aim(float horizontal, float vertical)
+    public void Aim()
     {
-        
+        FireSpell.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        WindSpell.transform.LookAt(new Vector2(transform.position.x - horizontal, transform.position.y - vertical));
     }
 
     /*
@@ -114,18 +150,22 @@ public class Player : MonoBehaviour
         //movementSpeed /= 5;
         WhiteMag.Pause();
         WhiteMag.Clear();
+        WindSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     public void StartFire()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+        
         fire = true;
         RedMag.Play();
         FireSpell.Play();
+       
     }
     public void StopFire()
     {
         fire = false;
+        
         RedMag.Pause();
         RedMag.Clear();
         FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -135,16 +175,19 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            //other.get
-            if (other.tag.Equals("Fire"))
+            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
             {
-                health -= fireDamage;
-            }
+                //other.get
+                if (other.tag.Equals("Fire"))
+                {
+                    health -= fireDamage;
+                }
 
-            if (health <= 0)
-            {
-                other.GetComponent<PlayerAttack>().ReportPoint();
-                Die();
+                if (health <= 0)
+                {
+                    other.GetComponent<PlayerAttack>().ReportPoint();
+                    Die();
+                }
             }
         }
     }
@@ -158,6 +201,7 @@ public class Player : MonoBehaviour
     {
         dead = true;
         fire = wind = water = earth = false;
+        
         this.gameObject.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         Invoke("Respawn", 5);
@@ -166,7 +210,8 @@ public class Player : MonoBehaviour
     private void Respawn()
     {
         health = maxHealth;
-        switch(ID) 
+        MP = maxMP;
+        /*switch(ID) 
         {
             case 2:
                 this.gameObject.transform.position = new Vector3(10.0f, 10.0f);
@@ -181,7 +226,8 @@ public class Player : MonoBehaviour
                 this.gameObject.transform.position = new Vector3(-10.0f, 10.0f);
                 break;
 
-        }
+        }*/
+        this.gameObject.transform.position = SpawnPoint;
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         this.gameObject.SetActive(true);
         dead = false;

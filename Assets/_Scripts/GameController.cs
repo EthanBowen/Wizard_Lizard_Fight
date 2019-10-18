@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public float CameraZoomDefaultMin = 5f;
     public float CameraZoomDefaultMax = 15f;
 
+    private int winner = 0;
+
     // Keep track of all the controllers
 
     // Keep track of the player objects
@@ -20,10 +22,17 @@ public class GameController : MonoBehaviour
 
     private Dictionary<int, int> ListOfScores;
 
+    // Player spawn locations
+    public List<Vector2> PlayerSpawnLocations;
+
     // Provide access to the camera object this script is attached to.
     private Camera camera;
-    // 
 
+    // music_main is the AudioSource through which music will play.
+    // music_main (and AudioSources in general) *play* AudioClips. They're the speaker, so to speak.
+    public AudioSource music_main;
+    public AudioClip music_battle;
+    private bool music_play;
 
 
     // Singleton behavior
@@ -55,20 +64,47 @@ public class GameController : MonoBehaviour
         HotfixTimer = 0;
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
+
+
+        GameObject[] respawns = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
+
+        List<Vector3> spawnpoints = new List<Vector3>();
+        foreach (GameObject spawn in respawns)
+        {
+            spawnpoints.Add(spawn.transform.position);
+        }
+
+
+
         InstantiatePlayerInputList();
         ListOfPlayers = new Dictionary<int, GameObject>();
         ListOfScores = new Dictionary<int, int>();
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
             GameObject character = Instantiate(PlayerObject);
+
+            Vector3 spawnpoint;
+            if (!(spawnpoints.Count < NumberOfPlayers))
+                spawnpoint = spawnpoints[index - 1];
+            else
+                spawnpoint = new Vector3(index - 1, index - 1);
+
+
             //Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
             //character.transform.position = spawnpoint;
             Player character_script = character.GetComponent<Player>();
+
+            character_script.SpawnPoint = spawnpoint;
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
         }
+
+        // Sets the music player to play the battle music.
+        music_main.clip = music_battle;
+        music_main.loop = true;
+        music_main.Play();
     }
 
     /* INPUTS FOR EACH PLAYER */
@@ -119,7 +155,13 @@ public class GameController : MonoBehaviour
                 // Restart the scene by pressing start
                 if (button_start)
                 {
-                    SceneManager.LoadScene("EthansTest");
+                    SceneManager.LoadScene("Game");
+                }
+
+                if (playercontroller.score >= 5)
+                {
+                    winner = playercontroller.ID;
+                    SceneManager.LoadScene("GameEnd");
                 }
 
                 // Add the player's new position as a FocusPoint for the camera
@@ -130,7 +172,10 @@ public class GameController : MonoBehaviour
         CameraMovement(PlayerPositions);
     }
 
-
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt("winner", winner);
+    }
 
 
 
