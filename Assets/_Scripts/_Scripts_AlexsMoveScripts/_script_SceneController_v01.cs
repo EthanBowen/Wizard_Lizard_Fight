@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
+public class DebugModeEvent : UnityEvent<bool>
+{
+
+};
 
 public class _script_SceneController_v01 : MonoBehaviour
 {
@@ -27,8 +33,8 @@ public class _script_SceneController_v01 : MonoBehaviour
 
     // Provide access to the camera object this script is attached to.
     private Camera camera;
-    // 
 
+    public DebugModeEvent event_DebugModeEvent;
     
 
     // Singleton behavior
@@ -58,6 +64,8 @@ public class _script_SceneController_v01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Initialization_SetUpEventSystemFor_HideableSprites();
+
         HotfixTimer = 0;
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
@@ -103,9 +111,19 @@ public class _script_SceneController_v01 : MonoBehaviour
     int numPoints;
     int HotfixTimer;
 
+    private bool DebugModeToggle = false;
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            // Flips the toggle
+            DebugModeToggle = !DebugModeToggle;
+            // Calls the event.
+            event_DebugModeEvent.Invoke(DebugModeToggle);
+        }
+
         PlayerPositions.Clear();
         // Iterates through each player and transmits input actions
         for (int index = 1; index <= NumberOfPlayers; ++index)
@@ -370,6 +388,25 @@ public class _script_SceneController_v01 : MonoBehaviour
         };
 
         InputNames[4] = P4_Inputlist;
+    }
+
+
+    /**
+     * Some objects have developer sprites (like spawn points). These should have scripts attached that control their visibility during gameplay.
+     * This will enable the notification system for those objects, so that we can control when they're visible/invisible.
+     */
+    private void Initialization_SetUpEventSystemFor_HideableSprites()
+    {
+        if (event_DebugModeEvent == null)
+        {
+            event_DebugModeEvent = new DebugModeEvent();
+        }
+        _script_DisableSpriteDuringGameplay[] HideableSprites = FindObjectsOfType<_script_DisableSpriteDuringGameplay>();
+        foreach (_script_DisableSpriteDuringGameplay grabbedscript in HideableSprites)
+        {
+            event_DebugModeEvent.AddListener(grabbedscript.event_DebugMode);
+        }
+
     }
 
 }

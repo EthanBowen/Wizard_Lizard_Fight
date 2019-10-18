@@ -10,6 +10,14 @@ public class _script_ReadInputs
     }
 
 
+
+
+
+
+
+
+
+
     public float PLAYER_horiz_move, PLAYER_vert_move, PLAYER_horiz_aim, PLAYER_vert_aim;
     public bool button_lower, button_left, button_right, button_up, button_select, button_start;
     /**
@@ -84,7 +92,8 @@ public class _script_ReadInputs
     private Dictionary<int, Dictionary<int, string>> InputNames;
 
     /**
-     * Consolidates all references to player inputs into this list, allowing for super-easy changing of input names in one location
+     * Consolidates all references to player inputs into this list, 
+     * allowing for super-easy changing of input names in one location
      */
     private void InstantiatePlayerInputList()
     {
