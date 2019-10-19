@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     public int ID = 0;
 
-    public int health;
+    public float health;
     public float MP;
     public Vector3 SpawnPoint;
 
@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     public ParticleSystem BlueMag;
     public ParticleSystem WhiteMag;
     public ParticleSystem WindSpell;
+
+    [SerializeField] private HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -231,6 +233,5 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         this.gameObject.SetActive(true);
         dead = false;
-           
     }
 }

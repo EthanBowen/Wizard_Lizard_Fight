@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf6b3aa2c27f834f8b2db3782b025fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfPlayers: 4
+  NumberOfPlayers: 2
   PlayerObject: {fileID: 7932757349884422459, guid: 0cc6487ca36ec9648b61154d29b88e43,
     type: 3}
   PlayerMovementSpeed: 5

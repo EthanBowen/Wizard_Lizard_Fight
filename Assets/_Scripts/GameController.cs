@@ -65,7 +65,6 @@ public class GameController : MonoBehaviour
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
 
-
         GameObject[] respawns = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
 
         List<Vector3> spawnpoints = new List<Vector3>();
@@ -73,8 +72,6 @@ public class GameController : MonoBehaviour
         {
             spawnpoints.Add(spawn.transform.position);
         }
-
-
 
         InstantiatePlayerInputList();
         ListOfPlayers = new Dictionary<int, GameObject>();
@@ -88,7 +85,6 @@ public class GameController : MonoBehaviour
                 spawnpoint = spawnpoints[index - 1];
             else
                 spawnpoint = new Vector3(index - 1, index - 1);
-
 
             //Vector3 spawnpoint = new Vector3(index * 2 - 1, index * 2 - 1);
             //character.transform.position = spawnpoint;
@@ -150,6 +146,7 @@ public class GameController : MonoBehaviour
                 {
                     playercontroller.StopFire();
                 }
+                    
                 //playercontroller.CastMagic(button_lower, button_left, button_right, button_up);
 
                 // Restart the scene by pressing start
