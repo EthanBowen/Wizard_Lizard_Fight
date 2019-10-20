@@ -4,25 +4,47 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
+    public float PlayerMaxHealth = 1.0f;
     private Transform bar;
-    private Player player;
+    private float CurrentPlayerHealth = 0.0f;
+    //private Player player;
     // Start is called before the first frame update
     void Start()
     {
+        CurrentPlayerHealth = PlayerMaxHealth;
         bar = transform.Find("Bar");
+
     }
 
     private void Update()
     {
-        //setSize(player.health);
-        bar = transform.Find("Bar");
-        bar.localScale = new Vector3(player.health, 1f);
+
     }
-    /*
-    public void setSize(float sizeNormalized)
+
+    /**
+     * This method fires AFTER Update(), and is generally good for UI elements that wait upon values changing, like HP.
+     */
+    private void LateUpdate()
     {
-        float hp = sizeNormalized / sizeNormalized;
+        setSize();
+    }
+
+    public void setSize()
+    {
+        float hp = (CurrentPlayerHealth / PlayerMaxHealth);
+        if (float.IsNaN(hp))
+            hp = 0.0f;
         bar.localScale = new Vector3(hp, 1f);
     }
-    */
+    
+
+    /**
+     * This event is called whenever the player's health changes.
+     * 
+     */
+    public void event_player_healthchanged(int ID, float newHealth)
+    {
+        CurrentPlayerHealth = newHealth;
+    }
+
 }

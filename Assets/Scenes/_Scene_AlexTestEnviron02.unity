@@ -206,7 +206,6 @@ GameObject:
   - component: {fileID: 536044987}
   - component: {fileID: 536044986}
   - component: {fileID: 536044985}
-  - component: {fileID: 536044984}
   - component: {fileID: 536044988}
   m_Layer: 0
   m_Name: Main Camera
@@ -215,29 +214,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &536044984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536044983}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf6b3aa2c27f834f8b2db3782b025fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NumberOfPlayers: 4
-  PlayerObject: {fileID: 7932757349884422459, guid: 0cc6487ca36ec9648b61154d29b88e43,
-    type: 3}
-  PlayerMovementSpeed: 5
-  CameraZoomDefault: 5
-  CameraZoomOffset: 5
-  CameraZoomDefaultMin: 5
-  CameraZoomDefaultMax: 15
-  PlayerSpawnLocations: []
-  music_main: {fileID: 841553664}
-  music_battle: {fileID: 8300000, guid: 44ce559e036e346bf8f5acdc480fb1a2, type: 3}
 --- !u!81 &536044985
 AudioListener:
   m_ObjectHideFlags: 0
@@ -325,6 +301,7 @@ MonoBehaviour:
   CameraZoomDefaultMin: 5
   CameraZoomDefaultMax: 15
   PlayerSpawnLocations: []
+  PlayMusicOnPlay: 0
   music_main: {fileID: 841553664}
   music_battle: {fileID: 8300000, guid: 44ce559e036e346bf8f5acdc480fb1a2, type: 3}
 --- !u!1001 &587736050

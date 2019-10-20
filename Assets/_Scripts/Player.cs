@@ -39,11 +39,19 @@ public class Player : MonoBehaviour
     public ParticleSystem BlueMag;
     public ParticleSystem WhiteMag;
     public ParticleSystem WindSpell;
-    
-    [SerializeField] private HealthBar healthBar;
+
+    public GameObject healthBar;
+    private Event_PlayerHealthChanged healthupdate;
 
     // The player reads only their own inputs from this class. 
     public _script_ReadInputs inputs;
+
+
+    private void Awake()
+    {
+        healthBar.GetComponent<HealthBar>().PlayerMaxHealth = maxHealth;
+        Initialization_SetUpEventSystemFor_ThisPlayersHealthUpdates();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +74,6 @@ public class Player : MonoBehaviour
         horizontal = inputs.PLAYER_horiz_move;
         vertical = inputs.PLAYER_vert_move;
         MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
-        /// TODO: Convert this functionality into an event-based system?
         if (inputs.button_lower)
         {
             StartWind();
@@ -208,6 +215,7 @@ public class Player : MonoBehaviour
                 if (other.tag.Equals("Fire"))
                 {
                     health -= fireDamage;
+                    healthupdate.Invoke(ID, health);
                 }
 
                 if (health <= 0)
@@ -218,6 +226,8 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+
 
     public void IncreaseScore()
     {
@@ -238,6 +248,7 @@ public class Player : MonoBehaviour
     {
         health = maxHealth;
         MP = maxMP;
+        healthupdate.Invoke(ID, health);
         /*switch(ID) 
         {
             case 2:
@@ -261,11 +272,37 @@ public class Player : MonoBehaviour
     }
 
 
+    /**
+     * Note from Alex ---
+     * 
+     * This is called on Awake() so that when the player's health changes, any listener (like the health bar)
+     * will receive an update about it.
+     */
+    private void Initialization_SetUpEventSystemFor_ThisPlayersHealthUpdates()
+    {
+        if (healthupdate == null)
+        {
+            healthupdate = new Event_PlayerHealthChanged();
+        }
+
+        healthupdate.AddListener(healthBar.GetComponent<HealthBar>().event_player_healthchanged);
+    }
 
 
+    /**
+     * Note from Alex ---
+     * 
+     * This is holdover from moving input management to an event based system. While it works, I think
+     * the move to having the individual player object control their own inputs is simply better.
+     * 
+     * Leaving this in as a representation of how to handle events. Look to _class_WizardLizardEvents to
+     * add more events. The location that calls the event (like GameController) must also do stuff to
+     * actually call those events. Look there for a bit of a guide.
+     */
     public void event_input_Wind(bool buttondown)
     {
         Debug.Log("Player " + ID + " detected Wind button input event: " + buttondown);
     }
+
 
 }

@@ -14,14 +14,14 @@ public class _script_SceneController_v02 : MonoBehaviour
     public float CameraZoomDefaultMin = 5f;
     public float CameraZoomDefaultMax = 15f;
 
-    private int winner = 0;
 
     // Keep track of all the controllers
+    private _script_ReadInputs PlayerInputs;
 
-    // Keep track of the player objects
+    // Keep track of the player objects & other player related items
     private Dictionary<int, GameObject> ListOfPlayers;
-
     private Dictionary<int, int> ListOfScores;
+    private int winner = 0;
 
     // Player spawn locations
     public List<Vector2> PlayerSpawnLocations;
@@ -31,6 +31,7 @@ public class _script_SceneController_v02 : MonoBehaviour
 
     // music_main is the AudioSource through which music will play.
     // music_main (and AudioSources in general) *play* AudioClips. They're the speaker, so to speak.
+    public bool PlayMusicOnPlay = true;
     public AudioSource music_main;
     public AudioClip music_battle;
     private bool music_play;
@@ -60,8 +61,6 @@ public class _script_SceneController_v02 : MonoBehaviour
             Debug.Log("Scene Controller script must be attached to a camera");
         }
     }
-
-    private _script_ReadInputs PlayerInputs;
 
     // Start is called before the first frame update
     void Start()
@@ -110,8 +109,10 @@ public class _script_SceneController_v02 : MonoBehaviour
 
         // Sets the music player to play the battle music.
         music_main.clip = music_battle;
-        music_main.loop = true;
-        music_main.Play();
+        if (PlayMusicOnPlay) {
+            music_main.loop = true;
+            music_main.Play();
+        }
     }
     
 

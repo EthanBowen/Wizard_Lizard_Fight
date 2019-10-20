@@ -419,7 +419,7 @@ public class GameController : MonoBehaviour
     private PlayerInputsEvent event_playerinput;
     /**
      * Sets up the event system for player inputs based on the given ID.
-     * 
+     * NOTE: This is unused stuff, but is a good example for setting up events from the caller side.
      */
     private void Initialization_SetUpEventSystemFor_PlayerInputs(int playerID, Player player)
     {
