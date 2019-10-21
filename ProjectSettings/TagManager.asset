@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerSpawnPoint
   - Fire
+  - Damaging Collision Zone
   layers:
   - Default
   - TransparentFX

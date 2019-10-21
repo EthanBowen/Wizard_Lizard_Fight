@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
     private Event_PlayerHealthChanged healthupdate;
 
+    public GameObject attack_bomb;
+
     // The player reads only their own inputs from this class. 
     public _script_ReadInputs inputs;
 
@@ -90,7 +92,22 @@ public class Player : MonoBehaviour
         {
             StopFire();
         }
+        if (inputs.button_left)
+        {
+            // Cannot place bombs back-to-back. There's a delay.
+            if (Timer_BombDrop > 4.0f)
+            {
+                Timer_BombDrop = 0.0f;
+                PlaceBomb();
+            }
+        }
+
+
+        Timer_BombDrop += Time.deltaTime;
     }
+
+    // The delay before another bomb can be placed. Temporary.
+    private float Timer_BombDrop = 0.0f;
 
     private void FixedUpdate()
     {
@@ -270,6 +287,18 @@ public class Player : MonoBehaviour
         this.gameObject.SetActive(true);
         dead = false;
     }
+
+
+    private void PlaceBomb()
+    {
+        MP -= 30.0f;
+        GameObject bomb = Instantiate(attack_bomb);
+        bomb.transform.position = new Vector3(transform.position.x + 2.0f, transform.position.y + 2.0f, this.transform.position.z);
+        //bomb.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
+        bombscript.SetPlayerID(ID);
+    }
+
 
 
     /**

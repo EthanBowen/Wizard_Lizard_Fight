@@ -187,6 +187,8 @@ MonoBehaviour:
   WhiteMag: {fileID: 1431731550304033319}
   WindSpell: {fileID: 1175097611215591748}
   healthBar: {fileID: 7452618120868084775}
+  attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
+    type: 3}
 --- !u!95 &5937992824312999496
 Animator:
   serializedVersion: 3
