@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float diagonalMoveSpeedMultiplier = 1f;
 
     // Variables for player info
-    public int maxHealth = 1000;
+    public float maxHealth = 1000;
     public float maxMP = 100;
     public int fireDamage = 4;
     public int waterDamage = 40;

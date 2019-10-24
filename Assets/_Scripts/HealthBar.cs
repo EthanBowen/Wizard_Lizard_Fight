@@ -8,18 +8,46 @@ public class HealthBar : MonoBehaviour
     private Transform bar;
     private float CurrentPlayerHealth = 0.0f;
     public Player player;
+    public int ID = 0;
+    private float x = 0;
+    private float y = 0;
     //private Player player;
     // Start is called before the first frame update
     void Start()
     {
         CurrentPlayerHealth = PlayerMaxHealth;
         bar = transform.Find("Bar");
+        switch (ID)
+        {
+            case 1:
+                x = 0.118f;
+                y = .965f;
+                this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.118f, .965f, 5f));
+                break;
+            case 2:
+                x = 1-0.118f;
+                y = .965f;
+               this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3((1 - 0.118f), .965f, 5f));
+                break;
+            case 3:
+                x = 0.118f;
+                y = 1 - .965f;
+                this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.118f, 1 - .965f, 5f));
+                break;
+            case 4:
+                x = 1 - 0.118f;
+                y = 1-.965f;
+                this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(1 - 0.118f, 1 - .965f, 5f));
+                break;
+        }
+        //this.gameObject.transform.SetParent(Camera.main.transform);
 
     }
 
     private void Update()
     {
-
+        //this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(x, y, 5f));
+        //this.gameObject.transform.SetParent(Camera.main.transform);
     }
 
     /**

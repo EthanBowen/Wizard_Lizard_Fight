@@ -99,23 +99,29 @@ public class GameController : MonoBehaviour
             character_script.SpawnPoint = spawnpoint;
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
+            health.GetComponent<HealthBar>().ID = index;
             health.GetComponent<HealthBar>().player = character.GetComponent<Player>();
             character_script.inputs = new _script_ReadInputs(index);
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
-
+            /*
+             * This was initially to spawn the healthbars for the characters
             switch(index)
             {
                 case 1:
-                    
+                    health.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0,1,0));
                     break;
                 case 2:
+                    health.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
                     break;
                 case 3:
+                    health.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0));
                     break;
                 case 4:
+                    health.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
                     break;
             }
+            */
 
         }
 

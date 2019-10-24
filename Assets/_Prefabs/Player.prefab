@@ -185,7 +185,8 @@ MonoBehaviour:
   BlueMag: {fileID: 629948205837271147}
   WhiteMag: {fileID: 1431731550304033319}
   WindSpell: {fileID: 1175097611215591748}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
+    type: 3}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
 --- !u!95 &5937992824312999496
