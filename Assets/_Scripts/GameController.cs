@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     public int NumberOfPlayers = 2;
     public GameObject PlayerObject;
+    public GameObject healthObject;
     public float PlayerMovementSpeed = 5f;
     public float CameraZoomDefault = 5f;
     public float CameraZoomOffset = 5f;
@@ -83,6 +84,7 @@ public class GameController : MonoBehaviour
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
             GameObject character = Instantiate(PlayerObject);
+            GameObject health = Instantiate(healthObject);
 
             Vector3 spawnpoint;
             if (!(spawnpoints.Count < NumberOfPlayers))
@@ -97,9 +99,24 @@ public class GameController : MonoBehaviour
             character_script.SpawnPoint = spawnpoint;
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
+            health.GetComponent<HealthBar>().player = character.GetComponent<Player>();
             character_script.inputs = new _script_ReadInputs(index);
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
+
+            switch(index)
+            {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
+
         }
 
         // Sets the music player to play the battle music.
