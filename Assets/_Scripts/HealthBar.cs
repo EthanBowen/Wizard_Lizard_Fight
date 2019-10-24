@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
     public float PlayerMaxHealth = 1.0f;
     private Transform bar;
     private float CurrentPlayerHealth = 0.0f;
+    public Player player;
     //private Player player;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class HealthBar : MonoBehaviour
     {
         float hp = (CurrentPlayerHealth / PlayerMaxHealth);
         if (float.IsNaN(hp))
-            hp = 0.0f;
+            hp = player.health;
         bar.localScale = new Vector3(hp, 1f);
     }
     
