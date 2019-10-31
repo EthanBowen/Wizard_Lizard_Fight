@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -164,11 +165,18 @@ public class Player : MonoBehaviour
         }
 
         Vector2 pos = new Vector2();
-        
-        pos.x = movementSpeed * horizontal;
-        pos.y = movementSpeed * vertical;
+        if (horizontal != 0)
+            pos.x = movementSpeed * (horizontal / Mathf.Sqrt(horizontal * horizontal + vertical * vertical));
+        else
+        {
+            pos.x = 0;
+        }
+        if (vertical != 0)
+            pos.y = movementSpeed * (vertical / Mathf.Sqrt(horizontal * horizontal + vertical * vertical));
+        else
+            pos.y = 0;
 
-        if(wind)
+        if (wind)
         {
             pos.x *= 2;
             pos.y *= 2;
