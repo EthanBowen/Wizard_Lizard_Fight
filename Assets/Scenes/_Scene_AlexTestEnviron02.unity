@@ -3506,5 +3506,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2019683036262963974, guid: 323c7febc96673c40b1f96045497b029,
+        type: 3}
+      propertyPath: FuseTimer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019683036262963978, guid: 323c7febc96673c40b1f96045497b029,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559871582400872172, guid: 323c7febc96673c40b1f96045497b029,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323c7febc96673c40b1f96045497b029, type: 3}
