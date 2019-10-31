@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+public class ManaBar : MonoBehaviour
 {
-    public float PlayerMaxHealth = 100.0f;
+   public float PlayerMaxMana = 0f;
     private Transform bar;
-    public float CurrentPlayerHealth = 0.0f;
+    public float CurrentPlayerMana = 0.0f;
     public Player player;
     public int ID = 0;
    // private float x = 0;
-   // private float y = 0;
+    //private float y = 0;
     private Camera UI_Camera = new Camera();
     //private Player player;
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMaxHealth = player.maxHealth;
-        CurrentPlayerHealth = PlayerMaxHealth;
+        PlayerMaxMana = player.maxMP;
+        CurrentPlayerMana = PlayerMaxMana;
         bar = transform.Find("Bar");
         UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
         /*
@@ -26,22 +26,22 @@ public class HealthBar : MonoBehaviour
             case 1: //top left player
                 x = 0.118f;
                 y = .965f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.118f, .965f, 5f));
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.118f, .940f, 5f));
                 break;
             case 2: //top right player
-                x = 1-0.118f;
+                x = 1 - 0.118f;
                 y = .965f;
-               this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3((1 - 0.118f), .965f, 5f));
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3((1 - 0.118f), .940f, 5f));
                 break;
             case 3: //bottom left player
                 x = 0.118f;
                 y = 1 - .965f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.118f, 1 - .965f, 5f));
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.118f, 1 - .940f, 5f));
                 break;
             case 4: //bottom right player
                 x = 1 - 0.118f;
-                y = 1-.965f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(1 - 0.118f, 1 - .965f, 5f));
+                y = 1 - .965f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(1 - 0.118f, 1 - .940f, 5f));
                 break;
         }
         */
@@ -49,8 +49,8 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        CurrentPlayerHealth = player.health;
-        float hp = (CurrentPlayerHealth/PlayerMaxHealth);
+        CurrentPlayerMana = player.MP;
+        float hp = (CurrentPlayerMana/PlayerMaxMana);
         switch (ID)
         {
             case 1:
@@ -69,33 +69,5 @@ public class HealthBar : MonoBehaviour
                 break;
 
         }
-        
     }
-
-    /**
-     * This method fires AFTER Update(), and is generally good for UI elements that wait upon values changing, like HP.
-     */
-    private void LateUpdate()
-    {
-       // setSize();
-    }
-
-    public void setSize()
-    {
-        float hp = (CurrentPlayerHealth / PlayerMaxHealth);
-        if (float.IsNaN(hp))
-            hp = player.health;
-        bar.localScale = new Vector3(hp, 1f);
-    }
-    
-
-    /**
-     * This event is called whenever the player's health changes.
-     * 
-     */
-    public void event_player_healthchanged(int ID, float newHealth)
-    {
-        CurrentPlayerHealth = newHealth;
-    }
-
 }

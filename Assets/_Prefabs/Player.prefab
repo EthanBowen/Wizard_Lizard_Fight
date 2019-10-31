@@ -187,6 +187,7 @@ MonoBehaviour:
   WindSpell: {fileID: 1175097611215591748}
   healthBar: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
     type: 3}
+  manaBar: {fileID: 2079514096679092151, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
 --- !u!95 &5937992824312999496
@@ -311,6 +312,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
+    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameTrail
+      objectReference: {fileID: 0}
     - target: {fileID: 794545537669601889, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,11 +386,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameTrail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
@@ -694,6 +695,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
+    - target: {fileID: 3150672845197675527, guid: 97e2b640892921048ab022d729796a01,
+        type: 3}
+      propertyPath: m_Name
+      value: Green Magic
+      objectReference: {fileID: 0}
     - target: {fileID: 3150672845197675524, guid: 97e2b640892921048ab022d729796a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -764,11 +770,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3150672845197675527, guid: 97e2b640892921048ab022d729796a01,
-        type: 3}
-      propertyPath: m_Name
-      value: Green Magic
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e2b640892921048ab022d729796a01, type: 3}
 --- !u!4 &1730928279813106866 stripped
@@ -790,6 +791,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
+    - target: {fileID: 6795799249026082506, guid: 67e1ae6be95f6074080d1455fa55d50f,
+        type: 3}
+      propertyPath: m_Name
+      value: Red Magic
+      objectReference: {fileID: 0}
     - target: {fileID: 6795799249026082505, guid: 67e1ae6be95f6074080d1455fa55d50f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -859,11 +865,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6795799249026082506, guid: 67e1ae6be95f6074080d1455fa55d50f,
-        type: 3}
-      propertyPath: m_Name
-      value: Red Magic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e1ae6be95f6074080d1455fa55d50f, type: 3}

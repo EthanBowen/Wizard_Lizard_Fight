@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public ParticleSystem WindSpell;
 
     public GameObject healthBar;
+    public GameObject manaBar;
     private Event_PlayerHealthChanged healthupdate;
 
     public GameObject attack_bomb;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         healthBar.GetComponent<HealthBar>().PlayerMaxHealth = maxHealth;
+        manaBar.GetComponent<ManaBar>().PlayerMaxMana = maxMP;
         Initialization_SetUpEventSystemFor_ThisPlayersHealthUpdates();
     }
 
