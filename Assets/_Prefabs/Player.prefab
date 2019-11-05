@@ -188,6 +188,8 @@ MonoBehaviour:
   healthBar: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
     type: 3}
   manaBar: {fileID: 2079514096679092151, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
+  playerUI: {fileID: 7178377947653832398, guid: 0d19bac69b51d5540928d050d0e9002a,
+    type: 3}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
 --- !u!95 &5937992824312999496
@@ -312,11 +314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 794545537669601889, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -387,6 +384,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameTrail
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
 --- !u!4 &190418261448385491 stripped
@@ -402,15 +404,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: m_Name
-      value: Flamethrower
-      objectReference: {fileID: 0}
     - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: m_Name
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}

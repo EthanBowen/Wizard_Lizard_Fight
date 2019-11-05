@@ -9,8 +9,8 @@ public class HealthBar : MonoBehaviour
     public float CurrentPlayerHealth = 0.0f;
     public Player player;
     public int ID = 0;
-   // private float x = 0;
-   // private float y = 0;
+   private float x = 0;
+    private float y = 0;
     private Camera UI_Camera = new Camera();
     //private Player player;
     // Start is called before the first frame update
@@ -20,31 +20,31 @@ public class HealthBar : MonoBehaviour
         CurrentPlayerHealth = PlayerMaxHealth;
         bar = transform.Find("Bar");
         UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
-        /*
+        
         switch (ID)
         {
             case 1: //top left player
                 x = 0.118f;
                 y = .965f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.118f, .965f, 5f));
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
             case 2: //top right player
                 x = 1-0.118f;
                 y = .965f;
-               this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3((1 - 0.118f), .965f, 5f));
+               this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
             case 3: //bottom left player
                 x = 0.118f;
-                y = 1 - .965f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.118f, 1 - .965f, 5f));
+                y = 1 - .945f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
             case 4: //bottom right player
                 x = 1 - 0.118f;
-                y = 1-.965f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(1 - 0.118f, 1 - .965f, 5f));
+                y = 1-.945f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
         }
-        */
+        
     }
 
     private void Update()

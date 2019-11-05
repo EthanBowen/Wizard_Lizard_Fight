@@ -50,6 +50,8 @@ MonoBehaviour:
   CurrentPlayerMana: 0
   player: {fileID: 6448434123201450951, guid: 0cc6487ca36ec9648b61154d29b88e43, type: 3}
   ID: 0
+  playerUI: {fileID: 4324799210306249739, guid: 0d19bac69b51d5540928d050d0e9002a,
+    type: 3}
 --- !u!1 &2228533919737462736
 GameObject:
   m_ObjectHideFlags: 0

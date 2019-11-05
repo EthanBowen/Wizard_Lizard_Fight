@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   player: {fileID: 6448434123201450951, guid: 0cc6487ca36ec9648b61154d29b88e43, type: 3}
+  HP: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4, type: 3}
+  MP: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
 --- !u!1001 &96793243504722901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +136,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: CurrentPlayerHealth
+      value: 328
+      objectReference: {fileID: 0}
     - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_Name
@@ -198,11 +205,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: CurrentPlayerHealth
-      value: 328
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8465dacab21d24478e86e23128c33a4, type: 3}
