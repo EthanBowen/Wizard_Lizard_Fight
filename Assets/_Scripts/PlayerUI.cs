@@ -11,13 +11,13 @@ public class PlayerUI : MonoBehaviour
     public Player player;
     public HealthBar HP;
     public ManaBar MP;
+    public float health = 0;
+    public float mana = 0;
     // Start is called before the first frame update
     void Start()
     {
-        HP.CurrentPlayerHealth = player.maxHealth;
-        MP.CurrentPlayerMana = player.maxMP;
+      
         UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
-        ID = HP.ID;
         switch (ID)
         {
             case 1: //top left player
@@ -46,8 +46,7 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        //HP.setSize();
-      //  MP.setSize();
+        health = player.health;
+        mana = player.MP;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    public float PlayerMaxHealth = 100.0f;
+    public float PlayerMaxHealth = 1000.0f;
     private Transform bar;
     public float CurrentPlayerHealth = 0.0f;
     public Player player;
@@ -12,12 +12,14 @@ public class HealthBar : MonoBehaviour
    private float x = 0;
     private float y = 0;
     private Camera UI_Camera = new Camera();
+    public PlayerUI playerUI;
     //private Player player;
     // Start is called before the first frame update
     void Start()
     {
         PlayerMaxHealth = player.maxHealth;
         CurrentPlayerHealth = PlayerMaxHealth;
+        ID = playerUI.ID;
         bar = transform.Find("Bar");
         UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
         
@@ -25,22 +27,22 @@ public class HealthBar : MonoBehaviour
         {
             case 1: //top left player
                 x = 0.118f;
-                y = .965f;
+                y = .960f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
             case 2: //top right player
                 x = 1-0.118f;
-                y = .965f;
+                y = .960f;
                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
             case 3: //bottom left player
                 x = 0.118f;
-                y = 1 - .945f;
+                y = 1 - .950f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
             case 4: //bottom right player
                 x = 1 - 0.118f;
-                y = 1-.945f;
+                y = 1 - .950f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
                 break;
         }
@@ -49,27 +51,7 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        CurrentPlayerHealth = player.health;
-        float hp = (CurrentPlayerHealth/PlayerMaxHealth);
-        switch (ID)
-        {
-            case 1:
-                bar.localScale = new Vector3(hp, 1f);
-                break;
-            case 2:
-                bar.localScale = new Vector3(-hp, 1f);
-                bar.localPosition = new Vector3(2f,0);
-                break;
-            case 3:
-                bar.localScale = new Vector3(hp, 1f);
-                break;
-            case 4:
-                bar.localScale = new Vector3(-hp, 1f);
-                bar.localPosition = new Vector3(2f, 0f);
-                break;
-
-        }
-        
+        setHealth(playerUI.health);
     }
 
     /**
@@ -77,7 +59,7 @@ public class HealthBar : MonoBehaviour
      */
     private void LateUpdate()
     {
-       // setSize();
+        
     }
 
     public void setSize()
@@ -88,6 +70,29 @@ public class HealthBar : MonoBehaviour
         bar.localScale = new Vector3(hp, 1f);
     }
     
+    public void setHealth(float health)
+    {
+        //CurrentPlayerHealth = player.health;
+        float hp = (health / PlayerMaxHealth);
+        switch (ID)
+        {
+            case 1:
+                bar.localScale = new Vector3(hp, 1f);
+                break;
+            case 2:
+                bar.localScale = new Vector3(-hp, 1f);
+                bar.localPosition = new Vector3(2f, 0);
+                break;
+            case 3:
+                bar.localScale = new Vector3(hp, 1f);
+                break;
+            case 4:
+                bar.localScale = new Vector3(-hp, 1f);
+                bar.localPosition = new Vector3(2f, 0f);
+                break;
+
+        }
+    }
 
     /**
      * This event is called whenever the player's health changes.
