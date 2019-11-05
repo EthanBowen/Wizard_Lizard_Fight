@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManaBarPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6,
+        type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 8203766056990350719, guid: 263b2256444a1634abf3cd09bbe04db6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -123,11 +128,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6,
-        type: 3}
-      propertyPath: playerUI
-      value: 
-      objectReference: {fileID: 4324799210306249739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
 --- !u!4 &7182872897562299942 stripped
@@ -143,16 +143,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
-    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: playerUI
-      value: 
-      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_Name
       value: HealthBarPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 2290015349615495746, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_LocalPosition.x

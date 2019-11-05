@@ -9,8 +9,6 @@ public class HealthBar : MonoBehaviour
     public float CurrentPlayerHealth = 0.0f;
     public Player player;
     public int ID = 0;
-   public float x = 0;
-    public float y = 0;
     private Camera UI_Camera = new Camera();
     public PlayerUI playerUI;
     //private Player player;
@@ -20,8 +18,6 @@ public class HealthBar : MonoBehaviour
         PlayerMaxHealth = player.maxHealth;
         CurrentPlayerHealth = PlayerMaxHealth;
         ID = playerUI.ID;
-        x = playerUI.HP.x;
-        y = playerUI.HP.y;
         bar = transform.Find("Bar");
         UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
         //this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x,y,5f));

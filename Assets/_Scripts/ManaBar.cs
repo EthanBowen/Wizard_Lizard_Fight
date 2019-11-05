@@ -9,8 +9,6 @@ public class ManaBar : MonoBehaviour
     public float CurrentPlayerMana = 0.0f;
     public Player player;
     public int ID = 0;
-    public float x = 0;
-    public float y = 0;
     private Camera UI_Camera = new Camera();
     public PlayerUI playerUI;
     //private Player player;
@@ -21,8 +19,6 @@ public class ManaBar : MonoBehaviour
         CurrentPlayerMana = PlayerMaxMana;
         bar = transform.Find("Bar");
         ID = playerUI.ID;
-        x = playerUI.MP.x;
-        y = playerUI.MP.y;
         UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
         /*
         switch (ID)

@@ -30,53 +30,29 @@ public class PlayerUI : MonoBehaviour
        playerSprite = characterList[0];
        if (sr.sprite == null)
            sr.sprite = playerSprite;
-
+        sr.GetComponent<SpriteRenderer>().sortingOrder = 1;
        //sets the locations of all players spawned in their respected corners of the screen
        switch (ID)
        {
             case 1: //top left player
-                this.x = 0.118f;
-                this.y = .940f;
-                HP.x = 0.118f;
-                HP.y = .960f;
-                MP.x = 0.118f;
-                MP.y = 0.943f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                HP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                MP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
+                x = 0.118f;
+                y = .940f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
             case 2: //top right player
-                this.x = 1 - 0.118f;
-                this.y = 0.940f;
-                HP.x = 1 - 0.118f;
-                HP.y = .960f;
-                MP.x = 1 - 0.118f;
-                MP.y = 0.943f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                HP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                MP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
+                x = 1 - 0.118f;
+                y = 0.940f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
             case 3: //bottom left player
-                this.x = 0.118f;
-                this.y = 1 - 0.940f;
-                HP.x = 0.118f;
-                HP.y = 1 - 0.950f;
-                MP.x = 0.118f;
-                MP.y = 1 - 0.970f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                HP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                MP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
+                x = 0.118f;
+                y = 1 - 0.940f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
             case 4: //bottom right player
-                this.x = 1-0.118f;
-                this.y = 1 - 0.940f;
-                HP.x = 1 - 0.118f;
-                HP.y = 1 - 0.950f;
-                MP.x = 1 - 0.118f;
-                MP.y = 1 - 0.970f;
-                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                HP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
-                MP.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 5f));
+                x = 1-0.118f;
+                y = 1 - 0.940f;
+                this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
        }
     }
