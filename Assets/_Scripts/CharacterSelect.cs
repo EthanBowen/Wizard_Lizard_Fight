@@ -14,7 +14,7 @@ public class CharacterSelect : MonoBehaviour
     private Color desiredColor;
 
     [Header("List of Characters")]
-    [SerializeField] private List<CharacterSelectObject> characterList = new List<CharacterSelectObject>();
+    [SerializeField] public List<CharacterSelectObject> characterList = new List<CharacterSelectObject>();
 
     [Header("UI Reference")]
     [SerializeField] private TextMeshProUGUI characterName;
@@ -30,6 +30,7 @@ public class CharacterSelect : MonoBehaviour
 
     private void Start()
     {
+        selectedCharacterIndex = PlayerPrefs.GetInt("CharacterSelected");
         updateCharacterSelectUI();
         characterSelectMusic.Play();
     }
@@ -86,6 +87,22 @@ public class CharacterSelect : MonoBehaviour
     public void Confirm()
     {
         //TODO: make this function save the information the player chooses
+        switch(ID)
+        {
+            case (0):
+                PlayerPrefs.SetInt("Player1", selectedCharacterIndex);
+                break;
+            case (1):
+                PlayerPrefs.SetInt("Player2", selectedCharacterIndex);
+                break;
+            case (2):
+                PlayerPrefs.SetInt("Player3", selectedCharacterIndex);
+                break;
+            case (3):
+                PlayerPrefs.SetInt("Player4", selectedCharacterIndex);
+                break;
+        }
+        
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = arrowSFX;
         audio.Play();

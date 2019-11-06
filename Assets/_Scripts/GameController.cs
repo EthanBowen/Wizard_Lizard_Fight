@@ -8,9 +8,8 @@ public class GameController : MonoBehaviour
 {
     public int NumberOfPlayers = 2;
     public GameObject PlayerObject;
-    //public GameObject healthObject;
-    //public GameObject mpObject;
     public GameObject playerUIObject;
+    private CharacterSelect selectedCharacter;
     public float PlayerMovementSpeed = 5f;
     public float CameraZoomDefault = 5f;
     public float CameraZoomOffset = 5f;
@@ -86,8 +85,6 @@ public class GameController : MonoBehaviour
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
             GameObject character = Instantiate(PlayerObject);
-            //GameObject health = Instantiate(healthObject);
-           // GameObject mp = Instantiate(mpObject);
             GameObject playerUI = Instantiate(playerUIObject);
 
             Vector3 spawnpoint;
@@ -103,11 +100,8 @@ public class GameController : MonoBehaviour
             character_script.SpawnPoint = spawnpoint;
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
-            //health.GetComponent<HealthBar>().ID = index;
-            //mp.GetComponent<ManaBar>().ID = index;
             playerUI.GetComponent<PlayerUI>().ID = index;
-            //health.GetComponent<HealthBar>().player = character.GetComponent<Player>();
-            //mp.GetComponent<ManaBar>().player = character.GetComponent<Player>();
+           // selectedCharacter.ID = index;
             playerUI.GetComponent<PlayerUI>().player = character.GetComponent<Player>();
             character_script.inputs = new _script_ReadInputs(index);
             ListOfPlayers.Add(index, character);

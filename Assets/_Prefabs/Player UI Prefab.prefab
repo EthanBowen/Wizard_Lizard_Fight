@@ -54,8 +54,8 @@ MonoBehaviour:
   mana: 0
   playerSprite: {fileID: 0}
   characterList:
-  - {fileID: 5108601841118324724, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
   - {fileID: 21300000, guid: 9e5b41009f116f2498f3bed4c6e1c17a, type: 3}
+  - {fileID: -570477218366675872, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
 --- !u!1001 &1330551024362607449
 PrefabInstance:
   m_ObjectHideFlags: 0

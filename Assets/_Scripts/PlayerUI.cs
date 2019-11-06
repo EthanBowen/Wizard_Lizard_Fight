@@ -26,11 +26,12 @@ public class PlayerUI : MonoBehaviour
     {
        UI_Camera = GameObject.FindGameObjectWithTag("UI Camera").GetComponent<Camera>();
        //WIP Character models next to UI
-       sr = gameObject.AddComponent<SpriteRenderer>();
-       playerSprite = characterList[0];
-       if (sr.sprite == null)
-           sr.sprite = playerSprite;
-        sr.GetComponent<SpriteRenderer>().sortingOrder = 1;
+       //sr = gameObject.AddComponent<SpriteRenderer>();
+       //playerSprite = characterList[0];
+       //if (sr.sprite == null)
+        //   sr.sprite = playerSprite;
+       //brings the picture of the sprite in front of the HP and MP bars
+        
        //sets the locations of all players spawned in their respected corners of the screen
        switch (ID)
        {
@@ -55,6 +56,7 @@ public class PlayerUI : MonoBehaviour
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
        }
+        showSelectedCharacter();
     }
 
     // Update is called once per frame
@@ -63,14 +65,37 @@ public class PlayerUI : MonoBehaviour
         health = player.health;
         mana = player.MP;
         //WIP to figure out with Character Selection for later
-        if (Input.GetKeyDown(KeyCode.Space))
-            ChangePlayerSprite();
-            
+        //if (Input.GetKeyDown(KeyCode.Space))
+        // ChangePlayerSprite();
+
     }
 
     private void ChangePlayerSprite()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = characterList[characterList.Length-1];
     }
-    
+
+    private void showSelectedCharacter()
+    {
+        switch(ID)
+        {
+            case (1):
+                this.gameObject.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player1")];
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                break;
+            case (2):
+                this.gameObject.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player2")];
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                break;
+            case (3):
+                this.gameObject.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player3")];
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                break;
+            case (4):
+                this.gameObject.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player4")];
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                break;
+        }
+        
+    }
 }

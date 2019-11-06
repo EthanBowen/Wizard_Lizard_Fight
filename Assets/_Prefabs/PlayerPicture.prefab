@@ -38,7 +38,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3831514837425297955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b877f296161cc114182d89349ee586cd, type: 3}
   m_Name: 
@@ -52,4 +52,4 @@ MonoBehaviour:
   playerSprite: {fileID: 0}
   characterList:
   - {fileID: 21300000, guid: 9e5b41009f116f2498f3bed4c6e1c17a, type: 3}
-  - {fileID: 5108601841118324724, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
+  - {fileID: -570477218366675872, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
