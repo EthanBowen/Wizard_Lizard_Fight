@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 763718201113852716
     second: Salamander_1
+  - first:
+      213: -570477218366675872
+    second: Salamander 1_0
+  - first:
+      213: -7126861374802148529
+    second: Salamander 1_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -90,43 +96,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Salamander_0
+      name: Salamander 1_0
       rect:
         serializedVersion: 2
         x: 1
         y: 1
         width: 223
         height: 233
-      alignment: 9
-      pivot: {x: 0.32709765, y: 0.41459063}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08d67a5cec44dac4894b5f964e7b1716
-      internalID: 5108601841118324724
+      spriteID: 0a3d705af1a69d244a21b4ee22c10853
+      internalID: -570477218366675872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Salamander_1
+      name: Salamander 1_1
       rect:
         serializedVersion: 2
         x: 227
         y: 4
         width: 187
         height: 221
-      alignment: 9
-      pivot: {x: 0.3869291, y: 0.44372037}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68842863074a06c43a7030a28c5acc5e
-      internalID: 763718201113852716
+      spriteID: a44366d15d728c642953fe7fca5af88f
+      internalID: -7126861374802148529
       vertices: []
       indices: 
       edges: []
