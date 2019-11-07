@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
             //playerNumber.GetComponent<PlayerController>().ID = character.GetComponent<CharacterSelect>().ID;
 
     }
+    /*
     public void leftArrow()
     {
        
@@ -37,31 +38,31 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        character.GetComponent<CharacterSelect>().updateCharacterSelectUI();
+        character.GetComponent<CharacterSelect>().updateCharacterSelectUI(ID);
         /*
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = arrowSFX;
         audio.Play();
         */
-    }
-
+    
+/*
     public void rightArrow()
     {
         selectedIndex++;
         if(selectedIndex < characterListCount)
-            character.GetComponent<CharacterSelect>().selectedCharacterIndex = selectedIndex;
+            playerNumber.GetComponent<CharacterSelect>().selectedCharacterIndex = selectedIndex;
 
         if (selectedIndex == characterListCount)
             selectedIndex = 0;
 
-        character.gameObject.GetComponent<CharacterSelect>().selectedCharacterIndex = selectedIndex;
-        character.gameObject.GetComponent<CharacterSelect>().updateCharacterSelectUI();
+        playerNumber.GetComponent<CharacterSelect>().selectedCharacterIndex = selectedIndex;
+        playerNumber.GetComponent<CharacterSelect>().updateCharacterSelectUI(ID);
         /*
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = arrowSFX;
         audio.Play();
+        }
         */
-    }
 
     private bool isActive(GameObject player)
     {
