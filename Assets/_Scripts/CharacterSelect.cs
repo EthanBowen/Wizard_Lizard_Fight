@@ -8,6 +8,12 @@ public class CharacterSelect : MonoBehaviour
 {
     //player ID
     public int ID = 1;
+
+   // public int player1 = 1;
+   // public int player2 = 2;
+   // public int player3 = 3;
+   // public int player4 = 4;
+
     //Player panels
     public GameObject Player1;
     public GameObject Player2;
@@ -21,10 +27,10 @@ public class CharacterSelect : MonoBehaviour
 
     private int playerCharacter;
     //to track the players choice for character
-    public int player1SelectedCharacterIndex;
-    public int player2SelectedCharacterIndex;
-    public int player3SelectedCharacterIndex;
-    public int player4SelectedCharacterIndex;
+    public int player1Index;
+    public int player2Index;
+    public int player3Index;
+    public int player4Index;
     //color of the character
     private Color player1CharacterColor;
     private Color player2CharacterColor;
@@ -66,8 +72,6 @@ public class CharacterSelect : MonoBehaviour
 
     private void Start()
     {
-        //selectedCharacterIndex = PlayerPrefs.GetInt("CharacterSelected");
-        //updateCharacterSelectUI(ID);
         player1Splash.sprite = characterList[0].splash;
         player1CharacterColor = characterList[0].characterColor;
         player1Name.text = characterList[0].characterName;
@@ -106,19 +110,19 @@ public class CharacterSelect : MonoBehaviour
      */
     private void countPlayers()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) && ID < 3)
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             if (ID == 4)
                 return;
-            else
+            else if(ID < 4)
                 ID++;
         }
 
-        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Delete) && ID > 1)
+        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Delete))
         {
             if (ID == 1)
                 return;
-            else
+            else if(ID > 1)
                 ID--;
         }
              
@@ -155,28 +159,28 @@ public class CharacterSelect : MonoBehaviour
                 Player2.SetActive(false);
                 Player3.SetActive(false);
                 Player4.SetActive(false);
-                playerCharacter = player1SelectedCharacterIndex;
+                playerCharacter = player1Index;
                 break;
             case (2):
                 Player2.AddComponent<PlayerController>().ID = ID;
                 Player2.SetActive(true);
                 Player3.SetActive(false);
                 Player4.SetActive(false);
-                playerCharacter = player2SelectedCharacterIndex;
+                playerCharacter = player2Index;
                 break;
             case (3):
                 Player3.AddComponent<PlayerController>().ID = ID;
                 Player2.SetActive(true);
                 Player3.SetActive(true);
                 Player4.SetActive(false);
-                playerCharacter = player3SelectedCharacterIndex;
+                playerCharacter = player3Index;
                 break;
             case (4):
                 Player4.AddComponent<PlayerController>().ID = ID;
                 Player2.SetActive(true);
                 Player3.SetActive(true);
                 Player4.SetActive(true);
-                playerCharacter = player4SelectedCharacterIndex;
+                playerCharacter = player4Index;
                 break;
         }
     }
@@ -192,27 +196,27 @@ public class CharacterSelect : MonoBehaviour
         {
             case (1):
                 player1Ready = false;
-                player1SelectedCharacterIndex--;
-                if (player1SelectedCharacterIndex < 0)
-                    player1SelectedCharacterIndex = player1CharacterList.Count - 1;
+                player1Index--;
+                if (player1Index < 0)
+                    player1Index = player1CharacterList.Count - 1;
                 break;
             case (2):
                 player2Ready = false;
-                player2SelectedCharacterIndex--;
-                if (player2SelectedCharacterIndex < 0)
-                    player2SelectedCharacterIndex = player2CharacterList.Count - 1;
+                player2Index--;
+                if (player2Index < 0)
+                    player2Index = player2CharacterList.Count - 1;
                 break;
             case (3):
                 player3Ready = false;
-                player3SelectedCharacterIndex--;
-                if (player3SelectedCharacterIndex < 0)
-                    player3SelectedCharacterIndex = player3CharacterList.Count - 1;
+                player3Index--;
+                if (player3Index < 0)
+                    player3Index = player3CharacterList.Count - 1;
                 break;
             case 4:
                 player4Ready = false;
-                player4SelectedCharacterIndex--;
-                if (player4SelectedCharacterIndex < 0)
-                    player4SelectedCharacterIndex = player4CharacterList.Count - 1;
+                player4Index--;
+                if (player4Index < 0)
+                    player4Index = player4CharacterList.Count - 1;
                 break;
         }
 
@@ -234,27 +238,27 @@ public class CharacterSelect : MonoBehaviour
         {
             case (1):
                 player1Ready = false;
-                player1SelectedCharacterIndex++;
-                if (player1SelectedCharacterIndex == player1CharacterList.Count)
-                    player1SelectedCharacterIndex = 0;
+                player1Index++;
+                if (player1Index == player1CharacterList.Count)
+                    player1Index = 0;
                 break;
             case (2):
                 player2Ready = false;
-                player2SelectedCharacterIndex++;
-                if (player2SelectedCharacterIndex == player2CharacterList.Count)
-                    player2SelectedCharacterIndex = 0;
+                player2Index++;
+                if (player2Index == player2CharacterList.Count)
+                    player2Index = 0;
                 break;
             case (3):
                 player3Ready = false;
-                player3SelectedCharacterIndex++;
-                if (player3SelectedCharacterIndex == player3CharacterList.Count)
-                    player3SelectedCharacterIndex = 0;
+                player3Index++;
+                if (player3Index == player3CharacterList.Count)
+                    player3Index = 0;
                 break;
             case 4:
                 player4Ready = false;
-                player4SelectedCharacterIndex++;
-                if (player4SelectedCharacterIndex == player4CharacterList.Count)
-                    player4SelectedCharacterIndex = 0;
+                player4Index++;
+                if (player4Index == player4CharacterList.Count)
+                    player4Index = 0;
                 break;
         }
 
@@ -271,19 +275,19 @@ public class CharacterSelect : MonoBehaviour
         switch(ID)
         {
             case (1):
-                PlayerPrefs.SetInt("Player1", player1SelectedCharacterIndex);
+                PlayerPrefs.SetInt("Player1", player1Index);
                 player1Ready = true;
                 break;
             case (2):
-                PlayerPrefs.SetInt("Player2", player2SelectedCharacterIndex);
+                PlayerPrefs.SetInt("Player2", player2Index);
                 player2Ready = true;
                 break;
             case (3):
-                PlayerPrefs.SetInt("Player3", player3SelectedCharacterIndex);
+                PlayerPrefs.SetInt("Player3", player3Index);
                 player3Ready = true;
                 break;
             case (4):
-                PlayerPrefs.SetInt("Player4", player4SelectedCharacterIndex);
+                PlayerPrefs.SetInt("Player4", player4Index);
                 player4Ready = true;
                 break;
         }
@@ -298,24 +302,24 @@ public class CharacterSelect : MonoBehaviour
         switch (player)
         {
             case (1):
-                player1Splash.sprite = player1CharacterList[player1SelectedCharacterIndex].splash;
-                player1Name.text = player1CharacterList[player1SelectedCharacterIndex].characterName;
-                player1CharacterColor = player1CharacterList[player1SelectedCharacterIndex].characterColor;
+                player1Splash.sprite = player1CharacterList[player1Index].splash;
+                player1Name.text = player1CharacterList[player1Index].characterName;
+                player1CharacterColor = player1CharacterList[player1Index].characterColor;
                 break;
             case (2):
-                player2Splash.sprite = player2CharacterList[player2SelectedCharacterIndex].splash;
-                player2Name.text = player2CharacterList[player2SelectedCharacterIndex].characterName;
-                player2CharacterColor = player2CharacterList[player2SelectedCharacterIndex].characterColor;
+                player2Splash.sprite = player2CharacterList[player2Index].splash;
+                player2Name.text = player2CharacterList[player2Index].characterName;
+                player2CharacterColor = player2CharacterList[player2Index].characterColor;
                 break;
             case (3):
-                player3Splash.sprite = player3CharacterList[player3SelectedCharacterIndex].splash;
-                player3Name.text = player3CharacterList[player3SelectedCharacterIndex].characterName;
-                player3CharacterColor = player3CharacterList[player3SelectedCharacterIndex].characterColor;
+                player3Splash.sprite = player3CharacterList[player3Index].splash;
+                player3Name.text = player3CharacterList[player3Index].characterName;
+                player3CharacterColor = player3CharacterList[player3Index].characterColor;
                 break;
             case 4:
-                player4Splash.sprite = player4CharacterList[player4SelectedCharacterIndex].splash;
-                player4Name.text = player4CharacterList[player4SelectedCharacterIndex].characterName;
-                player4CharacterColor = player4CharacterList[player4SelectedCharacterIndex].characterColor;
+                player4Splash.sprite = player4CharacterList[player4Index].splash;
+                player4Name.text = player4CharacterList[player4Index].characterName;
+                player4CharacterColor = player4CharacterList[player4Index].characterColor;
                 break;
         }
         
