@@ -11,10 +11,10 @@ public class Player : MonoBehaviour
     public float diagonalMoveSpeedMultiplier = 1f;
 
     // Variables for player info
-    public float maxHealth = 1000;
+    public float maxHealth = 100;
     public float maxMP = 100;
-    public int fireDamage = 4;
-    public int waterDamage = 40;
+    //public float fireDamage = 4;
+    //public float waterDamage = 40;
     public int score = 0;
     private bool dead;
 
@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
     public ParticleSystem BlueMag;
     public ParticleSystem WhiteMag;
     public ParticleSystem WindSpell;
+
+    public GameObject Fire;
 
     public GameObject healthBar;
     public GameObject manaBar;
@@ -191,7 +193,7 @@ public class Player : MonoBehaviour
 
     public void Aim()
     {
-        FireSpell.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        Fire.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
         WindSpell.transform.LookAt(new Vector2(transform.position.x - horizontal, transform.position.y - vertical));
     }
 
@@ -236,14 +238,10 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
+            if (ID != other.GetComponent<PlayerAttack>().CheckID())
             {
-                //other.get
-                if (other.tag.Equals("Fire"))
-                {
-                    health -= fireDamage;
-                    healthupdate.Invoke(ID, health);
-                }
+                health -= other.GetComponent<PlayerAttack>().damage;
+                healthupdate.Invoke(ID, health);
 
                 if (health <= 0)
                 {
