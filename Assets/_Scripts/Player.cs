@@ -11,10 +11,10 @@ public class Player : MonoBehaviour
     public float diagonalMoveSpeedMultiplier = 1f;
 
     // Variables for player info
-    public float maxHealth = 1000;
+    public float maxHealth = 100;
     public float maxMP = 100;
-    public int fireDamage = 4;
-    public int waterDamage = 40;
+    //public float fireDamage = 4;
+    //public float waterDamage = 40;
     public int score = 0;
     private bool dead;
 
@@ -41,6 +41,8 @@ public class Player : MonoBehaviour
     public ParticleSystem WhiteMag;
     public ParticleSystem WindSpell;
 
+    public GameObject Fire;
+
     public GameObject healthBar;
     public GameObject manaBar;
     private Event_PlayerHealthChanged healthupdate;
@@ -56,6 +58,8 @@ public class Player : MonoBehaviour
         healthBar.GetComponent<HealthBar>().PlayerMaxHealth = maxHealth;
         manaBar.GetComponent<ManaBar>().PlayerMaxMana = maxMP;
         Initialization_SetUpEventSystemFor_ThisPlayersHealthUpdates();
+        old_y = 0;
+        old_x = 1;
     }
 
     // Start is called before the first frame update
@@ -189,10 +193,36 @@ public class Player : MonoBehaviour
         return;
     }
 
+
+    private float old_x;
+    private float old_y;
+    private float timer = 0;
+
     public void Aim()
     {
-        FireSpell.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        //Fire.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        //Transform temp = transform;
+
+        float x_dif = (Mathf.Abs(old_x) - Mathf.Abs(horizontal));
+        
+        float cross = horizontal * old_x + vertical * old_y;
+        float vectv = Mathf.Sqrt(horizontal * horizontal + vertical * vertical);
+        float vectu = Mathf.Sqrt(old_x * old_x + old_y * old_y);
+        float angle = Mathf.Rad2Deg * Mathf.Acos(cross / (vectv * vectu));
+
+        if (Mathf.Abs(angle) > 0.1f)
+        {
+            Debug.Log("---------- Old: [" + old_x + "," + old_y + "] New: [" + horizontal + "," + vertical + "] : ANGLE: "
+                + angle + "\n");
+        }
+
+        Fire.transform.Rotate(Vector3.forward, angle);
+
         WindSpell.transform.LookAt(new Vector2(transform.position.x - horizontal, transform.position.y - vertical));
+
+
+        old_x = horizontal;
+        old_y = vertical;
     }
 
     /*
@@ -236,18 +266,34 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
+            if (ID != other.GetComponent<PlayerAttack>().CheckID())
             {
-                //other.get
-                if (other.tag.Equals("Fire"))
-                {
-                    health -= fireDamage;
-                    healthupdate.Invoke(ID, health);
-                }
+                health -= other.GetComponent<PlayerAttack>().damage;
+                healthupdate.Invoke(ID, health);
 
                 if (health <= 0)
                 {
                     other.GetComponent<PlayerAttack>().ReportPoint();
+                    Die();
+                }
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //PlayerAttack hitter = collision.GetComponent<PlayerAttack>();
+        PlayerAttack hitter = collision.transform.parent.GetComponentInChildren<PlayerAttack>();
+        if (!dead && hitter != null)
+        {
+            if (ID != hitter.CheckID())
+            {
+                health -= hitter.damage;
+                healthupdate.Invoke(ID, health);
+
+                if (health <= 0)
+                {
+                    hitter.ReportPoint();
                     Die();
                 }
             }
