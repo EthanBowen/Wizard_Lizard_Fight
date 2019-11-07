@@ -58,6 +58,8 @@ public class Player : MonoBehaviour
         healthBar.GetComponent<HealthBar>().PlayerMaxHealth = maxHealth;
         manaBar.GetComponent<ManaBar>().PlayerMaxMana = maxMP;
         Initialization_SetUpEventSystemFor_ThisPlayersHealthUpdates();
+        old_y = 0;
+        old_x = 1;
     }
 
     // Start is called before the first frame update
@@ -191,10 +193,36 @@ public class Player : MonoBehaviour
         return;
     }
 
+
+    private float old_x;
+    private float old_y;
+    private float timer = 0;
+
     public void Aim()
     {
-        Fire.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        //Fire.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
+        //Transform temp = transform;
+
+        float x_dif = (Mathf.Abs(old_x) - Mathf.Abs(horizontal));
+        
+        float cross = horizontal * old_x + vertical * old_y;
+        float vectv = Mathf.Sqrt(horizontal * horizontal + vertical * vertical);
+        float vectu = Mathf.Sqrt(old_x * old_x + old_y * old_y);
+        float angle = Mathf.Rad2Deg * Mathf.Acos(cross / (vectv * vectu));
+
+        if (Mathf.Abs(angle) > 0.1f)
+        {
+            Debug.Log("---------- Old: [" + old_x + "," + old_y + "] New: [" + horizontal + "," + vertical + "] : ANGLE: "
+                + angle + "\n");
+        }
+
+        Fire.transform.Rotate(Vector3.forward, angle);
+
         WindSpell.transform.LookAt(new Vector2(transform.position.x - horizontal, transform.position.y - vertical));
+
+
+        old_x = horizontal;
+        old_y = vertical;
     }
 
     /*
@@ -246,6 +274,26 @@ public class Player : MonoBehaviour
                 if (health <= 0)
                 {
                     other.GetComponent<PlayerAttack>().ReportPoint();
+                    Die();
+                }
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //PlayerAttack hitter = collision.GetComponent<PlayerAttack>();
+        PlayerAttack hitter = collision.transform.parent.GetComponentInChildren<PlayerAttack>();
+        if (!dead && hitter != null)
+        {
+            if (ID != hitter.CheckID())
+            {
+                health -= hitter.damage;
+                healthupdate.Invoke(ID, health);
+
+                if (health <= 0)
+                {
+                    hitter.ReportPoint();
                     Die();
                 }
             }
