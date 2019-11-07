@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 
     private GameController gameController;
 
+    
+
     // Controls animations
     private SpriteRenderer sprite;
     private Animator anim;
