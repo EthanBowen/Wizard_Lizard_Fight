@@ -10,11 +10,6 @@ public class CharacterSelect : MonoBehaviour
     //player ID
     public int ID = 1;
 
-   // public int player1 = 1;
-   // public int player2 = 2;
-   // public int player3 = 3;
-   // public int player4 = 4;
-
     //Player panels
     public GameObject Player1;
     public GameObject Player2;
@@ -187,15 +182,12 @@ public class CharacterSelect : MonoBehaviour
                 break;
             case (3):
                 Player3.AddComponent<PlayerController>().ID = ID;
-                Player2.SetActive(true);
                 Player3.SetActive(true);
                 Player4.SetActive(false);
                 playerCharacter = player3Index;
                 break;
             case (4):
                 Player4.AddComponent<PlayerController>().ID = ID;
-                Player2.SetActive(true);
-                Player3.SetActive(true);
                 Player4.SetActive(true);
                 playerCharacter = player4Index;
                 break;
@@ -288,7 +280,6 @@ public class CharacterSelect : MonoBehaviour
 
     public void Confirm(int ID)
     {
-        //TODO: make this function save the information the player chooses
         switch(ID)
         {
             case (1):
