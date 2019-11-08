@@ -57,6 +57,7 @@ MonoBehaviour:
   characterList:
   - {fileID: 21300000, guid: 9e5b41009f116f2498f3bed4c6e1c17a, type: 3}
   - {fileID: -570477218366675872, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
+  - {fileID: -7126861374802148529, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
 --- !u!1001 &1330551024362607449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,11 +70,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManaBarPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6,
-        type: 3}
-      propertyPath: playerUI
-      value: 
-      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 8203766056990350719, guid: 263b2256444a1634abf3cd09bbe04db6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,6 +125,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6,
+        type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 4324799210306249739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
 --- !u!4 &7182872897562299942 stripped
@@ -149,11 +150,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: playerUI
-      value: 
-      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 2290015349615495746, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,6 +205,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 2290015348856413183, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -229,11 +230,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerPicture
-      objectReference: {fileID: 0}
     - target: {fileID: 6526233113355155977, guid: dd04924dfb2dab542acd67a2d303793d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,6 +299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8324069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerPicture
       objectReference: {fileID: 0}
     - target: {fileID: 8363649636066285199, guid: dd04924dfb2dab542acd67a2d303793d,
         type: 3}

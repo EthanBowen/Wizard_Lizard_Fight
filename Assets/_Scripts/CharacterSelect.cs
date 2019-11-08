@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -84,10 +85,26 @@ public class CharacterSelect : MonoBehaviour
         characterListCount = characterList.Count;
         countPlayers();
         //slowly changes the background color to the designated color of the player character background
-        backgroundColorChanger();
+        backgroundColorChanger(1);
+        updateCharacterSelectUI(1);
+        if(Player2.activeSelf == true)
+        {
+            updateCharacterSelectUI(2);
+            backgroundColorChanger(2);
+        }
+        if (Player3.activeSelf == true)
+        {
+            updateCharacterSelectUI(3);
+            backgroundColorChanger(3);
+        }
+        if(Player4.activeSelf == true)
+        {
+            updateCharacterSelectUI(4);
+            backgroundColorChanger(4);
+        }
+            
         playerTracker();
-        if (player1Ready && player2Ready && player3Ready && player4Ready)
-            return; //TODO: Transition scene to the game scene
+        switchScene();
     }
     /**
      *Adds all characters from the main Character list to the rest of the Player Character Lists
@@ -130,9 +147,9 @@ public class CharacterSelect : MonoBehaviour
     /**
      * Changes the background color depending on the player
      */
-    private void backgroundColorChanger()
+    private void backgroundColorChanger(int index)
     {
-        switch(ID)
+        switch(index)
         {
             case (1):
                 player1Color.color = Color.Lerp(player1Color.color, player1CharacterColor, Time.deltaTime * backgroundColorTransitionSpeed);
@@ -150,7 +167,7 @@ public class CharacterSelect : MonoBehaviour
         }   
     }
     //Meant to store the information on multiple players
-    public void playerTracker()
+    private void playerTracker()
     {
         switch(ID)
         {
@@ -188,7 +205,7 @@ public class CharacterSelect : MonoBehaviour
      * Cycles forward in the list of the characters
      * toggles off the ready for the player to signify that they are not ready to choose a character
      */
-    public void leftArrow()
+    public void leftArrow(int ID)
     {
         if(Input.GetKeyDown(KeyCode.Return))
             return;
@@ -230,7 +247,7 @@ public class CharacterSelect : MonoBehaviour
      * Cycles forward in the list of the characters
      * toggles off the ready for the player to signify that they are not ready to choose a character
      */
-    public void rightArrow()
+    public void rightArrow(int ID)
     {
         if (Input.GetKeyDown(KeyCode.Return))
             return;
@@ -269,7 +286,7 @@ public class CharacterSelect : MonoBehaviour
         audio.Play();
     }
 
-    public void Confirm()
+    public void Confirm(int ID)
     {
         //TODO: make this function save the information the player chooses
         switch(ID)
@@ -296,7 +313,7 @@ public class CharacterSelect : MonoBehaviour
         audio.clip = arrowSFX;
         audio.Play();
     }
-    public void updateCharacterSelectUI(int player)
+    private void updateCharacterSelectUI(int player)
     {
         //Sets the Splash, Name, Color
         switch (player)
@@ -324,7 +341,24 @@ public class CharacterSelect : MonoBehaviour
         }
         
     }
-
+    private void switchScene()
+    {
+        switch(ID)
+        {
+            case (2):
+                if (player1Ready && player2Ready)
+                    SceneManager.LoadScene("Game_MJ_Test");
+                break;
+            case (3):
+                if (player1Ready && player2Ready && player3Ready)
+                    SceneManager.LoadScene("Game_MJ_Test");
+                break;
+            case (4):
+                if (player1Ready && player2Ready && player3Ready && player4Ready)
+                    SceneManager.LoadScene("Game_MJ_Test");
+                break;
+        }
+    }
     [System.Serializable]
     public class CharacterSelectObject
     {
