@@ -29,7 +29,6 @@ public class GameEndController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //TODO:implement/grab amount of players playing and set it as the ID
     }
 
     // Update is called once per frame

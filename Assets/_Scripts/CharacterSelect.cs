@@ -60,8 +60,10 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] private Image player4Color;
     
     [Header("Sounds")]
-    [SerializeField] private AudioClip arrowSFX;
+    [SerializeField] private AudioSource arrowSFX;
     [SerializeField] private AudioSource characterSelectMusic;
+    [SerializeField] private AudioSource confirmSFX;
+    //[SerializeField] private AudioClip characterMusic;
 
     [Header("Small Changes")]
     [SerializeField] private float backgroundColorTransitionSpeed = 1.0f;
@@ -72,6 +74,7 @@ public class CharacterSelect : MonoBehaviour
         player1CharacterColor = characterList[0].characterColor;
         player1Name.text = characterList[0].characterName;
         populateCharacterList();
+        characterSelectMusic.loop = true;
         characterSelectMusic.Play();
     }
 
@@ -231,9 +234,7 @@ public class CharacterSelect : MonoBehaviour
 
         updateCharacterSelectUI(ID);
 
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.clip = arrowSFX;
-        audio.Play();
+        arrowSFX.Play();
     }
     /**
      * Cycles forward in the list of the characters
@@ -273,14 +274,14 @@ public class CharacterSelect : MonoBehaviour
 
         updateCharacterSelectUI(ID);
 
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.clip = arrowSFX;
-        audio.Play();
+        arrowSFX.Play();
     }
 
     public void Confirm(int ID)
     {
-        switch(ID)
+        if (Input.GetKeyDown(KeyCode.Return))
+            return;
+        switch (ID)
         {
             case (1):
                 PlayerPrefs.SetInt("Player1", player1Index);
@@ -299,10 +300,8 @@ public class CharacterSelect : MonoBehaviour
                 player4Ready = true;
                 break;
         }
-        
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.clip = arrowSFX;
-        audio.Play();
+
+        confirmSFX.Play();
     }
     private void updateCharacterSelectUI(int player)
     {
