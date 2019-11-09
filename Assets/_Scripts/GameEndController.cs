@@ -22,6 +22,10 @@ public class GameEndController : MonoBehaviour
     public TextMeshProUGUI player3Stats;
     public TextMeshProUGUI player4Stats;
 
+    [Header("Music and Sounds")]
+    [SerializeField] private AudioSource endMusic;
+    [SerializeField] private AudioSource restart;
+
     private int killCountPlaceHold = 0;
     private int damageDonePlaceHold = 0;
     private int damageTakenPlaceHold = 0;
@@ -29,6 +33,8 @@ public class GameEndController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        endMusic.loop = true;
+        endMusic.Play();
     }
 
     // Update is called once per frame
@@ -49,7 +55,9 @@ public class GameEndController : MonoBehaviour
      */
     public void switchScene()
     {
-        SceneManager.LoadScene("Player Select");
+        restart.Play();
+        SceneManager.LoadScene("PlayerSelect");
+        endMusic.Stop();
     }
     /**
      * Update the players Stat to show to all

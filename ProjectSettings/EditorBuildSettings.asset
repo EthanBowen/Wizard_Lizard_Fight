@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameEnd.unity
     guid: ff12b1f5aec96cf4a8283b80485bd1d9
   - enabled: 1
-    path: Assets/Scenes/Player Select.unity
+    path: Assets/Scenes/PlayerSelect.unity
     guid: fa0d88ed00ee1c841938f3de42600cc8
   - enabled: 1
     path: Assets/Scenes/Game_MJ_Test.unity
