@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
@@ -193,8 +195,22 @@ public class Player : MonoBehaviour
 
     public void Aim()
     {
-        FireSpell.transform.LookAt(new Vector2(transform.position.x + horizontal, transform.position.y + vertical));
-        WindSpell.transform.LookAt(new Vector2(transform.position.x - horizontal, transform.position.y - vertical));
+        // Only aim when there's a potential new direction to aim at.
+        if (horizontal != 0 || vertical != 0)
+        {
+            Quaternion SetRotationTo = CalcAimVector(horizontal, vertical);
+            FireSpell.transform.rotation = SetRotationTo;
+            WindSpell.transform.rotation = SetRotationTo;
+
+        }
+    }
+
+
+    private Quaternion CalcAimVector(float x_in, float y_in)
+    {
+        float angle = Mathf.Atan2(y_in, x_in) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        return Quaternion.Lerp(FireSpell.transform.rotation, rotation, 1.0f);
     }
 
     /*
@@ -223,7 +239,8 @@ public class Player : MonoBehaviour
         fire = true;
         RedMag.Play();
         FireSpell.Play();
-       
+        FireSpell.GetComponent<PolygonCollider2D>().enabled = true;
+
     }
     public void StopFire()
     {
@@ -232,6 +249,7 @@ public class Player : MonoBehaviour
         RedMag.Pause();
         RedMag.Clear();
         FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        FireSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
     private void OnParticleCollision(GameObject other)
@@ -304,9 +322,15 @@ public class Player : MonoBehaviour
     private void PlaceBomb()
     {
         MP -= 30.0f;
-        GameObject bomb = Instantiate(attack_bomb);
-        bomb.transform.position = new Vector3(transform.position.x + 2.0f, transform.position.y + 2.0f, this.transform.position.z);
-        //bomb.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        Quaternion aimPos = CalcAimVector(horizontal, vertical);
+
+        Vector3 positionOfBomb = new Vector3(2.0f, 0);
+
+        positionOfBomb = aimPos * positionOfBomb;
+        positionOfBomb += transform.position;
+
+        GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
+        
         _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
         bombscript.SetPlayerID(ID);
     }
@@ -343,6 +367,12 @@ public class Player : MonoBehaviour
     public void event_input_Wind(bool buttondown)
     {
         Debug.Log("Player " + ID + " detected Wind button input event: " + buttondown);
+    }
+
+
+    public void DetectWind(InputAction.CallbackContext context)
+    {
+
     }
 
 

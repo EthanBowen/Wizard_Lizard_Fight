@@ -185,6 +185,12 @@ public class GameController : MonoBehaviour
     private void OnDisable()
     {
         PlayerPrefs.SetInt("winner", winner);
+        for (int index = 1; index <= NumberOfPlayers; index++)
+        {
+            PlayerPrefs.SetFloat("P" + index + "_DamageDone", 0.0f);
+            PlayerPrefs.SetFloat("P" + index + "_DamageTaken", 0.0f);
+            PlayerPrefs.SetInt("P" + index + "_Kills", 0);
+        }
     }
 
 

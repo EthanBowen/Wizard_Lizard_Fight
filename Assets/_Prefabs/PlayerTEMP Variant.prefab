@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8864428136183806417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753322213154149215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4b4c22df423f9a143b39573f3157716b,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 032aaf22-189b-47bd-9269-b37f49fe68b7
+    m_ActionName: actmap_Player01/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4404510415604820387}
+        m_MethodName: DetectWind
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: cbbf3a6c-7b0c-4fd4-a2d3-057ffa221cb1
+    m_ActionName: actmap_Player01/AirButton[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: e98fe1d7-8697-4220-9540-e2dd23f0d07e
+    m_ActionName: actmap_Player01/FireButton[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 11deaaef-c3d6-4cfd-b5b4-a9893aad4be5
+    m_ActionName: actmap_Player01/WaterButton[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 0ad35812-0d85-4d54-98b3-b475b6c2fe0a
+    m_ActionName: actmap_Player01/EarthButton[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: b3185d61-889f-4ff1-974d-72a63b2b6536
+    m_ActionName: actmap_Player01/StartButton[/XInputControllerWindows/start,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 3fd2bd26-bc19-4436-a374-ec29223aae57
+    m_ActionName: actmap_Player2/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4404510415604820387}
+        m_MethodName: DetectWind
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 9bab0899-9199-45fa-9291-f2b46e48d1eb
+    m_ActionName: actmap_Player2/AirButton[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: a83eb34d-508c-48db-beea-3bea4c539a33
+    m_ActionName: actmap_Player2/FireButton[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 2bdca0a6-1d09-4009-ba88-2e705171235c
+    m_ActionName: actmap_Player2/WaterButton[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: a7684a35-0efc-4c59-bcc5-88e9c595df3f
+    m_ActionName: actmap_Player2/EarthButton[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: f63d6e38-0992-48ac-9dfd-61c0a902287a
+    m_ActionName: actmap_Player2/StartButton[/XInputControllerWindows/start,/Keyboard/enter]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: actmap_Player01
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!1001 &7233491597408352868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7932757349884422459, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerTEMP Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.287762
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.4463997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649336005895779571, guid: 0cc6487ca36ec9648b61154d29b88e43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0cc6487ca36ec9648b61154d29b88e43, type: 3}
+--- !u!1 &753322213154149215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7932757349884422459, guid: 0cc6487ca36ec9648b61154d29b88e43,
+    type: 3}
+  m_PrefabInstance: {fileID: 7233491597408352868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4404510415604820387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6448434123201450951, guid: 0cc6487ca36ec9648b61154d29b88e43,
+    type: 3}
+  m_PrefabInstance: {fileID: 7233491597408352868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753322213154149215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eae6c0c74f9d0240b29285119d61fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

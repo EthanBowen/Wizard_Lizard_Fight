@@ -162,8 +162,9 @@ MonoBehaviour:
   NumberOfPlayers: 4
   PlayerObject: {fileID: 7932757349884422459, guid: 0cc6487ca36ec9648b61154d29b88e43,
     type: 3}
-  healthObject: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
+  playerUIObject: {fileID: 7178377947653832398, guid: 0d19bac69b51d5540928d050d0e9002a,
     type: 3}
+  GameEnd: {fileID: 3338464258959845102, guid: 2fe88f77b23a3344db1d16e60cba9255, type: 3}
   PlayerMovementSpeed: 5
   CameraZoomDefault: 5
   CameraZoomOffset: 5

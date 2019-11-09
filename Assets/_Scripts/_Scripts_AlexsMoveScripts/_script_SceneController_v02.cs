@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class _script_SceneController_v02 : MonoBehaviour
 {
@@ -105,6 +107,22 @@ public class _script_SceneController_v02 : MonoBehaviour
             character_script.inputs = new _script_ReadInputs(index);
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
+
+            PlayerInput actmap = character.GetComponent<PlayerInput>();
+            if (actmap != null)
+            {
+                Debug.Log("Successfully captured actmap: " + index + " - with Index: " + actmap.playerIndex);
+                
+                InputDevice 
+                Debug.Log("Paired Devices: ");
+                
+            }
+            else
+            {
+                Debug.Log("No actmap grabbed: " + index);
+            }
+            
+
         }
 
         // Sets the music player to play the battle music.
@@ -233,5 +251,13 @@ public class _script_SceneController_v02 : MonoBehaviour
         }
 
     }
+
+
+    public void OnPlayerJoined(PlayerInput playerJoin)
+    {
+        Debug.Log("CONTROLLER LOGGED: " + playerJoin.playerIndex);
+        
+    }
+
 
 }
