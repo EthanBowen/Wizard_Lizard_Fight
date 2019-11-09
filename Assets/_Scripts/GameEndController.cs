@@ -48,7 +48,7 @@ public class GameEndController : MonoBehaviour
      */
     private void winner()
     {
-        playerWinner.text = "Player Place Holder";
+        playerWinner.text = PlayerPrefs.GetInt("winner").ToString();
     }
     /**
      * Sends Players back to Player Select Screen
@@ -67,16 +67,16 @@ public class GameEndController : MonoBehaviour
         switch(active)
         {
             case (1):
-                player1Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player1Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P1_Kills") + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P1_DamageDone") + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P1_DamageTaken");
                 break;
             case (2):
-                player2Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player2Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P2_Kills") + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P2_DamageDone") + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P2_DamageTaken");
                 break;
             case (3):
-                player3Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player3Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P3_Kills") + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P3_DamageDone") + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P3_DamageTaken");
                 break;
             case (4):
-                player4Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player4Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P4_Kills") + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P4_DamageDone") + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P4_DamageTaken");
                 break;
         }      
     }

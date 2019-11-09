@@ -113,7 +113,7 @@ public class _script_SceneController_v02 : MonoBehaviour
             {
                 Debug.Log("Successfully captured actmap: " + index + " - with Index: " + actmap.playerIndex);
                 
-                InputDevice 
+               // InputDevice 
                 Debug.Log("Paired Devices: ");
                 
             }
