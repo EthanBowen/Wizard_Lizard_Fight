@@ -13,10 +13,10 @@ public class Player : MonoBehaviour
     public float diagonalMoveSpeedMultiplier = 1f;
 
     // Variables for player info
-    public float maxHealth = 1000;
+    public float maxHealth = 100;
     public float maxMP = 100;
-    public int fireDamage = 4;
-    public int waterDamage = 40;
+    //public int fireDamage = 4;
+    //public int waterDamage = 40;
     public int score = 0;
     private bool dead;
 
@@ -85,9 +85,11 @@ public class Player : MonoBehaviour
         horizontal = inputs.PLAYER_horiz_move;
         vertical = inputs.PLAYER_vert_move;
         MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
+
+        // The wind spell controller
         if (inputs.button_lower)
         {
-            if (!fire && !water)
+            if (!fire && !water && !earth)
             {
                 StartWind();
             }
@@ -101,11 +103,13 @@ public class Player : MonoBehaviour
         {
             StopWind();
         }
+
+        // Earth spell controller
         if (inputs.button_up)
         {
-            if (!fire && !water)
+            if (!fire && !water && !wind)
             {
-                CastEarth();
+                StartEarth();
             }
             else if (fire && Timer_BombDrop > 4.0f)
             {
@@ -121,9 +125,11 @@ public class Player : MonoBehaviour
         {
             StopEarth();
         }
+
+        // Fire spell controller
         if (inputs.button_right)
         {
-            if (!wind && !earth)
+            if (!wind && !earth && !water)
             {
                 StartFire();
             }
@@ -141,9 +147,18 @@ public class Player : MonoBehaviour
         {
             StopFire();
         }
+
+        // Water spell controller
         if (inputs.button_left)
         {
-            CastWater();
+            if (!wind && !earth && !fire)
+            {
+                StartWater();
+            }
+            else if (earth)
+            {
+                
+            }
         }
         if(inputs.button_left_stop)
         {
@@ -181,6 +196,8 @@ public class Player : MonoBehaviour
         {
             StopFire();
             StopWind();
+            StopEarth();
+            StopWater();
         }
     }
 
@@ -227,7 +244,7 @@ public class Player : MonoBehaviour
             pos.y *= 2;
         }
        
-        body.velocity = pos;//this.gameObject.transform.position = pos;
+        body.velocity = pos;
 
         Aim();
 
@@ -254,9 +271,11 @@ public class Player : MonoBehaviour
         return Quaternion.Lerp(FireSpell.transform.rotation, rotation, 1.0f);
     }
 
-    /*
-     * Called when the lower face button "A" button is pressed.
-     */
+    //*********************************************************************************************************************************************************************
+    //********************************************************         Spells         *************************************************************************************
+    //*********************************************************************************************************************************************************************
+
+    //***********************************************************Wind************************************************************
     public void StartWind()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
@@ -273,6 +292,7 @@ public class Player : MonoBehaviour
         WindSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
+    //***********************************************************Fire************************************************************
     public void StartFire()
     {
         //Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
@@ -293,10 +313,9 @@ public class Player : MonoBehaviour
         FireSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
-    public void CastWater()
+    //***********************************************************Water************************************************************
+    public void StartWater()
     {
-        //Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
-
         water = true;
         BlueMag.Play();
         //WaterSpell.Play();
@@ -312,15 +331,30 @@ public class Player : MonoBehaviour
         //WaterSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         //WaterSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
+    public void CastWater()
+    {
+        MP -= 30.0f;
+        Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
-    public void CastEarth()
+        Vector3 positionOfWater = new Vector3(2.0f, 0);
+
+        positionOfWater = aimPos * positionOfWater;
+        positionOfWater += transform.position;
+
+        GameObject water = Instantiate(attack_bomb, positionOfWater, aimPos);
+
+        PlayerAttack pa = water.GetComponent<PlayerAttack>();
+        pa.AssignID(ID);
+
+    }
+
+    //***********************************************************Earth************************************************************
+    public void StartEarth()
     {
         Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
 
         earth = true;
         GreenMag.Play();
-        //WaterSpell.Play();
-        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = true;
 
     }
     public void StopEarth()
@@ -329,77 +363,9 @@ public class Player : MonoBehaviour
 
         GreenMag.Pause();
         GreenMag.Clear();
-        //WaterSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (!dead)
-        {
-            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
-            {
-                //other.get
-                if (other.tag.Equals("Fire"))
-                {
-                    health -= fireDamage;
-                    healthupdate.Invoke(ID, health);
-                }
-
-                if (health <= 0)
-                {
-                    other.GetComponent<PlayerAttack>().ReportPoint();
-                    Die();
-                }
-            }
-        }
-    }
-
-
-
-    public void IncreaseScore()
-    {
-        score++;
-    }
-
-    private void Die()
-    {
-        dead = true;
-        fire = wind = water = earth = false;
-        
-        this.gameObject.SetActive(false);
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        Invoke("Respawn", 5);
-    }
-
-    private void Respawn()
-    {
-        health = maxHealth;
-        MP = maxMP;
-        healthupdate.Invoke(ID, health);
-        /*switch(ID) 
-        {
-            case 2:
-                this.gameObject.transform.position = new Vector3(10.0f, 10.0f);
-                break;
-            case 3:
-                this.gameObject.transform.position = new Vector3(-10.0f, -10.0f);
-                break;
-            case 4:
-                this.gameObject.transform.position = new Vector3(10.0f, -10.0f);
-                break;
-            default:
-                this.gameObject.transform.position = new Vector3(-10.0f, 10.0f);
-                break;
-
-        }*/
-        this.gameObject.transform.position = SpawnPoint;
-        gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        this.gameObject.SetActive(true);
-        dead = false;
-    }
-
-
+    //********************************************************Fire/Earth**********************************************************
     private void PlaceBomb()
     {
         MP -= 30.0f;
@@ -411,11 +377,62 @@ public class Player : MonoBehaviour
         positionOfBomb += transform.position;
 
         GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
-        
+
         _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
         bombscript.SetPlayerID(ID);
     }
 
+
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (!dead)
+        {
+            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
+            {
+                health -= other.GetComponent<PlayerAttack>().damage;
+                healthupdate.Invoke(ID, health);
+                
+                if (health <= 0)
+                {
+                    other.GetComponent<PlayerAttack>().ReportPoint();
+                    Die();
+                }
+            }
+        }
+    }
+
+    
+    public void IncreaseScore()
+    {
+        score++;
+    }
+
+
+    private void Die()
+    {
+        dead = true;
+        fire = wind = water = earth = false;
+        
+        this.gameObject.SetActive(false);
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        Invoke("Respawn", 5);
+    }
+
+
+    private void Respawn()
+    {
+        health = maxHealth;
+        MP = maxMP;
+        healthupdate.Invoke(ID, health);
+
+        this.gameObject.transform.position = SpawnPoint;
+
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        this.gameObject.SetActive(true);
+
+        dead = false;
+    }
 
 
     /**

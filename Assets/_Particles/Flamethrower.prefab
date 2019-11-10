@@ -4766,3 +4766,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerID: 0
+  damage: 2.5

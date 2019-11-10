@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
     public int PlayerID;
     private Player owner;
 
+    public float damage;
+
     // Start is called before the first frame update
     void Start()
     {
