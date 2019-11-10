@@ -185,6 +185,12 @@ public class _script_ReadInputs
         button_select = Input.GetButtonDown((InputNames[PlayerInputList])[8]) ? true : false;
         button_start = Input.GetButtonDown((InputNames[PlayerInputList])[9]) ? true : false;
 
+        /* BUTTON Releases */
+        button_lower_stop = Input.GetButtonUp((InputNames[PlayerInputList])[4]) ? true : false;
+        button_left_stop = Input.GetButtonUp((InputNames[PlayerInputList])[5]) ? true : false;
+        button_right_stop = Input.GetButtonUp((InputNames[PlayerInputList])[6]) ? true : false;
+        button_up_stop = Input.GetButtonUp((InputNames[PlayerInputList])[7]) ? true : false;
+
         return;
     }
 
