@@ -28,7 +28,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4404510415604820387}
+        m_MethodName: DetectMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 032aaf22-189b-47bd-9269-b37f49fe68b7
@@ -75,7 +86,18 @@ MonoBehaviour:
     m_ActionId: b3185d61-889f-4ff1-974d-72a63b2b6536
     m_ActionName: actmap_Player01/StartButton[/XInputControllerWindows/start,/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4404510415604820387}
+        m_MethodName: DetectMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 3fd2bd26-bc19-4436-a374-ec29223aae57
@@ -121,9 +143,67 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: f63d6e38-0992-48ac-9dfd-61c0a902287a
     m_ActionName: actmap_Player2/StartButton[/XInputControllerWindows/start,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4404510415604820387}
+        m_MethodName: DetectMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 2ba93ab5-4306-4aae-ae5d-35bb3745d66c
+    m_ActionName: actmap_Player2/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4404510415604820387}
+        m_MethodName: DetectWind
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 2cb17e17-228e-4521-a14d-c52a27657cbf
+    m_ActionName: actmap_Player2/AirButton[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: cd6a1ac9-3214-430d-a28a-5ede68d2dd33
+    m_ActionName: actmap_Player2/FireButton[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 896132c8-8740-4457-b32b-9fa0e4730c5b
+    m_ActionName: actmap_Player2/WaterButton[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: d9f7578a-2543-4ab6-b57e-c6718a2c5c21
+    m_ActionName: actmap_Player2/EarthButton[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 30654c57-f1cc-47b0-9ea5-99ccb0f8edd8
+    m_ActionName: actmap_Player2/StartButton[/XInputControllerWindows/start,/SwitchProControllerHID/start,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: actmap_Player01
+  m_DefaultControlScheme: _ControlScheme_Default
+  m_DefaultActionMap: actmap_Player3
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &7233491597408352868

@@ -453,7 +453,14 @@ public class Player : MonoBehaviour
 
     public void DetectWind(InputAction.CallbackContext context)
     {
+        Debug.Log("Detected Wind on PLAYER: " + ID);
+    }
 
+    public void DetectMovement(InputAction.CallbackContext context)
+    {
+        Debug.Log("Detecting movement on player: " + ID);
+        horizontal = context.ReadValue<Vector2>().x;
+        vertical = context.ReadValue<Vector2>().y;
     }
 
 
