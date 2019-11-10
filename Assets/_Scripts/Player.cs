@@ -471,6 +471,7 @@ public class Player : MonoBehaviour
     //********************************************************Fire/Air**********************************************************
     public void StartFireTrail()
     {
+        // TODO: Aim trail behind player using CalcAimVector
         fireTrailSpell.Play();
 
     }
@@ -485,7 +486,8 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            if (ID != other.GetComponent<PlayerAttack>().PlayerID)
+            // If the collision object doesn't have a PlayerAttack component, ignore it.
+            if (other.GetComponent<PlayerAttack>() != null && ID != other.GetComponent<PlayerAttack>().PlayerID)
             {
                 health -= other.GetComponent<PlayerAttack>().damage;
                 healthupdate.Invoke(ID, health);
@@ -503,7 +505,8 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            if (ID != collision.gameObject.GetComponent<PlayerAttack>().PlayerID)
+            // If the collision object doesn't have a PlayerAttack component, ignore it.
+            if (collision.gameObject.GetComponent<PlayerAttack>() != null && ID != collision.gameObject.GetComponent<PlayerAttack>().PlayerID)
             {
                 health -= collision.gameObject.GetComponent<PlayerAttack>().damage;
                 healthupdate.Invoke(ID, health);
@@ -582,7 +585,7 @@ public class Player : MonoBehaviour
         Debug.Log("Player " + ID + " detected air button input event: " + buttondown);
     }
 
-
+    // TODO: Clean these up
     public void Detectair(InputAction.CallbackContext context)
     {
         Debug.Log("Detected air on PLAYER: " + ID);
