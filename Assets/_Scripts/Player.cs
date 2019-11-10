@@ -9,7 +9,7 @@ using UnityEngine.InputSystem.Interactions;
 public class Player : MonoBehaviour
 {
     // Variables for player movement
-    public float movementSpeed = 5f;
+    public float movementSpeed = 10f;
     public float diagonalMoveSpeedMultiplier = 1f;
 
     // Variables for player info
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     public ParticleSystem FireSpell;
     public ParticleSystem GreenMag;
     public ParticleSystem BlueMag;
+    //public ParticleSystem WaterSpell;
     public ParticleSystem WhiteMag;
     public ParticleSystem WindSpell;
 
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
     private Event_PlayerHealthChanged healthupdate;
 
     public GameObject attack_bomb;
+    public GameObject waterSpell;
 
     // The player reads only their own inputs from this class. 
     public _script_ReadInputs inputs;
@@ -85,15 +87,55 @@ public class Player : MonoBehaviour
         MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
         if (inputs.button_lower)
         {
-            StartWind();
+            if (!fire && !water)
+            {
+                StartWind();
+            }
+            else if(fire)
+            {
+                //StopFire();
+                
+            }
         }
         if (inputs.button_lower_stop)
         {
             StopWind();
         }
+        if (inputs.button_up)
+        {
+            if (!fire && !water)
+            {
+                CastEarth();
+            }
+            else if (fire && Timer_BombDrop > 4.0f)
+            {
+                StopFire();
+                if (Timer_BombDrop > 4.0f)
+                {
+                    Timer_BombDrop = 0.0f;
+                    PlaceBomb();
+                }
+            }
+        }
+        if (inputs.button_up_stop)
+        {
+            StopEarth();
+        }
         if (inputs.button_right)
         {
-            StartFire();
+            if (!wind && !earth)
+            {
+                StartFire();
+            }
+            else if(earth && Timer_BombDrop > 4.0f)
+            {
+                StopEarth();
+                if (Timer_BombDrop > 4.0f)
+                {
+                    Timer_BombDrop = 0.0f;
+                    PlaceBomb();
+                }
+            }
         }
         if (inputs.button_right_stop)
         {
@@ -101,12 +143,11 @@ public class Player : MonoBehaviour
         }
         if (inputs.button_left)
         {
-            // Cannot place bombs back-to-back. There's a delay.
-            if (Timer_BombDrop > 4.0f)
-            {
-                Timer_BombDrop = 0.0f;
-                PlaceBomb();
-            }
+            CastWater();
+        }
+        if(inputs.button_left_stop)
+        {
+            StopWater();
         }
 
 
@@ -129,7 +170,7 @@ public class Player : MonoBehaviour
 
         if(!fire && !wind && MP < maxMP)
         {
-            MP += 5;
+            MP += 1;
         }
         if(MP > maxMP)
         {
@@ -234,7 +275,7 @@ public class Player : MonoBehaviour
 
     public void StartFire()
     {
-        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+        //Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
         
         fire = true;
         RedMag.Play();
@@ -250,6 +291,46 @@ public class Player : MonoBehaviour
         RedMag.Clear();
         FireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         FireSpell.GetComponent<PolygonCollider2D>().enabled = false;
+    }
+
+    public void CastWater()
+    {
+        //Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+
+        water = true;
+        BlueMag.Play();
+        //WaterSpell.Play();
+        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = true;
+
+    }
+    public void StopWater()
+    {
+        water = false;
+
+        BlueMag.Pause();
+        BlueMag.Clear();
+        //WaterSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = false;
+    }
+
+    public void CastEarth()
+    {
+        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+
+        earth = true;
+        GreenMag.Play();
+        //WaterSpell.Play();
+        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = true;
+
+    }
+    public void StopEarth()
+    {
+        earth = false;
+
+        GreenMag.Pause();
+        GreenMag.Clear();
+        //WaterSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
     private void OnParticleCollision(GameObject other)
