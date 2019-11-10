@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eae6c0c74f9d0240b29285119d61fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 10
   diagonalMoveSpeedMultiplier: 1
   maxHealth: 1000
   maxMP: 100
@@ -343,11 +343,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 794545537669601889, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -418,6 +413,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameTrail
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
 --- !u!4 &190418261448385491 stripped
@@ -433,11 +433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: m_Name
-      value: Flamethrower
-      objectReference: {fileID: 0}
     - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: playOnAwake
@@ -452,6 +447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Rotation.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: m_Name
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
