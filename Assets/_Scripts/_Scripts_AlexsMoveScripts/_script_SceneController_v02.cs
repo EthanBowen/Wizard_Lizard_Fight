@@ -47,6 +47,8 @@ public class _script_SceneController_v02 : MonoBehaviour
     // Awake is called before Start
     private void Awake()
     {
+
+        inputdevices = new List<InputDevice>();
         if (_instance_SceneController != null && _instance_SceneController != this)
         {
             Destroy(this.gameObject);
@@ -107,21 +109,28 @@ public class _script_SceneController_v02 : MonoBehaviour
             character_script.inputs = new _script_ReadInputs(index);
             ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
-
+            /*
             PlayerInput actmap = character.GetComponent<PlayerInput>();
             if (actmap != null)
             {
+                var allGamepads = Gamepad.all;
+                foreach (InputDevice device in allGamepads)
+                {
+                    Debug.Log("Devices: " + device);
+                }
                 Debug.Log("Successfully captured actmap: " + index + " - with Index: " + actmap.playerIndex);
-                
-                InputDevice 
-                Debug.Log("Paired Devices: ");
+                InputDevice pad = InputSystem.GetDevice<Gamepad>();
+                InputUser.PerformPairingWithDevice(pad, actmap.user, InputUserPairingOptions.None);
+                actmap.ActivateInput();
+                Debug.Log("Successfully paired pad to user: " + actmap.user.id);
                 
             }
             else
             {
                 Debug.Log("No actmap grabbed: " + index);
             }
-            
+            /*
+            */
 
         }
 
@@ -252,11 +261,11 @@ public class _script_SceneController_v02 : MonoBehaviour
 
     }
 
-
+    List<InputDevice> inputdevices;
+    
     public void OnPlayerJoined(PlayerInput playerJoin)
     {
         Debug.Log("CONTROLLER LOGGED: " + playerJoin.playerIndex);
-        
     }
 
 

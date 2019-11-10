@@ -136,12 +136,12 @@
         },
         {
             "name": "actmap_Player2",
-            "id": "23c2e626-7773-42e0-b73e-bc5f3b469cef",
+            "id": "804c47fc-7fb5-4439-bd2f-d350f026ad65",
             "actions": [
                 {
                     "name": "Movement",
                     "type": "Value",
-                    "id": "3fd2bd26-bc19-4436-a374-ec29223aae57",
+                    "id": "2ba93ab5-4306-4aae-ae5d-35bb3745d66c",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -149,7 +149,7 @@
                 {
                     "name": "AirButton",
                     "type": "Button",
-                    "id": "9bab0899-9199-45fa-9291-f2b46e48d1eb",
+                    "id": "2cb17e17-228e-4521-a14d-c52a27657cbf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -157,7 +157,7 @@
                 {
                     "name": "FireButton",
                     "type": "Button",
-                    "id": "a83eb34d-508c-48db-beea-3bea4c539a33",
+                    "id": "cd6a1ac9-3214-430d-a28a-5ede68d2dd33",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -165,7 +165,7 @@
                 {
                     "name": "WaterButton",
                     "type": "Button",
-                    "id": "2bdca0a6-1d09-4009-ba88-2e705171235c",
+                    "id": "896132c8-8740-4457-b32b-9fa0e4730c5b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -173,7 +173,7 @@
                 {
                     "name": "EarthButton",
                     "type": "Button",
-                    "id": "a7684a35-0efc-4c59-bcc5-88e9c595df3f",
+                    "id": "d9f7578a-2543-4ab6-b57e-c6718a2c5c21",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -181,7 +181,7 @@
                 {
                     "name": "StartButton",
                     "type": "Button",
-                    "id": "f63d6e38-0992-48ac-9dfd-61c0a902287a",
+                    "id": "30654c57-f1cc-47b0-9ea5-99ccb0f8edd8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -301,6 +301,238 @@
                 {
                     "name": "",
                     "id": "eb63eccf-4b2b-46f2-a225-5720bfdce89e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "actmap_Player3",
+            "id": "23c2e626-7773-42e0-b73e-bc5f3b469cef",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "3fd2bd26-bc19-4436-a374-ec29223aae57",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AirButton",
+                    "type": "Button",
+                    "id": "9bab0899-9199-45fa-9291-f2b46e48d1eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "FireButton",
+                    "type": "Button",
+                    "id": "a83eb34d-508c-48db-beea-3bea4c539a33",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "WaterButton",
+                    "type": "Button",
+                    "id": "2bdca0a6-1d09-4009-ba88-2e705171235c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "EarthButton",
+                    "type": "Button",
+                    "id": "a7684a35-0efc-4c59-bcc5-88e9c595df3f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "StartButton",
+                    "type": "Button",
+                    "id": "f63d6e38-0992-48ac-9dfd-61c0a902287a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b1fa376c-6675-44d3-8220-1b9194dc4c4d",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "be43d995-067d-4790-bd5b-a4de9ff2d918",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "337a7e07-5e61-4b1f-90fc-02e0dbc0a56e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "624d6023-4fa6-4fbd-b759-58539034a7d2",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "97301698-e21b-4e8e-bb32-1e65a16fc6e2",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "b886d9ca-121c-4fa5-ada8-6fdce98b373a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5479976b-856d-4dc1-86d1-5c2143339b7c",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AirButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b30d6fc2-742a-4aab-b79c-9e9ca5d28ee3",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "AirButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6d47ec4-1adc-479b-8170-79d6bc6a3231",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19f34356-bcff-4f86-ae4b-6e1006c586e4",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "FireButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adf6c3a7-7f0e-42d6-8d4c-1d487cf53e9e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WaterButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e78409b9-a9a1-464a-a018-7a8432a23e4a",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "WaterButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c6259ff-2d26-47dd-81e0-93441bd0e389",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EarthButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ef92213-4b99-487b-b021-d33f00ea770e",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "_ControlScheme_Default",
+                    "action": "EarthButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c711f0c-8315-4341-922f-736bbe69f174",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c749b345-70d0-4ffa-88e6-ef317154bf13",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",

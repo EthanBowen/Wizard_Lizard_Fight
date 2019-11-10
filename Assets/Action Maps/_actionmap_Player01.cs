@@ -149,12 +149,12 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
         },
         {
             ""name"": ""actmap_Player2"",
-            ""id"": ""23c2e626-7773-42e0-b73e-bc5f3b469cef"",
+            ""id"": ""804c47fc-7fb5-4439-bd2f-d350f026ad65"",
             ""actions"": [
                 {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
-                    ""id"": ""3fd2bd26-bc19-4436-a374-ec29223aae57"",
+                    ""id"": ""2ba93ab5-4306-4aae-ae5d-35bb3745d66c"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -162,7 +162,7 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
                 {
                     ""name"": ""AirButton"",
                     ""type"": ""Button"",
-                    ""id"": ""9bab0899-9199-45fa-9291-f2b46e48d1eb"",
+                    ""id"": ""2cb17e17-228e-4521-a14d-c52a27657cbf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -170,7 +170,7 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
                 {
                     ""name"": ""FireButton"",
                     ""type"": ""Button"",
-                    ""id"": ""a83eb34d-508c-48db-beea-3bea4c539a33"",
+                    ""id"": ""cd6a1ac9-3214-430d-a28a-5ede68d2dd33"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -178,7 +178,7 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
                 {
                     ""name"": ""WaterButton"",
                     ""type"": ""Button"",
-                    ""id"": ""2bdca0a6-1d09-4009-ba88-2e705171235c"",
+                    ""id"": ""896132c8-8740-4457-b32b-9fa0e4730c5b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -186,7 +186,7 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
                 {
                     ""name"": ""EarthButton"",
                     ""type"": ""Button"",
-                    ""id"": ""a7684a35-0efc-4c59-bcc5-88e9c595df3f"",
+                    ""id"": ""d9f7578a-2543-4ab6-b57e-c6718a2c5c21"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -194,7 +194,7 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
                 {
                     ""name"": ""StartButton"",
                     ""type"": ""Button"",
-                    ""id"": ""f63d6e38-0992-48ac-9dfd-61c0a902287a"",
+                    ""id"": ""30654c57-f1cc-47b0-9ea5-99ccb0f8edd8"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -323,6 +323,238 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""actmap_Player3"",
+            ""id"": ""23c2e626-7773-42e0-b73e-bc5f3b469cef"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""3fd2bd26-bc19-4436-a374-ec29223aae57"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AirButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""9bab0899-9199-45fa-9291-f2b46e48d1eb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""FireButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""a83eb34d-508c-48db-beea-3bea4c539a33"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WaterButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""2bdca0a6-1d09-4009-ba88-2e705171235c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""EarthButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""a7684a35-0efc-4c59-bcc5-88e9c595df3f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""StartButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""f63d6e38-0992-48ac-9dfd-61c0a902287a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b1fa376c-6675-44d3-8220-1b9194dc4c4d"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""be43d995-067d-4790-bd5b-a4de9ff2d918"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""337a7e07-5e61-4b1f-90fc-02e0dbc0a56e"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""624d6023-4fa6-4fbd-b759-58539034a7d2"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""97301698-e21b-4e8e-bb32-1e65a16fc6e2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b886d9ca-121c-4fa5-ada8-6fdce98b373a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5479976b-856d-4dc1-86d1-5c2143339b7c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AirButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b30d6fc2-742a-4aab-b79c-9e9ca5d28ee3"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""AirButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6d47ec4-1adc-479b-8170-79d6bc6a3231"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19f34356-bcff-4f86-ae4b-6e1006c586e4"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""FireButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adf6c3a7-7f0e-42d6-8d4c-1d487cf53e9e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e78409b9-a9a1-464a-a018-7a8432a23e4a"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""WaterButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c6259ff-2d26-47dd-81e0-93441bd0e389"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EarthButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ef92213-4b99-487b-b021-d33f00ea770e"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""_ControlScheme_Default"",
+                    ""action"": ""EarthButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c711f0c-8315-4341-922f-736bbe69f174"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c749b345-70d0-4ffa-88e6-ef317154bf13"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -349,6 +581,14 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
         m_actmap_Player2_WaterButton = m_actmap_Player2.FindAction("WaterButton", throwIfNotFound: true);
         m_actmap_Player2_EarthButton = m_actmap_Player2.FindAction("EarthButton", throwIfNotFound: true);
         m_actmap_Player2_StartButton = m_actmap_Player2.FindAction("StartButton", throwIfNotFound: true);
+        // actmap_Player3
+        m_actmap_Player3 = asset.FindActionMap("actmap_Player3", throwIfNotFound: true);
+        m_actmap_Player3_Movement = m_actmap_Player3.FindAction("Movement", throwIfNotFound: true);
+        m_actmap_Player3_AirButton = m_actmap_Player3.FindAction("AirButton", throwIfNotFound: true);
+        m_actmap_Player3_FireButton = m_actmap_Player3.FindAction("FireButton", throwIfNotFound: true);
+        m_actmap_Player3_WaterButton = m_actmap_Player3.FindAction("WaterButton", throwIfNotFound: true);
+        m_actmap_Player3_EarthButton = m_actmap_Player3.FindAction("EarthButton", throwIfNotFound: true);
+        m_actmap_Player3_StartButton = m_actmap_Player3.FindAction("StartButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -540,6 +780,79 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
         }
     }
     public Actmap_Player2Actions @actmap_Player2 => new Actmap_Player2Actions(this);
+
+    // actmap_Player3
+    private readonly InputActionMap m_actmap_Player3;
+    private IActmap_Player3Actions m_Actmap_Player3ActionsCallbackInterface;
+    private readonly InputAction m_actmap_Player3_Movement;
+    private readonly InputAction m_actmap_Player3_AirButton;
+    private readonly InputAction m_actmap_Player3_FireButton;
+    private readonly InputAction m_actmap_Player3_WaterButton;
+    private readonly InputAction m_actmap_Player3_EarthButton;
+    private readonly InputAction m_actmap_Player3_StartButton;
+    public struct Actmap_Player3Actions
+    {
+        private @_actionmap_Player01 m_Wrapper;
+        public Actmap_Player3Actions(@_actionmap_Player01 wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_actmap_Player3_Movement;
+        public InputAction @AirButton => m_Wrapper.m_actmap_Player3_AirButton;
+        public InputAction @FireButton => m_Wrapper.m_actmap_Player3_FireButton;
+        public InputAction @WaterButton => m_Wrapper.m_actmap_Player3_WaterButton;
+        public InputAction @EarthButton => m_Wrapper.m_actmap_Player3_EarthButton;
+        public InputAction @StartButton => m_Wrapper.m_actmap_Player3_StartButton;
+        public InputActionMap Get() { return m_Wrapper.m_actmap_Player3; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Actmap_Player3Actions set) { return set.Get(); }
+        public void SetCallbacks(IActmap_Player3Actions instance)
+        {
+            if (m_Wrapper.m_Actmap_Player3ActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnMovement;
+                @AirButton.started -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnAirButton;
+                @AirButton.performed -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnAirButton;
+                @AirButton.canceled -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnAirButton;
+                @FireButton.started -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnFireButton;
+                @FireButton.performed -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnFireButton;
+                @FireButton.canceled -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnFireButton;
+                @WaterButton.started -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnWaterButton;
+                @WaterButton.performed -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnWaterButton;
+                @WaterButton.canceled -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnWaterButton;
+                @EarthButton.started -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnEarthButton;
+                @EarthButton.performed -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnEarthButton;
+                @EarthButton.canceled -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnEarthButton;
+                @StartButton.started -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnStartButton;
+                @StartButton.performed -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnStartButton;
+                @StartButton.canceled -= m_Wrapper.m_Actmap_Player3ActionsCallbackInterface.OnStartButton;
+            }
+            m_Wrapper.m_Actmap_Player3ActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @AirButton.started += instance.OnAirButton;
+                @AirButton.performed += instance.OnAirButton;
+                @AirButton.canceled += instance.OnAirButton;
+                @FireButton.started += instance.OnFireButton;
+                @FireButton.performed += instance.OnFireButton;
+                @FireButton.canceled += instance.OnFireButton;
+                @WaterButton.started += instance.OnWaterButton;
+                @WaterButton.performed += instance.OnWaterButton;
+                @WaterButton.canceled += instance.OnWaterButton;
+                @EarthButton.started += instance.OnEarthButton;
+                @EarthButton.performed += instance.OnEarthButton;
+                @EarthButton.canceled += instance.OnEarthButton;
+                @StartButton.started += instance.OnStartButton;
+                @StartButton.performed += instance.OnStartButton;
+                @StartButton.canceled += instance.OnStartButton;
+            }
+        }
+    }
+    public Actmap_Player3Actions @actmap_Player3 => new Actmap_Player3Actions(this);
     private int m__ControlScheme_DefaultSchemeIndex = -1;
     public InputControlScheme _ControlScheme_DefaultScheme
     {
@@ -559,6 +872,15 @@ public class @_actionmap_Player01 : IInputActionCollection, IDisposable
         void OnStartButton(InputAction.CallbackContext context);
     }
     public interface IActmap_Player2Actions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnAirButton(InputAction.CallbackContext context);
+        void OnFireButton(InputAction.CallbackContext context);
+        void OnWaterButton(InputAction.CallbackContext context);
+        void OnEarthButton(InputAction.CallbackContext context);
+        void OnStartButton(InputAction.CallbackContext context);
+    }
+    public interface IActmap_Player3Actions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnAirButton(InputAction.CallbackContext context);
