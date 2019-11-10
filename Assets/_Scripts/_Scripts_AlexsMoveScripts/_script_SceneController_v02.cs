@@ -40,15 +40,16 @@ public class _script_SceneController_v02 : MonoBehaviour
 
     // Event system WIP 
     public DebugModeEvent event_DebugModeEvent;
-
+    private List<Vector3> spawnpoints;
 
     // Singleton behavior
     private static _script_SceneController_v02 _instance_SceneController;
     // Awake is called before Start
     private void Awake()
     {
-
-        inputdevices = new List<InputDevice>();
+        Addedplayers = 0;
+        UsedInputDevices = new List<InputDevice>();
+        playersadded = new List<int>();
         if (_instance_SceneController != null && _instance_SceneController != this)
         {
             Destroy(this.gameObject);
@@ -64,20 +65,15 @@ public class _script_SceneController_v02 : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Scene Controller script must be attached to a camera");
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         Initialization_SetUpEventSystemFor_HideableSprites();
-        
+
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
 
-
         GameObject[] respawns = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
 
-        List<Vector3> spawnpoints = new List<Vector3>();
+        spawnpoints = new List<Vector3>();
         foreach (GameObject spawn in respawns)
         {
             spawnpoints.Add(spawn.transform.position);
@@ -85,13 +81,20 @@ public class _script_SceneController_v02 : MonoBehaviour
 
         PlayerInputs = new _script_ReadInputs();
 
-
         ListOfPlayers = new Dictionary<int, GameObject>();
         ListOfScores = new Dictionary<int, int>();
+
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        GetComponent<PlayerInputManager>().DisableJoining();
         for (int index = 1; index <= NumberOfPlayers; ++index)
         {
+            Debug.Log("Adding player to index: " + index);
             GameObject character = Instantiate(PlayerObject);
-
+            
             Vector3 spawnpoint;
             if (!(spawnpoints.Count < NumberOfPlayers))
                 spawnpoint = spawnpoints[index - 1];
@@ -107,47 +110,24 @@ public class _script_SceneController_v02 : MonoBehaviour
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
             character_script.inputs = new _script_ReadInputs(index);
-            ListOfPlayers.Add(index, character);
             ListOfScores.Add(index, 0);
-            /*
-            PlayerInput actmap = character.GetComponent<PlayerInput>();
-            if (actmap != null)
-            {
-                var allGamepads = Gamepad.all;
-                foreach (InputDevice device in allGamepads)
-                {
-                    Debug.Log("Devices: " + device);
-                }
-                Debug.Log("Successfully captured actmap: " + index + " - with Index: " + actmap.playerIndex);
-<<<<<<< HEAD
-                InputDevice pad = InputSystem.GetDevice<Gamepad>();
-                InputUser.PerformPairingWithDevice(pad, actmap.user, InputUserPairingOptions.None);
-                actmap.ActivateInput();
-                Debug.Log("Successfully paired pad to user: " + actmap.user.id);
-=======
-                
-               // InputDevice 
-                Debug.Log("Paired Devices: ");
->>>>>>> a04a6da29c3615d45d67c1b8b2ec9e54c60233ff
-                
-            }
-            else
-            {
-                Debug.Log("No actmap grabbed: " + index);
-            }
-            /*
-            */
-
+            ListOfPlayers.Add(index, character);
         }
-
+        /*
+        */
+        GetComponent<PlayerInputManager>().EnableJoining();
         // Sets the music player to play the battle music.
         music_main.clip = music_battle;
         if (PlayMusicOnPlay) {
             music_main.loop = true;
             music_main.Play();
         }
+
+        GetComponent<PlayerInputManager>().EnableJoining();
+
+
     }
-    
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -267,11 +247,49 @@ public class _script_SceneController_v02 : MonoBehaviour
 
     }
 
-    List<InputDevice> inputdevices;
+    private int Addedplayers;
+    private List<InputDevice> UsedInputDevices;
+    private List<int> playersadded;
     
     public void OnPlayerJoined(PlayerInput playerJoin)
     {
         Debug.Log("CONTROLLER LOGGED: " + playerJoin.playerIndex);
+
+        /*
+        
+        if (Addedplayers < 4 && !playersadded.Contains(playerJoin.playerIndex))
+        {
+            Addedplayers++;
+            playersadded.Add(playerJoin.playerIndex);
+            Debug.Log("Found player: " + Addedplayers);
+            //GameObject character = ListOfPlayers[Addedplayers];
+            Debug.Log("Attempting to tie " + Addedplayers + " with InputDevice: " + InputDevice.all[Addedplayers + 3].displayName + " type " + InputDevice.all[Addedplayers + 3].layout);
+            InputDevice device = null;
+            for (int index = 0; index < InputDevice.all.Count; index++)
+            {
+                if (InputDevice.all[index].displayName.Contains("Controller") && !UsedInputDevices.Contains(InputDevice.all[index]))
+                {
+                    device = InputDevice.all[index];
+                    UsedInputDevices.Add(InputDevice.all[index]);
+                    break;
+                }
+            }
+            if (device.Equals(null))
+            {
+                Debug.Log("failed to find device");
+            }
+            else
+            {
+                PlayerInput player = PlayerInput.Instantiate(PlayerObject, playerJoin.playerIndex, playerJoin.currentControlScheme, -1, InputDevice.all[Addedplayers + 3]);
+                Debug.Log("Instantiated player");
+            
+
+                Debug.Log("Player " + playerJoin.playerIndex + " joined successfully");
+
+            }
+
+        }
+        */
     }
 
 
