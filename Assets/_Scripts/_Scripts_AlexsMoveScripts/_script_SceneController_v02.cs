@@ -119,10 +119,16 @@ public class _script_SceneController_v02 : MonoBehaviour
                     Debug.Log("Devices: " + device);
                 }
                 Debug.Log("Successfully captured actmap: " + index + " - with Index: " + actmap.playerIndex);
+<<<<<<< HEAD
                 InputDevice pad = InputSystem.GetDevice<Gamepad>();
                 InputUser.PerformPairingWithDevice(pad, actmap.user, InputUserPairingOptions.None);
                 actmap.ActivateInput();
                 Debug.Log("Successfully paired pad to user: " + actmap.user.id);
+=======
+                
+               // InputDevice 
+                Debug.Log("Paired Devices: ");
+>>>>>>> a04a6da29c3615d45d67c1b8b2ec9e54c60233ff
                 
             }
             else
