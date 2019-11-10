@@ -48,7 +48,7 @@ public class GameEndController : MonoBehaviour
      */
     private void winner()
     {
-        playerWinner.text = "Player Place Holder";
+        playerWinner.text = "Player "  + PlayerPrefs.GetInt("winner").ToString() + "\n Ruled Supreme";
     }
     /**
      * Sends Players back to Player Select Screen
@@ -67,16 +67,16 @@ public class GameEndController : MonoBehaviour
         switch(active)
         {
             case (1):
-                player1Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player1Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P1_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P1_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P1_DamageTaken").ToString();
                 break;
             case (2):
-                player2Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player2Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P2_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P2_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P2_DamageTaken").ToString();
                 break;
             case (3):
-                player3Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player3Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P3_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P3_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P3_DamageTaken").ToString();
                 break;
             case (4):
-                player4Stats.text = "Kill Count: \n" + killCountPlaceHold + "\nDamage Done:\n" + damageDonePlaceHold + "\nDamage Taken:\n" + damageTakenPlaceHold;
+                player4Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P4_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P4_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P4_DamageTaken").ToString();
                 break;
         }      
     }
