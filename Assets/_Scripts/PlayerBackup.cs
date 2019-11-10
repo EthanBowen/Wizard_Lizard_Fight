@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
-public class Player : MonoBehaviour
+public class PlayerBackup : MonoBehaviour
 {
     // Variables for player movement
     public float movementSpeed = 10f;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     private GameController gameController;
 
-    
+
 
     // Controls animations
     private SpriteRenderer sprite;
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         inputs.ReadPlayerInputs();
-        
+
         horizontal = inputs.PLAYER_horiz_move;
         vertical = inputs.PLAYER_vert_move;
         MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
@@ -91,42 +91,87 @@ public class Player : MonoBehaviour
         // The air spell controller
         if (inputs.button_lower)
         {
-            air = true;
+            if (!fire && !water && !earth)
+            {
+                StartAir();
+            }
+            else if (fire)
+            {
+                StopFire();
+                StartFireTrail();
+            }
         }
         if (inputs.button_lower_stop)
         {
-            air = false;
+            StopAir();
+            StopFireTrail();
         }
 
         // Earth spell controller
         if (inputs.button_up)
         {
-            earth = true;
+            if (earth && !fire && !water && !air) // If an earth structure was already placed
+            {
+                StartEarth();
+            }
+            if (fire && Timer_BombDrop > 4.0f)
+            {
+                StopFire();
+                if (Timer_BombDrop > 4.0f)
+                {
+                    Timer_BombDrop = 0.0f;
+                    PlaceBomb();
+                }
+            }
         }
         if (inputs.button_up_stop)
         {
-            earth = false;
-            //StopEarth();
+            StopEarth();
         }
 
         // Fire spell controller
         if (inputs.button_right)
         {
-            fire = true;
+            if (!air && !earth && !water)
+            {
+                StartFire();
+            }
+            else if (earth && Timer_BombDrop > 4.0f)
+            {
+                StopEarth();
+                if (Timer_BombDrop > 4.0f)
+                {
+                    Timer_BombDrop = 0.0f;
+                    PlaceBomb();
+                }
+            }
+            else if (air)
+            {
+                StopAir();
+                StartFireTrail();
+            }
         }
         if (inputs.button_right_stop)
         {
-            fire = false;
+            StopFire();
+            StopFireTrail();
         }
 
         // Water spell controller
         if (inputs.button_left)
         {
-            water = true;
+            if (!air && !earth && !fire)
+            {
+                StartWater();
+            }
+            else if (earth)
+            {
+
+            }
         }
-        if(inputs.button_left_stop)
+        if (inputs.button_left_stop)
         {
-            water = false;
+            StopWater();
         }
 
 
@@ -138,182 +183,32 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(fire)
+        if (fire)
         {
-            if(!redMag.isPlaying)
-            {
-                redMag.Play();
-            }
+            MP -= 1;
         }
-        else
-        {
-            if (redMag.isPlaying)
-            {
-                redMag.Pause();
-                redMag.Clear();
-            }
-        }
-
-        if (water)
-        {
-            if (!blueMag.isPlaying)
-            {
-                blueMag.Play();
-            }
-        }
-        else
-        {
-            if (blueMag.isPlaying)
-            {
-                blueMag.Pause();
-                blueMag.Clear();
-            }
-        }
-
         if (air)
         {
-            if (!whiteMag.isPlaying)
-            {
-                whiteMag.Play();
-            }
-        }
-        else
-        {
-            if (whiteMag.isPlaying)
-            {
-                whiteMag.Pause();
-                whiteMag.Clear();
-            }
+            MP -= 1;
+            //if
         }
 
-        if (earth)
-        {
-            if (!greenMag.isPlaying)
-            {
-                greenMag.Play();
-            }
-        }
-        else
-        {
-            if (greenMag.isPlaying)
-            {
-                greenMag.Pause();
-                greenMag.Clear();
-            }
-        }
-
-        // FIRE
-        if (fire && !water)
-        {
-            if (!air && !earth)
-            {
-                MP -= 1;
-                if (!fireSpell.isPlaying)
-                {
-                    StartFire();
-                }
-            }
-            // BOMB
-            else if (earth && !air && Timer_BombDrop > 4.0f)
-            {
-                if (MP >= 40)
-                {
-                    if (Timer_BombDrop > 4.0f)
-                    {
-                        earth = false;
-                        fire = false;
-
-                        Timer_BombDrop = 0.0f;
-                        PlaceBomb();
-                    }
-                }
-            }
-            // FIRE TRAIL
-            else if (air && !earth)
-            {
-                MP -= 4;
-                if (!fireTrailSpell.isPlaying)
-                {
-                    StopAir();
-                    StopFire();
-                    StartFireTrail();
-                }
-            }
-        }
-        else
-        {
-            if (fireSpell.isPlaying)
-            {
-                StopFire();
-            }
-            if (fireTrailSpell.isPlaying)
-            {
-                StopFireTrail();
-            }
-        }
-        // WATER
-        if (water && !fire)
-        {
-            if (!air && !earth)
-            {
-                if (!blueMag.isPlaying)
-                {
-                    StartWater();
-                }
-            }
-            else if (earth && !air)
-            {
-
-            }
-            else if (air && !earth)
-            {
-
-            }
-        }
-        // AIR
-        if (air && !earth)
-        {
-            if (!fire && !water)
-            {
-                MP -= 1;
-                if (!airSpell.isPlaying)
-                {
-                    StartAir();
-                }
-            }
-        }
-        else
-        {
-            if (airSpell.isPlaying)
-            {
-                StopAir();
-            }
-        }
-        // EARTH
-        if (earth && !air)
-        {
-            if (!fire && !water) // If an earth structure was already placed
-            {
-                StartEarth();
-            }
-        }
-
-
-        if(!fire && !air && MP < maxMP)
+        if (!fire && !air && MP < maxMP)
         {
             MP += 1;
         }
-        if(MP > maxMP)
+        if (MP > maxMP)
         {
             MP = maxMP;
         }
 
-        if(MP <= 0)
+        if (MP <= 0)
         {
-            fire = false;
-            water = false;
-            air = false;
-            earth = false;
+            StopFire();
+            StopAir();
+            StopEarth();
+            StopWater();
+            StopFireTrail();
         }
     }
 
@@ -322,7 +217,10 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("Walking", true);
-
+            //if(air && !airSpell.isPlaying)
+            //{
+            //    
+            //}
         }
         else
         {
@@ -330,11 +228,11 @@ public class Player : MonoBehaviour
             airSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        if(horizontal > 0)
+        if (horizontal > 0)
         {
             sprite.flipX = false;
         }
-        else if(horizontal < 0)
+        else if (horizontal < 0)
         {
             sprite.flipX = true;
         }
@@ -351,12 +249,12 @@ public class Player : MonoBehaviour
         else
             pos.y = 0;
 
-        if (airSpell.isEmitting)
+        if (air)
         {
             pos.x *= 2;
             pos.y *= 2;
         }
-       
+
         body.velocity = pos;
 
         Aim();
@@ -388,25 +286,41 @@ public class Player : MonoBehaviour
     //********************************************************         Spells         *************************************************************************************
     //*********************************************************************************************************************************************************************
 
-    //***********************************************************Air************************************************************
+    //***********************************************************air************************************************************
     public void StartAir()
     {
+        Debug.Log("-[PLAYER " + ID + "] Button \"A\" pressed");
+        air = true;
+        //movementSpeed *= 5;
+        whiteMag.Play();
         airSpell.Play();
     }
-     public void StopAir()
+    public void StopAir()
     {
+        //air = false;
+        //movementSpeed /= 5;
+        whiteMag.Pause();
+        whiteMag.Clear();
         airSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     //***********************************************************Fire************************************************************
     public void StartFire()
     {
+        //Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
+
+        fire = true;
+        redMag.Play();
         fireSpell.Play();
         fireSpell.GetComponent<PolygonCollider2D>().enabled = true;
 
     }
     public void StopFire()
     {
+        fire = false;
+
+        redMag.Pause();
+        redMag.Clear();
         fireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
@@ -414,11 +328,20 @@ public class Player : MonoBehaviour
     //***********************************************************Water************************************************************
     public void StartWater()
     {
+        water = true;
+        blueMag.Play();
+       //WaterSpell.Play();
+        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = true;
 
     }
     public void StopWater()
     {
+        water = false;
 
+        blueMag.Pause();
+        blueMag.Clear();
+        //WaterSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //WaterSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
     public void CastWater()
     {
@@ -440,15 +363,18 @@ public class Player : MonoBehaviour
     //***********************************************************Earth************************************************************
     public void StartEarth()
     {
+        Debug.Log("-[PLAYER " + ID + "] Button \"B\" pressed");
 
-        //earth = true;
-
+        earth = true;
+        greenMag.Play();
 
     }
     public void StopEarth()
     {
-        //earth = false;
+        earth = false;
 
+        greenMag.Pause();
+        greenMag.Clear();
     }
 
     //********************************************************Fire/Earth**********************************************************
@@ -468,15 +394,29 @@ public class Player : MonoBehaviour
         bombscript.SetPlayerID(ID);
     }
 
-    //********************************************************Fire/Air**********************************************************
+    //********************************************************Fire/air**********************************************************
     public void StartFireTrail()
     {
+        fire = true;
+        air = true;
+
+        redMag.Play();
+        whiteMag.Play();
         fireTrailSpell.Play();
+        //FireSpell.GetComponent<PolygonCollider2D>().enabled = true;
 
     }
     public void StopFireTrail()
     {
+        fire = false;
+        air = false;
+
+        redMag.Pause();
+        redMag.Clear();
+        whiteMag.Pause();
+        whiteMag.Clear();
         fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //FireTrailSpell.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
 
@@ -489,7 +429,7 @@ public class Player : MonoBehaviour
             {
                 health -= other.GetComponent<PlayerAttack>().damage;
                 healthupdate.Invoke(ID, health);
-                
+
                 if (health <= 0)
                 {
                     other.GetComponent<PlayerAttack>().ReportPoint();
@@ -528,7 +468,7 @@ public class Player : MonoBehaviour
     {
         dead = true;
         fire = air = water = earth = false;
-        
+
         this.gameObject.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         Invoke("Respawn", 5);

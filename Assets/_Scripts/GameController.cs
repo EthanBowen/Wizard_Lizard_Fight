@@ -144,11 +144,11 @@ public class GameController : MonoBehaviour
                 /// TODO: Convert this functionality into an event-based system?
                 if (button_lower)
                 {
-                    playercontroller.StartWind();
+                    playercontroller.StartAir();
                 }
                 if (button_lower_stop)
                 {
-                    playercontroller.StopWind();
+                    playercontroller.StopAir();
                 }
                 if (button_right)
                 {
@@ -443,7 +443,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        event_playerinput.AddListener(player.event_input_Wind);
+        event_playerinput.AddListener(player.event_input_air);
     }
 
 }
