@@ -356,7 +356,12 @@ public class Player : MonoBehaviour
             pos.x *= 2;
             pos.y *= 2;
         }
-       
+        if (fireTrailSpell.isEmitting)
+        {
+            pos.x *= 4;
+            pos.y *= 4;
+        }
+
         body.velocity = pos;
 
         Aim();
