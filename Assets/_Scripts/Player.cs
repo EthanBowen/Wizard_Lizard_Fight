@@ -12,11 +12,8 @@ public class Player : MonoBehaviour
     public float movementSpeed = 10f;
     public float diagonalMoveSpeedMultiplier = 1f;
 
-    // Variables for player info
     public float maxHealth = 100;
     public float maxMP = 100;
-    //public int fireDamage = 4;
-    //public int waterDamage = 40;
     public int score = 0;
     private bool dead;
 
@@ -24,6 +21,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
 
     private bool fire, air, water, earth;
+    private bool fireActive = false, airActive = false, fireTrailActive = false;
 
     public int ID = 0;
 
@@ -136,6 +134,8 @@ public class Player : MonoBehaviour
     // The delay before another bomb can be placed. Temporary.
     private float Timer_BombDrop = 0.0f;
 
+    private float chargeWaterSpell = 0.0f;
+
 
     private void FixedUpdate()
     {
@@ -208,8 +208,7 @@ public class Player : MonoBehaviour
         {
             if (!air && !earth)
             {
-                MP -= 1;
-                if (!fireSpell.isPlaying)
+                if (!fireActive)
                 {
                     StartFire();
                 }
@@ -232,22 +231,22 @@ public class Player : MonoBehaviour
             // FIRE TRAIL
             else if (air && !earth)
             {
-                MP -= 4;
-                if (!fireTrailSpell.isPlaying)
+                //MP -= 4;
+                if (airActive || fireActive)
                 {
                     StopAir();
                     StopFire();
-                    StartFireTrail();
+                    //StartFireTrail();
                 }
             }
         }
         else
         {
-            if (fireSpell.isPlaying)
+            if (fireActive)
             {
                 StopFire();
             }
-            if (fireTrailSpell.isPlaying)
+            if (fireTrailActive)
             {
                 StopFireTrail();
             }
@@ -257,10 +256,11 @@ public class Player : MonoBehaviour
         {
             if (!air && !earth)
             {
-                if (!blueMag.isPlaying)
+                if (chargeWaterSpell < 40)
                 {
-                    StartWater();
+                    chargeWaterSpell += 1;
                 }
+                    //CastWater();
             }
             // HEAL
             else if (earth && !air)
@@ -272,21 +272,24 @@ public class Player : MonoBehaviour
 
             }
         }
+        else
+        {
+            if(chargeWaterSpell > 0 && MP >= 40)
+            {
+                CastWater();
+            }
+        }
         // AIR
         if (air && !earth)
         {
             if (!fire && !water)
             {
-                MP -= 1;
-                if (!airSpell.isPlaying)
-                {
-                    StartAir();
-                }
+                // Do nothing
             }
         }
         else
         {
-            if (airSpell.isPlaying)
+            if (airActive)
             {
                 StopAir();
             }
@@ -300,17 +303,34 @@ public class Player : MonoBehaviour
             }
         }
 
-
-        if(!fire && !air && MP < maxMP)
+        if(!fireActive && !airActive && !fireTrailActive && MP < maxMP)
         {
             MP += 1;
         }
-        if(MP > maxMP)
+        else if (fireActive)
+        {
+            MP -= 1;
+        }
+        else if (airActive)
+        {
+            MP -= 1;
+        }
+        else if (fireTrailActive)
+        {
+            MP -= 4;
+        }
+
+
+        if (MP > maxMP)
         {
             MP = maxMP;
         }
+        if (MP < 0)
+        {
+            MP = 0.0f;
+        }
 
-        if(MP <= 0)
+        if (MP <= 0)
         {
             fire = false;
             water = false;
@@ -324,12 +344,28 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("Walking", true);
+            if(fire && air && !fireTrailActive)
+            {
+                StartFireTrail();
+            }
+            else if (air && !fire && !airActive)
+            {
+                StartAir();
+            }
 
         }
         else
         {
             anim.SetBool("Walking", false);
-            airSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            if (airActive)
+            {
+                StopAir();
+            }
+            if (fireTrailActive)
+            {
+                StopFireTrail();
+            }
+            
         }
 
         if(horizontal > 0)
@@ -353,13 +389,15 @@ public class Player : MonoBehaviour
         else
             pos.y = 0;
 
-        if (airSpell.isEmitting)
+        if (airActive)
         {
+            //MP -= 1;
             pos.x *= 2;
             pos.y *= 2;
         }
-        if (fireTrailSpell.isEmitting)
+        if (fireTrailActive)
         {
+            //MP -= 4;
             pos.x *= 4;
             pos.y *= 4;
         }
@@ -399,10 +437,12 @@ public class Player : MonoBehaviour
     public void StartAir()
     {
         airSpell.Play();
+        airActive = true;
     }
-     public void StopAir()
+    public void StopAir()
     {
         airSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        airActive = false;
     }
 
     //***********************************************************Fire************************************************************
@@ -410,26 +450,20 @@ public class Player : MonoBehaviour
     {
         fireSpell.Play();
         fireSpell.GetComponent<PolygonCollider2D>().enabled = true;
-
+        fireActive = true;
     }
     public void StopFire()
     {
         fireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
+        fireActive = false;
     }
 
     //***********************************************************Water************************************************************
-    public void StartWater()
-    {
-
-    }
-    public void StopWater()
-    {
-
-    }
     public void CastWater()
     {
-        MP -= 30.0f;
+        MP -= chargeWaterSpell;
+
         Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
         Vector3 positionOfWater = new Vector3(2.0f, 0);
@@ -437,11 +471,15 @@ public class Player : MonoBehaviour
         positionOfWater = aimPos * positionOfWater;
         positionOfWater += transform.position;
 
-        GameObject water = Instantiate(attack_bomb, positionOfWater, aimPos);
+        GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
         PlayerAttack pa = water.GetComponent<PlayerAttack>();
         pa.AssignID(ID);
+        pa.damage = chargeWaterSpell;
 
+        water.SetActive(true);
+
+        chargeWaterSpell = 0.0f;
     }
 
     //***********************************************************Earth************************************************************
@@ -493,13 +531,13 @@ public class Player : MonoBehaviour
     //********************************************************Fire/Air**********************************************************
     public void StartFireTrail()
     {
-        // TODO: Aim trail behind player using CalcAimVector
         fireTrailSpell.Play();
-
+        fireTrailActive = true;
     }
     public void StopFireTrail()
     {
         fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        fireTrailActive = false;
     }
 
 
