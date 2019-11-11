@@ -473,11 +473,15 @@ public class Player : MonoBehaviour
 
         GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
+        water.GetComponent<WaterSpell>().x = positionOfWater.x;
+        water.GetComponent<WaterSpell>().y = positionOfWater.y;
+
         PlayerAttack pa = water.GetComponent<PlayerAttack>();
+        pa.SetOwner(this);
         pa.AssignID(ID);
         pa.damage = chargeWaterSpell;
 
-        water.SetActive(true);
+        //water.SetActive(true);
 
         chargeWaterSpell = 0.0f;
     }

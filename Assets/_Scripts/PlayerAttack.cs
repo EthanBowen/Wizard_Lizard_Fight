@@ -13,7 +13,10 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         owner = gameObject.GetComponentInParent<Player>();
-        PlayerID = owner.ID;
+        if (owner != null)
+        {
+            PlayerID = owner.ID;
+        }
     }
 
     // Update is called once per frame
@@ -25,6 +28,11 @@ public class PlayerAttack : MonoBehaviour
     public void AssignID(int ID)
     {
         PlayerID = ID;
+    }
+
+    public void SetOwner(Player owner)
+    {
+        this.owner = owner;
     }
 
     public int CheckID()

@@ -358,6 +358,9 @@ public class PlayerBackup : MonoBehaviour
         PlayerAttack pa = water.GetComponent<PlayerAttack>();
         pa.AssignID(ID);
 
+
+        water.SetActive(true);
+
     }
 
     //***********************************************************Earth************************************************************

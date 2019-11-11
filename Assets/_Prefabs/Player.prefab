@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   diagonalMoveSpeedMultiplier: 1
-  maxHealth: 1000
+  maxHealth: 100
   maxMP: 100
   score: 0
   horizontal: 0
@@ -193,7 +193,8 @@ MonoBehaviour:
   manaBar: {fileID: 2079514096679092151, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
-  waterSpell: {fileID: 0}
+  waterSpell: {fileID: 9075706933809102355, guid: 41e9e27c245b5c44dab4e28500d3bf91,
+    type: 3}
 --- !u!95 &5937992824312999496
 Animator:
   serializedVersion: 3
