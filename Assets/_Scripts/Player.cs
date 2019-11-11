@@ -262,6 +262,7 @@ public class Player : MonoBehaviour
                     StartWater();
                 }
             }
+            // HEAL
             else if (earth && !air)
             {
 
