@@ -23,12 +23,8 @@ public class GameEndController : MonoBehaviour
     public TextMeshProUGUI player4Stats;
 
     [Header("Music and Sounds")]
-    [SerializeField] private AudioSource endMusic;
-    [SerializeField] private AudioSource restart;
-
-    private int killCountPlaceHold = 0;
-    private int damageDonePlaceHold = 0;
-    private int damageTakenPlaceHold = 0;
+     public AudioSource endMusic;
+     public AudioSource restart;
 
     // Start is called before the first frame update
     void Start()
@@ -40,20 +36,20 @@ public class GameEndController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        activePlayers();
-        winner();
+        ActivePlayers();
+        Winner();
     }
     /**
      * Update who is the winner based off the game
      */
-    private void winner()
+    private void Winner()
     {
         playerWinner.text = "Player "  + PlayerPrefs.GetInt("winner").ToString() + "\n Ruled Supreme";
     }
     /**
      * Sends Players back to Player Select Screen
      */
-    public void switchScene()
+    public void SwitchScene()
     {
         restart.Play();
         SceneManager.LoadScene("PlayerSelect");
@@ -62,7 +58,7 @@ public class GameEndController : MonoBehaviour
     /**
      * Update the players Stat to show to all
      */
-    private void playerStats(int active)
+    private void PlayerStats(int active)
     {
         switch(active)
         {
@@ -83,7 +79,7 @@ public class GameEndController : MonoBehaviour
     /**
      * shows the players that are active stats'
      */
-    private void activePlayers()
+    private void ActivePlayers()
     {
         switch(ID)
         {
@@ -91,22 +87,22 @@ public class GameEndController : MonoBehaviour
                 player2.SetActive(true);
                 player3.SetActive(false);
                 player4.SetActive(false);
-                playerStats(1);
-                playerStats(2);
+                PlayerStats(1);
+                PlayerStats(2);
                 break;
             case (3):
                 player3.SetActive(true);
                 player4.SetActive(false);
-                playerStats(1);
-                playerStats(2);
-                playerStats(3);
+                PlayerStats(1);
+                PlayerStats(2);
+                PlayerStats(3);
                 break;
             case (4):
                 player4.SetActive(true);
-                playerStats(1);
-                playerStats(2);
-                playerStats(3);
-                playerStats(4);
+                PlayerStats(1);
+                PlayerStats(2);
+                PlayerStats(3);
+                PlayerStats(4);
                 break;
         }
     }

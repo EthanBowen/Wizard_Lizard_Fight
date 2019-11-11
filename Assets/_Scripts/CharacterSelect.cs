@@ -44,36 +44,36 @@ public class CharacterSelect : MonoBehaviour
 
     [Header("UI Reference")]
 
-    [SerializeField] private TextMeshProUGUI player1Name;
-    [SerializeField] private TextMeshProUGUI player2Name;
-    [SerializeField] private TextMeshProUGUI player3Name;
-    [SerializeField] private TextMeshProUGUI player4Name;
+     public TextMeshProUGUI player1Name;
+     public TextMeshProUGUI player2Name;
+     public TextMeshProUGUI player3Name;
+     public TextMeshProUGUI player4Name;
 
-    [SerializeField] private Image player1Splash;
-    [SerializeField] private Image player2Splash;
-    [SerializeField] private Image player3Splash;
-    [SerializeField] private Image player4Splash;
+     public Image player1Splash;
+     public Image player2Splash;
+     public Image player3Splash;
+     public Image player4Splash;
 
-    [SerializeField] private Image player1Color;
-    [SerializeField] private Image player2Color;
-    [SerializeField] private Image player3Color;
-    [SerializeField] private Image player4Color;
+     public Image player1Color;
+     public Image player2Color;
+     public Image player3Color;
+     public Image player4Color;
     
     [Header("Sounds")]
-    [SerializeField] private AudioSource arrowSFX;
-    [SerializeField] private AudioSource characterSelectMusic;
-    [SerializeField] private AudioSource confirmSFX;
+     public AudioSource arrowSFX;
+     public AudioSource characterSelectMusic;
+     public AudioSource confirmSFX;
     //[SerializeField] private AudioClip characterMusic;
 
     [Header("Small Changes")]
-    [SerializeField] private float backgroundColorTransitionSpeed = 1.0f;
+     private float BackgroundColorTransitionSpeed = 6.0f;
 
     private void Start()
     {
         player1Splash.sprite = characterList[0].splash;
         player1CharacterColor = characterList[0].characterColor;
         player1Name.text = characterList[0].characterName;
-        populateCharacterList();
+        PopulateCharacterList();
         characterSelectMusic.loop = true;
         characterSelectMusic.Play();
     }
@@ -81,33 +81,33 @@ public class CharacterSelect : MonoBehaviour
     private void Update()
     {
         characterListCount = characterList.Count;
-        countPlayers();
+        CountPlayers();
         //slowly changes the background color to the designated color of the player character background
-        backgroundColorChanger(1);
-        updateCharacterSelectUI(1);
+        BackgroundColorChanger(1);
+        UpdateCharacterSelectUI(1);
         if(Player2.activeSelf == true)
         {
-            updateCharacterSelectUI(2);
-            backgroundColorChanger(2);
+            UpdateCharacterSelectUI(2);
+            BackgroundColorChanger(2);
         }
         if (Player3.activeSelf == true)
         {
-            updateCharacterSelectUI(3);
-            backgroundColorChanger(3);
+            UpdateCharacterSelectUI(3);
+            BackgroundColorChanger(3);
         }
         if(Player4.activeSelf == true)
         {
-            updateCharacterSelectUI(4);
-            backgroundColorChanger(4);
+            UpdateCharacterSelectUI(4);
+            BackgroundColorChanger(4);
         }
             
-        playerTracker();
-        switchScene();
+        PlayerTracker();
+        SwitchScene();
     }
     /**
      *Adds all characters from the main Character list to the rest of the Player Character Lists
      */
-    private void populateCharacterList()
+    private void PopulateCharacterList()
     {
         for (int index = 0; index < characterList.Count; index++)
         {
@@ -123,7 +123,7 @@ public class CharacterSelect : MonoBehaviour
     /**
      * Counts all the players that is currently playing
      */
-    private void countPlayers()
+    private void CountPlayers()
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
@@ -145,27 +145,27 @@ public class CharacterSelect : MonoBehaviour
     /**
      * Changes the background color depending on the player
      */
-    private void backgroundColorChanger(int index)
+    private void BackgroundColorChanger(int index)
     {
         switch(index)
         {
             case (1):
-                player1Color.color = Color.Lerp(player1Color.color, player1CharacterColor, Time.deltaTime * backgroundColorTransitionSpeed);
+                player1Color.color = Color.Lerp(player1Color.color, player1CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
                 break;
             case (2):
-                player2Color.color = Color.Lerp(player2Color.color, player2CharacterColor, Time.deltaTime * backgroundColorTransitionSpeed);
+                player2Color.color = Color.Lerp(player2Color.color, player2CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
                 break;
             case (3):
-                player3Color.color = Color.Lerp(player3Color.color, player3CharacterColor, Time.deltaTime * backgroundColorTransitionSpeed);
+                player3Color.color = Color.Lerp(player3Color.color, player3CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
                 break;
             case (4):
-                player4Color.color = Color.Lerp(player4Color.color, player4CharacterColor, Time.deltaTime * backgroundColorTransitionSpeed);
+                player4Color.color = Color.Lerp(player4Color.color, player4CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
                 break;
 
         }   
     }
     //Meant to store the information on multiple players
-    private void playerTracker()
+    private void PlayerTracker()
     {
         switch(ID)
         {
@@ -200,7 +200,7 @@ public class CharacterSelect : MonoBehaviour
      * Cycles forward in the list of the characters
      * toggles off the ready for the player to signify that they are not ready to choose a character
      */
-    public void leftArrow(int ID)
+    public void LeftArrow(int ID)
     {
         if(Input.GetKeyDown(KeyCode.Return))
             return;
@@ -232,7 +232,7 @@ public class CharacterSelect : MonoBehaviour
                 break;
         }
 
-        updateCharacterSelectUI(ID);
+        UpdateCharacterSelectUI(ID);
 
         arrowSFX.Play();
     }
@@ -240,7 +240,7 @@ public class CharacterSelect : MonoBehaviour
      * Cycles forward in the list of the characters
      * toggles off the ready for the player to signify that they are not ready to choose a character
      */
-    public void rightArrow(int ID)
+    public void RightArrow(int ID)
     {
         if (Input.GetKeyDown(KeyCode.Return))
             return;
@@ -272,7 +272,7 @@ public class CharacterSelect : MonoBehaviour
                 break;
         }
 
-        updateCharacterSelectUI(ID);
+        UpdateCharacterSelectUI(ID);
 
         arrowSFX.Play();
     }
@@ -303,7 +303,7 @@ public class CharacterSelect : MonoBehaviour
 
         confirmSFX.Play();
     }
-    private void updateCharacterSelectUI(int player)
+    private void UpdateCharacterSelectUI(int player)
     {
         //Sets the Splash, Name, Color
         switch (player)
@@ -331,7 +331,7 @@ public class CharacterSelect : MonoBehaviour
         }
         
     }
-    private void switchScene()
+    private void SwitchScene()
     {
         switch(ID)
         {
