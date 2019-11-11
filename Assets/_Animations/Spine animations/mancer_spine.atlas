@@ -1,0 +1,97 @@
+
+mancer_spine.png
+size: 1663,691
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm_b
+  rotate: false
+  xy: 895, 113
+  size: 108, 194
+  orig: 108, 194
+  offset: 0, 0
+  index: -1
+arm_f
+  rotate: false
+  xy: 1508, 231
+  size: 108, 194
+  orig: 108, 194
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 194
+  size: 495, 533
+  orig: 495, 533
+  offset: 0, 0
+  index: -1
+cape_b
+  rotate: false
+  xy: 1035, 204
+  size: 238, 485
+  orig: 238, 485
+  offset: 0, 0
+  index: -1
+cape_f
+  rotate: true
+  xy: 537, 309
+  size: 380, 496
+  orig: 380, 496
+  offset: 0, 0
+  index: -1
+chain
+  rotate: true
+  xy: 895, 4
+  size: 107, 80
+  orig: 107, 80
+  offset: 0, 0
+  index: -1
+forearm_b
+  rotate: false
+  xy: 1314, 65
+  size: 262, 161
+  orig: 262, 161
+  offset: 0, 0
+  index: -1
+forearm_f
+  rotate: true
+  xy: 1508, 427
+  size: 262, 153
+  orig: 262, 153
+  offset: 0, 0
+  index: -1
+jaw_b
+  rotate: false
+  xy: 1005, 39
+  size: 307, 163
+  orig: 307, 163
+  offset: 0, 0
+  index: -1
+jaw_f
+  rotate: false
+  xy: 2, 10
+  size: 345, 182
+  orig: 345, 182
+  offset: 0, 0
+  index: -1
+leg_f
+  rotate: true
+  xy: 537, 9
+  size: 298, 356
+  orig: 298, 356
+  offset: 0, 0
+  index: -1
+skull
+  rotate: true
+  xy: 1275, 228
+  size: 461, 231
+  orig: 461, 231
+  offset: 0, 0
+  index: -1
+tongue
+  rotate: true
+  xy: 349, 2
+  size: 190, 176
+  orig: 190, 176
+  offset: 0, 0
+  index: -1
