@@ -136,6 +136,7 @@ public class Player : MonoBehaviour
     // The delay before another bomb can be placed. Temporary.
     private float Timer_BombDrop = 0.0f;
 
+
     private void FixedUpdate()
     {
         if(fire)
@@ -214,11 +215,11 @@ public class Player : MonoBehaviour
                 }
             }
             // BOMB
-            else if (earth && !air && Timer_BombDrop > 4.0f)
+            else if (earth && !air && Timer_BombDrop > 0.5f)
             {
                 if (MP >= 40)
                 {
-                    if (Timer_BombDrop > 4.0f)
+                    if (Timer_BombDrop > 0.5f)
                     {
                         earth = false;
                         fire = false;
@@ -372,7 +373,7 @@ public class Player : MonoBehaviour
             Quaternion SetRotationTo = CalcAimVector(horizontal, vertical);
             fireSpell.transform.rotation = SetRotationTo;
             airSpell.transform.rotation = SetRotationTo;
-
+            aimPos = SetRotationTo;
         }
     }
 
@@ -452,20 +453,35 @@ public class Player : MonoBehaviour
     }
 
     //********************************************************Fire/Earth**********************************************************
+
+    private GameObject HasPlacedBomb = null;
+    private Quaternion aimPos;
+
     private void PlaceBomb()
     {
-        MP -= 30.0f;
-        Quaternion aimPos = CalcAimVector(horizontal, vertical);
+        if (HasPlacedBomb == null)
+        {
+            MP -= 30.0f;
+            
+            Vector3 positionOfBomb = new Vector3(2.0f, 0);
 
-        Vector3 positionOfBomb = new Vector3(2.0f, 0);
+            positionOfBomb = aimPos * positionOfBomb;
+            positionOfBomb += transform.position;
 
-        positionOfBomb = aimPos * positionOfBomb;
-        positionOfBomb += transform.position;
+            GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
-        GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
-
-        _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
-        bombscript.SetPlayerID(ID);
+            _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
+            bombscript.SetPlayerID(ID);
+            bombscript.ExplodeManually = true;
+            bombscript.SetOwner(this);
+            HasPlacedBomb = bomb;
+        }
+        else
+        {
+            _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
+            bombscript.Detonate();
+            HasPlacedBomb = null;
+        }
     }
 
     //********************************************************Fire/Air**********************************************************
@@ -516,6 +532,34 @@ public class Player : MonoBehaviour
                     collision.gameObject.GetComponent<PlayerAttack>().ReportPoint();
                     Die();
                 }
+            }
+        }
+    }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!dead)
+        {
+            GameObject collided = collision.gameObject;
+            // Damage zone handling
+            _script_DamageZone damagezone = collision.GetComponent<_script_DamageZone>();
+            if (damagezone != null && damagezone.PlayerID != ID)
+            {
+                health -= damagezone.DamagePerCheck;
+                healthupdate.Invoke(ID, health);
+
+                if (health <= 0)
+                {
+                    damagezone.ReportPoint();
+                    Die();
+                }
+            }
+            // For handling trigger zones that use the PlayerAttack module.
+            PlayerAttack attack = collision.gameObject.GetComponent<PlayerAttack>();
+            if (attack != null && attack.PlayerID != ID)
+            {
+                // Handles being hit by another player's attack zone.
             }
         }
     }
