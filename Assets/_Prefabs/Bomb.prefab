@@ -100,14 +100,14 @@ MonoBehaviour:
   FuseTimer: 3
   ExplosionRadius: 1.5
   ExplosionKnockback: 1
-  ExplosionDamage: 30
+  ExplosionDamage: 500
   CanDamageDropper: 1
   ExplosionPrefab: {fileID: 0}
   LeavesFireAfterExplosion: 1
-  FireDuration: 2
-  FireRadius: 1
-  FireDamagePerCheck: 10
-  FireSpreadType: 0
+  FireDuration: 3
+  FireRadius: 1.5
+  FireDamagePerCheck: 5
+  FireSpreadType: 1
   FireZonePlus: {fileID: 5209473831826740569, guid: d74d7bb2f19d49c4f95d669e551c3e8f,
     type: 3}
   FireZoneCircle: {fileID: 300251869690351357, guid: 7930e89b3ae08e1408d9e91990487aa3,
@@ -168,9 +168,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019683036262963969}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55b339b80a46ba94b8777262585b606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerID: 0
+  damage: 0

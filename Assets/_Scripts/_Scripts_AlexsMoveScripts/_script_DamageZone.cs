@@ -11,6 +11,7 @@ public class _script_DamageZone : MonoBehaviour
     public int PlayerID;
 
     private float Timer = 0.0f;
+    public Player owner;
 
     private void Awake()
     {
@@ -42,4 +43,11 @@ public class _script_DamageZone : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+
+    public void ReportPoint()
+    {
+        owner.IncreaseScore();
+    }
+
 }

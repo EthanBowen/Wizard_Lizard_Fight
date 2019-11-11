@@ -30,6 +30,7 @@ public class _script_Bomb : MonoBehaviour
     public GameObject FireZoneSpot;
 
     private float Timer = 0.0f;
+    private Player owner;
 
     // Start is called before the first frame update
     void Start()
@@ -50,12 +51,15 @@ public class _script_Bomb : MonoBehaviour
         }
     }
 
-
+    public void SetOwner(Player own)
+    {
+        owner = own;
+    }
 
     /**
      * Handles what happens when the bomb detonates.
      */
-    void Detonate()
+    public void Detonate()
     {
         Debug.Log("----- Player " + PlayerID + "'s Bomb Exploded");
         // Spawn explosion collider
@@ -111,6 +115,7 @@ public class _script_Bomb : MonoBehaviour
                 zone.DamagePerCheck = FireDamagePerCheck;
                 zone.Lifetime = FireDuration;
                 zone.PlayerID = PlayerID;
+                zone.owner = owner;
                 zone.gameObject.transform.parent = null;
             }
             Destroy(Fire);
@@ -124,4 +129,7 @@ public class _script_Bomb : MonoBehaviour
     {
         PlayerID = ID;
     }
+
+
+
 }
