@@ -543,6 +543,44 @@ public class Player : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!dead)
+        {
+            GameObject collided = collision.gameObject;
+            // Damage zone handling
+            _script_KnockbackTrigger damagezone = collided.GetComponent<_script_KnockbackTrigger>();
+            if (damagezone != null && damagezone.owner.ID != ID)
+            {
+                health -= damagezone.Damage;
+                healthupdate.Invoke(ID, health);
+
+                // Currently, knockback isn't cooperating with me.
+                /*
+                Vector2 difference = transform.position - damagezone.transform.position;
+                difference = difference.normalized * damagezone.Knockback * 100;
+                Debug.Log("Applying knockback to player: " + ID + " with vector: " + difference);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Impulse);
+                */
+
+                if (health <= 0)
+                {
+                    damagezone.ReportPoint();
+                    Die();
+                }
+            }
+            // For handling trigger zones that use the PlayerAttack module.
+            PlayerAttack attack = collision.gameObject.GetComponent<PlayerAttack>();
+            if (attack != null && attack.PlayerID != ID)
+            {
+                // Handles being hit by another player's attack zone.
+            }
+        }
+    }
+
+
+    
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!dead)

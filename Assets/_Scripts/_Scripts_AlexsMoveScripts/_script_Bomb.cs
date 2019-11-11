@@ -81,8 +81,15 @@ public class _script_Bomb : MonoBehaviour
     {
         if (ExplosionPrefab != null)
         {
+            GameObject explosion = Instantiate(ExplosionPrefab);
+            explosion.transform.position = this.transform.position;
+            explosion.GetComponent<_script_KnockbackTrigger>().Damage = ExplosionDamage;
+            explosion.GetComponent<_script_KnockbackTrigger>().Knockback = ExplosionKnockback;
+            explosion.GetComponent<_script_KnockbackTrigger>().owner = owner;
+
             // Place explosion prefab.
             // Prefab will apply collision event that adds force to player's movement in direction opposite to bomb's center.
+
         }
     }
 
