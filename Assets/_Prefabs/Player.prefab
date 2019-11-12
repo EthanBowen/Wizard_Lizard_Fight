@@ -174,13 +174,17 @@ MonoBehaviour:
   diagonalMoveSpeedMultiplier: 1
   maxHealth: 200
   maxMP: 100
-  score: 0
-  horizontal: 0
-  vertical: 0
+  BombDamage: 100
+  BombRadius: 2
+  WaterShotSpeed: 1
+  IceShotSpeed: 0.5
   ID: 0
+  score: 0
   health: 0
   MP: 0
   SpawnPoint: {x: 0, y: 0, z: 0}
+  horizontal: 0
+  vertical: 0
   redMag: {fileID: 1791190899752136579}
   fireSpell: {fileID: 1917731532324603714}
   greenMag: {fileID: 1730928279813106867}
@@ -194,6 +198,8 @@ MonoBehaviour:
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
   waterSpell: {fileID: 9075706933809102355, guid: 41e9e27c245b5c44dab4e28500d3bf91,
+    type: 3}
+  iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
     type: 3}
 --- !u!95 &5937992824312999496
 Animator:
