@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   diagonalMoveSpeedMultiplier: 1
-  maxHealth: 100
+  maxHealth: 200
   maxMP: 100
   score: 0
   horizontal: 0
