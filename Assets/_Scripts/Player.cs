@@ -476,14 +476,11 @@ public class Player : MonoBehaviour
 
         Vector3 positionOfWater = new Vector3(2.0f, 0);
 
-        Debug.Log("Position of water shot: " + positionOfWater);
         positionOfWater = aimPos * positionOfWater;
         positionOfWater += transform.position;
-        Debug.Log("Position of water shot: " + positionOfWater);
 
         GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
-        Debug.Log("Position of water shot: " + positionOfWater);
         Vector2 difference = water.transform.position - transform.position;
         difference = difference.normalized * WaterShotSpeed * 10;
 
@@ -594,6 +591,7 @@ public class Player : MonoBehaviour
             {
                 health -= collision.gameObject.GetComponent<PlayerAttack>().damage;
                 healthupdate.Invoke(ID, health);
+                Debug.Log("Detected collision with water? Player that got hit: " + ID + " --- Attacking Player: " + collision.gameObject.GetComponent<PlayerAttack>().PlayerID);
 
                 if (health <= 0)
                 {

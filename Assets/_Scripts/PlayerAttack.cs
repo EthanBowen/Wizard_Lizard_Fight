@@ -12,7 +12,8 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        owner = gameObject.GetComponentInParent<Player>();
+        if (owner == null) 
+            owner = gameObject.GetComponentInParent<Player>();
         if (owner != null)
         {
             PlayerID = owner.ID;
