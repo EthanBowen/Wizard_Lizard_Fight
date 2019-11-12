@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
 
     private bool fire, air, water, earth;
-    private bool fireActive = false, airActive = false, fireTrailActive = false;
+    private bool fireActive = false, airActive = false, fireTrailActive = false, healActive = false;
 
     [Header("Gameplay Information")]
     public int ID = 0;
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     public ParticleSystem airSpell;
 
     public ParticleSystem fireTrailSpell;
+    public ParticleSystem healSpell;
 
     public GameObject healthBar;
     public GameObject manaBar;
@@ -274,7 +275,11 @@ public class Player : MonoBehaviour
             // HEAL
             else if (earth && !air)
             {
-
+                chargeWaterSpell = 0.0f;
+                if (!healActive)
+                {
+                    StartHeal();
+                }
             }
             // ICE
             else if (air && !earth)
@@ -318,7 +323,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(!air || !water)
+        if(!water || !air)
         {
             if (chargeIceSpell > 20 && MP > chargeIceSpell * 2)
             {
@@ -330,7 +335,16 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!fireActive && !airActive && !fireTrailActive && MP < maxMP)
+        if (!water || !earth)
+        {
+            if (healActive)
+            {
+                StopHeal();
+            }
+        }
+
+        bool spellActive = fireActive || airActive || fireTrailActive || (healActive && health < maxHealth);
+        if (!spellActive && MP < maxMP)
         {
             MP += 1;
         }
@@ -346,19 +360,21 @@ public class Player : MonoBehaviour
         {
             MP -= 4;
         }
+        else if (healActive && health < maxHealth)
+        {
+            MP -= 1;
+            health += 0.3f;
+        }
 
 
         if (MP > maxMP)
         {
             MP = maxMP;
         }
-        if (MP < 0)
-        {
-            MP = 0.0f;
-        }
-
+        
         if (MP <= 0)
         {
+            MP = 0.0f;
             fire = false;
             water = false;
             air = false;
@@ -543,6 +559,18 @@ public class Player : MonoBehaviour
 
     }
 
+    //********************************************************Fire/Air**********************************************************
+    public void StartFireTrail()
+    {
+        fireTrailSpell.Play();
+        fireTrailActive = true;
+    }
+    public void StopFireTrail()
+    {
+        fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        fireTrailActive = false;
+    }
+
     //********************************************************Fire/Earth**********************************************************
 
     private GameObject HasPlacedBomb = null;
@@ -577,18 +605,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    //********************************************************Fire/Air**********************************************************
-    public void StartFireTrail()
-    {
-        fireTrailSpell.Play();
-        fireTrailActive = true;
-    }
-    public void StopFireTrail()
-    {
-        fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        fireTrailActive = false;
-    }
-
     //*******************************************************Water/Air************************************************************
     public void CastIce()
     {
@@ -616,6 +632,18 @@ public class Player : MonoBehaviour
         //water.SetActive(true);
 
         chargeIceSpell = 0.0f;
+    }
+
+    //*******************************************************Water/Earth************************************************************
+    public void StartHeal()
+    {
+        healSpell.Play();
+        healActive = true;
+    }
+    public void StopHeal()
+    {
+        healSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        healActive = false;
     }
 
     //*********************************************************************************************************************************************************************
