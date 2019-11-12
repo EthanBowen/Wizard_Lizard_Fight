@@ -80,16 +80,16 @@ public class CharacterSelect : MonoBehaviour
      public TextMeshProUGUI player3Name;
      public TextMeshProUGUI player4Name;
 
-     public SkeletonAnimation player1;
-     public AnimationReferenceAsset player1Wizard;
-     public SkeletonAnimation player2;
-     public AnimationReferenceAsset player2Wizard;
-     public SkeletonAnimation player3;
-     public AnimationReferenceAsset player3Wizard;
-     public SkeletonAnimation player4;
-     public AnimationReferenceAsset player4Wizard;
+     public SkeletonGraphic player1;
+     //public AnimationReferenceAsset player1Wizard;
+     public SkeletonGraphic player2;
+     //public AnimationReferenceAsset player2Wizard;
+     public SkeletonGraphic player3;
+     //public AnimationReferenceAsset player3Wizard;
+     public SkeletonGraphic player4;
+     //public AnimationReferenceAsset player4Wizard;
 
-    public Image player1Color;
+     public Image player1Color;
      public Image player2Color;
      public Image player3Color;
      public Image player4Color;
@@ -112,7 +112,7 @@ public class CharacterSelect : MonoBehaviour
         player1Name.text = characterList[0].characterName;
         PopulateCharacterList();
         currentAnimation1 = "The boi_Idle";
-        SetCharacterState(currentAnimation1);
+        //SetCharacterState(currentAnimation1);
         characterSelectMusic.playOnAwake = true;
         characterSelectMusic.loop = true;
 
@@ -162,7 +162,7 @@ public class CharacterSelect : MonoBehaviour
          * And remember:
          * The tutorial scenes in Spine Examples -> Getting Started are VERY HELPFUL in seeing this
          * stuff in action. Refer to them for help with working in Spine.
-         */
+         *
         if (old_ID != characterListCount && false)
         {
             old_ID = characterListCount;
@@ -173,8 +173,9 @@ public class CharacterSelect : MonoBehaviour
                 skele.AnimationState.SetAnimation(0, "animation name", true);
             }
         }
-
-        Debug.Log("Player Name: " + player1Wizard.name + "\nCurrent Animation: " + currentAnimation1);
+        */
+        currentAnimation1 = player1.startingAnimation.ToString();
+        Debug.Log("\nCurrent Animation: " + currentAnimation1 + "\nPlayer Skin Name: " + player1.Skeleton.Skin.Name);//"\nInitial Skin: " + player1CharacterList[player1Index].wizard.initialSkinName);
     }
     /**
      *Adds all characters from the main Character list to the rest of the Player Character Lists
@@ -381,34 +382,41 @@ public class CharacterSelect : MonoBehaviour
         switch (player)
         {
             case (1):
-                player1Wizard = player1CharacterList[player1Index].wizard;
-                //currentAnimation1 = player1Wizard.name;
-                //SetCharacterState(currentAnimation1);
-                SetAnimation(player1Wizard, true, 1f);
+                SetCharacterAnimation(player1, player1CharacterList, player1Index);
                 player1Name.text = player1CharacterList[player1Index].characterName;
                 player1CharacterColor = player1CharacterList[player1Index].characterColor;
-
                 break;
             case (2):
-                player2Wizard = player2CharacterList[player2Index].wizard;
-                //SetCharacterState(player, player1Index);
+                SetCharacterAnimation(player2, player2CharacterList, player2Index);
                 player2Name.text = player2CharacterList[player2Index].characterName;
                 player2CharacterColor = player2CharacterList[player2Index].characterColor;
                 break;
             case (3):
-                player3Wizard = player3CharacterList[player3Index].wizard;
-                //SetCharacterState(player, player1Index);
+                SetCharacterAnimation(player3, player3CharacterList, player3Index);
                 player3Name.text = player3CharacterList[player3Index].characterName;
                 player3CharacterColor = player3CharacterList[player3Index].characterColor;
                 break;
             case 4:
-                player4Wizard = player4CharacterList[player4Index].wizard;
-                //SetCharacterState(player, player1Index);
+                SetCharacterAnimation(player4, player4CharacterList, player4Index);
                 player4Name.text = player4CharacterList[player4Index].characterName;
                 player4CharacterColor = player4CharacterList[player4Index].characterColor;
                 break;
         }
     }
+
+    private void SetCharacterAnimation(SkeletonGraphic player, List<CharacterSelectObject> list, int index)
+    {
+        if (player.Skeleton.Skin.Name == list[index].skeletonGraphicWizard.Skeleton.Skin.Name)
+            return;
+
+        SkeletonGraphic skele = player.GetComponentInChildren<SkeletonGraphic>();
+        skele.Skeleton.SetSkin(list[index].skeletonGraphicWizard.initialSkinName);
+        skele.Skeleton.Skin.AddSkin(list[index].skeletonGraphicWizard.Skeleton.Skin);
+        skele.startingAnimation = list[index].skeletonGraphicWizard.startingAnimation;
+        skele.AnimationState.SetAnimation(0, list[index].skeletonGraphicWizard.startingAnimation, true);
+        player = skele;
+    }
+    /*
     private void SetCharacterState(string state)
     {
         if (state.Equals("The boi_Idle"))
@@ -421,10 +429,13 @@ public class CharacterSelect : MonoBehaviour
 
     private void SetAnimation(AnimationReferenceAsset wizard, bool loop, float timeS)
     {
+        /*
         if (wizard.name.Equals(currentAnimation1))
             return;
         player1.state.SetAnimation(0, wizard, loop);
-    }
+        */
+        
+    //}
 
     private void SwitchScene()
     {
@@ -456,7 +467,7 @@ public class CharacterSelect : MonoBehaviour
     [System.Serializable]
     public class CharacterSelectObject
     {
-        public AnimationReferenceAsset wizard;
+        public SkeletonGraphic skeletonGraphicWizard;
         public string characterName;
         public Color characterColor;
     }
