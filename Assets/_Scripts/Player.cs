@@ -381,6 +381,7 @@ public class Player : MonoBehaviour
             {
                 StartAir();
             }
+
             if (fireTrailActive && water || earth)
             {
                 StopFireTrail();
