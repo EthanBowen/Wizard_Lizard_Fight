@@ -679,6 +679,8 @@ public class Player : MonoBehaviour
     {
         dead = true;
         fire = air = water = earth = false;
+
+        health = 0.0f;
         
         this.gameObject.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
