@@ -9,33 +9,41 @@ using UnityEngine.InputSystem.Interactions;
 public class Player : MonoBehaviour
 {
     // Variables for player movement
+    [Header("Player Settings")]
     public float movementSpeed = 10f;
     public float diagonalMoveSpeedMultiplier = 1f;
-
     public float maxHealth = 100;
     public float maxMP = 100;
-    public int score = 0;
     private bool dead;
 
-    public float horizontal = 0, vertical = 0;
+    [Header("Bomb Settings")]
+    public float BombDamage = 100f;
+    public float BombRadius = 2f;
+    [Header("Watershot Settings")]
+    public float WaterShotSpeed = 1f;
+
     private Rigidbody2D body;
 
     private bool fire, air, water, earth;
     private bool fireActive = false, airActive = false, fireTrailActive = false;
 
+    [Header("Gameplay Information")]
     public int ID = 0;
-
+    public int score = 0;
     public float health;
     public float MP;
     public Vector3 SpawnPoint;
+    public float horizontal = 0, vertical = 0;
+
 
     private GameController gameController;
 
-    
+
 
     // Controls animations
     private SpriteRenderer sprite;
     private Animator anim;
+    [Header("Animation Data")]
     public ParticleSystem redMag;
     public ParticleSystem fireSpell;
     public ParticleSystem greenMag;
@@ -464,17 +472,25 @@ public class Player : MonoBehaviour
     {
         MP -= chargeWaterSpell;
 
-        Quaternion aimPos = CalcAimVector(horizontal, vertical);
+        //Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
         Vector3 positionOfWater = new Vector3(2.0f, 0);
 
+        Debug.Log("Position of water shot: " + positionOfWater);
         positionOfWater = aimPos * positionOfWater;
         positionOfWater += transform.position;
+        Debug.Log("Position of water shot: " + positionOfWater);
 
         GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
-        water.GetComponent<WaterSpell>().x = positionOfWater.x;
-        water.GetComponent<WaterSpell>().y = positionOfWater.y;
+        Debug.Log("Position of water shot: " + positionOfWater);
+        Vector2 difference = water.transform.position - transform.position;
+        difference = difference.normalized * WaterShotSpeed * 10;
+
+        water.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
+
+        //water.GetComponent<WaterSpell>().x = positionOfWater.x;
+        //water.GetComponent<WaterSpell>().y = positionOfWater.y;
 
         PlayerAttack pa = water.GetComponent<PlayerAttack>();
         pa.SetOwner(this);
@@ -521,6 +537,8 @@ public class Player : MonoBehaviour
             _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
             bombscript.SetPlayerID(ID);
             bombscript.ExplodeManually = true;
+            bombscript.ExplosionDamage = BombDamage;
+            bombscript.ExplosionRadius = BombRadius;
             bombscript.SetOwner(this);
             HasPlacedBomb = bomb;
         }
@@ -544,7 +562,9 @@ public class Player : MonoBehaviour
         fireTrailActive = false;
     }
 
-
+    //*********************************************************************************************************************************************************************
+    //********************************************************      Hit Detection     *************************************************************************************
+    //*********************************************************************************************************************************************************************
 
     private void OnParticleCollision(GameObject other)
     {

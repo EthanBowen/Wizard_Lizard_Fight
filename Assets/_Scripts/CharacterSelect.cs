@@ -7,6 +7,31 @@ using UnityEngine.SceneManagement;
 using Spine.Unity;
 using System;
 
+
+
+/*
+ * MJ:
+ * This may help in picking a skin. Usage:
+ * 
+ * SelectedSkin skin = SelectedSkin.C4;
+ * ......
+ * [Change skins]
+ * skin = SelectedSkin.Mancer;
+ * ......
+ * [Check current skin]
+ * if (skin = SelectedSkin.Ax) {
+ *      // code
+ * }
+ */
+public enum SelectedSkin
+{
+    Mancer,
+    Ax,
+    C4,
+    Lizard
+}
+
+
 public class CharacterSelect : MonoBehaviour
 {
     //player ID
@@ -78,6 +103,9 @@ public class CharacterSelect : MonoBehaviour
     [Header("Small Changes")]
      private float BackgroundColorTransitionSpeed = 6.0f;
 
+    public SelectedSkin selectedSkin = SelectedSkin.Mancer;
+    private int old_ID;
+
     private void Start()
     {
         player1CharacterColor = characterList[0].characterColor;
@@ -87,7 +115,16 @@ public class CharacterSelect : MonoBehaviour
         SetCharacterState(currentAnimation1);
         characterSelectMusic.playOnAwake = true;
         characterSelectMusic.loop = true;
+
+        ListOfPlayers = new List<GameObject>();
+        ListOfPlayers.Add(Player1);
+        ListOfPlayers.Add(Player2);
+        ListOfPlayers.Add(Player3);
+        ListOfPlayers.Add(Player4);
+
     }
+
+    private List<GameObject> ListOfPlayers;
 
     private void Update()
     {
@@ -114,6 +151,29 @@ public class CharacterSelect : MonoBehaviour
             
         PlayerTracker();
         SwitchScene();
+
+        // TODO: Change this code
+        /*
+         * MJ:
+         * You can use code like this to change the skins and animations currently applied to the
+         * lizard wizard. I'll leave the implementation of the actual changing to you - but this
+         * should help you get started with the right approach.
+         * 
+         * And remember:
+         * The tutorial scenes in Spine Examples -> Getting Started are VERY HELPFUL in seeing this
+         * stuff in action. Refer to them for help with working in Spine.
+         */
+        if (old_ID != characterListCount && false)
+        {
+            old_ID = characterListCount;
+            for (int index = 1; index <= old_ID; index++)
+            {
+                SkeletonGraphic skele = ListOfPlayers[index].GetComponentInChildren<SkeletonGraphic>();
+                skele.Skeleton.SetSkin("NAME_OF_SKIN");
+                skele.AnimationState.SetAnimation(0, "animation name", true);
+            }
+        }
+
         Debug.Log("Player Name: " + player1Wizard.name + "\nCurrent Animation: " + currentAnimation1);
     }
     /**

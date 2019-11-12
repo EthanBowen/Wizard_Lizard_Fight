@@ -16,7 +16,7 @@ public class WaterSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x * 100, y * 100);
+        //gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x * 100, y * 100);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
