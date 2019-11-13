@@ -50,7 +50,8 @@ MonoBehaviour:
   player: {fileID: 6448434123201450951, guid: 0cc6487ca36ec9648b61154d29b88e43, type: 3}
   HP: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4, type: 3}
   MP: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
-  playerPicture: {fileID: 5339069598168580096}
+  playerPicture: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+    type: 3}
   health: 0
   mana: 0
   playerSprite: {fileID: 0}
@@ -146,16 +147,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
-    - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBarPrefab
-      objectReference: {fileID: 0}
     - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: playerUI
       value: 
       objectReference: {fileID: 4324799210306249739}
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: PlayerMaxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: CurrentPlayerHealth
+      value: 352
+      objectReference: {fileID: 0}
     - target: {fileID: 2290015349615495746, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,6 +217,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBarPrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 2290015348856413183, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -231,11 +242,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerPicture
-      objectReference: {fileID: 0}
     - target: {fileID: 6526233113355155977, guid: dd04924dfb2dab542acd67a2d303793d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -305,6 +311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8324069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerPicture
       objectReference: {fileID: 0}
     - target: {fileID: 8363649636066285199, guid: dd04924dfb2dab542acd67a2d303793d,
         type: 3}
