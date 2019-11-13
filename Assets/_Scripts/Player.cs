@@ -217,6 +217,15 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (fire || water || air || earth)
+        {
+            anim.SetBool("Casting", true);
+        }
+        else
+        {
+            anim.SetBool("Casting", false);
+        }
+
         // FIRE
         if (fire && !water)
         {
