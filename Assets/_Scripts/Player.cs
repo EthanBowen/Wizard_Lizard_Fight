@@ -25,6 +25,12 @@ public class Player : MonoBehaviour
     [Header("Iceshot Settings")]
     public float IceShotSpeed = 0.5f;
 
+    [Header("Iceshot Settings")]
+    public GameObject RockWall;
+    public float RockWallSize = 1f;
+    public float RockWallPlaceDistance = 2f;
+    public float RockWallManaCost = 20.0f;
+
     private Rigidbody2D body;
 
     private bool fire, air, water, earth;
@@ -116,8 +122,9 @@ public class Player : MonoBehaviour
         }
         if (inputs.button_up_stop)
         {
+            if (earth)
+                StopEarth();
             earth = false;
-            //StopEarth();
         }
 
         // Fire spell controller
@@ -559,17 +566,31 @@ public class Player : MonoBehaviour
     }
 
     //***********************************************************Earth************************************************************
+
+    private GameObject placedRockWall = null;
+
     public void StartEarth()
     {
-
-        //earth = true;
-
-
+ 
     }
     public void StopEarth()
     {
-        //earth = false;
+        if (placedRockWall != null)
+        {
+            GameObject.Destroy(placedRockWall);
+            placedRockWall = null;
+        }
+        MP -= RockWallManaCost;
 
+        Vector3 positionOfWall = new Vector3(RockWallPlaceDistance, 0);
+
+        positionOfWall = aimPos * positionOfWall;
+        positionOfWall += transform.position;
+
+        GameObject wall = Instantiate(RockWall, positionOfWall, aimPos);
+
+        placedRockWall = wall;
+        
     }
 
     //********************************************************Fire/Air**********************************************************
