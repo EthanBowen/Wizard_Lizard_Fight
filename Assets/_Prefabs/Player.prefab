@@ -80,7 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9e84cad30624c5f439ceb79dbfcd8135, type: 3}
+  m_Sprite: {fileID: 6009403580781277444, guid: 8a01c357e02365b438b201374fe95a46,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -298,6 +299,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
+    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_Name
@@ -373,16 +384,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
 --- !u!4 &190418261448385491 stripped
@@ -404,11 +405,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: m_Name
-      value: Flamethrower
-      objectReference: {fileID: 0}
     - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: playOnAwake
@@ -423,6 +419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Rotation.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
+        type: 3}
+      propertyPath: m_Name
+      value: Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
