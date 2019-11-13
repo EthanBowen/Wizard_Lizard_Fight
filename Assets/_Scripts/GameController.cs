@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public int NumberOfPlayers = 2;
     public GameObject PlayerObject;
     public GameObject playerUIObject;
+    //public GameObject towerObject;
     public GameObject GameEnd;
     private CharacterSelect selectedCharacter;
     public float PlayerMovementSpeed = 5f;
@@ -87,6 +88,7 @@ public class GameController : MonoBehaviour
         {
             GameObject character = Instantiate(PlayerObject);
             GameObject playerUI = Instantiate(playerUIObject);
+            //GameObject tower = Instantiate(towerObject);
 
             Vector3 spawnpoint;
             if (!(spawnpoints.Count < NumberOfPlayers))
@@ -102,6 +104,7 @@ public class GameController : MonoBehaviour
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
             playerUI.GetComponent<PlayerUI>().ID = index;
+            //tower.GetComponent<Tower>().ID = index;
             GameEnd.GetComponent<GameEndController>().ID = index;
            // selectedCharacter.ID = index;
             playerUI.GetComponent<PlayerUI>().player = character.GetComponent<Player>();
