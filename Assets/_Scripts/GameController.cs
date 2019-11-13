@@ -184,6 +184,14 @@ public class GameController : MonoBehaviour
 
     private void OnDisable()
     {
+        PlayerStats();
+    }
+
+    /*
+     * Updates the Stats of each of the characters in order to send information to end screen
+     */
+    private void PlayerStats()
+    {
         PlayerPrefs.SetInt("winner", winner);
         for (int index = 1; index <= NumberOfPlayers; index++)
         {
@@ -192,8 +200,6 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("P" + index + "_Kills", 1);
         }
     }
-
-
 
 
     /*
