@@ -30,11 +30,17 @@ public class Player : MonoBehaviour
     public float IceShotSpeed = 0.5f;
     public GameObject iceSpell;
 
+<<<<<<< HEAD
     [Header("Rockwall Settings")]
     public GameObject RockWall;
     public float RockWallSize = 1f;
     public float RockWallPlaceDistance = 2f;
     public float RockWallManaCost = 20.0f;
+
+
+    [Header("Heal Settings")]
+    public float HealPerMana = 0.3f;
+    public float HealCost = 1f;
 
     private Rigidbody2D body;
 
@@ -381,8 +387,8 @@ public class Player : MonoBehaviour
         }
         else if (healActive && health < maxHealth)
         {
-            MP -= 1;
-            health += 0.3f;
+            MP -= HealCost;
+            health += HealPerMana;
         }
 
 
