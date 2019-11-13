@@ -3741,7 +3741,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
@@ -3750,7 +3750,7 @@ ParticleSystem:
     collisionShape5: {fileID: 0}
     inside: 1
     outside: 0
-    enter: 0
+    enter: 1
     exit: 0
     radiusScale: 1
   SubModule:
@@ -4765,5 +4765,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b339b80a46ba94b8777262585b606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 0
   damage: 2.5
