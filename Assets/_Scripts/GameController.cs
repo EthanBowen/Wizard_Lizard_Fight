@@ -171,6 +171,7 @@ public class GameController : MonoBehaviour
                 if (playercontroller.score >= 5)
                 {
                     winner = playercontroller.ID;
+                    PlayerStats();
                     SceneManager.LoadScene("GameEnd");
                 }
 
@@ -182,10 +183,10 @@ public class GameController : MonoBehaviour
         CameraMovement(PlayerPositions);
     }
 
-    private void OnDisable()
-    {
-        PlayerStats();
-    }
+   // private void OnDisable()
+    //{
+    //    PlayerStats();
+   // }
 
     /*
      * Updates the Stats of each of the characters in order to send information to end screen
