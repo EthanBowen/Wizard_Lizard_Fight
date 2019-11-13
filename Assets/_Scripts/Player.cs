@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
     public float IceShotSpeed = 0.5f;
     public GameObject iceSpell;
 
-<<<<<<< HEAD
     [Header("Rockwall Settings")]
     public GameObject RockWall;
     public float RockWallSize = 1f;
