@@ -196,7 +196,7 @@ public class GameController : MonoBehaviour
         for (int index = 1; index <= NumberOfPlayers; index++)
         {
             PlayerPrefs.SetFloat("P" + index + "_DamageDone", ListOfPlayers[index].GetComponent<Player>().damageDone);
-            PlayerPrefs.SetFloat("P" + index + "_DamageTaken", ListOfPlayers[index].GetComponent<Player>().damageDone);
+            PlayerPrefs.SetFloat("P" + index + "_DamageTaken", ListOfPlayers[index].GetComponent<Player>().damageTaken);
             PlayerPrefs.SetInt("P" + index + "_Kills", ListOfPlayers[index].GetComponent<Player>().score);
         }
     }
