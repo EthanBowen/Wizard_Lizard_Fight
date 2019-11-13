@@ -176,11 +176,12 @@ MonoBehaviour:
   maxHealth: 200
   maxMP: 100
   BombDamage: 100
-  BombRadius: 2
+  BombRadius: 10
   WaterShotSpeed: 1
   IceShotSpeed: 0.5
   ID: 0
   score: 0
+  numTowers: 0
   damageDone: 0
   damageTaken: 0
   health: 0

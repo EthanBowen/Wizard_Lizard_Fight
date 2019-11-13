@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [Header("Bomb Settings")]
     public float BombDamage = 100f;
     public float BombRadius = 2f;
+    public float FireDamagePerCheck = 1f;
     [Header("Watershot Settings")]
     public float WaterShotSpeed = 1f;
     [Header("Iceshot Settings")]
@@ -32,13 +33,13 @@ public class Player : MonoBehaviour
     [Header("Gameplay Information")]
     public int ID = 0;
     public int score = 0;
+    public int numTowers = 0;
     public float damageDone = 0;
     public float damageTaken = 0;
     public float health;
     public float MP;
     public Vector3 SpawnPoint;
     public float horizontal = 0, vertical = 0;
-    public int numTowers = 0;
 
     private GameController gameController;
 
@@ -601,6 +602,7 @@ public class Player : MonoBehaviour
             bombscript.ExplodeManually = true;
             bombscript.ExplosionDamage = BombDamage;
             bombscript.ExplosionRadius = BombRadius;
+            bombscript.FireDamagePerCheck = FireDamagePerCheck;
             bombscript.SetOwner(this);
             HasPlacedBomb = bomb;
 
@@ -702,7 +704,11 @@ public class Player : MonoBehaviour
                     Die();
                 }
             }*/
-            takeDamage(collision.gameObject);
+            _script_DamageZone damagezone = collision.gameObject.GetComponent<_script_DamageZone>();
+            if (damagezone != null)
+            {
+                takeDamage(collision.gameObject);
+            }
         }
     }
 
@@ -711,6 +717,7 @@ public class Player : MonoBehaviour
         // If the collision object doesn't have a PlayerAttack component, ignore it.
         PlayerAttack attack = other.GetComponent<PlayerAttack>();
         _script_DamageZone damagezone = other.GetComponent<_script_DamageZone>();
+        
         if (damagezone != null && damagezone.PlayerID != ID)
         {
             if (health >= damagezone.DamagePerCheck)
@@ -761,7 +768,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseScore()
     {
-        score++;
+        score += 1 + numTowers;
     }
 
     public void IncreaseDamageDone(float dam)

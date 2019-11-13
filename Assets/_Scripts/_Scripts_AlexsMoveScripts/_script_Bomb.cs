@@ -86,7 +86,12 @@ public class _script_Bomb : MonoBehaviour
             explosion.GetComponent<_script_KnockbackTrigger>().Damage = ExplosionDamage;
             explosion.GetComponent<_script_KnockbackTrigger>().Knockback = ExplosionKnockback;
             explosion.GetComponent<_script_KnockbackTrigger>().owner = owner;
+            explosion.GetComponent<PlayerAttack>().SetOwner(owner);
+            explosion.GetComponent<PlayerAttack>().damage = ExplosionDamage;
+            explosion.GetComponent<PlayerAttack>().AssignID(owner.ID);
 
+
+            // Debug.Log("Owner of bomb: " + explosion.GetComponent<PlayerAttack>().CheckID());
             // Place explosion prefab.
             // Prefab will apply collision event that adds force to player's movement in direction opposite to bomb's center.
 
