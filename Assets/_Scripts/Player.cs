@@ -514,13 +514,13 @@ public class Player : MonoBehaviour
     public void StartFire()
     {
         fireSpell.Play();
-        fireSpell.GetComponent<PolygonCollider2D>().enabled = true;
+        //fireSpell.GetComponent<PolygonCollider2D>().enabled = true;
         fireActive = true;
     }
     public void StopFire()
     {
         fireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
+       // fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
         fireActive = false;
     }
 
