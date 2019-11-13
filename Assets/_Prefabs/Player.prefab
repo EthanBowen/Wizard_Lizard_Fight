@@ -149,12 +149,14 @@ MonoBehaviour:
   BombRadius: 10
   FireDamagePerCheck: 1
   WaterShotSpeed: 1
-  IceShotSpeed: 0.5
+  IceShotSpeed: 0.6
   RockWall: {fileID: 6433738572942360513, guid: 40df58a8bf3fe2d4c932abc76cae25f0,
     type: 3}
   RockWallSize: 1
-  RockWallPlaceDistance: 2
+  RockWallPlaceDistance: 3
   RockWallManaCost: 20
+  HealPerMana: 0.3
+  HealCost: 1
   ID: 0
   score: 0
   numTowers: 0
