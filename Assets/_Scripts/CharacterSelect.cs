@@ -408,7 +408,6 @@ public class CharacterSelect : MonoBehaviour
     {
         if (player.Skeleton.Skin.Name == list[index].skeletonGraphicWizard.Skeleton.Skin.Name)
             return;
-
         SkeletonGraphic skele = player.GetComponentInChildren<SkeletonGraphic>();
         skele.Skeleton.SetSkin(list[index].skeletonGraphicWizard.initialSkinName);
         skele.Skeleton.Skin.AddSkin(list[index].skeletonGraphicWizard.Skeleton.Skin);

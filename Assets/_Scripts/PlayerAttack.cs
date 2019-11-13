@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public int PlayerID;
+    private int PlayerID;
     private Player owner;
 
     public float damage;
@@ -35,6 +35,7 @@ public class PlayerAttack : MonoBehaviour
     {
         this.owner = owner;
     }
+    
 
     public int CheckID()
     {
@@ -44,5 +45,10 @@ public class PlayerAttack : MonoBehaviour
     public void ReportPoint()
     {
         owner.IncreaseScore();
+    }
+
+    public void ReportDamage(float dam)
+    {
+        owner.damageDone += dam;
     }
 }

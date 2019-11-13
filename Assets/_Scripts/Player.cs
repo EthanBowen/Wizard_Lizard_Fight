@@ -19,26 +19,29 @@ public class Player : MonoBehaviour
     [Header("Bomb Settings")]
     public float BombDamage = 100f;
     public float BombRadius = 2f;
+    public float FireDamagePerCheck = 1f;
     [Header("Watershot Settings")]
     public float WaterShotSpeed = 1f;
+    [Header("Iceshot Settings")]
+    public float IceShotSpeed = 0.5f;
 
     private Rigidbody2D body;
 
     private bool fire, air, water, earth;
-    private bool fireActive = false, airActive = false, fireTrailActive = false;
+    private bool fireActive = false, airActive = false, fireTrailActive = false, healActive = false;
 
     [Header("Gameplay Information")]
     public int ID = 0;
     public int score = 0;
+    public int numTowers = 0;
+    public float damageDone = 0;
+    public float damageTaken = 0;
     public float health;
     public float MP;
     public Vector3 SpawnPoint;
     public float horizontal = 0, vertical = 0;
 
-
     private GameController gameController;
-
-
 
     // Controls animations
     private SpriteRenderer sprite;
@@ -53,6 +56,7 @@ public class Player : MonoBehaviour
     public ParticleSystem airSpell;
 
     public ParticleSystem fireTrailSpell;
+    public ParticleSystem healSpell;
 
     public GameObject healthBar;
     public GameObject manaBar;
@@ -60,6 +64,7 @@ public class Player : MonoBehaviour
 
     public GameObject attack_bomb;
     public GameObject waterSpell;
+    public GameObject iceSpell;
 
     // The player reads only their own inputs from this class. 
     public _script_ReadInputs inputs;
@@ -143,6 +148,7 @@ public class Player : MonoBehaviour
     private float Timer_BombDrop = 0.0f;
 
     private float chargeWaterSpell = 0.0f;
+    private float chargeIceSpell = 0.0f;
 
 
     private void FixedUpdate()
@@ -273,16 +279,26 @@ public class Player : MonoBehaviour
             // HEAL
             else if (earth && !air)
             {
-
+                chargeWaterSpell = 0.0f;
+                if (!healActive)
+                {
+                    StartHeal();
+                }
             }
+            // ICE
             else if (air && !earth)
             {
-
+                chargeWaterSpell = 0.0f;
+                if (chargeIceSpell < 40)
+                {
+                    chargeIceSpell += 1;
+                }
             }
+           
         }
         else
         {
-            if(chargeWaterSpell > 0 && MP >= 40)
+            if(chargeWaterSpell > 0 && MP >= chargeWaterSpell)
             {
                 CastWater();
             }
@@ -311,7 +327,28 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(!fireActive && !airActive && !fireTrailActive && MP < maxMP)
+        if(!water || !air)
+        {
+            if (chargeIceSpell > 20 && MP > chargeIceSpell * 2)
+            {
+                CastIce();
+            }
+            else
+            {
+                chargeIceSpell = 0.0f;
+            }
+        }
+
+        if (!water || !earth)
+        {
+            if (healActive)
+            {
+                StopHeal();
+            }
+        }
+
+        bool spellActive = fireActive || airActive || fireTrailActive || (healActive && health < maxHealth);
+        if (!spellActive && MP < maxMP)
         {
             MP += 1;
         }
@@ -327,19 +364,21 @@ public class Player : MonoBehaviour
         {
             MP -= 4;
         }
+        else if (healActive && health < maxHealth)
+        {
+            MP -= 1;
+            health += 0.3f;
+        }
 
 
         if (MP > maxMP)
         {
             MP = maxMP;
         }
-        if (MP < 0)
-        {
-            MP = 0.0f;
-        }
-
+        
         if (MP <= 0)
         {
+            MP = 0.0f;
             fire = false;
             water = false;
             air = false;
@@ -352,13 +391,24 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("Walking", true);
-            if(fire && air && !fireTrailActive)
+            if(fire && air && !fireTrailActive
+                && !water && !earth)
             {
                 StartFireTrail();
             }
-            else if (air && !fire && !airActive)
+            else if (air && !fire && !airActive
+                && !water && !earth)
             {
                 StartAir();
+            }
+
+            if (fireTrailActive && water || earth)
+            {
+                StopFireTrail();
+            }
+            if (airActive && fire || water || earth)
+            {
+                StopAir();
             }
 
         }
@@ -513,6 +563,18 @@ public class Player : MonoBehaviour
 
     }
 
+    //********************************************************Fire/Air**********************************************************
+    public void StartFireTrail()
+    {
+        fireTrailSpell.Play();
+        fireTrailActive = true;
+    }
+    public void StopFireTrail()
+    {
+        fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        fireTrailActive = false;
+    }
+
     //********************************************************Fire/Earth**********************************************************
 
     private GameObject HasPlacedBomb = null;
@@ -531,13 +593,19 @@ public class Player : MonoBehaviour
 
             GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
+            PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
+            pa.SetOwner(this);
+            pa.AssignID(ID);
+
             _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
             bombscript.SetPlayerID(ID);
             bombscript.ExplodeManually = true;
             bombscript.ExplosionDamage = BombDamage;
             bombscript.ExplosionRadius = BombRadius;
+            bombscript.FireDamagePerCheck = FireDamagePerCheck;
             bombscript.SetOwner(this);
             HasPlacedBomb = bomb;
+
         }
         else
         {
@@ -547,16 +615,45 @@ public class Player : MonoBehaviour
         }
     }
 
-    //********************************************************Fire/Air**********************************************************
-    public void StartFireTrail()
+    //*******************************************************Water/Air************************************************************
+    public void CastIce()
     {
-        fireTrailSpell.Play();
-        fireTrailActive = true;
+        MP -= chargeIceSpell*2;
+
+        //Quaternion aimPos = CalcAimVector(horizontal, vertical);
+
+        Vector3 positionOfIce = new Vector3(2.0f, 0);
+
+        positionOfIce = aimPos * positionOfIce;
+        positionOfIce += transform.position;
+
+        GameObject ice = Instantiate(iceSpell, positionOfIce, aimPos);
+
+        Vector2 difference = ice.transform.position - transform.position;
+        difference = difference.normalized * IceShotSpeed * 10;
+
+        ice.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
+
+        PlayerAttack pa = ice.GetComponent<PlayerAttack>();
+        pa.SetOwner(this);
+        pa.AssignID(ID);
+        pa.damage = chargeIceSpell;
+
+        //water.SetActive(true);
+
+        chargeIceSpell = 0.0f;
     }
-    public void StopFireTrail()
+
+    //*******************************************************Water/Earth************************************************************
+    public void StartHeal()
     {
-        fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        fireTrailActive = false;
+        healSpell.Play();
+        healActive = true;
+    }
+    public void StopHeal()
+    {
+        healSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        healActive = false;
     }
 
     //*********************************************************************************************************************************************************************
@@ -567,18 +664,7 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            // If the collision object doesn't have a PlayerAttack component, ignore it.
-            if (other.GetComponent<PlayerAttack>() != null && ID != other.GetComponent<PlayerAttack>().PlayerID)
-            {
-                health -= other.GetComponent<PlayerAttack>().damage;
-                healthupdate.Invoke(ID, health);
-                
-                if (health <= 0)
-                {
-                    other.GetComponent<PlayerAttack>().ReportPoint();
-                    Die();
-                }
-            }
+            takeDamage(other);
         }
     }
 
@@ -586,19 +672,7 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            // If the collision object doesn't have a PlayerAttack component, ignore it.
-            if (collision.gameObject.GetComponent<PlayerAttack>() != null && ID != collision.gameObject.GetComponent<PlayerAttack>().PlayerID)
-            {
-                health -= collision.gameObject.GetComponent<PlayerAttack>().damage;
-                healthupdate.Invoke(ID, health);
-                Debug.Log("Detected collision with water? Player that got hit: " + ID + " --- Attacking Player: " + collision.gameObject.GetComponent<PlayerAttack>().PlayerID);
-
-                if (health <= 0)
-                {
-                    collision.gameObject.GetComponent<PlayerAttack>().ReportPoint();
-                    Die();
-                }
-            }
+            takeDamage(collision.gameObject);
         }
     }
 
@@ -607,45 +681,16 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            GameObject collided = collision.gameObject;
-            // Damage zone handling
-            _script_KnockbackTrigger damagezone = collided.GetComponent<_script_KnockbackTrigger>();
-            if (damagezone != null && damagezone.owner.ID != ID)
-            {
-                health -= damagezone.Damage;
-                healthupdate.Invoke(ID, health);
+            takeDamage(collision.gameObject);
 
-                // Currently, knockback isn't cooperating with me.
-                /*
-                Vector2 difference = transform.position - damagezone.transform.position;
-                difference = difference.normalized * damagezone.Knockback * 100;
-                Debug.Log("Applying knockback to player: " + ID + " with vector: " + difference);
-                gameObject.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Impulse);
-                */
-
-                if (health <= 0)
-                {
-                    damagezone.ReportPoint();
-                    Die();
-                }
-            }
-            // For handling trigger zones that use the PlayerAttack module.
-            PlayerAttack attack = collision.gameObject.GetComponent<PlayerAttack>();
-            if (attack != null && attack.PlayerID != ID)
-            {
-                // Handles being hit by another player's attack zone.
-            }
         }
     }
-
-
-    
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!dead)
         {
-            GameObject collided = collision.gameObject;
+            /*GameObject collided = collision.gameObject;
             // Damage zone handling
             _script_DamageZone damagezone = collision.GetComponent<_script_DamageZone>();
             if (damagezone != null && damagezone.PlayerID != ID)
@@ -658,20 +703,77 @@ public class Player : MonoBehaviour
                     damagezone.ReportPoint();
                     Die();
                 }
-            }
-            // For handling trigger zones that use the PlayerAttack module.
-            PlayerAttack attack = collision.gameObject.GetComponent<PlayerAttack>();
-            if (attack != null && attack.PlayerID != ID)
+            }*/
+            _script_DamageZone damagezone = collision.gameObject.GetComponent<_script_DamageZone>();
+            if (damagezone != null)
             {
-                // Handles being hit by another player's attack zone.
+                takeDamage(collision.gameObject);
             }
         }
+    }
+
+    private void takeDamage(GameObject other)
+    {
+        // If the collision object doesn't have a PlayerAttack component, ignore it.
+        PlayerAttack attack = other.GetComponent<PlayerAttack>();
+        _script_DamageZone damagezone = other.GetComponent<_script_DamageZone>();
+        
+        if (damagezone != null && damagezone.PlayerID != ID)
+        {
+            if (health >= damagezone.DamagePerCheck)
+            {
+                damagezone.ReportDamage(damagezone.DamagePerCheck);
+                damageTaken += damagezone.DamagePerCheck;
+            }
+            else
+            {
+                damagezone.ReportDamage(health);
+                damageTaken += health;
+            }
+
+            health -= damagezone.DamagePerCheck;
+            healthupdate.Invoke(ID, health);
+
+            if (health <= 0)
+            {
+                damagezone.ReportPoint();
+                Die();
+            }
+        }
+        else if (attack != null && ID != attack.CheckID())
+        {
+            if (health >= attack.damage)
+            {
+                attack.ReportDamage(attack.damage);
+                damageTaken += attack.damage;
+            }
+            else
+            {
+                attack.ReportDamage(health);
+                damageTaken += health;
+            }
+
+            health -= other.GetComponent<PlayerAttack>().damage;
+            healthupdate.Invoke(ID, health);
+
+            if (health <= 0)
+            {
+                other.GetComponent<PlayerAttack>().ReportPoint();
+                Die();
+            }
+        }
+
     }
 
 
     public void IncreaseScore()
     {
-        score++;
+        score += 1 + numTowers;
+    }
+
+    public void IncreaseDamageDone(float dam)
+    {
+
     }
 
 
@@ -679,6 +781,8 @@ public class Player : MonoBehaviour
     {
         dead = true;
         fire = air = water = earth = false;
+        chargeWaterSpell = 0.0f;
+        chargeIceSpell = 0.0f;
 
         health = 0.0f;
         

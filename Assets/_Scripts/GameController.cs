@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public int NumberOfPlayers = 2;
     public GameObject PlayerObject;
     public GameObject playerUIObject;
+    //public GameObject towerObject;
     public GameObject GameEnd;
     private CharacterSelect selectedCharacter;
     public float PlayerMovementSpeed = 5f;
@@ -87,6 +88,7 @@ public class GameController : MonoBehaviour
         {
             GameObject character = Instantiate(PlayerObject);
             GameObject playerUI = Instantiate(playerUIObject);
+            //GameObject tower = Instantiate(towerObject);
 
             Vector3 spawnpoint;
             if (!(spawnpoints.Count < NumberOfPlayers))
@@ -102,6 +104,7 @@ public class GameController : MonoBehaviour
             character_script.movementSpeed = PlayerMovementSpeed;
             character.GetComponent<Player>().ID = index;
             playerUI.GetComponent<PlayerUI>().ID = index;
+            //tower.GetComponent<Tower>().ID = index;
             GameEnd.GetComponent<GameEndController>().ID = index;
            // selectedCharacter.ID = index;
             playerUI.GetComponent<PlayerUI>().player = character.GetComponent<Player>();
@@ -171,6 +174,7 @@ public class GameController : MonoBehaviour
                 if (playercontroller.score >= 5)
                 {
                     winner = playercontroller.ID;
+                    PlayerStats();
                     SceneManager.LoadScene("GameEnd");
                 }
 
@@ -182,18 +186,24 @@ public class GameController : MonoBehaviour
         CameraMovement(PlayerPositions);
     }
 
-    private void OnDisable()
+   // private void OnDisable()
+    //{
+    //    PlayerStats();
+   // }
+
+    /*
+     * Updates the Stats of each of the characters in order to send information to end screen
+     */
+    private void PlayerStats()
     {
         PlayerPrefs.SetInt("winner", winner);
         for (int index = 1; index <= NumberOfPlayers; index++)
         {
-            PlayerPrefs.SetFloat("P" + index + "_DamageDone", 1.0f);
-            PlayerPrefs.SetFloat("P" + index + "_DamageTaken", 1.0f);
-            PlayerPrefs.SetInt("P" + index + "_Kills", 1);
+            PlayerPrefs.SetFloat("P" + index + "_DamageDone", ListOfPlayers[index].GetComponent<Player>().damageDone);
+            PlayerPrefs.SetFloat("P" + index + "_DamageTaken", ListOfPlayers[index].GetComponent<Player>().damageTaken);
+            PlayerPrefs.SetInt("P" + index + "_Kills", ListOfPlayers[index].GetComponent<Player>().score);
         }
     }
-
-
 
 
     /*
