@@ -123,7 +123,13 @@ public class Player : MonoBehaviour
         if (inputs.button_up_stop)
         {
             if (earth)
+            {
                 StopEarth();
+            }
+            if (healActive)
+            {
+                StopHeal();
+            }
             earth = false;
         }
 
@@ -224,15 +230,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (fire || water || air || earth)
-        {
-            anim.SetBool("Casting", true);
-        }
-        else
-        {
-            anim.SetBool("Casting", false);
-        }
-
         // FIRE
         if (fire && !water)
         {
@@ -284,7 +281,7 @@ public class Player : MonoBehaviour
         // WATER
         if (water && !fire)
         {
-            if (!air && !earth)
+            if (!air && !earth && !healActive)
             {
                 if (chargeWaterSpell < 40)
                 {
@@ -299,6 +296,7 @@ public class Player : MonoBehaviour
                 if (!healActive)
                 {
                     StartHeal();
+                    earth = false;
                 }
             }
             // ICE
@@ -314,7 +312,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(chargeWaterSpell > 0 && MP >= chargeWaterSpell)
+            if(chargeWaterSpell > 0 && MP >= chargeWaterSpell && !healActive)
             {
                 CastWater();
             }
@@ -355,7 +353,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!water || !earth)
+        if (!water)
         {
             if (healActive)
             {
@@ -395,6 +393,7 @@ public class Player : MonoBehaviour
         if (MP <= 0)
         {
             MP = 0.0f;
+            anim.SetBool("Casting", false);
             fire = false;
             water = false;
             air = false;
@@ -511,11 +510,13 @@ public class Player : MonoBehaviour
     public void StartAir()
     {
         airSpell.Play();
+        anim.SetBool("Casting", true);
         airActive = true;
     }
     public void StopAir()
     {
         airSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        anim.SetBool("Casting", false);
         airActive = false;
     }
 
@@ -523,13 +524,15 @@ public class Player : MonoBehaviour
     public void StartFire()
     {
         fireSpell.Play();
+        anim.SetBool("Casting", true);
         //fireSpell.GetComponent<PolygonCollider2D>().enabled = true;
         fireActive = true;
     }
     public void StopFire()
     {
         fireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-       // fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
+        anim.SetBool("Casting", false);
+        // fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
         fireActive = false;
     }
 
@@ -537,6 +540,7 @@ public class Player : MonoBehaviour
     public void CastWater()
     {
         MP -= chargeWaterSpell;
+        anim.SetBool("Casting", true);
 
         //Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
@@ -561,6 +565,7 @@ public class Player : MonoBehaviour
         pa.damage = chargeWaterSpell;
 
         //water.SetActive(true);
+        anim.SetBool("Casting", false);
 
         chargeWaterSpell = 0.0f;
     }
@@ -597,11 +602,13 @@ public class Player : MonoBehaviour
     public void StartFireTrail()
     {
         fireTrailSpell.Play();
+        anim.SetBool("Casting", true);
         fireTrailActive = true;
     }
     public void StopFireTrail()
     {
         fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        anim.SetBool("Casting", false);
         fireTrailActive = false;
     }
 
@@ -678,11 +685,13 @@ public class Player : MonoBehaviour
     public void StartHeal()
     {
         healSpell.Play();
+        anim.SetBool("Casting", true);
         healActive = true;
     }
     public void StopHeal()
     {
         healSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        anim.SetBool("Casting", false);
         healActive = false;
     }
 
