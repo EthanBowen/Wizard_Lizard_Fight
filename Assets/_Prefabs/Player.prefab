@@ -174,7 +174,7 @@ MonoBehaviour:
   whiteMag: {fileID: 1431731550304033319}
   airSpell: {fileID: 1175097611215591748}
   fireTrailSpell: {fileID: 949914919482712481}
-  healSpell: {fileID: 1239813473001460478}
+  healSpell: {fileID: 3617487409508499894}
   healthBar: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
     type: 3}
   manaBar: {fileID: 2079514096679092151, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
@@ -975,9 +975,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7104813098052306280}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1239813473001460478 stripped
+--- !u!198 &3617487409508499894 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8335580264747866006, guid: cd290bd38af4cc642bdf4a3cb9fdb7c0,
+  m_CorrespondingSourceObject: {fileID: 5812661126281856222, guid: cd290bd38af4cc642bdf4a3cb9fdb7c0,
     type: 3}
   m_PrefabInstance: {fileID: 7104813098052306280}
   m_PrefabAsset: {fileID: 0}

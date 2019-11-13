@@ -20,12 +20,17 @@ public class Player : MonoBehaviour
     public float BombDamage = 100f;
     public float BombRadius = 2f;
     public float FireDamagePerCheck = 1f;
+    public GameObject attack_bomb;
+
     [Header("Watershot Settings")]
     public float WaterShotSpeed = 1f;
+    public GameObject waterSpell;
+
     [Header("Iceshot Settings")]
     public float IceShotSpeed = 0.5f;
+    public GameObject iceSpell;
 
-    [Header("Rock Settings")]
+    [Header("Rockwall Settings")]
     public GameObject RockWall;
     public float RockWallSize = 1f;
     public float RockWallPlaceDistance = 2f;
@@ -72,10 +77,6 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
     public GameObject manaBar;
     private Event_PlayerHealthChanged healthupdate;
-
-    public GameObject attack_bomb;
-    public GameObject waterSpell;
-    public GameObject iceSpell;
 
     // The player reads only their own inputs from this class. 
     public _script_ReadInputs inputs;
