@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1784, y: -541.41}
+  m_AnchoredPosition: {x: -1521, y: -541.41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356849968
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356849966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
@@ -486,10 +486,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 0.6
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -528,15 +528,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1762974780}
+  - {fileID: 1130644514}
   - {fileID: 765976005}
   - {fileID: 1568922401}
   - {fileID: 1442360164}
+  - {fileID: 1815405781}
   - {fileID: 1209464312}
   - {fileID: 1869126875}
   - {fileID: 1493692718}
   - {fileID: 740335885}
-  - {fileID: 1815405781}
   - {fileID: 1476120742}
   - {fileID: 1961001436}
   - {fileID: 1062145431}
@@ -626,7 +626,7 @@ PrefabInstance:
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 46adc90c653df614f8b8c7dd0509e922, type: 2}
-  initialSkinName: 
+  initialSkinName: Mancer
   initialFlipX: 0
   initialFlipY: 0
   separatorSlotNames: []
@@ -1005,7 +1005,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: 
+  _animationName: The boi/Idle
   loop: 1
   timeScale: 1
 --- !u!23 &706087132
@@ -1024,7 +1024,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 2100000, guid: 7c1efea54433d1340897f4372ff1cb10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1068,7 +1069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1782, y: -541.40735}
+  m_AnchoredPosition: {x: -1930, y: -541.40735}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &706087135
@@ -1170,14 +1171,14 @@ RectTransform:
   m_GameObject: {fileID: 765976004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08789344, y: 0.23316525, z: 0.4735}
+  m_LocalScale: {x: 0.20034343, y: 0.5248311, z: 1.0792912}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 124, y: -1}
+  m_AnchoredPosition: {x: 124, y: -0.2000122}
   m_SizeDelta: {x: -883.9999, y: -180.00012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765976006
@@ -1265,7 +1266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1780, y: -541.40735}
+  m_AnchoredPosition: {x: -2133, y: -541.40735}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1062145433
@@ -1371,6 +1372,80 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1130644513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130644514}
+  - component: {fileID: 1130644516}
+  - component: {fileID: 1130644515}
+  m_Layer: 5
+  m_Name: Player 4 Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1130644514
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130644513}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20034343, y: 0.5248311, z: 1.0792912}
+  m_Children: []
+  m_Father: {fileID: 550576632}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 373.3, y: -0.2000122}
+  m_SizeDelta: {x: -883.9999, y: -180.00012}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1130644515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130644513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1130644516
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130644513}
+  m_CullTransparentMesh: 0
 --- !u!114 &1145257959 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6684554614976779707, guid: c785b79ed9c7a1049987b7fa0d75997c,
@@ -1736,7 +1811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1780, y: -541.41}
+  m_AnchoredPosition: {x: -1728, y: -541.41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331378388
@@ -1746,7 +1821,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331378386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
@@ -1883,6 +1958,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: startingAnimation
+      value: The boi/Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: initialFlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: initialSkinName
+      value: Mancer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: startingLoop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6684554614976779707, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1972,7 +2067,7 @@ PrefabInstance:
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
@@ -2279,11 +2374,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6684554615615802724, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6742616027544422694, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_IsActive
@@ -2294,25 +2384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 Wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+    - target: {fileID: 6684554615615802724, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
-      propertyPath: startingAnimation
-      value: The boi/Idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: initialFlipX
+      propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: initialSkinName
-      value: Mancer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: startingLoop
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c785b79ed9c7a1049987b7fa0d75997c, type: 3}
@@ -2343,14 +2418,14 @@ RectTransform:
   m_GameObject: {fileID: 1442360163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.081954725, y: 0.26056498, z: 0.2396}
+  m_LocalScale: {x: 0.15981172, y: 0.70499116, z: 0.46722}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -374.1, y: 0}
+  m_AnchoredPosition: {x: -373.3, y: 0}
   m_SizeDelta: {x: -635.10156, y: -360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442360165
@@ -2683,7 +2758,7 @@ RectTransform:
   m_GameObject: {fileID: 1568922400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.081954725, y: 0.26056498, z: 0.2396}
+  m_LocalScale: {x: 0.16359802, y: 0.71519226, z: 0.4782895}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 2
@@ -2754,80 +2829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1762974779
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1762974780}
-  - component: {fileID: 1762974782}
-  - component: {fileID: 1762974781}
-  m_Layer: 5
-  m_Name: Player 4 Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1762974780
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762974779}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.115642674, y: 0.4702584, z: 0.72343}
-  m_Children: []
-  m_Father: {fileID: 550576632}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 373, y: 1}
-  m_SizeDelta: {x: -1421.3899, y: -997.9}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1762974781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762974779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &1762974782
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762974779}
-  m_CullTransparentMesh: 0
 --- !u!1 &1815405780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,7 +2858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 550576632}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1815405782
 MonoBehaviour:
@@ -2885,16 +2886,16 @@ MonoBehaviour:
   player3Index: 0
   player4Index: 0
   characterList:
-  - wizard: {fileID: 1062145435}
+  - skeletonGraphicWizard: {fileID: 1062145435}
     characterName: Salamancer
     characterColor: {r: 1, g: 0, b: 0.15076351, a: 0.1764706}
-  - wizard: {fileID: 706087135}
+  - skeletonGraphicWizard: {fileID: 706087135}
     characterName: SalamancerWalk
     characterColor: {r: 0, g: 1, b: 0.08760595, a: 0.1764706}
-  - wizard: {fileID: 1331378391}
+  - skeletonGraphicWizard: {fileID: 1331378391}
     characterName: SalamancerDamage
     characterColor: {r: 0, g: 0.8638129, b: 1, a: 0.1764706}
-  - wizard: {fileID: 356849971}
+  - skeletonGraphicWizard: {fileID: 356849971}
     characterName: SalamancerCast
     characterColor: {r: 1, g: 0, b: 0.786602, a: 0.1764706}
   characterListCount: 0
@@ -3262,7 +3263,7 @@ PrefabInstance:
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
@@ -3672,7 +3673,7 @@ PrefabInstance:
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6684554616390703376, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
