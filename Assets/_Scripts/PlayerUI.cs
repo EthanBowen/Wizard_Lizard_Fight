@@ -26,23 +26,23 @@ public class PlayerUI : MonoBehaviour
        {
             case 1: //top left player
                 x = 0.04f;
-                y = .940f;
+                y = .900f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
             case 2: //top right player
                 x = 1 - 0.15f;
-                y = 0.940f;
+                y = 0.900f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
 
                 break;
             case 3: //bottom left player
                 x = 0.04f;
-                y = 1 - 0.940f;
+                y = 1 - 0.900f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
             case 4: //bottom right player
                 x = 1 - 0.15f;
-                y = 1 - 0.940f;
+                y = 1 - 0.900f;
                 this.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(x, y, 10f));
                 break;
        }
@@ -67,24 +67,24 @@ public class PlayerUI : MonoBehaviour
         {
             case (1): //top left player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player1")];
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.05f, 0.940f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.05f, 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 break;
             case (2): //top right player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player2")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.97f, 0.940f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.945f, 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
                 break;
             case (3): //bottom left player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player3")];
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.05f,1 - 0.940f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.05f,1 - 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 break;
             case (4): //bottom right player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player4")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.97f, 1 - 0.940f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.945f, 1 - 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
                 break;
         }

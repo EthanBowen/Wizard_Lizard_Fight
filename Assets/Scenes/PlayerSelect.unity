@@ -486,10 +486,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 0.6
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1170,7 +1170,7 @@ RectTransform:
   m_GameObject: {fileID: 765976004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08789344, y: 0.23316525, z: 0.4735}
+  m_LocalScale: {x: 0.1999089, y: 0.41487092, z: 0.84249854}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 1
@@ -1883,6 +1883,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: startingAnimation
+      value: The boi/Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: initialFlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: initialSkinName
+      value: Mancer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: startingLoop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6684554614976779707, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2279,11 +2299,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6684554615615802724, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6742616027544422694, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_IsActive
@@ -2294,25 +2309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 Wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+    - target: {fileID: 6684554615615802724, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
-      propertyPath: startingAnimation
-      value: The boi/Idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: initialFlipX
+      propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: initialSkinName
-      value: Mancer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: startingLoop
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c785b79ed9c7a1049987b7fa0d75997c, type: 3}
@@ -2343,14 +2343,14 @@ RectTransform:
   m_GameObject: {fileID: 1442360163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.081954725, y: 0.26056498, z: 0.2396}
+  m_LocalScale: {x: 0.16249983, y: 0.51664823, z: 0.47507888}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -374.1, y: 0}
+  m_AnchoredPosition: {x: -374.0996, y: 0}
   m_SizeDelta: {x: -635.10156, y: -360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442360165
@@ -2683,14 +2683,14 @@ RectTransform:
   m_GameObject: {fileID: 1568922400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.081954725, y: 0.26056498, z: 0.2396}
+  m_LocalScale: {x: 0.16204089, y: 0.5151891, z: 0.47373712}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -125.8, y: 0}
+  m_AnchoredPosition: {x: -125.799805, y: 0}
   m_SizeDelta: {x: -635.10156, y: -360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568922402
@@ -2781,7 +2781,7 @@ RectTransform:
   m_GameObject: {fileID: 1762974779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.115642674, y: 0.4702584, z: 0.72343}
+  m_LocalScale: {x: 0.4178401, y: 4.524124, z: 2.613897}
   m_Children: []
   m_Father: {fileID: 550576632}
   m_RootOrder: 0
