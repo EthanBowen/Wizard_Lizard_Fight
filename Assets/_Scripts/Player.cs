@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     [Header("Gameplay Information")]
     public int ID = 0;
     public int score = 0;
+    public float damageDone = 0;
+    public float damageTaken = 0;
     public float health;
     public float MP;
     public Vector3 SpawnPoint;
@@ -589,6 +591,10 @@ public class Player : MonoBehaviour
 
             GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
+            PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
+            pa.SetOwner(this);
+            pa.AssignID(ID);
+
             _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
             bombscript.SetPlayerID(ID);
             bombscript.ExplodeManually = true;
@@ -596,6 +602,7 @@ public class Player : MonoBehaviour
             bombscript.ExplosionRadius = BombRadius;
             bombscript.SetOwner(this);
             HasPlacedBomb = bomb;
+
         }
         else
         {
@@ -654,18 +661,7 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            // If the collision object doesn't have a PlayerAttack component, ignore it.
-            if (other.GetComponent<PlayerAttack>() != null && ID != other.GetComponent<PlayerAttack>().PlayerID)
-            {
-                health -= other.GetComponent<PlayerAttack>().damage;
-                healthupdate.Invoke(ID, health);
-                
-                if (health <= 0)
-                {
-                    other.GetComponent<PlayerAttack>().ReportPoint();
-                    Die();
-                }
-            }
+            takeDamage(other);
         }
     }
 
@@ -673,20 +669,7 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            // If the collision object doesn't have a PlayerAttack component, ignore it.
-            if (collision.gameObject.GetComponent<PlayerAttack>() != null 
-                && ID != collision.gameObject.GetComponent<PlayerAttack>().PlayerID)
-            {
-                health -= collision.gameObject.GetComponent<PlayerAttack>().damage;
-                healthupdate.Invoke(ID, health);
-                Debug.Log("Detected collision with water? Player that got hit: " + ID + " --- Attacking Player: " + collision.gameObject.GetComponent<PlayerAttack>().PlayerID);
-
-                if (health <= 0)
-                {
-                    collision.gameObject.GetComponent<PlayerAttack>().ReportPoint();
-                    Die();
-                }
-            }
+            takeDamage(collision.gameObject);
         }
     }
 
@@ -695,40 +678,16 @@ public class Player : MonoBehaviour
     {
         if (!dead)
         {
-            GameObject collided = collision.gameObject;
-            // Damage zone handling
-            //_script_KnockbackTrigger damagezone = collided.GetComponent<_script_KnockbackTrigger>();
-            PlayerAttack attack = collided.GetComponent<PlayerAttack>();
-            if (attack != null && attack.CheckID() != ID)
-            {
-                health -= attack.damage;
-                healthupdate.Invoke(ID, health);
+            takeDamage(collision.gameObject);
 
-                // Currently, knockback isn't cooperating with me.
-                /*
-                Vector2 difference = transform.position - damagezone.transform.position;
-                difference = difference.normalized * damagezone.Knockback * 100;
-                Debug.Log("Applying knockback to player: " + ID + " with vector: " + difference);
-                gameObject.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Impulse);
-                */
-
-                if (health <= 0)
-                {
-                    attack.ReportPoint();
-                    Die();
-                }
-            }
         }
     }
-
-
-    
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!dead)
         {
-            GameObject collided = collision.gameObject;
+            /*GameObject collided = collision.gameObject;
             // Damage zone handling
             _script_DamageZone damagezone = collision.GetComponent<_script_DamageZone>();
             if (damagezone != null && damagezone.PlayerID != ID)
@@ -741,20 +700,72 @@ public class Player : MonoBehaviour
                     damagezone.ReportPoint();
                     Die();
                 }
-            }
-            // For handling trigger zones that use the PlayerAttack module.
-            PlayerAttack attack = collision.gameObject.GetComponent<PlayerAttack>();
-            if (attack != null && attack.PlayerID != ID)
+            }*/
+            takeDamage(collision.gameObject);
+        }
+    }
+
+    private void takeDamage(GameObject other)
+    {
+        // If the collision object doesn't have a PlayerAttack component, ignore it.
+        PlayerAttack attack = other.GetComponent<PlayerAttack>();
+        _script_DamageZone damagezone = other.GetComponent<_script_DamageZone>();
+        if (damagezone != null && damagezone.PlayerID != ID)
+        {
+            if (health >= damagezone.DamagePerCheck)
             {
-                // Handles being hit by another player's attack zone.
+                damagezone.ReportDamage(damagezone.DamagePerCheck);
+                damageTaken += damagezone.DamagePerCheck;
+            }
+            else
+            {
+                damagezone.ReportDamage(health);
+                damageTaken += health;
+            }
+
+            health -= damagezone.DamagePerCheck;
+            healthupdate.Invoke(ID, health);
+
+            if (health <= 0)
+            {
+                damagezone.ReportPoint();
+                Die();
             }
         }
+        else if (attack != null && ID != attack.CheckID())
+        {
+            if (health >= attack.damage)
+            {
+                attack.ReportDamage(attack.damage);
+                damageTaken += attack.damage;
+            }
+            else
+            {
+                attack.ReportDamage(health);
+                damageTaken += health;
+            }
+
+            health -= other.GetComponent<PlayerAttack>().damage;
+            healthupdate.Invoke(ID, health);
+
+            if (health <= 0)
+            {
+                other.GetComponent<PlayerAttack>().ReportPoint();
+                Die();
+            }
+        }
+
     }
 
 
     public void IncreaseScore()
     {
         score++;
+    }
+
+    public void IncreaseDamageDone(float dam)
+    {
+
     }
 
 

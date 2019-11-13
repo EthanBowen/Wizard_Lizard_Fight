@@ -50,4 +50,9 @@ public class _script_DamageZone : MonoBehaviour
         owner.IncreaseScore();
     }
 
+    public void ReportDamage(float dam)
+    {
+        owner.damageDone += dam;
+    }
+
 }
