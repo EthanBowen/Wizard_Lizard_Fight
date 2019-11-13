@@ -443,21 +443,21 @@ public class CharacterSelect : MonoBehaviour
             case (2):
                 if (player1Ready && player2Ready)
                 {
-                    SceneManager.LoadScene("Game_MJ_Test");
+                    SceneManager.LoadScene("Game");
                     characterSelectMusic.Stop();
                 } 
                 break;
             case (3):
                 if (player1Ready && player2Ready && player3Ready)
                 {
-                    SceneManager.LoadScene("Game_MJ_Test");
+                    SceneManager.LoadScene("Game");
                     characterSelectMusic.Stop();
                 }
                 break;
             case (4):
                 if (player1Ready && player2Ready && player3Ready && player4Ready)
                 {
-                    SceneManager.LoadScene("Game_MJ_Test");
+                    SceneManager.LoadScene("Game");
                     characterSelectMusic.Stop();
                 }
                 break;
