@@ -123,7 +123,13 @@ public class Player : MonoBehaviour
         if (inputs.button_up_stop)
         {
             if (earth)
+            {
                 StopEarth();
+            }
+            if (healActive)
+            {
+                StopHeal();
+            }
             earth = false;
         }
 
@@ -275,7 +281,7 @@ public class Player : MonoBehaviour
         // WATER
         if (water && !fire)
         {
-            if (!air && !earth)
+            if (!air && !earth && !healActive)
             {
                 if (chargeWaterSpell < 40)
                 {
@@ -290,6 +296,7 @@ public class Player : MonoBehaviour
                 if (!healActive)
                 {
                     StartHeal();
+                    earth = false;
                 }
             }
             // ICE
@@ -305,7 +312,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(chargeWaterSpell > 0 && MP >= chargeWaterSpell)
+            if(chargeWaterSpell > 0 && MP >= chargeWaterSpell && !healActive)
             {
                 CastWater();
             }
@@ -346,7 +353,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!water || !earth)
+        if (!water)
         {
             if (healActive)
             {
