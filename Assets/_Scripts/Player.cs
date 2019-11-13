@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     public float MP;
     public Vector3 SpawnPoint;
     public float horizontal = 0, vertical = 0;
+    public int numTowers = 0;
 
     private GameController gameController;
 
