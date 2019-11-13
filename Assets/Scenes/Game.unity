@@ -369,7 +369,7 @@ MonoBehaviour:
   playerUIObject: {fileID: 7178377947653832398, guid: 0d19bac69b51d5540928d050d0e9002a,
     type: 3}
   GameEnd: {fileID: 3338464258959845102, guid: 2fe88f77b23a3344db1d16e60cba9255, type: 3}
-  PlayerMovementSpeed: 5
+  PlayerMovementSpeed: 6.5
   CameraZoomDefault: 5
   CameraZoomOffset: 5
   CameraZoomDefaultMin: 5
