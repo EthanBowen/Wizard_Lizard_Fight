@@ -23,7 +23,7 @@ using System;
  *      // code
  * }
  */
-public enum SelectedSkin
+public enum SelectedSkinBackup
 {
     Mancer,
     Ax,
@@ -32,7 +32,7 @@ public enum SelectedSkin
 }
 
 
-public class CharacterSelect : MonoBehaviour
+public class CharacterSelectBackUp: MonoBehaviour
 {
     //player ID
     public int ID = 1;

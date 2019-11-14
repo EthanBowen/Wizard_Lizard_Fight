@@ -1883,6 +1883,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: startingAnimation
+      value: The boi/Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: initialFlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: initialSkinName
+      value: Mancer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: startingLoop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6684554614976779707, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2279,11 +2299,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6684554615615802724, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6742616027544422694, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_IsActive
@@ -2294,25 +2309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 Wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
+    - target: {fileID: 6684554615615802724, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
-      propertyPath: startingAnimation
-      value: The boi/Idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: initialFlipX
+      propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: initialSkinName
-      value: Mancer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531503176124110961, guid: c785b79ed9c7a1049987b7fa0d75997c,
-        type: 3}
-      propertyPath: startingLoop
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c785b79ed9c7a1049987b7fa0d75997c, type: 3}
@@ -2885,16 +2885,16 @@ MonoBehaviour:
   player3Index: 0
   player4Index: 0
   characterList:
-  - wizard: {fileID: 1062145435}
+  - skeletonGraphicWizard: {fileID: 1062145435}
     characterName: Salamancer
     characterColor: {r: 1, g: 0, b: 0.15076351, a: 0.1764706}
-  - wizard: {fileID: 706087135}
+  - skeletonGraphicWizard: {fileID: 706087135}
     characterName: SalamancerWalk
     characterColor: {r: 0, g: 1, b: 0.08760595, a: 0.1764706}
-  - wizard: {fileID: 1331378391}
+  - skeletonGraphicWizard: {fileID: 1331378391}
     characterName: SalamancerDamage
     characterColor: {r: 0, g: 0.8638129, b: 1, a: 0.1764706}
-  - wizard: {fileID: 356849971}
+  - skeletonGraphicWizard: {fileID: 356849971}
     characterName: SalamancerCast
     characterColor: {r: 1, g: 0, b: 0.786602, a: 0.1764706}
   characterListCount: 0
