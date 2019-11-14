@@ -91,6 +91,7 @@ public class GameEndController : MonoBehaviour
                 PlayerStats(2);
                 break;
             case (3):
+                player2.SetActive(true);
                 player3.SetActive(true);
                 player4.SetActive(false);
                 PlayerStats(1);
@@ -98,6 +99,8 @@ public class GameEndController : MonoBehaviour
                 PlayerStats(3);
                 break;
             case (4):
+                player2.SetActive(true);
+                player3.SetActive(true);
                 player4.SetActive(true);
                 PlayerStats(1);
                 PlayerStats(2);
