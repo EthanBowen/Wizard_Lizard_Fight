@@ -152,7 +152,7 @@ public class CharacterSelect : MonoBehaviour
             BackgroundColorChanger(4);
         }
             
-        PlayerTracker();
+        ActivatesPlayers();
         SwitchScene();
 
         // TODO: Change this code
@@ -178,7 +178,7 @@ public class CharacterSelect : MonoBehaviour
         }
         */
         currentAnimation1 = player1.startingAnimation.ToString();
-        Debug.Log("\nCurrent Animation: " + currentAnimation1 + "\nPlayer Skin Name: " + player1.Skeleton.Skin.Name);//"\nInitial Skin: " + player1CharacterList[player1Index].wizard.initialSkinName);
+       // Debug.Log("\nCurrent Animation: " + currentAnimation1 + "\nPlayer Skin Name: " + player1.Skeleton.Skin.Name);//"\nInitial Skin: " + player1CharacterList[player1Index].wizard.initialSkinName);
         PlayerPrefs.SetInt("NumberOfPlayers", ID);
     }
     /**
@@ -242,7 +242,7 @@ public class CharacterSelect : MonoBehaviour
         }   
     }
     //Meant to store the information on multiple players
-    private void PlayerTracker()
+    private void ActivatesPlayers()
     {
         switch(ID)
         {
@@ -414,31 +414,11 @@ public class CharacterSelect : MonoBehaviour
             return;
         SkeletonGraphic skele = player.GetComponentInChildren<SkeletonGraphic>();
         skele.Skeleton.SetSkin(list[index].skeletonGraphicWizard.initialSkinName);
-        skele.Skeleton.Skin.AddSkin(list[index].skeletonGraphicWizard.Skeleton.Skin);
-        skele.startingAnimation = list[index].skeletonGraphicWizard.startingAnimation;
+        //skele.Skeleton.Skin.AddSkin(list[index].skeletonGraphicWizard.Skeleton.Skin);
+        //skele.startingAnimation = list[index].skeletonGraphicWizard.startingAnimation;
         skele.AnimationState.SetAnimation(0, list[index].skeletonGraphicWizard.startingAnimation, true);
         player = skele;
     }
-    /*
-    private void SetCharacterState(string state)
-    {
-        if (state.Equals("The boi_Idle"))
-            SetAnimation(player1Wizard, false, 1f);
-        else if (state.Equals("The boi_Walk"))
-            SetAnimation(player1Wizard, true, 2f);
-        else if (state.Equals("The boi_Cast_idle"))
-            SetAnimation(player1Wizard, true, 3f);
-    }
-
-    private void SetAnimation(AnimationReferenceAsset wizard, bool loop, float timeS)
-    {
-        /*
-        if (wizard.name.Equals(currentAnimation1))
-            return;
-        player1.state.SetAnimation(0, wizard, loop);
-        */
-        
-    //}
 
     private void SwitchScene()
     {
