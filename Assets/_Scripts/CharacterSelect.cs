@@ -179,6 +179,7 @@ public class CharacterSelect : MonoBehaviour
         */
         currentAnimation1 = player1.startingAnimation.ToString();
         Debug.Log("\nCurrent Animation: " + currentAnimation1 + "\nPlayer Skin Name: " + player1.Skeleton.Skin.Name);//"\nInitial Skin: " + player1CharacterList[player1Index].wizard.initialSkinName);
+        PlayerPrefs.SetInt("NumberOfPlayers", ID);
     }
     /**
      *Adds all characters from the main Character list to the rest of the Player Character Lists

@@ -63,12 +63,14 @@ public class GameController : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Scene Controller script must be attached to a camera");
         }
+        NumberOfPlayers = PlayerPrefs.GetInt("NumberOfPlayers");
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
         Initialization_SetUpEventSystemFor_HideableSprites();
         FocusPoints = new List<Vector2>();
         PlayerPositions = new List<Vector2>();
