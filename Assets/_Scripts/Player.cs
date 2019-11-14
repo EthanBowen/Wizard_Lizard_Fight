@@ -127,14 +127,14 @@ public class Player : MonoBehaviour
         }
         if (inputs.button_up_stop)
         {
-            if (earth)
+            /*if (earth)
             {
                 StopEarth();
             }
             if (healActive)
             {
                 StopHeal();
-            }
+            }*/
             earth = false;
         }
 
@@ -167,6 +167,7 @@ public class Player : MonoBehaviour
 
     private float chargeWaterSpell = 0.0f;
     private float chargeIceSpell = 0.0f;
+    private bool earthReady = false;
 
 
     private void FixedUpdate()
@@ -235,6 +236,12 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (!earth && earthReady)
+        {
+            CastEarth();
+            earthReady = false;
+        }
+
         // FIRE
         if (fire && !water)
         {
@@ -254,6 +261,7 @@ public class Player : MonoBehaviour
                     {
                         earth = false;
                         fire = false;
+                        earthReady = false;
 
                         Timer_BombDrop = 0.0f;
                         PlaceBomb();
@@ -300,8 +308,8 @@ public class Player : MonoBehaviour
                 chargeWaterSpell = 0.0f;
                 if (!healActive)
                 {
+                    earthReady = false;
                     StartHeal();
-                    earth = false;
                 }
             }
             // ICE
@@ -342,7 +350,10 @@ public class Player : MonoBehaviour
         {
             if (!fire && !water) // If an earth structure was already placed
             {
-                StartEarth();
+                //StopEarth();
+                earthReady = true;
+                
+                //StartEarth();
             }
         }
 
@@ -358,7 +369,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!water)
+        if (!water || !earth)
         {
             if (healActive)
             {
@@ -579,17 +590,14 @@ public class Player : MonoBehaviour
 
     private GameObject placedRockWall = null;
 
-    public void StartEarth()
-    {
- 
-    }
-    public void StopEarth()
+    public void CastEarth()
     {
         if (placedRockWall != null)
         {
             GameObject.Destroy(placedRockWall);
             placedRockWall = null;
         }
+
         MP -= RockWallManaCost;
 
         Vector3 positionOfWall = new Vector3(RockWallPlaceDistance, 0);
@@ -600,6 +608,11 @@ public class Player : MonoBehaviour
         GameObject wall = Instantiate(RockWall, positionOfWall, aimPos);
 
         placedRockWall = wall;
+    }
+    public void StopEarth()
+    {
+        
+        
         
     }
 

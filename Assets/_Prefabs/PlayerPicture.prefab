@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3831514837425297955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.04034, y: 42.409996, z: 0}
+  m_LocalPosition: {x: 23.859846, y: 42.409996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +51,6 @@ MonoBehaviour:
   playerPicture: {fileID: 0}
   health: 0
   mana: 0
-  playerSprite: {fileID: 0}
   characterList:
   - {fileID: 21300000, guid: 9e5b41009f116f2498f3bed4c6e1c17a, type: 3}
   - {fileID: -570477218366675872, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
@@ -92,10 +91,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -481351131031192799, guid: c3c76e8024239b848a5d54435c029235,
+  m_Sprite: {fileID: 2631650652701375393, guid: c3c76e8024239b848a5d54435c029235,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.3, y: 2.13}
