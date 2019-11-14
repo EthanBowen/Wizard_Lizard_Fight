@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5695180493100152100}
   - component: {fileID: 4324799210306249739}
   m_Layer: 5
-  m_Name: Player UI Prefab
+  m_Name: Player UI Prefab 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,6 @@ MonoBehaviour:
   playerPicture: {fileID: 5339069598168580096}
   health: 0
   mana: 0
-  playerSprite: {fileID: 0}
   characterList:
   - {fileID: 21300000, guid: 9e5b41009f116f2498f3bed4c6e1c17a, type: 3}
   - {fileID: -570477218366675872, guid: 95197b3bd5de35e43b44c015175d24ab, type: 3}
@@ -230,6 +229,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerPicture
+      objectReference: {fileID: 0}
     - target: {fileID: 6526233113355155977, guid: dd04924dfb2dab542acd67a2d303793d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,11 +304,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8324069
       objectReference: {fileID: 0}
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerPicture
-      objectReference: {fileID: 0}
     - target: {fileID: 8363649636066285199, guid: dd04924dfb2dab542acd67a2d303793d,
         type: 3}
       propertyPath: playerPicture
@@ -365,6 +364,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3807536406418093215, guid: dd04924dfb2dab542acd67a2d303793d, type: 3}
     - {fileID: 8363649636066285199, guid: dd04924dfb2dab542acd67a2d303793d, type: 3}
+    - {fileID: 3198572234337498948, guid: dd04924dfb2dab542acd67a2d303793d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd04924dfb2dab542acd67a2d303793d, type: 3}
 --- !u!1 &5339069598168580096 stripped
 GameObject:

@@ -66,23 +66,23 @@ public class PlayerUI : MonoBehaviour
         switch(ID)
         {
             case (1): //top left player
-                playerPicture.GetComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player1")];
+                playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player1")];
                 playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.05f, 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 break;
             case (2): //top right player
-                playerPicture.GetComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player2")];
+                playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player2")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.945f, 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
                 break;
             case (3): //bottom left player
-                playerPicture.GetComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player3")];
+                playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player3")];
                 playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.05f,1 - 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 break;
             case (4): //bottom right player
-                playerPicture.GetComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player4")];
+                playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player4")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.945f, 1 - 0.900f, 10f));
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
