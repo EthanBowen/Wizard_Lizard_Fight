@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
     public float RockWallPlaceDistance = 2f;
     public float RockWallManaCost = 20.0f;
 
-
     [Header("Heal Settings")]
     public float HealPerMana = 0.3f;
     public float HealCost = 1f;
@@ -60,8 +59,8 @@ public class Player : MonoBehaviour
     private GameController gameController;
 
     // Controls animations
-    private SpriteRenderer sprite;
-    private Animator anim;
+    public SpriteRenderer sprite;
+    public Animator anim;
     [Header("Animation Data")]
     public ParticleSystem redMag;
     public ParticleSystem fireSpell;

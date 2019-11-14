@@ -148,13 +148,21 @@ MonoBehaviour:
   BombDamage: 100
   BombRadius: 10
   FireDamagePerCheck: 1
+  attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
+    type: 3}
   WaterShotSpeed: 1
+  waterSpell: {fileID: 9075706933809102355, guid: 41e9e27c245b5c44dab4e28500d3bf91,
+    type: 3}
   IceShotSpeed: 0.5
+  iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
+    type: 3}
   RockWall: {fileID: 6433738572942360513, guid: 40df58a8bf3fe2d4c932abc76cae25f0,
     type: 3}
   RockWallSize: 1
   RockWallPlaceDistance: 2
   RockWallManaCost: 20
+  HealPerMana: 0.3
+  HealCost: 1
   ID: 0
   score: 0
   numTowers: 0
@@ -165,6 +173,8 @@ MonoBehaviour:
   SpawnPoint: {x: 0, y: 0, z: 0}
   horizontal: 0
   vertical: 0
+  sprite: {fileID: 0}
+  anim: {fileID: 0}
   redMag: {fileID: 1791190899752136579}
   fireSpell: {fileID: 1917731532324603714}
   greenMag: {fileID: 1730928279813106867}
@@ -176,12 +186,6 @@ MonoBehaviour:
   healthBar: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
     type: 3}
   manaBar: {fileID: 2079514096679092151, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
-  attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
-    type: 3}
-  waterSpell: {fileID: 9075706933809102355, guid: 41e9e27c245b5c44dab4e28500d3bf91,
-    type: 3}
-  iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
-    type: 3}
 --- !u!95 &5937992824312999496
 Animator:
   serializedVersion: 3
