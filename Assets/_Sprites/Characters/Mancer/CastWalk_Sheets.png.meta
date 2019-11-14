@@ -1,0 +1,509 @@
+fileFormatVersion: 2
+guid: 302e931ec0c65ad4f8a885d4cb99d972
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7842444024134953567
+    second: CastWalk_Sheets_0
+  - first:
+      213: 9140098167538025098
+    second: CastWalk_Sheets_1
+  - first:
+      213: -623409938183974927
+    second: CastWalk_Sheets_2
+  - first:
+      213: 6477460598226403391
+    second: CastWalk_Sheets_3
+  - first:
+      213: 6016695478794310761
+    second: CastWalk_Sheets_4
+  - first:
+      213: -4100250877819102850
+    second: CastWalk_Sheets_5
+  - first:
+      213: -4948639026779490017
+    second: CastWalk_Sheets_6
+  - first:
+      213: 4934866640124693348
+    second: CastWalk_Sheets_7
+  - first:
+      213: 3237669556999667474
+    second: CastWalk_Sheets_8
+  - first:
+      213: 524902395869833100
+    second: CastWalk_Sheets_9
+  - first:
+      213: -4057078948676060645
+    second: CastWalk_Sheets_10
+  - first:
+      213: -4688850552278366911
+    second: CastWalk_Sheets_11
+  - first:
+      213: -4610255121810052757
+    second: CastWalk_Sheets_12
+  - first:
+      213: -8331481567871466772
+    second: CastWalk_Sheets_13
+  - first:
+      213: 2349010680458636968
+    second: CastWalk_Sheets_14
+  - first:
+      213: -4752472203286648762
+    second: CastWalk_Sheets_15
+  - first:
+      213: -3925708063792112050
+    second: CastWalk_Sheets_16
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CastWalk_Sheets_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 3775
+        width: 625
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98f112785acf114d8d6c934da4d2881
+      internalID: -7842444024134953567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_1
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 3759
+        width: 647
+        height: 738
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791ade60df82efa42aaccb0ccf97d5ac
+      internalID: 9140098167538025098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_2
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 3757
+        width: 656
+        height: 785
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16caf15628c0ea845881d409771a962e
+      internalID: -623409938183974927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_3
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 3756
+        width: 663
+        height: 832
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd26cb9458614b849b00b14d646296a9
+      internalID: 6477460598226403391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2819
+        width: 679
+        height: 857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044557b6880944c4ca6db8046f4cb3f6
+      internalID: 6016695478794310761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_5
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 2819
+        width: 695
+        height: 887
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da2ad9843e494042bae09881b94778b
+      internalID: -4100250877819102850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_6
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 2826
+        width: 709
+        height: 834
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6217791fe2fcc4094226e28961b43f
+      internalID: -4948639026779490017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_7
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 2832
+        width: 725
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff734e1a71dc2d458c26005f4901232
+      internalID: 4934866640124693348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1907
+        width: 733
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ca6bfc9cc3892419bc4b982bd58d5f
+      internalID: 3237669556999667474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_9
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1909
+        width: 744
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4160590ff7b5f3742a7dbfd3893a3c5a
+      internalID: 524902395869833100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_10
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 1906
+        width: 720
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2207f4aa77d83f42900d0cedc9b8535
+      internalID: -4057078948676060645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_11
+      rect:
+        serializedVersion: 2
+        x: 2321
+        y: 1900
+        width: 708
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b963c234a832a740a618d5c22a64558
+      internalID: -4688850552278366911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 962
+        width: 688
+        height: 786
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c969d64e7df9a4b9e5e6902115f166
+      internalID: -4610255121810052757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_13
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 964
+        width: 670
+        height: 815
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe17352be127494ea9f9233b5af4c55
+      internalID: -8331481567871466772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_14
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 964
+        width: 653
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02481cd1716578849babc4f6b7bbc885
+      internalID: 2349010680458636968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_15
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 962
+        width: 642
+        height: 791
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94738368d316701419977a36c818a836
+      internalID: -4752472203286648762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastWalk_Sheets_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 21
+        width: 628
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d358d3816d03fb4e88ccf4d4bd03e22
+      internalID: -3925708063792112050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 541017cf866681d4f81aae69362a9e90
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

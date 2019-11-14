@@ -27,7 +27,6 @@ public class _script_KnockbackTrigger : MonoBehaviour
         {
             Vector2 difference = player.transform.position - transform.position;
             difference = difference.normalized * Knockback * 100;
-            Debug.Log("Applying knockback to player: " + player.ID + " with vector: " + difference);
             player.gameObject.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Impulse);
         }
     }

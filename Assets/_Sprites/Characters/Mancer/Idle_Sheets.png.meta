@@ -1,0 +1,509 @@
+fileFormatVersion: 2
+guid: 8a01c357e02365b438b201374fe95a46
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6009403580781277444
+    second: Idle_Sheets_0
+  - first:
+      213: -3894657985518387465
+    second: Idle_Sheets_1
+  - first:
+      213: -409356066977436759
+    second: Idle_Sheets_2
+  - first:
+      213: 7269580333521968141
+    second: Idle_Sheets_3
+  - first:
+      213: 6036917341065417481
+    second: Idle_Sheets_8
+  - first:
+      213: -9189730357750310919
+    second: Idle_Sheets_9
+  - first:
+      213: -4121039045284553744
+    second: Idle_Sheets_10
+  - first:
+      213: 4383553887276054722
+    second: Idle_Sheets_12
+  - first:
+      213: 2091981271522617793
+    second: Idle_Sheets_13
+  - first:
+      213: -8765794414857882650
+    second: Idle_Sheets_14
+  - first:
+      213: -4427240009438457772
+    second: Idle_Sheets_15
+  - first:
+      213: -2688197456716528513
+    second: Idle_Sheets_16
+  - first:
+      213: 1683031016884956353
+    second: Idle_Sheets_17
+  - first:
+      213: -7988437146333201442
+    second: Idle_Sheets_18
+  - first:
+      213: 568501355715508912
+    second: Idle_Sheets_19
+  - first:
+      213: 3278362358688913820
+    second: Idle_Sheets_20
+  - first:
+      213: 322954833582352537
+    second: Idle_Sheets_21
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Idle_Sheets_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3160
+        width: 622
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427c77f355d8151459169c4566a73c71
+      internalID: 6009403580781277444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_1
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 3160
+        width: 622
+        height: 733
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c951ed792c362d4ebf520eef3b22ea9
+      internalID: -3894657985518387465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_2
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 3160
+        width: 624
+        height: 725
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34dec507fec4cb4ea1d4f0a4ec156bd
+      internalID: -409356066977436759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_3
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 3160
+        width: 624
+        height: 716
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead8346913262fd419687b073acf6b31
+      internalID: 7269580333521968141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2367
+        width: 622
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6aa09d67f1dfa49b0acb95517969e0
+      internalID: 6036917341065417481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_9
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 2371
+        width: 622
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560815a4e150fd347bd966d4d81ef3c3
+      internalID: -9189730357750310919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_10
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 2371
+        width: 624
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190284338a056b94099757c440098570
+      internalID: -4121039045284553744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_12
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 2371
+        width: 620
+        height: 710
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450eccee72fe80e4db5b919a86de155a
+      internalID: 4383553887276054722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_13
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1581
+        width: 619
+        height: 713
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485929d6382d14043926660081ebc1f7
+      internalID: 2091981271522617793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_14
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1581
+        width: 619
+        height: 717
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970d477458736fb4ba91d0e6f36fb827
+      internalID: -8765794414857882650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_15
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 1581
+        width: 619
+        height: 723
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca09c421eab79f48be88e6646b0197d
+      internalID: -4427240009438457772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_16
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 1581
+        width: 619
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b916be9641615a4fb1e414547487a4f
+      internalID: -2688197456716528513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_17
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 790
+        width: 619
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffad108363dc0224db72fc7b764cf761
+      internalID: 1683031016884956353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_18
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 790
+        width: 619
+        height: 744
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d4a388e08f57244b5a7949d28f557c
+      internalID: -7988437146333201442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_19
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 790
+        width: 619
+        height: 752
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f9e7e95b88ba249ab9a4abf1c32b3e
+      internalID: 568501355715508912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_20
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 790
+        width: 619
+        height: 752
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4bab247d8b552841aafa3534a652ef2
+      internalID: 3278362358688913820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Sheets_21
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1
+        width: 619
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19045d5334dc932439fb6fd60d51962f
+      internalID: 322954833582352537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 11399aacf4c7297449924feb23d34823
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

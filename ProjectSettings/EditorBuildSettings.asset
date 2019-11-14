@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: eef87cf8877bb424d8c62f46402a6cb3
+  - enabled: 1
+    path: Assets/Scenes/PlayerSelect.unity
+    guid: fa0d88ed00ee1c841938f3de42600cc8
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/_Scene_AlexTestEnviron01.unity
-    guid: 49a9e5bd536e60d4a941103c5613ffea
   - enabled: 1
     path: Assets/Scenes/GameEnd.unity
     guid: ff12b1f5aec96cf4a8283b80485bd1d9
   - enabled: 1
-    path: Assets/Scenes/PlayerSelect.unity
-    guid: fa0d88ed00ee1c841938f3de42600cc8
+    path: Assets/Scenes/_Scene_AlexTestEnviron01.unity
+    guid: 49a9e5bd536e60d4a941103c5613ffea
   - enabled: 1
     path: Assets/Scenes/Game_MJ.unity
     guid: 754b24fdce9defc44a5a1688c48df337

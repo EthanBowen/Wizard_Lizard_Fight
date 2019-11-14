@@ -32,4 +32,16 @@ public class ProjectileSpell : MonoBehaviour
         }
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collisions
+            && (collision.gameObject.GetComponent<Player>() == null
+            || collision.gameObject.GetComponent<Player>().ID != gameObject.GetComponent<PlayerAttack>().CheckID()))
+        {
+            if (collision.gameObject.GetComponent<PlayerAttack>() == null
+            || collision.gameObject.GetComponent<PlayerAttack>().CheckID() != gameObject.GetComponent<PlayerAttack>().CheckID())
+                Destroy(gameObject);
+        }
+    }
 }

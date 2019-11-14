@@ -16,14 +16,8 @@ public class StarGameController : MonoBehaviour
         titleSong.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
-        SceneManager.LoadScene("Game_MJ");
+        SceneManager.LoadScene("PlayerSelect");
     }
 }

@@ -1,0 +1,605 @@
+fileFormatVersion: 2
+guid: 7e5da8722dd808a488378870ea9ce844
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6036951658820269047
+    second: CastIdle_Sheets_0
+  - first:
+      213: -3034007279887072098
+    second: CastIdle_Sheets_1
+  - first:
+      213: -6421620736900128536
+    second: CastIdle_Sheets_2
+  - first:
+      213: 1025515039515008711
+    second: CastIdle_Sheets_3
+  - first:
+      213: -6220540814465350870
+    second: CastIdle_Sheets_4
+  - first:
+      213: 4874932876982738477
+    second: CastIdle_Sheets_5
+  - first:
+      213: -3131060441343009523
+    second: CastIdle_Sheets_6
+  - first:
+      213: 4811960032330101955
+    second: CastIdle_Sheets_7
+  - first:
+      213: 8292994966690678437
+    second: CastIdle_Sheets_8
+  - first:
+      213: 6670785731232953912
+    second: CastIdle_Sheets_9
+  - first:
+      213: -5946680991900136211
+    second: CastIdle_Sheets_10
+  - first:
+      213: 4044340961458697213
+    second: CastIdle_Sheets_11
+  - first:
+      213: -7611082914025476854
+    second: CastIdle_Sheets_12
+  - first:
+      213: 596972970911710043
+    second: CastIdle_Sheets_13
+  - first:
+      213: 4783240181556910457
+    second: CastIdle_Sheets_14
+  - first:
+      213: -3050091572741457909
+    second: CastIdle_Sheets_15
+  - first:
+      213: -1973271013015143066
+    second: CastIdle_Sheets_16
+  - first:
+      213: -3311932275619827922
+    second: CastIdle_Sheets_17
+  - first:
+      213: -5129512653207735214
+    second: CastIdle_Sheets_18
+  - first:
+      213: -4288260213337575536
+    second: CastIdle_Sheets_19
+  - first:
+      213: 4939190976986666140
+    second: CastIdle_Sheets_20
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CastIdle_Sheets_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 4255
+        width: 642
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1a659d3513a054687e9f2827dc3781
+      internalID: 6036951658820269047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_1
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 4254
+        width: 659
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1775d1ecb50e3544cb2a30ca2dba1983
+      internalID: -3034007279887072098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_2
+      rect:
+        serializedVersion: 2
+        x: 2081
+        y: 4252
+        width: 670
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ecd4dc66d52fb74ea85a34c2fdc7904
+      internalID: -6421620736900128536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_3
+      rect:
+        serializedVersion: 2
+        x: 3111
+        y: 4230
+        width: 704
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3ff0e1a3cbf0d4e9908abb0a358939
+      internalID: 1025515039515008711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_4
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 3384
+        width: 740
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4211e9be6f69cb4dbd9f64d3a8b057d
+      internalID: -6220540814465350870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_5
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 3384
+        width: 766
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a54b0c0cd8dc84f8ff8e2562233337
+      internalID: 4874932876982738477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_6
+      rect:
+        serializedVersion: 2
+        x: 2187
+        y: 3384
+        width: 778
+        height: 732
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0129571dafdea4098453f66ac0594a
+      internalID: -3131060441343009523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_7
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3385
+        width: 781
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0185b70d1f6c748975c0056f76c22a
+      internalID: 4811960032330101955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2539
+        width: 765
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1e28307b2ff7b49bcea1942f3b33f6
+      internalID: 8292994966690678437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_9
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 2539
+        width: 748
+        height: 796
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0fa058f82532b489459401bf35835f
+      internalID: 6670785731232953912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_10
+      rect:
+        serializedVersion: 2
+        x: 2179
+        y: 2538
+        width: 734
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7296fd8b8702dc46baf10c7772c43af
+      internalID: -5946680991900136211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_11
+      rect:
+        serializedVersion: 2
+        x: 3163
+        y: 2537
+        width: 724
+        height: 803
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09afb1f2d6fc6b1449c3d47af6acbb35
+      internalID: 4044340961458697213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_12
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1692
+        width: 718
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d06979cc3e20640bc7a52b5505a2ad
+      internalID: -7611082914025476854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_13
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1692
+        width: 712
+        height: 780
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191b2c05e3a654d40b6fa590439f79f2
+      internalID: 596972970911710043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_14
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 1692
+        width: 706
+        height: 778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b83f19d9e5de3948af260a866463f11
+      internalID: 4783240181556910457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_15
+      rect:
+        serializedVersion: 2
+        x: 3097
+        y: 1692
+        width: 698
+        height: 777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b6eebd5f0fa7f54dbe2666653a57969
+      internalID: -3050091572741457909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_16
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 846
+        width: 691
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a55b49534cbfe4b94912ed705f06d0
+      internalID: -1973271013015143066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_17
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 849
+        width: 683
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cccea75a37db34080390279e3ef7dd
+      internalID: -3311932275619827922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_18
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 861
+        width: 681
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d067c3a2b3d56f48a062eff37123363
+      internalID: -5129512653207735214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_19
+      rect:
+        serializedVersion: 2
+        x: 3017
+        y: 875
+        width: 671
+        height: 773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 606e66221ef0c644f8efbca859eeaed0
+      internalID: -4288260213337575536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastIdle_Sheets_20
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 26
+        width: 644
+        height: 763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb846e9943637142869eaf9a6ef14fb
+      internalID: 4939190976986666140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b286854f129b4b84ba949468f7019ff2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
