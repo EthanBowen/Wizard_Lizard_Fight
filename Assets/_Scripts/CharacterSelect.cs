@@ -35,7 +35,7 @@ public enum SelectedSkin
 public class CharacterSelect : MonoBehaviour
 {
     //player ID
-    public int ID = 1;
+    public int ID = 2;
     private string currentAnimation1;
     private string currentAnimation2;
     private string currentAnimation3;
@@ -110,8 +110,11 @@ public class CharacterSelect : MonoBehaviour
     {
         player1CharacterColor = characterList[0].characterColor;
         player1Name.text = characterList[0].characterName;
+        player2CharacterColor = characterList[1].characterColor;
+        player2Name.text = characterList[1].characterName;
         PopulateCharacterList();
         currentAnimation1 = "The boi_Idle";
+        currentAnimation2 = "The boi_Idle";
         //SetCharacterState(currentAnimation1);
         characterSelectMusic.playOnAwake = true;
         characterSelectMusic.loop = true;
@@ -208,9 +211,9 @@ public class CharacterSelect : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Delete))
         {
-            if (ID == 1)
+            if (ID == 2)
                 return;
-            else if(ID > 1)
+            else if(ID > 2)
                 ID--;
         }
              
