@@ -36,10 +36,6 @@ public class CharacterSelect : MonoBehaviour
 {
     //player ID
     public int ID = 2;
-    private string currentAnimation1;
-    private string currentAnimation2;
-    private string currentAnimation3;
-    private string currentAnimation4;
 
     //Player panels
     public GameObject Player1;
@@ -113,9 +109,6 @@ public class CharacterSelect : MonoBehaviour
         player2CharacterColor = characterList[1].characterColor;
         player2Name.text = characterList[1].characterName;
         PopulateCharacterList();
-        currentAnimation1 = "The boi_Idle";
-        currentAnimation2 = "The boi_Idle";
-        //SetCharacterState(currentAnimation1);
         characterSelectMusic.playOnAwake = true;
         characterSelectMusic.loop = true;
 
@@ -155,30 +148,6 @@ public class CharacterSelect : MonoBehaviour
         ActivatesPlayers();
         SwitchScene();
 
-        // TODO: Change this code
-        /*
-         * MJ:
-         * You can use code like this to change the skins and animations currently applied to the
-         * lizard wizard. I'll leave the implementation of the actual changing to you - but this
-         * should help you get started with the right approach.
-         * 
-         * And remember:
-         * The tutorial scenes in Spine Examples -> Getting Started are VERY HELPFUL in seeing this
-         * stuff in action. Refer to them for help with working in Spine.
-         *
-        if (old_ID != characterListCount && false)
-        {
-            old_ID = characterListCount;
-            for (int index = 1; index <= old_ID; index++)
-            {
-                SkeletonGraphic skele = ListOfPlayers[index].GetComponentInChildren<SkeletonGraphic>();
-                skele.Skeleton.SetSkin("NAME_OF_SKIN");
-                skele.AnimationState.SetAnimation(0, "animation name", true);
-            }
-        }
-        */
-        currentAnimation1 = player1.startingAnimation.ToString();
-       // Debug.Log("\nCurrent Animation: " + currentAnimation1 + "\nPlayer Skin Name: " + player1.Skeleton.Skin.Name);//"\nInitial Skin: " + player1CharacterList[player1Index].wizard.initialSkinName);
         PlayerPrefs.SetInt("NumberOfPlayers", ID);
     }
     /**
@@ -414,8 +383,6 @@ public class CharacterSelect : MonoBehaviour
             return;
         SkeletonGraphic skele = player.GetComponentInChildren<SkeletonGraphic>();
         skele.Skeleton.SetSkin(list[index].skeletonGraphicWizard.initialSkinName);
-        //skele.Skeleton.Skin.AddSkin(list[index].skeletonGraphicWizard.Skeleton.Skin);
-        //skele.startingAnimation = list[index].skeletonGraphicWizard.startingAnimation;
         skele.AnimationState.SetAnimation(0, list[index].skeletonGraphicWizard.startingAnimation, true);
         player = skele;
     }
