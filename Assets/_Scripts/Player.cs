@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
     // The player reads only their own inputs from this class. 
     public _script_ReadInputs inputs;
 
+    public RuntimeAnimatorController[] characterList;
+
 
     private void Awake()
     {
@@ -98,6 +100,7 @@ public class Player : MonoBehaviour
         GetComponent<Rigidbody2D>().freezeRotation = true;
         //gameObject.GetComponent<SpriteRenderer>().
         score = 0;
+        selectCharacter();
         Respawn();
     }
 
@@ -861,6 +864,11 @@ public class Player : MonoBehaviour
         this.gameObject.SetActive(true);
 
         dead = false;
+    }
+
+    private void selectCharacter()
+    {
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = characterList[PlayerPrefs.GetInt("Player" + ID)];
     }
 
 

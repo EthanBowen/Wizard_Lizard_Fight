@@ -76,13 +76,13 @@ public class CharacterSelect : MonoBehaviour
      public TextMeshProUGUI player3Name;
      public TextMeshProUGUI player4Name;
 
-     public SkeletonGraphic player1;
+     public Animator player1;
      //public AnimationReferenceAsset player1Wizard;
-     public SkeletonGraphic player2;
+     public Animator player2;
      //public AnimationReferenceAsset player2Wizard;
-     public SkeletonGraphic player3;
+     public Animator player3;
      //public AnimationReferenceAsset player3Wizard;
-     public SkeletonGraphic player4;
+     public Animator player4;
      //public AnimationReferenceAsset player4Wizard;
 
      public Image player1Color;
@@ -223,20 +223,20 @@ public class CharacterSelect : MonoBehaviour
                 playerCharacter = player1Index;
                 break;
             case (2):
-                Player2.AddComponent<PlayerController>().ID = ID;
+                Player2.GetComponent<PlayerController>().ID = ID;
                 Player2.SetActive(true);
                 Player3.SetActive(false);
                 Player4.SetActive(false);
                 playerCharacter = player2Index;
                 break;
             case (3):
-                Player3.AddComponent<PlayerController>().ID = ID;
+                Player3.GetComponent<PlayerController>().ID = ID;
                 Player3.SetActive(true);
                 Player4.SetActive(false);
                 playerCharacter = player3Index;
                 break;
             case (4):
-                Player4.AddComponent<PlayerController>().ID = ID;
+                Player4.GetComponent<PlayerController>().ID = ID;
                 Player4.SetActive(true);
                 playerCharacter = player4Index;
                 break;
@@ -377,14 +377,12 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
-    private void SetCharacterAnimation(SkeletonGraphic player, List<CharacterSelectObject> list, int index)
+    private void SetCharacterAnimation(Animator player, List<CharacterSelectObject> list, int index)
     {
-        if (player.Skeleton.Skin.Name == list[index].skeletonGraphicWizard.Skeleton.Skin.Name)
+        if (player.runtimeAnimatorController == list[index].graphicWizard)
             return;
-        SkeletonGraphic skele = player.GetComponentInChildren<SkeletonGraphic>();
-        skele.Skeleton.SetSkin(list[index].skeletonGraphicWizard.initialSkinName);
-        skele.AnimationState.SetAnimation(0, list[index].skeletonGraphicWizard.startingAnimation, true);
-        player = skele;
+        RuntimeAnimatorController skele = list[index].graphicWizard;
+        player.runtimeAnimatorController = skele;
     }
 
     private void SwitchScene()
@@ -417,7 +415,7 @@ public class CharacterSelect : MonoBehaviour
     [System.Serializable]
     public class CharacterSelectObject
     {
-        public SkeletonGraphic skeletonGraphicWizard;
+        public RuntimeAnimatorController graphicWizard;
         public string characterName;
         public Color characterColor;
     }

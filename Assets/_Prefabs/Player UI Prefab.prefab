@@ -55,7 +55,7 @@ MonoBehaviour:
   mana: 0
   characterList:
   - {fileID: 6009403580781277444, guid: 8a01c357e02365b438b201374fe95a46, type: 3}
-  - {fileID: 2631650652701375393, guid: c3c76e8024239b848a5d54435c029235, type: 3}
+  - {fileID: 21300000, guid: 07e0f0001c905a54793277260c26d661, type: 3}
   - {fileID: 7346840257029874911, guid: 0019f39b7e530a546ba74fd7b6f0b3d8, type: 3}
   - {fileID: -3131060441343009523, guid: 7e5da8722dd808a488378870ea9ce844, type: 3}
 --- !u!1001 &1330551024362607449
@@ -145,10 +145,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
-    - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
-      propertyPath: m_Name
-      value: HealthBarPrefab
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 4324799210306249739}
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: PlayerMaxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: CurrentPlayerHealth
+      value: 352
       objectReference: {fileID: 0}
     - target: {fileID: 2290015349615495746, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
@@ -205,20 +215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
+    - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
-      propertyPath: playerUI
-      value: 
-      objectReference: {fileID: 4324799210306249739}
-    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: PlayerMaxHealth
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: CurrentPlayerHealth
-      value: 352
+      propertyPath: m_Name
+      value: HealthBarPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 2290015348856413183, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
@@ -240,14 +240,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerPicture
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6526233113355155977, guid: dd04924dfb2dab542acd67a2d303793d,
@@ -305,8 +299,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerPicture
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
