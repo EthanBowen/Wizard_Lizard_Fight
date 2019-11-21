@@ -43,17 +43,23 @@ public class CharacterSelect : MonoBehaviour
     public GameObject Player3;
     public GameObject Player4;
 
-    public bool player1Ready;
-    public bool player2Ready;
-    public bool player3Ready;
-    public bool player4Ready;
+    private Dictionary<int, GameObject> Players;
+
+    //public bool player1Ready;
+    //public bool player2Ready;
+    //public bool player3Ready;
+    //public bool player4Ready;
+    private Dictionary<int, bool> playerReady;
 
     private int playerCharacter;
+
     //to track the players choice for character
-    public int player1Index;
-    public int player2Index;
-    public int player3Index;
-    public int player4Index;
+    //public int player1Index;
+    //public int player2Index;
+    //public int player3Index;
+    //public int player4Index;
+    private Dictionary<int, int> playerIndex;
+
     //color of the character
     private Color player1CharacterColor;
     private Color player2CharacterColor;
@@ -66,6 +72,7 @@ public class CharacterSelect : MonoBehaviour
      private List<CharacterSelectObject> player2CharacterList = new List<CharacterSelectObject>();
      private List<CharacterSelectObject> player3CharacterList = new List<CharacterSelectObject>();
      private List<CharacterSelectObject> player4CharacterList = new List<CharacterSelectObject>();
+     private Dictionary<int, List<CharacterSelectObject>> masterList;
 
     public int characterListCount;
 
@@ -75,6 +82,7 @@ public class CharacterSelect : MonoBehaviour
      public TextMeshProUGUI player2Name;
      public TextMeshProUGUI player3Name;
      public TextMeshProUGUI player4Name;
+     private Dictionary<int, TextMeshProUGUI> nameList;
 
      public Animator player1;
      //public AnimationReferenceAsset player1Wizard;
@@ -83,7 +91,8 @@ public class CharacterSelect : MonoBehaviour
      public Animator player3;
      //public AnimationReferenceAsset player3Wizard;
      public Animator player4;
-     //public AnimationReferenceAsset player4Wizard;
+    //public AnimationReferenceAsset player4Wizard;
+     private Dictionary<int, Animator> animatorList;
 
      public Image player1Color;
      public Image player2Color;
@@ -104,23 +113,58 @@ public class CharacterSelect : MonoBehaviour
 
     private void Start()
     {
-        player1CharacterColor = characterList[0].characterColor;
-        player1Name.text = characterList[0].characterName;
-        player2CharacterColor = characterList[1].characterColor;
-        player2Name.text = characterList[1].characterName;
         PopulateCharacterList();
+
+        masterList = new Dictionary<int, List<CharacterSelectObject>>();
+        masterList.Add(1, player1CharacterList);
+        masterList.Add(2, player2CharacterList);
+        masterList.Add(3, player3CharacterList);
+        masterList.Add(4, player4CharacterList);
+        
+        playerReady = new Dictionary<int, bool>();
+        playerReady.Add(1, false);
+        playerReady.Add(2, false);
+        playerReady.Add(3, false);
+        playerReady.Add(4, false);
+
+        playerIndex = new Dictionary<int, int>();
+        playerIndex.Add(1, 0);
+        playerIndex.Add(2, 0);
+        playerIndex.Add(3, 0);
+        playerIndex.Add(4, 0);
+
+        animatorList = new Dictionary<int, Animator>();
+        animatorList.Add(1, player1);
+        animatorList.Add(2, player2);
+        animatorList.Add(3, player3);
+        animatorList.Add(4, player4);
+
+        Players = new Dictionary<int, GameObject>();
+        Players.Add(1, Player1);
+        Players.Add(2, Player2);
+        Players.Add(3, Player3);
+        Players.Add(4, Player4);
+
+        nameList = new Dictionary<int, TextMeshProUGUI>();
+        nameList.Add(1, player1Name);
+        nameList.Add(2, player2Name);
+        nameList.Add(3, player3Name);
+        nameList.Add(4, player4Name);
+
+        player1CharacterColor = characterList[0].characterColor;
+        nameList[1].text = characterList[0].characterName;
+        player2CharacterColor = characterList[1].characterColor;
+        nameList[2].text = characterList[1].characterName;
+        player3CharacterColor = characterList[2].characterColor;
+        nameList[3].text = characterList[2].characterName;
+        player4CharacterColor = characterList[3].characterColor;
+        nameList[4].text = characterList[3].characterName;
+
         characterSelectMusic.playOnAwake = true;
         characterSelectMusic.loop = true;
-
-        ListOfPlayers = new List<GameObject>();
-        ListOfPlayers.Add(Player1);
-        ListOfPlayers.Add(Player2);
-        ListOfPlayers.Add(Player3);
-        ListOfPlayers.Add(Player4);
-
     }
 
-    private List<GameObject> ListOfPlayers;
+
 
     private void Update()
     {
@@ -213,32 +257,32 @@ public class CharacterSelect : MonoBehaviour
     //Meant to store the information on multiple players
     private void ActivatesPlayers()
     {
-        switch(ID)
+        switch (ID)
         {
             case (1):
                 Player1.GetComponent<PlayerController>().ID = ID;
                 Player2.SetActive(false);
                 Player3.SetActive(false);
                 Player4.SetActive(false);
-                playerCharacter = player1Index;
+                playerCharacter = playerIndex[ID];
                 break;
             case (2):
                 Player2.GetComponent<PlayerController>().ID = ID;
                 Player2.SetActive(true);
                 Player3.SetActive(false);
                 Player4.SetActive(false);
-                playerCharacter = player2Index;
+                playerCharacter = playerIndex[ID];
                 break;
             case (3):
                 Player3.GetComponent<PlayerController>().ID = ID;
                 Player3.SetActive(true);
                 Player4.SetActive(false);
-                playerCharacter = player3Index;
+                playerCharacter = playerIndex[ID];
                 break;
             case (4):
                 Player4.GetComponent<PlayerController>().ID = ID;
                 Player4.SetActive(true);
-                playerCharacter = player4Index;
+                playerCharacter = playerIndex[ID];
                 break;
         }
     }
@@ -246,39 +290,22 @@ public class CharacterSelect : MonoBehaviour
      * Cycles forward in the list of the characters
      * toggles off the ready for the player to signify that they are not ready to choose a character
      */
-    public void LeftArrow(int ID)
+    public void LeftArrow(int id)
     {
         if(Input.GetKeyDown(KeyCode.Return))
             return;
-        switch (ID)
+       
+        if(playerReady[id])
         {
-            case (1):
-                player1Ready = false;
-                player1Index--;
-                if (player1Index < 0)
-                    player1Index = player1CharacterList.Count - 1;
-                break;
-            case (2):
-                player2Ready = false;
-                player2Index--;
-                if (player2Index < 0)
-                    player2Index = player2CharacterList.Count - 1;
-                break;
-            case (3):
-                player3Ready = false;
-                player3Index--;
-                if (player3Index < 0)
-                    player3Index = player3CharacterList.Count - 1;
-                break;
-            case 4:
-                player4Ready = false;
-                player4Index--;
-                if (player4Index < 0)
-                    player4Index = player4CharacterList.Count - 1;
-                break;
+            playerReady[id] = false;
+            UpdatePlayerSelect(playerIndex[id], false);
         }
+        playerIndex[id]--;
 
-        UpdateCharacterSelectUI(ID);
+        if (playerIndex[id] < 0)
+            playerIndex[id] = masterList[id].Count - 1;
+
+        UpdateCharacterSelectUI(id);
 
         arrowSFX.Play();
     }
@@ -286,94 +313,53 @@ public class CharacterSelect : MonoBehaviour
      * Cycles forward in the list of the characters
      * toggles off the ready for the player to signify that they are not ready to choose a character
      */
-    public void RightArrow(int ID)
+    public void RightArrow(int id)
     {
         if (Input.GetKeyDown(KeyCode.Return))
             return;
-        switch(ID)
+        
+        if (playerReady[id])
         {
-            case (1):
-                player1Ready = false;
-                player1Index++;
-                if (player1Index == player1CharacterList.Count)
-                    player1Index = 0;
-                break;
-            case (2):
-                player2Ready = false;
-                player2Index++;
-                if (player2Index == player2CharacterList.Count)
-                    player2Index = 0;
-                break;
-            case (3):
-                player3Ready = false;
-                player3Index++;
-                if (player3Index == player3CharacterList.Count)
-                    player3Index = 0;
-                break;
-            case 4:
-                player4Ready = false;
-                player4Index++;
-                if (player4Index == player4CharacterList.Count)
-                    player4Index = 0;
-                break;
+            playerReady[id] = false;
+            UpdatePlayerSelect(playerIndex[id], false);
         }
+        playerIndex[id]++;
 
-        UpdateCharacterSelectUI(ID);
+        if (playerIndex[id] == masterList[id].Count)
+            playerIndex[id] = 0;
+
+        UpdateCharacterSelectUI(id);
 
         arrowSFX.Play();
     }
 
-    public void Confirm(int ID)
+    public void Confirm(int id)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-            return;
-        switch (ID)
-        {
-            case (1):
-                PlayerPrefs.SetInt("Player1", player1Index);
-                player1Ready = true;
-                break;
-            case (2):
-                PlayerPrefs.SetInt("Player2", player2Index);
-                player2Ready = true;
-                break;
-            case (3):
-                PlayerPrefs.SetInt("Player3", player3Index);
-                player3Ready = true;
-                break;
-            case (4):
-                PlayerPrefs.SetInt("Player4", player4Index);
-                player4Ready = true;
-                break;
-        }
 
-        confirmSFX.Play();
+        if (!CharacterSelected(id))
+        {
+            PlayerPrefs.SetInt("Player" + id, playerIndex[id]);
+            playerReady[id] = true;
+
+            UpdatePlayerSelect(playerIndex[id], true);
+
+            confirmSFX.Play();
+        }
     }
     private void UpdateCharacterSelectUI(int player)
     {
         //Sets the Splash, Name, Color
-        switch (player)
+        
+        SetCharacterAnimation(animatorList[player], masterList[player], playerIndex[player]);
+        nameList[player].text = masterList[player][playerIndex[player]].characterName;
+        Color tempColor = animatorList[player].GetComponent<SpriteRenderer>().color;
+        if (CharacterSelected(player) && !playerReady[player])
         {
-            case (1):
-                SetCharacterAnimation(player1, player1CharacterList, player1Index);
-                player1Name.text = player1CharacterList[player1Index].characterName;
-                player1CharacterColor = player1CharacterList[player1Index].characterColor;
-                break;
-            case (2):
-                SetCharacterAnimation(player2, player2CharacterList, player2Index);
-                player2Name.text = player2CharacterList[player2Index].characterName;
-                player2CharacterColor = player2CharacterList[player2Index].characterColor;
-                break;
-            case (3):
-                SetCharacterAnimation(player3, player3CharacterList, player3Index);
-                player3Name.text = player3CharacterList[player3Index].characterName;
-                player3CharacterColor = player3CharacterList[player3Index].characterColor;
-                break;
-            case 4:
-                SetCharacterAnimation(player4, player4CharacterList, player4Index);
-                player4Name.text = player4CharacterList[player4Index].characterName;
-                player4CharacterColor = player4CharacterList[player4Index].characterColor;
-                break;
+            animatorList[player].GetComponent<SpriteRenderer>().color = new Color(tempColor.r, tempColor.g, tempColor.b, 0.3f);
+        }
+        else
+        {
+            animatorList[player].GetComponent<SpriteRenderer>().color = new Color(tempColor.r, tempColor.g, tempColor.b, 1);
         }
     }
 
@@ -390,21 +376,21 @@ public class CharacterSelect : MonoBehaviour
         switch(ID)
         {
             case (2):
-                if (player1Ready && player2Ready)
+                if (playerReady[1] && playerReady[2])
                 {
                     SceneManager.LoadScene("Game");
                     characterSelectMusic.Stop();
                 } 
                 break;
             case (3):
-                if (player1Ready && player2Ready && player3Ready)
+                if (playerReady[1] && playerReady[2] && playerReady[3])
                 {
                     SceneManager.LoadScene("Game");
                     characterSelectMusic.Stop();
                 }
                 break;
             case (4):
-                if (player1Ready && player2Ready && player3Ready && player4Ready)
+                if (playerReady[1] && playerReady[2] && playerReady[3] && playerReady[4])
                 {
                     SceneManager.LoadScene("Game");
                     characterSelectMusic.Stop();
@@ -412,9 +398,28 @@ public class CharacterSelect : MonoBehaviour
                 break;
         }
     }
+
+    private void UpdatePlayerSelect(int index, bool b)
+    {
+        masterList[1][index].selected = b;
+        masterList[2][index].selected = b;
+        masterList[3][index].selected = b;
+        masterList[4][index].selected = b;
+    }
+
+    private bool CharacterSelected(int player)
+    {
+        return masterList[1][playerIndex[player]].selected
+            || masterList[2][playerIndex[player]].selected
+            || masterList[3][playerIndex[player]].selected
+            || masterList[4][playerIndex[player]].selected;
+    }
+    
+
     [System.Serializable]
     public class CharacterSelectObject
     {
+        public bool selected;
         public RuntimeAnimatorController graphicWizard;
         public string characterName;
         public Color characterColor;
