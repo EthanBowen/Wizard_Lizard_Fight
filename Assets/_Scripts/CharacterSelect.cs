@@ -38,6 +38,7 @@ public class CharacterSelect : MonoBehaviour
     public int ID = 2;
 
     //Player panels
+    [Header("Players")]
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Player3;
@@ -45,19 +46,11 @@ public class CharacterSelect : MonoBehaviour
 
     private Dictionary<int, GameObject> Players;
 
-    //public bool player1Ready;
-    //public bool player2Ready;
-    //public bool player3Ready;
-    //public bool player4Ready;
     private Dictionary<int, bool> playerReady;
 
     private int playerCharacter;
 
     //to track the players choice for character
-    //public int player1Index;
-    //public int player2Index;
-    //public int player3Index;
-    //public int player4Index;
     private Dictionary<int, int> playerIndex;
 
     //color of the character
@@ -84,17 +77,16 @@ public class CharacterSelect : MonoBehaviour
      public TextMeshProUGUI player4Name;
      private Dictionary<int, TextMeshProUGUI> nameList;
 
+    [Header("Player Character")]
      public Animator player1;
-     //public AnimationReferenceAsset player1Wizard;
      public Animator player2;
-     //public AnimationReferenceAsset player2Wizard;
      public Animator player3;
-     //public AnimationReferenceAsset player3Wizard;
      public Animator player4;
-    //public AnimationReferenceAsset player4Wizard;
+
      private Dictionary<int, Animator> animatorList;
 
-     public Image player1Color;
+    [Header("BackgroundColor")]
+     public Image player1Background;
      public Image player2Color;
      public Image player3Color;
      public Image player4Color;
@@ -240,7 +232,7 @@ public class CharacterSelect : MonoBehaviour
         switch(index)
         {
             case (1):
-                player1Color.color = Color.Lerp(player1Color.color, player1CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
+                player1Background.color = Color.Lerp(player1Background.color, player1CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
                 break;
             case (2):
                 player2Color.color = Color.Lerp(player2Color.color, player2CharacterColor, Time.deltaTime * BackgroundColorTransitionSpeed);
@@ -340,11 +332,10 @@ public class CharacterSelect : MonoBehaviour
         {
             PlayerPrefs.SetInt("Player" + id, playerIndex[id]);
             playerReady[id] = true;
-
             UpdatePlayerSelect(playerIndex[id], true);
 
             confirmSFX.Play();
-        }
+        }     
     }
     private void UpdateCharacterSelectUI(int player)
     {
