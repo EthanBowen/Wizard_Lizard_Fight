@@ -123,6 +123,7 @@ public class Player : MonoBehaviour
         if (inputs.button_lower)
         {
             air = true;
+            wand.GetComponent<Animator>().SetBool("Casting", true);
         }
         if (inputs.button_lower_stop)
         {
@@ -133,6 +134,7 @@ public class Player : MonoBehaviour
         if (inputs.button_up)
         {
             earth = true;
+            wand.GetComponent<Animator>().SetBool("Casting", true);
         }
         if (inputs.button_up_stop)
         {
@@ -143,6 +145,7 @@ public class Player : MonoBehaviour
         if (inputs.button_right)
         {
             fire = true;
+            wand.GetComponent<Animator>().SetBool("Casting", true);
         }
         if (inputs.button_right_stop)
         {
@@ -153,6 +156,7 @@ public class Player : MonoBehaviour
         if (inputs.button_left)
         {
             water = true;
+            wand.GetComponent<Animator>().SetBool("Casting", true);
         }
         if(inputs.button_left_stop)
         {
@@ -178,6 +182,7 @@ public class Player : MonoBehaviour
             if(!redMag.isPlaying)
             {
                 redMag.Play();
+                wand.GetComponent<Animator>().SetBool("Casting", true);
             }
         }
         else
@@ -194,6 +199,7 @@ public class Player : MonoBehaviour
             if (!blueMag.isPlaying)
             {
                 blueMag.Play();
+                wand.GetComponent<Animator>().SetBool("Casting", true);
             }
         }
         else
@@ -210,6 +216,7 @@ public class Player : MonoBehaviour
             if (!whiteMag.isPlaying)
             {
                 whiteMag.Play();
+                wand.GetComponent<Animator>().SetBool("Casting", true);
             }
         }
         else
@@ -226,6 +233,7 @@ public class Player : MonoBehaviour
             if (!greenMag.isPlaying)
             {
                 greenMag.Play();
+                wand.GetComponent<Animator>().SetBool("Casting", true);
             }
         }
         else
@@ -343,6 +351,10 @@ public class Player : MonoBehaviour
             {
                 StopAir();
             }
+            if (fireTrailActive)
+            {
+                StopFireTrail();
+            }
         }
         // EARTH
         if (earth && !air)
@@ -396,6 +408,10 @@ public class Player : MonoBehaviour
             health += HealPerMana;
         }
 
+        if(!fire && !water && !air && !earth)
+        {
+            wand.GetComponent<Animator>().SetBool("Casting", false);
+        }
 
         if (MP > maxMP)
         {
@@ -406,6 +422,7 @@ public class Player : MonoBehaviour
         {
             MP = 0.0f;
             anim.SetBool("Casting", false);
+            wand.GetComponent<Animator>().SetBool("Casting", false);
             fire = false;
             water = false;
             air = false;
