@@ -16,19 +16,15 @@ public class Player : MonoBehaviour
     public float maxMP = 100;
     private bool dead;
 
-    [Header("Bomb Settings")]
-    public float BombDamage = 100f;
-    public float BombRadius = 2f;
-    public float FireDamagePerCheck = 1f;
-    public GameObject attack_bomb;
+    [Header("Fire Settings")]
+    public ParticleSystem fireSpell;
 
     [Header("Watershot Settings")]
-    public float WaterShotSpeed = 1f;
     public GameObject waterSpell;
+    public float WaterShotSpeed = 1f;
 
-    [Header("Iceshot Settings")]
-    public float IceShotSpeed = 0.5f;
-    public GameObject iceSpell;
+    [Header("Wind Settings")]
+    public ParticleSystem airSpell;
 
     [Header("Rockwall Settings")]
     public GameObject RockWall;
@@ -36,7 +32,21 @@ public class Player : MonoBehaviour
     public float RockWallPlaceDistance = 2f;
     public float RockWallManaCost = 20.0f;
 
+    [Header("Bomb Settings")]
+    public GameObject attack_bomb;
+    public float BombDamage = 100f;
+    public float BombRadius = 2f;
+    public float FireDamagePerCheck = 1f;
+
+    [Header("Iceshot Settings")]
+    public GameObject iceSpell;
+    public float IceShotSpeed = 0.5f;
+
+    [Header("Firetrail Settings")]
+    public ParticleSystem fireTrailSpell;
+
     [Header("Heal Settings")]
+    public ParticleSystem healSpell;
     public float HealPerMana = 0.3f;
     public float HealCost = 1f;
 
@@ -59,20 +69,16 @@ public class Player : MonoBehaviour
     private GameController gameController;
 
     // Controls animations
+    [Header("Animation Data")]
     public SpriteRenderer sprite;
     public Animator anim;
-    [Header("Animation Data")]
     public ParticleSystem redMag;
-    public ParticleSystem fireSpell;
     public ParticleSystem greenMag;
     public ParticleSystem blueMag;
-    //public ParticleSystem WaterSpell;
     public ParticleSystem whiteMag;
-    public ParticleSystem airSpell;
+    public GameObject wand;
 
-    public ParticleSystem fireTrailSpell;
-    public ParticleSystem healSpell;
-
+    [Header("UI")]
     public GameObject healthBar;
     public GameObject manaBar;
     private Event_PlayerHealthChanged healthupdate;
@@ -111,7 +117,7 @@ public class Player : MonoBehaviour
         
         horizontal = inputs.PLAYER_horiz_move;
         vertical = inputs.PLAYER_vert_move;
-        MovePlayer();// PLAYER_horiz_move, PLAYER_vert_move);
+        MovePlayer();
 
         // The air spell controller
         if (inputs.button_lower)
@@ -130,14 +136,6 @@ public class Player : MonoBehaviour
         }
         if (inputs.button_up_stop)
         {
-            /*if (earth)
-            {
-                StopEarth();
-            }
-            if (healActive)
-            {
-                StopHeal();
-            }*/
             earth = false;
         }
 
@@ -274,12 +272,11 @@ public class Player : MonoBehaviour
             // FIRE TRAIL
             else if (air && !earth)
             {
-                //MP -= 4;
                 if (airActive || fireActive)
                 {
                     StopAir();
                     StopFire();
-                    //StartFireTrail();
+                    
                 }
             }
         }
@@ -303,7 +300,6 @@ public class Player : MonoBehaviour
                 {
                     chargeWaterSpell += 1;
                 }
-                    //CastWater();
             }
             // HEAL
             else if (earth && !air)
@@ -353,10 +349,7 @@ public class Player : MonoBehaviour
         {
             if (!fire && !water) // If an earth structure was already placed
             {
-                //StopEarth();
-                earthReady = true;
-                
-                //StartEarth();
+                earthReady = true; 
             }
         }
 
@@ -420,7 +413,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void MovePlayer()//float horizontal, float vertical)
+    public void MovePlayer()
     {
         if (horizontal != 0 || vertical != 0)
         {
@@ -507,8 +500,9 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             Quaternion SetRotationTo = CalcAimVector(horizontal, vertical);
-            fireSpell.transform.rotation = SetRotationTo;
+            //fireSpell.transform.rotation = SetRotationTo;
             airSpell.transform.rotation = SetRotationTo;
+            wand.transform.rotation = SetRotationTo;
             aimPos = SetRotationTo;
         }
     }
@@ -565,8 +559,8 @@ public class Player : MonoBehaviour
 
         Vector3 positionOfWater = new Vector3(2.0f, 0);
 
-        positionOfWater = aimPos * positionOfWater;
-        positionOfWater += transform.position;
+        positionOfWater = fireSpell.transform.position;//aimPos * positionOfWater;
+        //positionOfWater += transform.position;
 
         GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
@@ -682,8 +676,8 @@ public class Player : MonoBehaviour
 
         Vector3 positionOfIce = new Vector3(2.0f, 0);
 
-        positionOfIce = aimPos * positionOfIce;
-        positionOfIce += transform.position;
+        positionOfIce = fireSpell.transform.position;//aimPos * positionOfIce;
+        //positionOfIce += transform.position;
 
         GameObject ice = Instantiate(iceSpell, positionOfIce, aimPos);
 
