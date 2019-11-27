@@ -12,6 +12,7 @@ public class Tower : MonoBehaviour
     public float time = 0.0f;
     //private bool capturingTower;
     private bool towerCaptured;
+    private bool capping;
     public List<Player> capturingPlayers;
     //To seperate the players and hold each of their values]
     public Player owner;
@@ -20,6 +21,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         towerCaptured = false;
+        capping = false;
         owner = null;
         time = 0f;
         bar = transform.Find("Bar");
@@ -44,12 +46,13 @@ public class Tower : MonoBehaviour
         {
             time = 0f;
         }
+        while (capping)
+            CapturingTower();
     }
-    private void CapturingTower()
+    public void CapturingTower()
     {
-        float capturing = 0;
-        while (time != captureTime)
-            bar.localScale = new Vector3(time++/captureTime, 0.5f);
+        if(time != captureTime)
+            bar.localScale = new Vector3(time, 0.5f);
     }
 
     private void CaptureTower(Player newOwner)
@@ -71,7 +74,7 @@ public class Tower : MonoBehaviour
 
         if (player != null && !capturingPlayers.Contains(player))
             capturingPlayers.Add(player);
-        CapturingTower();
+        capping = true;
     }
     
     private void OnTriggerExit2D(Collider2D collision)
@@ -82,6 +85,7 @@ public class Tower : MonoBehaviour
         {
             if (player.ID != capturingPlayers[0].ID)
                 time = 0f;
+            capping = false;
             capturingPlayers.Remove(player);
         }
     }
