@@ -44,7 +44,7 @@ public class GameEndController : MonoBehaviour
      */
     private void Winner()
     {
-        playerWinner.text = "Player "  + PlayerPrefs.GetInt("winner").ToString() + "\n Ruled Supreme";
+        playerWinner.text = "Player "  + PlayerPrefs.GetInt("winner").ToString() + "\n Reigned Supreme";
     }
     /**
      * Sends Players back to Player Select Screen
@@ -63,16 +63,16 @@ public class GameEndController : MonoBehaviour
         switch(active)
         {
             case (1):
-                player1Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P1_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P1_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P1_DamageTaken").ToString();
+                player1Stats.text = "Score: \n" + PlayerPrefs.GetInt("P1_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P1_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P1_DamageTaken").ToString();
                 break;
             case (2):
-                player2Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P2_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P2_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P2_DamageTaken").ToString();
+                player2Stats.text = "Score: \n" + PlayerPrefs.GetInt("P2_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P2_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P2_DamageTaken").ToString();
                 break;
             case (3):
-                player3Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P3_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P3_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P3_DamageTaken").ToString();
+                player3Stats.text = "Score: \n" + PlayerPrefs.GetInt("P3_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P3_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P3_DamageTaken").ToString();
                 break;
             case (4):
-                player4Stats.text = "Kill Count: \n" + PlayerPrefs.GetInt("P4_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P4_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P4_DamageTaken").ToString();
+                player4Stats.text = "Score: \n" + PlayerPrefs.GetInt("P4_Kills").ToString() + "\nDamage Done:\n" + PlayerPrefs.GetFloat("P4_DamageDone").ToString() + "\nDamage Taken:\n" + PlayerPrefs.GetFloat("P4_DamageTaken").ToString();
                 break;
         }      
     }
