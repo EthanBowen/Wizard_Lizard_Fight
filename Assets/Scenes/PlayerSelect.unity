@@ -3470,19 +3470,19 @@ MonoBehaviour:
   - selected: 0
     graphicWizard: {fileID: 9100000, guid: 13d582e69559efd4e8f244c7cbaa361f, type: 2}
     characterName: Salamancer
-    characterColor: {r: 1, g: 0, b: 0.15076351, a: 0.1764706}
+    characterColor: {r: 0, g: 0.31740785, b: 1, a: 0.1764706}
   - selected: 0
     graphicWizard: {fileID: 9100000, guid: 8750e9f287cbcae4fa1908662e209369, type: 2}
     characterName: Homiestook
-    characterColor: {r: 0, g: 1, b: 0.08760595, a: 0.1764706}
+    characterColor: {r: 1, g: 0.027672686, b: 0, a: 0.1764706}
   - selected: 0
     graphicWizard: {fileID: 9100000, guid: 13d582e69559efd4e8f244c7cbaa361f, type: 2}
     characterName: C4
-    characterColor: {r: 0, g: 0.8638129, b: 1, a: 0.1764706}
+    characterColor: {r: 0, g: 0.8867924, b: 0.08517453, a: 0.1764706}
   - selected: 0
     graphicWizard: {fileID: 9100000, guid: 13d582e69559efd4e8f244c7cbaa361f, type: 2}
     characterName: Axelotle
-    characterColor: {r: 1, g: 0, b: 0.786602, a: 0.1764706}
+    characterColor: {r: 1, g: 0.9962709, b: 0, a: 0.1764706}
   characterListCount: 0
   player1Name: {fileID: 1145257959}
   player2Name: {fileID: 1212786506}

@@ -32733,7 +32733,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Kills Count:
+  m_text: 'Score:
 
 
     Damage Done:
@@ -32786,7 +32786,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 28
+  m_firstOverflowCharacterIndex: 22
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -32810,10 +32810,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -54.675568, w: -89.82423}
   m_textInfo:
     textComponent: {fileID: 999446483}
-    characterCount: 42
+    characterCount: 36
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 6
+    spaceCount: 7
+    wordCount: 5
     linkCount: 0
     lineCount: 5
     pageCount: 1
@@ -47425,7 +47425,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Kills Count:
+  m_text: 'Score:
 
 
     Damage Done:
@@ -47478,7 +47478,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 28
+  m_firstOverflowCharacterIndex: 22
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -47502,10 +47502,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -54.675568, w: -89.82423}
   m_textInfo:
     textComponent: {fileID: 1359942575}
-    characterCount: 42
+    characterCount: 36
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 6
+    spaceCount: 7
+    wordCount: 5
     linkCount: 0
     lineCount: 5
     pageCount: 1
@@ -47748,7 +47748,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Kills Count:
+  m_text: 'Score:
 
 
     Damage Done:
@@ -47801,7 +47801,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 28
+  m_firstOverflowCharacterIndex: 22
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -47825,10 +47825,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -54.675568, w: -89.82423}
   m_textInfo:
     textComponent: {fileID: 1458430270}
-    characterCount: 42
+    characterCount: 36
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 6
+    spaceCount: 7
+    wordCount: 5
     linkCount: 0
     lineCount: 5
     pageCount: 1
@@ -47913,7 +47913,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Kills Count:
+  m_text: 'Score:
 
 
     Damage Done:
@@ -47966,7 +47966,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 28
+  m_firstOverflowCharacterIndex: 22
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -47990,10 +47990,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -54.675568, w: -89.82423}
   m_textInfo:
     textComponent: {fileID: 1478102466}
-    characterCount: 42
+    characterCount: 36
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 6
+    spaceCount: 7
+    wordCount: 5
     linkCount: 0
     lineCount: 5
     pageCount: 1
@@ -48365,7 +48365,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Player  #
 
-    Reined Surpreme'
+    Reigned Surpreme'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -48434,7 +48434,7 @@ MonoBehaviour:
   m_margin: {x: -86.55021, y: 16.578072, z: -329.17142, w: -211.52995}
   m_textInfo:
     textComponent: {fileID: 1880154917}
-    characterCount: 25
+    characterCount: 26
     spriteCount: 0
     spaceCount: 4
     wordCount: 3
@@ -48476,6 +48476,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TheEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3338464258959845096, guid: 2fe88f77b23a3344db1d16e60cba9255,
         type: 3}
@@ -48537,61 +48592,6 @@ PrefabInstance:
       propertyPath: restart
       value: 
       objectReference: {fileID: 473198668}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338464258959845097, guid: 2fe88f77b23a3344db1d16e60cba9255,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3338464258549428141, guid: 2fe88f77b23a3344db1d16e60cba9255,
         type: 3}
       propertyPath: m_Camera

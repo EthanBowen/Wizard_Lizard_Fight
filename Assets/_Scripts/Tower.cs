@@ -64,7 +64,7 @@ public class Tower : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
 
-        if (player != null)
+        if (player != null && !capturingPlayers.Contains(player))
             capturingPlayers.Add(player);
     }
     
