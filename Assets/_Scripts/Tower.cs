@@ -12,7 +12,7 @@ public class Tower : MonoBehaviour
     public float time = 0.0f;
     //private bool capturingTower;
     private bool towerCaptured;
-    private bool capping;
+    public bool capping;
     public List<Player> capturingPlayers;
     //To seperate the players and hold each of their values]
     public Player owner;
@@ -36,6 +36,7 @@ public class Tower : MonoBehaviour
             if (capturingPlayers.Count == 1 && capturingPlayers[0].ID != ID)
             {
                 time += 1f;
+                CapturingTower();
             }
             if (time >= 100)
             {
@@ -46,13 +47,12 @@ public class Tower : MonoBehaviour
         {
             time = 0f;
         }
-        while (capping)
-            CapturingTower();
     }
     public void CapturingTower()
     {
-        if(time != captureTime)
-            bar.localScale = new Vector3(time, 0.5f);
+        if(capping)
+            if(time != (captureTime / 2))
+                bar.localScale = new Vector3((time/captureTime) / 2, 0.5f);
     }
 
     private void CaptureTower(Player newOwner)
