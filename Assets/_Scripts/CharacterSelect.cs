@@ -398,7 +398,7 @@ public class CharacterSelect : MonoBehaviour
         masterList[4][index].selected = b;
     }
 
-    private bool CharacterSelected(int player)
+    public bool CharacterSelected(int player)
     {
         return masterList[1][playerIndex[player]].selected
             || masterList[2][playerIndex[player]].selected
