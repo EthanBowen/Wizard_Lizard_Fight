@@ -6,7 +6,8 @@ public class Tower : MonoBehaviour
 {
     //check for the owner of the tower
     public int ID = 0;
-    private Transform bar;
+    public Transform bar;
+    public GameObject CaptureBar;
     //public int CapturingID;
     public float captureTime = 100f;
     public float time = 0.0f;
@@ -24,19 +25,28 @@ public class Tower : MonoBehaviour
         capping = false;
         owner = null;
         time = 0f;
-        bar = transform.Find("Bar");
+        //bar = transform.Find("Bar");
         bar.localScale = new Vector3(0, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (capturingPlayers.Count > 0)
         {
             if (capturingPlayers.Count == 1 && capturingPlayers[0].ID != ID)
             {
                 time += 1f;
-                CapturingTower();
+                CaptureBar.SetActive(true);
+            }
+            else
+            {
+
             }
             if (time >= 100)
             {
@@ -46,13 +56,15 @@ public class Tower : MonoBehaviour
         else
         {
             time = 0f;
+            CaptureBar.SetActive(false);
         }
+        bar.localScale = new Vector3((time / captureTime) / 2, 1);
     }
     public void CapturingTower()
     {
-        if(capping)
-            if(time != (captureTime / 2))
-                bar.localScale = new Vector3((time/captureTime) / 2, 0.5f);
+        //if(capping)
+            //if(time != (captureTime / 2))
+                //bar.localScale = new Vector3((time/captureTime) / 2, 0.5f);
     }
 
     private void CaptureTower(Player newOwner)
@@ -74,7 +86,7 @@ public class Tower : MonoBehaviour
 
         if (player != null && !capturingPlayers.Contains(player))
             capturingPlayers.Add(player);
-        capping = true;
+        //capping = true;
     }
     
     private void OnTriggerExit2D(Collider2D collision)
@@ -85,7 +97,7 @@ public class Tower : MonoBehaviour
         {
             if (player.ID != capturingPlayers[0].ID)
                 time = 0f;
-            capping = false;
+            //capping = false;
             capturingPlayers.Remove(player);
         }
     }
