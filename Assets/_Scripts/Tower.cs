@@ -6,11 +6,12 @@ public class Tower : MonoBehaviour
 {
     //check for the owner of the tower
     public int ID = 0;
-    public int CapturingID;
-    private float captureTime = 10f;
-    private bool capturingTower;
+    //public int CapturingID;
+    public float captureTime = 100f;
+    public float time = 0.0f;
+    //private bool capturingTower;
     private bool towerCaptured;
-    private List<Player> capturingPlayers;
+    public List<Player> capturingPlayers;
     //To seperate the players and hold each of their values]
     public Player owner;
     
@@ -19,17 +20,27 @@ public class Tower : MonoBehaviour
     {
         towerCaptured = false;
         owner = null;
-        //Time.timeScale = 1;
+        time = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-       // if(capturingPlayers.Count > 0)
-        //{
-        //    if(capturingPlayers.Count == 1)
-       //         ID = capturingPlayers
-       // }
+        if (capturingPlayers.Count > 0)
+        {
+            if (capturingPlayers.Count == 1 && capturingPlayers[0].ID != ID)
+            {
+                time += 1f;
+            }
+            if (time >= 100)
+            {
+                CaptureTower(capturingPlayers[0]);
+            }
+        }
+        else
+        {
+            time = 0f;
+        }
     }
     private void CapturingTower()
     {
@@ -43,7 +54,9 @@ public class Tower : MonoBehaviour
 
         newOwner.numTowers++;
         owner = newOwner;
-        this.GetComponent<SpriteRenderer>().color = owner.GetComponent<SpriteRenderer>().color;
+        ID = newOwner.ID;
+        GetComponent<Animator>().SetInteger("ID", ID);
+        //this.GetComponent<SpriteRenderer>().color = owner.GetComponent<SpriteRenderer>().color;
         towerCaptured = true;
     }
 
@@ -51,20 +64,21 @@ public class Tower : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
 
-       // capturingPlayers.Add(player);
-
         if (player != null)
-            CaptureTower(player);
-        //    return;
-       // owner = collision.gameObject.GetComponent<Player>();
+            capturingPlayers.Add(player);
     }
-    /*
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
 
-        capturingPlayers.Remove(player);
+        if (player != null)
+        {
+            if (player.ID != capturingPlayers[0].ID)
+                time = 0f;
+            capturingPlayers.Remove(player);
+        }
     }
-    */
+    
 
 }
