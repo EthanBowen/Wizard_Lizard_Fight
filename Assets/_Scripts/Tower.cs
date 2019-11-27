@@ -58,7 +58,7 @@ public class Tower : MonoBehaviour
             time = 0f;
             CaptureBar.SetActive(false);
         }
-        bar.localScale = new Vector3((time / captureTime) / 2, 1);
+        bar.localScale = new Vector3((time / captureTime)*1.5f, 1.5f);
     }
     public void CapturingTower()
     {
