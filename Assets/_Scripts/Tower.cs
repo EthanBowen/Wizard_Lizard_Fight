@@ -6,6 +6,7 @@ public class Tower : MonoBehaviour
 {
     //check for the owner of the tower
     public int ID = 0;
+    private Transform bar;
     //public int CapturingID;
     public float captureTime = 100f;
     public float time = 0.0f;
@@ -21,6 +22,8 @@ public class Tower : MonoBehaviour
         towerCaptured = false;
         owner = null;
         time = 0f;
+        bar = transform.Find("Bar");
+        bar.localScale = new Vector3(0, 0.5f);
     }
 
     // Update is called once per frame
@@ -44,7 +47,9 @@ public class Tower : MonoBehaviour
     }
     private void CapturingTower()
     {
-
+        float capturing = 0;
+        while (time != captureTime)
+            bar.localScale = new Vector3(time++/captureTime, 0.5f);
     }
 
     private void CaptureTower(Player newOwner)
@@ -66,6 +71,7 @@ public class Tower : MonoBehaviour
 
         if (player != null && !capturingPlayers.Contains(player))
             capturingPlayers.Add(player);
+        CapturingTower();
     }
     
     private void OnTriggerExit2D(Collider2D collision)
