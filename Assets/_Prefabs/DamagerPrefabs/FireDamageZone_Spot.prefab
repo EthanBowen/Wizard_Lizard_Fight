@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8925258570277748774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6988782390855507095}
@@ -38,11 +38,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 406577450883250727}
     m_Modifications:
-    - target: {fileID: 452449603705606817, guid: c4e64ad69c66ea84abf73fe94a11ba73,
-        type: 3}
-      propertyPath: m_Name
-      value: Fire Damage Zone
-      objectReference: {fileID: 0}
     - target: {fileID: 452449603705606819, guid: c4e64ad69c66ea84abf73fe94a11ba73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,6 +92,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452449603705606817, guid: c4e64ad69c66ea84abf73fe94a11ba73,
+        type: 3}
+      propertyPath: m_Name
+      value: Fire Damage Zone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4e64ad69c66ea84abf73fe94a11ba73, type: 3}

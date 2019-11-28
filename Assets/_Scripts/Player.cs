@@ -106,6 +106,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        airDash.Stop();
+        fireDash.Stop();
+        healing.Stop();
         body = gameObject.GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
         anim = gameObject.GetComponent<Animator>();
@@ -556,6 +559,7 @@ public class Player : MonoBehaviour
     }
     public void StopAir()
     {
+        airDash.Stop();
         airSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         anim.SetBool("Casting", false);
         airActive = false;
@@ -652,6 +656,7 @@ public class Player : MonoBehaviour
     }
     public void StopFireTrail()
     {
+        fireDash.Stop();
         fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         anim.SetBool("Casting", false);
         fireTrailActive = false;

@@ -108,16 +108,16 @@ public class _script_Bomb : MonoBehaviour
         switch (FireSpreadType)
         {
             case (SpreadType.Plus):
-                Fire = Instantiate(FireZonePlus);
+                Fire = Instantiate(FireZonePlus, transform);
                 break;
             case (SpreadType.Circle):
-                Fire = Instantiate(FireZoneCircle);
+                Fire = Instantiate(FireZoneCircle, transform);
                 break;
             case (SpreadType.Spot):
-                Fire = Instantiate(FireZoneSpot);
+                Fire = Instantiate(FireZoneSpot, transform);
                 break;
             default:
-                Fire = Instantiate(FireZonePlus);
+                Fire = Instantiate(FireZonePlus, transform);
                 break;
         }
         if (Fire != null)
