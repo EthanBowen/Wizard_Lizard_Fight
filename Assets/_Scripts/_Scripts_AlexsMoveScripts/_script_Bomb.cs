@@ -49,6 +49,7 @@ public class _script_Bomb : MonoBehaviour
                 Detonate();
             }
         }
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)gameObject.transform.position.y;
     }
 
     public void SetOwner(Player own)

@@ -29,6 +29,8 @@ public class Tower : MonoBehaviour
         capturingPlayers = new List<Player>();
         bar.localScale = new Vector3(0, 1.5f);
 
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)gameObject.transform.position.y;
+
         PlayerColors = new Dictionary<int, Color>();
         PlayerColors.Add(1, Color.blue);
         PlayerColors.Add(2, Color.red);

@@ -508,6 +508,9 @@ public class Player : MonoBehaviour
 
         Aim();
 
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)gameObject.transform.position.y;
+        wand.GetComponent<SpriteRenderer>().sortingOrder = 1-(int)(gameObject.transform.position.y);
+
         return;
     }
 
