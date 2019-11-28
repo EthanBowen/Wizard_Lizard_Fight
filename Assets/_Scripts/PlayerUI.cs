@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class PlayerUI : MonoBehaviour
     public HealthBar HP;
     public ManaBar MP;
     public GameObject playerPicture;
+    public Text scoreText;
+    public GameObject playerColor;
     public float health = 0;
     public float mana = 0;
-    //public Sprite playerSprite;
     public Sprite[] characterList;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class PlayerUI : MonoBehaviour
                 break;
        }
         showSelectedCharacter();
+
     }
 
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class PlayerUI : MonoBehaviour
     {
         health = player.health;
         mana = player.MP;
+        scoreText.text = "Score: " + player.score + " Towers: " + player.numTowers;
     }
 
     private void ChangePlayerSprite()
@@ -67,25 +71,37 @@ public class PlayerUI : MonoBehaviour
         {
             case (1): //top left player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player1")];
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.05f, 0.900f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.04f, 0.900f, 10f));
+                scoreText.transform.localPosition = new Vector3(-780f, 401f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                playerColor.GetComponent<SpriteRenderer>().color = Color.blue;
+                playerColor.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.04f, 0.893f, 10f));
                 break;
             case (2): //top right player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player2")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.945f, 0.900f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.955f, 0.900f, 10f));
+                scoreText.transform.localPosition = new Vector3(775f, 401f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
+                playerColor.GetComponent<SpriteRenderer>().color = Color.red;
+                playerColor.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.955f, 0.893f, 10f));
                 break;
             case (3): //bottom left player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player3")];
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.05f,1 - 0.900f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.04f,1 - 0.900f, 10f));
+                scoreText.transform.localPosition = new Vector3(-780f, -463f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                playerColor.GetComponent<SpriteRenderer>().color = Color.green;
+                playerColor.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(0.04f, 1 - 0.908f, 10f));
                 break;
             case (4): //bottom right player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player4")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.945f, 1 - 0.900f, 10f));
+                playerPicture.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.955f, 1 - 0.900f, 10f));
+                scoreText.transform.localPosition = new Vector3(775f, -463f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
+                playerColor.GetComponent<SpriteRenderer>().color = Color.yellow;
+                playerColor.transform.position = UI_Camera.ViewportToWorldPoint(new Vector3(.955f, 1 - 0.908f, 10f));
                 break;
         }
         
