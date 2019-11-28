@@ -22,33 +22,40 @@ public class Player : MonoBehaviour
     [Header("Watershot Settings")]
     public GameObject waterSpell;
     public float WaterShotSpeed = 1f;
+    public AudioSource waterShot;
 
     [Header("Wind Settings")]
     public ParticleSystem airSpell;
+    public AudioSource airDash;
 
     [Header("Rockwall Settings")]
     public GameObject RockWall;
     public float RockWallSize = 1f;
     public float RockWallPlaceDistance = 2f;
     public float RockWallManaCost = 20.0f;
+    public AudioSource rockBuild;
 
     [Header("Bomb Settings")]
     public GameObject attack_bomb;
     public float BombDamage = 100f;
     public float BombRadius = 2f;
     public float FireDamagePerCheck = 1f;
+    public AudioSource bombPlace;
 
     [Header("Iceshot Settings")]
     public GameObject iceSpell;
     public float IceShotSpeed = 0.5f;
+    public AudioSource iceShot;
 
     [Header("Firetrail Settings")]
     public ParticleSystem fireTrailSpell;
+    public AudioSource fireDash;
 
     [Header("Heal Settings")]
     public ParticleSystem healSpell;
     public float HealPerMana = 0.3f;
     public float HealCost = 1f;
+    public AudioSource healing;
 
     private Rigidbody2D body;
 
@@ -545,6 +552,7 @@ public class Player : MonoBehaviour
         airSpell.Play();
         anim.SetBool("Casting", true);
         airActive = true;
+        airDash.Play();
     }
     public void StopAir()
     {
@@ -597,6 +605,7 @@ public class Player : MonoBehaviour
         pa.AssignID(ID);
         pa.damage = chargeWaterSpell;
 
+        waterShot.Play();
         //water.SetActive(true);
         anim.SetBool("Casting", false);
 
@@ -623,7 +632,7 @@ public class Player : MonoBehaviour
         positionOfWall += transform.position;
 
         GameObject wall = Instantiate(RockWall, positionOfWall, aimPos);
-
+        rockBuild.Play();
         placedRockWall = wall;
     }
     public void StopEarth()
@@ -639,6 +648,7 @@ public class Player : MonoBehaviour
         fireTrailSpell.Play();
         anim.SetBool("Casting", true);
         fireTrailActive = true;
+        fireDash.Play();
     }
     public void StopFireTrail()
     {
@@ -677,7 +687,7 @@ public class Player : MonoBehaviour
             bombscript.FireDamagePerCheck = FireDamagePerCheck;
             bombscript.SetOwner(this);
             HasPlacedBomb = bomb;
-
+            bombPlace.Play();
         }
         else
         {
@@ -711,6 +721,7 @@ public class Player : MonoBehaviour
         pa.AssignID(ID);
         pa.damage = chargeIceSpell;
 
+        iceShot.Play();
         //water.SetActive(true);
 
         chargeIceSpell = 0.0f;
@@ -722,12 +733,14 @@ public class Player : MonoBehaviour
         healSpell.Play();
         anim.SetBool("Casting", true);
         healActive = true;
+        healing.Play();
     }
     public void StopHeal()
     {
         healSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         anim.SetBool("Casting", false);
         healActive = false;
+        healing.Stop();
     }
 
     //*********************************************************************************************************************************************************************
