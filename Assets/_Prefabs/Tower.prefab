@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3942482520540652495
 Transform:
   m_ObjectHideFlags: 0
@@ -350,13 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed89765b68c1374fbb7f09f4b1e4194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  barSprite: {fileID: 4103879180362978313}
   bar: {fileID: 2545895296014755749}
   CaptureBar: {fileID: 406082269253045231}
   captureTime: 100
-  time: 0
-  capping: 0
-  capturingPlayers: []
   owner: {fileID: 0}
 --- !u!212 &6775094184830191083
 SpriteRenderer:
