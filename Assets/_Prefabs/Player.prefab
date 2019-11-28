@@ -101,7 +101,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.4}
   serializedVersion: 2
   m_Radius: 1
 --- !u!50 &4558608008498264398
@@ -482,11 +482,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 5802847864036157920, guid: c14a957c085507248b8db5e3c34c370a,
-        type: 3}
-      propertyPath: m_Name
-      value: Wand
-      objectReference: {fileID: 0}
     - target: {fileID: 5802847864036157922, guid: c14a957c085507248b8db5e3c34c370a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,6 +536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802847864036157920, guid: c14a957c085507248b8db5e3c34c370a,
+        type: 3}
+      propertyPath: m_Name
+      value: Wand
       objectReference: {fileID: 0}
     - target: {fileID: 5802847864036157921, guid: c14a957c085507248b8db5e3c34c370a,
         type: 3}
