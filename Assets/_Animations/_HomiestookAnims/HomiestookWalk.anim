@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteWalk
+  m_Name: HomiestookWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 5108601841118324724, guid: 810df31e46e17b74691f8f6f0676ccbd,
+      value: {fileID: -3871979432369425472, guid: 1f95aa47009860f4c9ac7d382405ef9e,
         type: 3}
     - time: 0.083333336
-      value: {fileID: 763718201113852716, guid: 810df31e46e17b74691f8f6f0676ccbd,
+      value: {fileID: 2634580535422208025, guid: 1f95aa47009860f4c9ac7d382405ef9e,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,8 +44,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 5108601841118324724, guid: 810df31e46e17b74691f8f6f0676ccbd, type: 3}
-    - {fileID: 763718201113852716, guid: 810df31e46e17b74691f8f6f0676ccbd, type: 3}
+    - {fileID: -3871979432369425472, guid: 1f95aa47009860f4c9ac7d382405ef9e, type: 3}
+    - {fileID: 2634580535422208025, guid: 1f95aa47009860f4c9ac7d382405ef9e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
