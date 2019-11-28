@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 7b6ee3637a9294e469c35b5cf989fb2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,12 +119,12 @@ PrefabInstance:
     - target: {fileID: 213614457707082390, guid: 1409ada475315634ba4d1e2af447d84d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.58
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 213614457707082390, guid: 1409ada475315634ba4d1e2af447d84d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13999987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 213614457707082390, guid: 1409ada475315634ba4d1e2af447d84d,
         type: 3}
@@ -204,12 +204,12 @@ PrefabInstance:
     - target: {fileID: 3150672845197675524, guid: 97e2b640892921048ab022d729796a01,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.58
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 3150672845197675524, guid: 97e2b640892921048ab022d729796a01,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13999987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3150672845197675524, guid: 97e2b640892921048ab022d729796a01,
         type: 3}
@@ -299,12 +299,12 @@ PrefabInstance:
     - target: {fileID: 683543355515410187, guid: b2e738312ad5acb4ca13239228affb93,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.58
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 683543355515410187, guid: b2e738312ad5acb4ca13239228affb93,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 683543355515410187, guid: b2e738312ad5acb4ca13239228affb93,
         type: 3}
@@ -381,35 +381,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5802847864036157922}
     m_Modifications:
-    - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: ShapeModule.m_Rotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: ShapeModule.m_Rotation.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: m_Name
-      value: Flamethrower
-      objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5800002
+      value: 3.5300002
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13999987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
@@ -459,32 +439,27 @@ PrefabInstance:
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
-    - target: {fileID: 4980309824586520628, guid: a2912b30d5f640146af43075a47fdb55,
+    - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8034925533242175454, guid: a2912b30d5f640146af43075a47fdb55,
+    - target: {fileID: 1268933500309583277, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
-      propertyPath: m_Offset.y
-      value: -10
+      propertyPath: ShapeModule.m_Rotation.y
+      value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 8034925533242175454, guid: a2912b30d5f640146af43075a47fdb55,
+    - target: {fileID: 2407093921468661885, guid: a2912b30d5f640146af43075a47fdb55,
         type: 3}
-      propertyPath: m_Size.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8034925533242175454, guid: a2912b30d5f640146af43075a47fdb55,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 20
+      propertyPath: m_Name
+      value: Flamethrower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2912b30d5f640146af43075a47fdb55, type: 3}
@@ -504,12 +479,12 @@ PrefabInstance:
     - target: {fileID: 6795799249026082505, guid: 67e1ae6be95f6074080d1455fa55d50f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.58
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 6795799249026082505, guid: 67e1ae6be95f6074080d1455fa55d50f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13999987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6795799249026082505, guid: 67e1ae6be95f6074080d1455fa55d50f,
         type: 3}

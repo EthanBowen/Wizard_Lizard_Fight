@@ -596,7 +596,7 @@ public class Player : MonoBehaviour
 
         GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
-        Vector2 difference = water.transform.position - transform.position;
+        Vector2 difference = water.transform.position - wand.transform.position;
         difference = difference.normalized * WaterShotSpeed * 10;
 
         water.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
@@ -633,7 +633,7 @@ public class Player : MonoBehaviour
         Vector3 positionOfWall = new Vector3(RockWallPlaceDistance, 0);
 
         positionOfWall = aimPos * positionOfWall;
-        positionOfWall += transform.position;
+        positionOfWall += wand.transform.position;
 
         GameObject wall = Instantiate(RockWall, positionOfWall, aimPos);
         rockBuild.Play();
@@ -676,7 +676,7 @@ public class Player : MonoBehaviour
             Vector3 positionOfBomb = new Vector3(2.0f, 0);
 
             positionOfBomb = aimPos * positionOfBomb;
-            positionOfBomb += transform.position;
+            positionOfBomb += wand.transform.position;
 
             GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
@@ -716,7 +716,7 @@ public class Player : MonoBehaviour
 
         GameObject ice = Instantiate(iceSpell, positionOfIce, aimPos);
 
-        Vector2 difference = ice.transform.position - transform.position;
+        Vector2 difference = ice.transform.position - wand.transform.position;
         difference = difference.normalized * IceShotSpeed * 10;
 
         ice.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
