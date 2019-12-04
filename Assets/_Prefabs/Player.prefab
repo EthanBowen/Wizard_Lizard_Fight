@@ -830,7 +830,7 @@ MonoBehaviour:
   rockBuild: {fileID: 401366644555993425}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
-  BombManaCost: 40
+  BombManaCost: 90
   BombDamage: 100
   BombRadius: 10
   FireDamagePerCheck: 1
@@ -843,7 +843,7 @@ MonoBehaviour:
   FireTrailStartManaCost: 10
   fireDash: {fileID: 1361842670240577769}
   healSpell: {fileID: 3617487409508499894}
-  HealPerMana: 0.3
+  HealPerMana: 0.5
   HealCost: 1
   healing: {fileID: 155610117715029508}
   ID: 0
