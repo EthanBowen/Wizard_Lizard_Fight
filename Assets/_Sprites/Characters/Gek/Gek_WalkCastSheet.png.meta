@@ -16,22 +16,22 @@ TextureImporter:
     second: Gek_WalkCastSheet_2
   - first:
       213: 5939322548740647508
-    second: Gek_WalkCastSheet_4
+    second: Gek_WalkCastSheet_3
   - first:
       213: -5036859520425473446
-    second: Gek_WalkCastSheet_5
+    second: Gek_WalkCastSheet_4
   - first:
       213: -707920816118682019
     second: Gek_WalkCastSheet_6
   - first:
       213: 8051217214629564662
-    second: Gek_WalkCastSheet_7
+    second: Gek_WalkCastSheet_5
   - first:
       213: 1321991263401889513
-    second: Gek_WalkCastSheet_8
+    second: Gek_WalkCastSheet_6
   - first:
       213: 1979383688462175655
-    second: Gek_WalkCastSheet_9
+    second: Gek_WalkCastSheet_7
   - first:
       213: 5236968701142241062
     second: Gek_WalkCastSheet_10
@@ -171,8 +171,8 @@ TextureImporter:
       name: Gek_WalkCastSheet_1
       rect:
         serializedVersion: 2
-        x: 812
-        y: 2169
+        x: 833
+        y: 2174
         width: 463
         height: 592
       alignment: 7
@@ -210,7 +210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkCastSheet_4
+      name: Gek_WalkCastSheet_3
       rect:
         serializedVersion: 2
         x: 2233
@@ -231,7 +231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkCastSheet_5
+      name: Gek_WalkCastSheet_4
       rect:
         serializedVersion: 2
         x: 2942
@@ -252,7 +252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkCastSheet_7
+      name: Gek_WalkCastSheet_5
       rect:
         serializedVersion: 2
         x: 70
@@ -273,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkCastSheet_8
+      name: Gek_WalkCastSheet_6
       rect:
         serializedVersion: 2
         x: 802
@@ -294,7 +294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkCastSheet_9
+      name: Gek_WalkCastSheet_7
       rect:
         serializedVersion: 2
         x: 1539
@@ -507,7 +507,7 @@ TextureImporter:
       name: Gek_WalkCastSheet_20
       rect:
         serializedVersion: 2
-        x: 1543
+        x: 1549
         y: 17
         width: 479
         height: 613
