@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gek_WalkCast
+  m_Name: New Animation
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -26,7 +26,7 @@ AnimationClip:
       value: {fileID: 6540794515198486959, guid: 79d5dacba2f89804eb831d46b0e3f323,
         type: 3}
     - time: 0.16666667
-      value: {fileID: 8047672680374041198, guid: 79d5dacba2f89804eb831d46b0e3f323,
+      value: {fileID: 5240022107986266883, guid: 79d5dacba2f89804eb831d46b0e3f323,
         type: 3}
     - time: 0.25
       value: {fileID: 5939322548740647508, guid: 79d5dacba2f89804eb831d46b0e3f323,
@@ -94,7 +94,7 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: -6495503613939110548, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}
     - {fileID: 6540794515198486959, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}
-    - {fileID: 8047672680374041198, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}
+    - {fileID: 5240022107986266883, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}
     - {fileID: 5939322548740647508, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}
     - {fileID: -5036859520425473446, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}
     - {fileID: 8051217214629564662, guid: 79d5dacba2f89804eb831d46b0e3f323, type: 3}

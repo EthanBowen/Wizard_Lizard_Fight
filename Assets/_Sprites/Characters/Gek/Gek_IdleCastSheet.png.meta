@@ -22,7 +22,7 @@ TextureImporter:
     second: Gek_IdleCastSheet_5
   - first:
       213: 9095333355955444385
-    second: Gek_IdleCastSheet_6
+    second: Gek_IdleCastSheet_7
   - first:
       213: 222063500131799562
     second: Gek_IdleCastSheet_7
@@ -34,10 +34,10 @@ TextureImporter:
     second: Gek_IdleCastSheet_9
   - first:
       213: 3579019585172621919
-    second: Gek_IdleCastSheet_10
+    second: Gek_IdleCastSheet_5
   - first:
       213: 8174722048540916189
-    second: Gek_IdleCastSheet_11
+    second: Gek_IdleCastSheet_6
   - first:
       213: 6067665941665041346
     second: Gek_IdleCastSheet_12
@@ -64,7 +64,22 @@ TextureImporter:
     second: Gek_IdleCastSheet_19
   - first:
       213: 8219608276976527428
+    second: Gek_IdleCastSheet_19
+  - first:
+      213: 8328486089594019032
+    second: Gek_IdleCastSheet_19
+  - first:
+      213: 2449934554966832087
+    second: Gek_IdleCastSheet_19
+  - first:
+      213: -1792811793394370591
     second: Gek_IdleCastSheet_20
+  - first:
+      213: -2808992249177039364
+    second: Gek_IdleCastSheet_21
+  - first:
+      213: 427321686263065432
+    second: Gek_IdleCastSheet_28
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -108,7 +123,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,10 +165,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2880
-        width: 720
-        height: 720
+        x: 10
+        y: 2919
+        width: 529
+        height: 666
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,7 +176,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0304013a75f91d04eb8bf26e85dabfee
+      spriteID: 6db885e681172244bb690858753547ad
       internalID: 5662423243042455451
       vertices: []
       indices: 
@@ -171,10 +186,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_1
       rect:
         serializedVersion: 2
-        x: 720
-        y: 2880
-        width: 720
-        height: 720
+        x: 760
+        y: 2917
+        width: 536
+        height: 656
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,7 +197,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d008959ed6d23c84e8f1c0ffe2ad3413
+      spriteID: 6c8361b6b9f5ccf4e810f001391739ac
       internalID: 6237685056839452498
       vertices: []
       indices: 
@@ -192,10 +207,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_2
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 2880
-        width: 720
-        height: 720
+        x: 1511
+        y: 2912
+        width: 541
+        height: 647
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,7 +218,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dc9cd2d6fc3b314c8ddaf74808873b9
+      spriteID: 9232594dced2fe847873adc5963db449
       internalID: -4404824359465302271
       vertices: []
       indices: 
@@ -213,10 +228,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_3
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 2880
-        width: 720
-        height: 720
+        x: 2258
+        y: 2894
+        width: 543
+        height: 651
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,7 +239,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a372c904a262b3646adb05a89c044337
+      spriteID: f0fb80c592550864e8ef2e6b700ba8bb
       internalID: -2874316306979424909
       vertices: []
       indices: 
@@ -234,10 +249,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_4
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 2880
-        width: 720
-        height: 720
+        x: 2996
+        y: 2896
+        width: 541
+        height: 635
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,50 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e064212982eafc4383533b507e56b0b
+      spriteID: 4b4582aa2090d9d4ebc30aa6d677103e
       internalID: 8998330872461303348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_IdleCastSheet_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2160
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdca4e4f9c4254649b2edf1c3ee28582
-      internalID: -8170864077070431275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_IdleCastSheet_6
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 2160
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd3cfa4afa21e4c418abb4f0f5f36cef
-      internalID: 9095333355955444385
       vertices: []
       indices: 
       edges: []
@@ -297,10 +270,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_7
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 2160
-        width: 720
-        height: 720
+        x: 1594
+        y: 2175
+        width: 571
+        height: 670
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +281,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f552db58f20e74da8d0477ef054ec2
-      internalID: 222063500131799562
+      spriteID: b133ad7b18d18a040b4c7ede85468e9f
+      internalID: 9095333355955444385
       vertices: []
       indices: 
       edges: []
@@ -318,10 +291,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_8
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 2160
-        width: 720
-        height: 720
+        x: 2314
+        y: 2177
+        width: 559
+        height: 679
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,7 +302,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c283f7e30047e544486647df9867f9a4
+      spriteID: 87354d74182127a4c806fe7ac21664b6
       internalID: -4566190655057395542
       vertices: []
       indices: 
@@ -339,10 +312,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_9
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 2160
-        width: 720
-        height: 720
+        x: 3040
+        y: 2177
+        width: 545
+        height: 684
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,20 +323,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64da139bbf6facc49a1e40cc4f32ec4f
+      spriteID: aeede29067bbcb74a8a1621bf5db7f80
       internalID: -7930477015415975652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_IdleCastSheet_10
+      name: Gek_IdleCastSheet_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1440
-        width: 720
-        height: 720
+        x: 138
+        y: 2174
+        width: 543
+        height: 641
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +344,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e96c9f60c85acb64b84c38a5fb2ca76b
+      spriteID: bae5cae444f2a1141bd8f28f007933fc
       internalID: 3579019585172621919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_IdleCastSheet_11
+      name: Gek_IdleCastSheet_6
       rect:
         serializedVersion: 2
-        x: 720
-        y: 1440
-        width: 720
-        height: 720
+        x: 867
+        y: 2175
+        width: 558
+        height: 659
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,7 +365,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58c6f390dafbd784e96a339f4e7e0c83
+      spriteID: 1694eb7d78b78234292df79507ca2900
       internalID: 8174722048540916189
       vertices: []
       indices: 
@@ -402,10 +375,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_12
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 1440
-        width: 720
-        height: 720
+        x: 157
+        y: 1458
+        width: 538
+        height: 687
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,7 +386,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17b1d22fd573a5443ad438af62f65bd9
+      spriteID: 3d467c42797e8064a9599b89de999e1c
       internalID: 6067665941665041346
       vertices: []
       indices: 
@@ -423,10 +396,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_13
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 1440
-        width: 720
-        height: 720
+        x: 876
+        y: 1462
+        width: 538
+        height: 684
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,29 +407,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 528b4299e5e6d134d8dc3051bcfabceb
+      spriteID: 6cd6693fdffe94049992ca5415169b6f
       internalID: -7420334800365927895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_IdleCastSheet_14
-      rect:
-        serializedVersion: 2
-        x: 2880
-        y: 1440
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 035b959ca85a66049a6fff5a47278db6
-      internalID: 7905034890959049204
       vertices: []
       indices: 
       edges: []
@@ -465,10 +417,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 720
-        width: 720
-        height: 720
+        x: 1564
+        y: 1456
+        width: 537
+        height: 672
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,29 +428,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51d774e554a4c474bb83a493c95e876c
+      spriteID: a3c6805e9cb85d647a8cb104f2e320b2
       internalID: -1247412693156835441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_IdleCastSheet_16
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 720
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e773b4c43e8e4da40a94c7f353363791
-      internalID: -3496520595570897387
       vertices: []
       indices: 
       edges: []
@@ -507,10 +438,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_17
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 720
-        width: 720
-        height: 720
+        x: 2267
+        y: 1456
+        width: 536
+        height: 667
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,7 +449,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4cd24efa4ffac94892e310bce9de8b6
+      spriteID: 7145219df3bb9b2478bbf06ecb6b64e7
       internalID: -3393981933471040375
       vertices: []
       indices: 
@@ -528,10 +459,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_18
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 720
-        width: 720
-        height: 720
+        x: 2983
+        y: 1456
+        width: 536
+        height: 661
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,8 +470,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 281066437fd008c41a0bf46fab64d97d
+      spriteID: 9ccb0f38646811c42b3e1222dd5b9a96
       internalID: -6283611755729839602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_IdleCastSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2196
+        y: 750
+        width: 535
+        height: 662
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b55f83f8acd0a94ba11cc253a6bbc95
+      internalID: 8219608276976527428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_IdleCastSheet_23
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 760
+        width: 532
+        height: 665
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad46315db283524ab73819d0032ee98
+      internalID: 8328486089594019032
       vertices: []
       indices: 
       edges: []
@@ -549,10 +522,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_19
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 720
-        width: 720
-        height: 720
+        x: 87
+        y: 736
+        width: 536
+        height: 661
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,8 +533,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64cdce153174a984a90b7ecbc50ad769
-      internalID: -4064300174874014008
+      spriteID: d8d184e1998a4614a8807716242fe738
+      internalID: 2449934554966832087
       vertices: []
       indices: 
       edges: []
@@ -570,10 +543,10 @@ TextureImporter:
       name: Gek_IdleCastSheet_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 720
-        height: 720
+        x: 795
+        y: 736
+        width: 535
+        height: 662
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,8 +554,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20c0110de3cd8d147ab7f943f1a64044
-      internalID: 8219608276976527428
+      spriteID: 44d052970760f814d8a031d94a04957b
+      internalID: -1792811793394370591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_IdleCastSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 739
+        width: 534
+        height: 666
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4003682674fc9a45a7e367677c69624
+      internalID: -2808992249177039364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_IdleCastSheet_28
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 38
+        width: 533
+        height: 662
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c5ec95956e24b4eb1a38b1fb8d7857
+      internalID: 427321686263065432
       vertices: []
       indices: 
       edges: []

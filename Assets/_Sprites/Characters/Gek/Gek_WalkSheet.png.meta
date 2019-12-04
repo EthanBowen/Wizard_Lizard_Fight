@@ -13,13 +13,13 @@ TextureImporter:
     second: Gek_WalkSheet_2
   - first:
       213: -2541195934988761537
-    second: Gek_WalkSheet_3
+    second: Gek_WalkSheet_2
   - first:
       213: 1589150788782800426
     second: Gek_WalkSheet_4
   - first:
       213: -4836661094567864601
-    second: Gek_WalkSheet_5
+    second: Gek_WalkSheet_3
   - first:
       213: 8775083562406807961
     second: Gek_WalkSheet_6
@@ -34,10 +34,10 @@ TextureImporter:
     second: Gek_WalkSheet_9
   - first:
       213: 6275350309463022559
-    second: Gek_WalkSheet_10
+    second: Gek_WalkSheet_4
   - first:
       213: 7014415901985182347
-    second: Gek_WalkSheet_11
+    second: Gek_WalkSheet_5
   - first:
       213: -1565230150373284877
     second: Gek_WalkSheet_12
@@ -52,7 +52,19 @@ TextureImporter:
     second: Gek_WalkSheet_15
   - first:
       213: 2710431502115313246
+    second: Gek_WalkSheet_17
+  - first:
+      213: 8312328134597033241
+    second: Gek_WalkSheet_18
+  - first:
+      213: -589800877548632060
+    second: Gek_WalkSheet_19
+  - first:
+      213: -303300158639919096
     second: Gek_WalkSheet_16
+  - first:
+      213: 6070959596158790671
+    second: Gek_WalkSheet_22
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -96,7 +108,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,10 +150,10 @@ TextureImporter:
       name: Gek_WalkSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2880
-        width: 720
-        height: 720
+        x: 103
+        y: 2897
+        width: 504
+        height: 642
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,7 +161,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 815f899e6253cdf49bb900ffb64213c4
+      spriteID: c231a086412d03e469922c782f7b8bfa
       internalID: 890837211588260872
       vertices: []
       indices: 
@@ -159,10 +171,10 @@ TextureImporter:
       name: Gek_WalkSheet_1
       rect:
         serializedVersion: 2
-        x: 720
-        y: 2880
-        width: 720
-        height: 720
+        x: 826
+        y: 2893
+        width: 506
+        height: 631
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,7 +182,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1266fd2c87bb8da4eb62e7569c2e7619
+      spriteID: acf443891b0657e45b1cf086174fad8f
       internalID: -4115654956602541257
       vertices: []
       indices: 
@@ -180,10 +192,10 @@ TextureImporter:
       name: Gek_WalkSheet_2
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 2880
-        width: 720
-        height: 720
+        x: 1556
+        y: 2886
+        width: 506
+        height: 624
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 517f8b4113edba84ca0ca186223ac3af
-      internalID: -4454564071564074969
+      spriteID: 34f28997fa111e54dbbe7732bd8b7a01
+      internalID: -2541195934988761537
       vertices: []
       indices: 
       edges: []
@@ -201,10 +213,10 @@ TextureImporter:
       name: Gek_WalkSheet_3
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 2880
-        width: 720
-        height: 720
+        x: 2273
+        y: 2881
+        width: 506
+        height: 632
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,49 +224,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8038bca5aba14954d8bccb2a0c8db53b
-      internalID: -2541195934988761537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_WalkSheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2160
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0c50d05e67af5640ba16501f293dac4
-      internalID: 1589150788782800426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_WalkSheet_5
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 2160
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70a5a68f41c251243a522611fb930ff3
+      spriteID: 8ab6fab6e34589c499095bae4de3aec8
       internalID: -4836661094567864601
       vertices: []
       indices: 
@@ -264,10 +234,10 @@ TextureImporter:
       name: Gek_WalkSheet_6
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 2160
-        width: 720
-        height: 720
+        x: 1545
+        y: 2162
+        width: 506
+        height: 715
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,29 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85c24bf3f6f152459cbb0edf07ccfbb
+      spriteID: 935dc49a35087cf4bb15e49e964515c2
       internalID: 8775083562406807961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_WalkSheet_7
-      rect:
-        serializedVersion: 2
-        x: 2160
-        y: 2160
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce97fd9e16b7cad419764991f852d3a8
-      internalID: 5595581506954142443
       vertices: []
       indices: 
       edges: []
@@ -306,10 +255,10 @@ TextureImporter:
       name: Gek_WalkSheet_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1440
-        width: 720
-        height: 720
+        x: 2266
+        y: 2165
+        width: 505
+        height: 715
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31835e42ad350f947b4a2e64078f8f55
+      spriteID: 487a9945629b1bf4e9a1455ef49d854f
       internalID: 5829702542031363822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkSheet_9
+      name: Gek_WalkSheet_4
       rect:
         serializedVersion: 2
-        x: 720
-        y: 1440
-        width: 720
-        height: 720
+        x: 110
+        y: 2159
+        width: 506
+        height: 668
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,41 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9220f4f958c60d046b06181c94797e80
-      internalID: 6728026200198207989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gek_WalkSheet_10
-      rect:
-        serializedVersion: 2
-        x: 1440
-        y: 1440
-        width: 720
-        height: 720
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4abca47a5f309614aa0e92a1ed0e5fb7
+      spriteID: 34bf4d8abb7fca1488a1de21c9c9e253
       internalID: 6275350309463022559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gek_WalkSheet_11
+      name: Gek_WalkSheet_5
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 1440
-        width: 720
-        height: 720
+        x: 827
+        y: 2160
+        width: 507
+        height: 698
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,7 +308,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cc3391d84277644d8637ddf317f8bc8
+      spriteID: cf260e69a81144e4296b26c36ce0bd69
       internalID: 7014415901985182347
       vertices: []
       indices: 
@@ -390,10 +318,10 @@ TextureImporter:
       name: Gek_WalkSheet_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 720
-        width: 720
-        height: 720
+        x: 106
+        y: 1451
+        width: 507
+        height: 677
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,7 +329,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1013307142aed8b4d90f57e5c81b740d
+      spriteID: ddb198ccb1f91e8488fc427d3d97e1b3
       internalID: -1565230150373284877
       vertices: []
       indices: 
@@ -411,10 +339,10 @@ TextureImporter:
       name: Gek_WalkSheet_13
       rect:
         serializedVersion: 2
-        x: 720
-        y: 720
-        width: 720
-        height: 720
+        x: 827
+        y: 1460
+        width: 507
+        height: 638
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -422,7 +350,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72c93e6bcdbe04d499ac1eb2236a71fe
+      spriteID: 87f5afa342a81044eb6c773f24e55d6e
       internalID: -6575370658507503531
       vertices: []
       indices: 
@@ -432,10 +360,10 @@ TextureImporter:
       name: Gek_WalkSheet_14
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 720
-        width: 720
-        height: 720
+        x: 1546
+        y: 1467
+        width: 507
+        height: 605
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -443,7 +371,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb81f895caa027e409863630a6566e59
+      spriteID: b6250546ed02109469b8a47987938a2d
       internalID: -2837732794536188762
       vertices: []
       indices: 
@@ -453,10 +381,10 @@ TextureImporter:
       name: Gek_WalkSheet_15
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 720
-        width: 720
-        height: 720
+        x: 2266
+        y: 1462
+        width: 506
+        height: 599
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -464,8 +392,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb1061fec2052504da2bd534c46c041e
+      spriteID: 89b74a711fad8334f8b86942a97603ef
       internalID: -2679344208760108878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_WalkSheet_17
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 740
+        width: 506
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfaadd2735cdaa045b8c7cdbd4b83497
+      internalID: 2710431502115313246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_WalkSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 741
+        width: 506
+        height: 680
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8d40ebc4940f349af2bfb242177e3b
+      internalID: 8312328134597033241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_WalkSheet_19
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 741
+        width: 506
+        height: 691
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f78479c01d0751469435ae27bd130dc
+      internalID: -589800877548632060
       vertices: []
       indices: 
       edges: []
@@ -474,10 +465,10 @@ TextureImporter:
       name: Gek_WalkSheet_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 720
-        height: 720
+        x: 105
+        y: 741
+        width: 504
+        height: 622
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -485,8 +476,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4153b609edb859c44adb14b5b84e2826
-      internalID: 2710431502115313246
+      spriteID: b8e6c1e7e2311a241acfa800d4b6f885
+      internalID: -303300158639919096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gek_WalkSheet_22
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 18
+        width: 506
+        height: 661
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c8eb2754a46fc489ace99211f26c6c
+      internalID: 6070959596158790671
       vertices: []
       indices: 
       edges: []
