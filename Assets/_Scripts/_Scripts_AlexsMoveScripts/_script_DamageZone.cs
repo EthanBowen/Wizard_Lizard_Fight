@@ -26,6 +26,7 @@ public class _script_DamageZone : MonoBehaviour
         {
             this.transform.localScale *= Scale;
         }
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)(gameObject.transform.position.y * 10);
     }
 
     // Update is called once per frame

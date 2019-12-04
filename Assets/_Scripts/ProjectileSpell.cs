@@ -17,7 +17,7 @@ public class ProjectileSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)gameObject.transform.position.y;
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)(gameObject.transform.position.y * 10);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

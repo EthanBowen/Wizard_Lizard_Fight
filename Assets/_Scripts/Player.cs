@@ -26,17 +26,19 @@ public class Player : MonoBehaviour
 
     [Header("Wind Settings")]
     public ParticleSystem airSpell;
+    public float AirStartManaCost = 10.0f;
     public AudioSource airDash;
 
     [Header("Rockwall Settings")]
     public GameObject RockWall;
+    public float RockWallManaCost = 40.0f;
     public float RockWallSize = 1f;
     public float RockWallPlaceDistance = 2f;
-    public float RockWallManaCost = 20.0f;
     public AudioSource rockBuild;
 
     [Header("Bomb Settings")]
     public GameObject attack_bomb;
+    public float BombManaCost = 40.0f;
     public float BombDamage = 100f;
     public float BombRadius = 2f;
     public float FireDamagePerCheck = 1f;
@@ -49,11 +51,12 @@ public class Player : MonoBehaviour
 
     [Header("Firetrail Settings")]
     public ParticleSystem fireTrailSpell;
+    public float FireTrailStartManaCost = 10.0f;
     public AudioSource fireDash;
 
     [Header("Heal Settings")]
     public ParticleSystem healSpell;
-    public float HealPerMana = 0.3f;
+    public float HealPerMana = 0.5f;
     public float HealCost = 1f;
     public AudioSource healing;
 
@@ -518,8 +521,8 @@ public class Player : MonoBehaviour
 
         Aim();
 
-        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)gameObject.transform.position.y;
-        wand.GetComponent<SpriteRenderer>().sortingOrder = 1-(int)(gameObject.transform.position.y);
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = -(int)(gameObject.transform.position.y * 10);
+        wand.GetComponent<SpriteRenderer>().sortingOrder = 1 - (int)(gameObject.transform.position.y * 10);
 
         return;
     }
@@ -552,10 +555,14 @@ public class Player : MonoBehaviour
     //***********************************************************Air************************************************************
     public void StartAir()
     {
-        airSpell.Play();
-        anim.SetBool("Casting", true);
-        airActive = true;
-        airDash.Play();
+        if (MP >= AirStartManaCost)
+        {
+            MP -= AirStartManaCost;
+            airSpell.Play();
+            anim.SetBool("Casting", true);
+            airActive = true;
+            airDash.Play();
+        }
     }
     public void StopAir()
     {
@@ -584,34 +591,38 @@ public class Player : MonoBehaviour
     //***********************************************************Water************************************************************
     public void CastWater()
     {
-        MP -= chargeWaterSpell;
-        anim.SetBool("Casting", true);
+        if (MP >= chargeWaterSpell)
+        {
+            MP -= chargeWaterSpell;
+            anim.SetBool("Casting", true);
 
-        //Quaternion aimPos = CalcAimVector(horizontal, vertical);
+            //Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
-        Vector3 positionOfWater = new Vector3(2.0f, 0);
+            Vector3 positionOfWater = new Vector3(2.0f, 0);
 
-        positionOfWater = fireSpell.transform.position;//aimPos * positionOfWater;
-        //positionOfWater += transform.position;
+            positionOfWater = fireSpell.transform.position;//aimPos * positionOfWater;
+                                                           //positionOfWater += transform.position;
 
-        GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
+            GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
 
-        Vector2 difference = water.transform.position - wand.transform.position;
-        difference = difference.normalized * WaterShotSpeed * 10;
+            Vector2 difference = water.transform.position - wand.transform.position;
+            difference = difference.normalized * WaterShotSpeed * 10;
 
-        water.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
+            water.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
 
-        //water.GetComponent<WaterSpell>().x = positionOfWater.x;
-        //water.GetComponent<WaterSpell>().y = positionOfWater.y;
+            //water.GetComponent<WaterSpell>().x = positionOfWater.x;
+            //water.GetComponent<WaterSpell>().y = positionOfWater.y;
 
-        PlayerAttack pa = water.GetComponent<PlayerAttack>();
-        pa.SetOwner(this);
-        pa.AssignID(ID);
-        pa.damage = chargeWaterSpell;
+            PlayerAttack pa = water.GetComponent<PlayerAttack>();
+            pa.SetOwner(this);
+            pa.AssignID(ID);
+            pa.damage = chargeWaterSpell;
 
-        waterShot.Play();
-        //water.SetActive(true);
-        anim.SetBool("Casting", false);
+            waterShot.Play();
+            //water.SetActive(true);
+            anim.SetBool("Casting", false);
+
+        }
 
         chargeWaterSpell = 0.0f;
     }
@@ -622,37 +633,38 @@ public class Player : MonoBehaviour
 
     public void CastEarth()
     {
-        if (placedRockWall != null)
+        if (MP >= RockWallManaCost)
         {
-            GameObject.Destroy(placedRockWall);
-            placedRockWall = null;
+            if (placedRockWall != null)
+            {
+                GameObject.Destroy(placedRockWall);
+                placedRockWall = null;
+            }
+
+            MP -= RockWallManaCost;
+
+            Vector3 positionOfWall = new Vector3(RockWallPlaceDistance, 0);
+
+            positionOfWall = aimPos * positionOfWall;
+            positionOfWall += wand.transform.position;
+
+            GameObject wall = Instantiate(RockWall, positionOfWall, aimPos);
+            rockBuild.Play();
+            placedRockWall = wall;
         }
-
-        MP -= RockWallManaCost;
-
-        Vector3 positionOfWall = new Vector3(RockWallPlaceDistance, 0);
-
-        positionOfWall = aimPos * positionOfWall;
-        positionOfWall += wand.transform.position;
-
-        GameObject wall = Instantiate(RockWall, positionOfWall, aimPos);
-        rockBuild.Play();
-        placedRockWall = wall;
-    }
-    public void StopEarth()
-    {
-        
-        
-        
     }
 
     //********************************************************Fire/Air**********************************************************
     public void StartFireTrail()
     {
-        fireTrailSpell.Play();
-        anim.SetBool("Casting", true);
-        fireTrailActive = true;
-        fireDash.Play();
+        if (MP >= FireTrailStartManaCost)
+        {
+            MP -= FireTrailStartManaCost;
+            fireTrailSpell.Play();
+            anim.SetBool("Casting", true);
+            fireTrailActive = true;
+            fireDash.Play();
+        }
     }
     public void StopFireTrail()
     {
@@ -669,65 +681,71 @@ public class Player : MonoBehaviour
 
     private void PlaceBomb()
     {
-        if (HasPlacedBomb == null)
+        if (MP >= BombManaCost)
         {
-            MP -= 30.0f;
-            
-            Vector3 positionOfBomb = new Vector3(2.0f, 0);
+            if (HasPlacedBomb == null)
+            {
+                MP -= BombManaCost;
 
-            positionOfBomb = aimPos * positionOfBomb;
-            positionOfBomb += wand.transform.position;
+                Vector3 positionOfBomb = new Vector3(2.0f, 0);
 
-            GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
+                positionOfBomb = aimPos * positionOfBomb;
+                positionOfBomb += wand.transform.position;
 
-            PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
-            pa.SetOwner(this);
-            pa.AssignID(ID);
+                GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
-            _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
-            bombscript.SetPlayerID(ID);
-            bombscript.ExplodeManually = true;
-            bombscript.ExplosionDamage = BombDamage;
-            bombscript.ExplosionRadius = BombRadius;
-            bombscript.FireDamagePerCheck = FireDamagePerCheck;
-            bombscript.SetOwner(this);
-            HasPlacedBomb = bomb;
-            bombPlace.Play();
-        }
-        else
-        {
-            _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
-            bombscript.Detonate();
-            HasPlacedBomb = null;
+                PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
+                pa.SetOwner(this);
+                pa.AssignID(ID);
+
+                _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
+                bombscript.SetPlayerID(ID);
+                bombscript.ExplodeManually = true;
+                bombscript.ExplosionDamage = BombDamage;
+                bombscript.ExplosionRadius = BombRadius;
+                bombscript.FireDamagePerCheck = FireDamagePerCheck;
+                bombscript.SetOwner(this);
+                HasPlacedBomb = bomb;
+                bombPlace.Play();
+            }
+            else
+            {
+                _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
+                bombscript.Detonate();
+                HasPlacedBomb = null;
+            }
         }
     }
 
     //*******************************************************Water/Air************************************************************
     public void CastIce()
     {
-        MP -= chargeIceSpell*2;
+        if (MP >= chargeIceSpell * 2)
+        {
+            MP -= chargeIceSpell * 2;
 
-        //Quaternion aimPos = CalcAimVector(horizontal, vertical);
+            //Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
-        Vector3 positionOfIce = new Vector3(2.0f, 0);
+            Vector3 positionOfIce = new Vector3(2.0f, 0);
 
-        positionOfIce = fireSpell.transform.position;//aimPos * positionOfIce;
-        //positionOfIce += transform.position;
+            positionOfIce = fireSpell.transform.position;//aimPos * positionOfIce;
+                                                         //positionOfIce += transform.position;
 
-        GameObject ice = Instantiate(iceSpell, positionOfIce, aimPos);
+            GameObject ice = Instantiate(iceSpell, positionOfIce, aimPos);
 
-        Vector2 difference = ice.transform.position - wand.transform.position;
-        difference = difference.normalized * IceShotSpeed * 10;
+            Vector2 difference = ice.transform.position - wand.transform.position;
+            difference = difference.normalized * IceShotSpeed * 10;
 
-        ice.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
+            ice.GetComponent<Rigidbody2D>().AddForce(difference, ForceMode2D.Force);
 
-        PlayerAttack pa = ice.GetComponent<PlayerAttack>();
-        pa.SetOwner(this);
-        pa.AssignID(ID);
-        pa.damage = chargeIceSpell;
+            PlayerAttack pa = ice.GetComponent<PlayerAttack>();
+            pa.SetOwner(this);
+            pa.AssignID(ID);
+            pa.damage = chargeIceSpell;
 
-        iceShot.Play();
-        //water.SetActive(true);
+            iceShot.Play();
+            //water.SetActive(true);
+        }
 
         chargeIceSpell = 0.0f;
     }
@@ -862,12 +880,6 @@ public class Player : MonoBehaviour
     {
         score += 1 + numTowers;
     }
-
-    public void IncreaseDamageDone(float dam)
-    {
-
-    }
-
 
     private void Die()
     {

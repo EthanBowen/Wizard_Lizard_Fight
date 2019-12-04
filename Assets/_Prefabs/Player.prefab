@@ -820,15 +820,17 @@ MonoBehaviour:
   WaterShotSpeed: 1
   waterShot: {fileID: 8908468326987417290}
   airSpell: {fileID: 1175097611215591748}
+  AirStartManaCost: 10
   airDash: {fileID: 5031029290392592096}
   RockWall: {fileID: 6433738572942360513, guid: 40df58a8bf3fe2d4c932abc76cae25f0,
     type: 3}
+  RockWallManaCost: 40
   RockWallSize: 1
   RockWallPlaceDistance: 2
-  RockWallManaCost: 20
   rockBuild: {fileID: 401366644555993425}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
+  BombManaCost: 40
   BombDamage: 100
   BombRadius: 10
   FireDamagePerCheck: 1
@@ -838,6 +840,7 @@ MonoBehaviour:
   IceShotSpeed: 0.5
   iceShot: {fileID: 8557868094557450399}
   fireTrailSpell: {fileID: 949914919482712481}
+  FireTrailStartManaCost: 10
   fireDash: {fileID: 1361842670240577769}
   healSpell: {fileID: 3617487409508499894}
   HealPerMana: 0.3
