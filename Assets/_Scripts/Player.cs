@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     [Header("Iceshot Settings")]
     public GameObject iceSpell;
     public float IceShotSpeed = 0.5f;
+    public float IceShotDamageScaling = 1.5f;
     public float IceShotChargeSpeed = 1f;
     public float IceShotMinCharge = 20f;
     public float IceShotMaxCharge = 40f;
@@ -742,7 +743,7 @@ public class Player : MonoBehaviour
             PlayerAttack pa = ice.GetComponent<PlayerAttack>();
             pa.SetOwner(this);
             pa.AssignID(ID);
-            pa.damage = chargeIceSpell;
+            pa.damage = chargeIceSpell*IceShotDamageScaling;
 
             iceShot.Play();
             //water.SetActive(true);

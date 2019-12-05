@@ -815,12 +815,16 @@ MonoBehaviour:
   maxHealth: 200
   maxMP: 100
   fireSpell: {fileID: 3321366637306002938}
+  FireManaCost: 2
   waterSpell: {fileID: 9075706933809102355, guid: 41e9e27c245b5c44dab4e28500d3bf91,
     type: 3}
   WaterShotSpeed: 1
+  WaterShotChargeSpeed: 2
+  WaterShotMaxCharge: 60
   waterShot: {fileID: 8908468326987417290}
   airSpell: {fileID: 1175097611215591748}
   AirStartManaCost: 10
+  AirSustainManaCost: 1
   airDash: {fileID: 5031029290392592096}
   RockWall: {fileID: 6433738572942360513, guid: 40df58a8bf3fe2d4c932abc76cae25f0,
     type: 3}
@@ -838,9 +842,13 @@ MonoBehaviour:
   iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
     type: 3}
   IceShotSpeed: 0.5
+  IceShotChargeSpeed: 1
+  IceShotMinCharge: 20
+  IceShotMaxCharge: 40
   iceShot: {fileID: 8557868094557450399}
   fireTrailSpell: {fileID: 949914919482712481}
   FireTrailStartManaCost: 10
+  FireTrailSustainManaCost: 4
   fireDash: {fileID: 1361842670240577769}
   healSpell: {fileID: 3617487409508499894}
   HealPerMana: 0.5
@@ -1152,6 +1160,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
+    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameTrail
+      objectReference: {fileID: 0}
     - target: {fileID: 794545537669601889, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1221,21 +1244,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: looping
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
@@ -1478,12 +1486,12 @@ PrefabInstance:
     - target: {fileID: 5802847864036157922, guid: c14a957c085507248b8db5e3c34c370a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5802847864036157922, guid: c14a957c085507248b8db5e3c34c370a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5802847864036157920, guid: c14a957c085507248b8db5e3c34c370a,
         type: 3}
