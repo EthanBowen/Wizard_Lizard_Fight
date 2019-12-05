@@ -78,14 +78,14 @@ public class PlayerUI : MonoBehaviour
         {
             case (1): //top left player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player1")];
-                scoreText.transform.localPosition = new Vector3(-780f, 401f, 10f);
+                scoreText.transform.localPosition = new Vector3(-750f, 410f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 playerColor.GetComponent<SpriteRenderer>().sprite = playerColorPortrait[0];
                 break;
             case (2): //top right player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player2")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                scoreText.transform.localPosition = new Vector3(775f, 401f, 10f);
+                scoreText.transform.localPosition = new Vector3(760f, 410f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
                 playerColor.GetComponent<SpriteRenderer>().sprite = playerColorPortrait[1];
                 playerColor.GetComponent<SpriteRenderer>().flipX = true;
@@ -95,14 +95,14 @@ public class PlayerUI : MonoBehaviour
                 break;
             case (3): //bottom left player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player3")];
-                scoreText.transform.localPosition = new Vector3(-780f, -463f, 10f);
+                scoreText.transform.localPosition = new Vector3(-750f, -453f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
                 playerColor.GetComponent<SpriteRenderer>().sprite = playerColorPortrait[2];
                 break;
             case (4): //bottom right player
                 playerPicture.AddComponent<SpriteRenderer>().sprite = characterList[PlayerPrefs.GetInt("Player4")];
                 playerPicture.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                scoreText.transform.localPosition = new Vector3(775f, -463f, 10f);
+                scoreText.transform.localPosition = new Vector3(760f, -453f, 10f);
                 playerPicture.GetComponent<SpriteRenderer>().flipX = true;
                 playerColor.GetComponent<SpriteRenderer>().sprite = playerColorPortrait[3];
                 playerColor.GetComponent<SpriteRenderer>().flipX = true;
