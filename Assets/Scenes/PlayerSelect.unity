@@ -3261,7 +3261,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press Enter/Return to Add Player
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3587,8 +3587,8 @@ MonoBehaviour:
     characterName: Salamancer
     characterColor: {r: 0, g: 0.31740785, b: 1, a: 1}
   - selected: 0
-    graphicWizard: {fileID: 9100000, guid: 13d582e69559efd4e8f244c7cbaa361f, type: 2}
-    characterName: Axelotle
+    graphicWizard: {fileID: 9100000, guid: f871301b29b0d424bb0a9d43823e310a, type: 2}
+    characterName: Tim
     characterColor: {r: 1, g: 0.027672686, b: 0, a: 1}
   - selected: 0
     graphicWizard: {fileID: 9100000, guid: e5ce0ca5f54572143b062c10e9ea465b, type: 2}
@@ -3735,7 +3735,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press Escape/Delete to Remove Player
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

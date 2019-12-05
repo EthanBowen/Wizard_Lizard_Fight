@@ -481,7 +481,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6bfae5610f6a8374d960e23954959f5a, type: 3}
   - {fileID: 21300000, guid: 85621cc555c035e42bd174f48f21afd8, type: 3}
   - {fileID: 21300000, guid: fa351c135859dcc4d9c92854b6c96f87, type: 3}
-  - {fileID: 21300000, guid: 07e0f0001c905a54793277260c26d661, type: 3}
+  - {fileID: 21300000, guid: 46e648f4721ed4a40a5394bf55baf7bc, type: 3}
   playerColorPortrait:
   - {fileID: 21300000, guid: aafd6fc07c8bb2748922263be41883a2, type: 3}
   - {fileID: 21300000, guid: 3fc7c0026bcd7b14aab691cf4cca0f2c, type: 3}
@@ -502,6 +502,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManaBarPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6,
+        type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 4324799210306249739}
     - target: {fileID: 8203766056990350719, guid: 263b2256444a1634abf3cd09bbe04db6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,11 +562,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2936962304671485347, guid: 263b2256444a1634abf3cd09bbe04db6,
-        type: 3}
-      propertyPath: playerUI
-      value: 
-      objectReference: {fileID: 4324799210306249739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
 --- !u!4 &7182872897562299942 stripped
@@ -577,6 +577,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5695180493100152100}
     m_Modifications:
+    - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBarPrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 2290015349615495747, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: playerUI
@@ -647,11 +652,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2290015349615495748, guid: d8465dacab21d24478e86e23128c33a4,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBarPrefab
-      objectReference: {fileID: 0}
     - target: {fileID: 2290015348856413183, guid: d8465dacab21d24478e86e23128c33a4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -674,6 +674,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerPicture
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6526233113355155977, guid: dd04924dfb2dab542acd67a2d303793d,
@@ -730,16 +740,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerPicture
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831514837425297955, guid: dd04924dfb2dab542acd67a2d303793d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd04924dfb2dab542acd67a2d303793d, type: 3}
