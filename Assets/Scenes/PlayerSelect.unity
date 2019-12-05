@@ -2976,6 +2976,28 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 783176360}
+    - target: {fileID: 6684554616097322651, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684554616097322651, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684554616097322651, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d7958c685cb40a946bfa85fe91bfd3e7,
+        type: 3}
+    - target: {fileID: 6684554616097322651, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d7958c685cb40a946bfa85fe91bfd3e7,
+        type: 3}
     - target: {fileID: 6684554616709723795, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3085,6 +3107,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684554616097322650, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: abee882d5a61c144c9d1ad854a23954c,
+        type: 3}
+    - target: {fileID: 6684554616097322650, guid: c785b79ed9c7a1049987b7fa0d75997c,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3440751665807052026, guid: c785b79ed9c7a1049987b7fa0d75997c,
         type: 3}

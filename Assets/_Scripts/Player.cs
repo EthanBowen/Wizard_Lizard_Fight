@@ -18,15 +18,19 @@ public class Player : MonoBehaviour
 
     [Header("Fire Settings")]
     public ParticleSystem fireSpell;
+    public float FireManaCost = 4f;
 
     [Header("Watershot Settings")]
     public GameObject waterSpell;
     public float WaterShotSpeed = 1f;
+    public float WaterShotChargeSpeed = 1f;
+    public float WaterShotMaxCharge = 40f;
     public AudioSource waterShot;
 
     [Header("Wind Settings")]
     public ParticleSystem airSpell;
     public float AirStartManaCost = 10.0f;
+    public float AirSustainManaCost = 4f;
     public AudioSource airDash;
 
     [Header("Rockwall Settings")]
@@ -47,11 +51,15 @@ public class Player : MonoBehaviour
     [Header("Iceshot Settings")]
     public GameObject iceSpell;
     public float IceShotSpeed = 0.5f;
+    public float IceShotChargeSpeed = 1f;
+    public float IceShotMinCharge = 20f;
+    public float IceShotMaxCharge = 40f;
     public AudioSource iceShot;
 
     [Header("Firetrail Settings")]
     public ParticleSystem fireTrailSpell;
     public float FireTrailStartManaCost = 10.0f;
+    public float FireTrailSustainManaCost = 4f;
     public AudioSource fireDash;
 
     [Header("Heal Settings")]
@@ -277,7 +285,7 @@ public class Player : MonoBehaviour
             // BOMB
             else if (earth && !air && Timer_BombDrop > 0.5f)
             {
-                if (MP >= 40)
+                if (MP >= BombManaCost)
                 {
                     if (Timer_BombDrop > 0.5f)
                     {
@@ -317,9 +325,9 @@ public class Player : MonoBehaviour
         {
             if (!air && !earth && !healActive)
             {
-                if (chargeWaterSpell < 40)
+                if (chargeWaterSpell < WaterShotMaxCharge)
                 {
-                    chargeWaterSpell += 1;
+                    chargeWaterSpell += WaterShotChargeSpeed;
                 }
             }
             // HEAL
@@ -336,16 +344,16 @@ public class Player : MonoBehaviour
             else if (air && !earth)
             {
                 chargeWaterSpell = 0.0f;
-                if (chargeIceSpell < 40)
+                if (chargeIceSpell < IceShotMaxCharge)
                 {
-                    chargeIceSpell += 1;
+                    chargeIceSpell += IceShotChargeSpeed;
                 }
             }
            
         }
         else
         {
-            if(chargeWaterSpell > 0 && MP >= chargeWaterSpell && !healActive)
+            if(!healActive)
             {
                 CastWater();
             }
@@ -380,14 +388,7 @@ public class Player : MonoBehaviour
 
         if(!water || !air)
         {
-            if (chargeIceSpell > 20 && MP > chargeIceSpell * 2)
-            {
-                CastIce();
-            }
-            else
-            {
-                chargeIceSpell = 0.0f;
-            }
+            CastIce();
         }
 
         if (!water || !earth)
@@ -405,15 +406,15 @@ public class Player : MonoBehaviour
         }
         else if (fireActive)
         {
-            MP -= 1;
+            MP -= FireManaCost;
         }
         else if (airActive)
         {
-            MP -= 1;
+            MP -= AirSustainManaCost;
         }
         else if (fireTrailActive)
         {
-            MP -= 4;
+            MP -= FireTrailSustainManaCost;
         }
         else if (healActive && health < maxHealth)
         {
@@ -591,7 +592,7 @@ public class Player : MonoBehaviour
     //***********************************************************Water************************************************************
     public void CastWater()
     {
-        if (MP >= chargeWaterSpell)
+        if (chargeWaterSpell > 0 && MP >= chargeWaterSpell)
         {
             MP -= chargeWaterSpell;
             anim.SetBool("Casting", true);
@@ -720,7 +721,7 @@ public class Player : MonoBehaviour
     //*******************************************************Water/Air************************************************************
     public void CastIce()
     {
-        if (MP >= chargeIceSpell * 2)
+        if (chargeIceSpell >= IceShotMinCharge && MP >= chargeIceSpell * 2)
         {
             MP -= chargeIceSpell * 2;
 
