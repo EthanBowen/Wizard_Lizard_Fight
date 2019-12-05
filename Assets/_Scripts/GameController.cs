@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public float CameraZoomOffset = 5f;
     public float CameraZoomDefaultMin = 5f;
     public float CameraZoomDefaultMax = 15f;
+    public int SCORE_TO_WIN = 5;
 
     private int winner = 0;
 
@@ -173,7 +174,7 @@ public class GameController : MonoBehaviour
                 }
 
                 // TODO: Move to event based system.
-                if (playercontroller.score >= 5)
+                if (playercontroller.score >= SCORE_TO_WIN)
                 {
                     winner = playercontroller.ID;
                     PlayerStats();

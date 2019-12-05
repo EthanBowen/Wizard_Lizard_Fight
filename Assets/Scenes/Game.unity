@@ -84507,6 +84507,7 @@ MonoBehaviour:
   CameraZoomOffset: 16
   CameraZoomDefaultMin: 5
   CameraZoomDefaultMax: 24
+  SCORE_TO_WIN: 20
   PlayerSpawnLocations: []
   music_main: {fileID: 1083387537}
   music_battle: {fileID: 8300000, guid: 44ce559e036e346bf8f5acdc480fb1a2, type: 3}
