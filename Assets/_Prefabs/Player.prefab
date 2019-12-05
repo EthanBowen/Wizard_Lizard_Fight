@@ -868,7 +868,7 @@ MonoBehaviour:
   manaBar: {fileID: 2079514096679092151, guid: 263b2256444a1634abf3cd09bbe04db6, type: 3}
   characterList:
   - {fileID: 9100000, guid: 13d582e69559efd4e8f244c7cbaa361f, type: 2}
-  - {fileID: 9100000, guid: 13d582e69559efd4e8f244c7cbaa361f, type: 2}
+  - {fileID: 9100000, guid: f871301b29b0d424bb0a9d43823e310a, type: 2}
   - {fileID: 9100000, guid: e5ce0ca5f54572143b062c10e9ea465b, type: 2}
   - {fileID: 9100000, guid: fd4ae7e7050902d4e919d35bad9b5fa7, type: 2}
   - {fileID: 9100000, guid: 8750e9f287cbcae4fa1908662e209369, type: 2}
@@ -1152,16 +1152,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7649336005895779571}
     m_Modifications:
-    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5577803811355308997, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
         type: 3}
       propertyPath: m_Name
@@ -1236,6 +1226,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 327790824053512211, guid: d84c91aa1a4c54a7492e34ecf87dbcf0,
+        type: 3}
+      propertyPath: looping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84c91aa1a4c54a7492e34ecf87dbcf0, type: 3}
