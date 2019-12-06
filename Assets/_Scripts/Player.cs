@@ -612,12 +612,15 @@ public class Player : MonoBehaviour
 
             //Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
-            Vector3 positionOfWater = new Vector3(2.0f, 0);
+            Vector3 WaterVector = new Vector3(2.0f, 0);
 
-            positionOfWater = fireSpell.transform.position;//aimPos * positionOfWater;
+            WaterVector = fireSpell.transform.position;//aimPos * positionOfWater;
                                                            //positionOfWater += transform.position;
 
-            GameObject water = Instantiate(waterSpell, positionOfWater, aimPos);
+            GameObject water = Instantiate(waterSpell, WaterVector, aimPos);
+
+            WaterVector.Set(0.3f + ((float)chargeWaterSpell * 1f) / (float)WaterShotMaxCharge, 0.3f + ((float)chargeWaterSpell * 1.3f) / (float)WaterShotMaxCharge, 1);
+            water.transform.localScale = WaterVector;
 
             Vector2 difference = water.transform.position - wand.transform.position;
             difference = difference.normalized * WaterShotSpeed * 10;
@@ -742,12 +745,15 @@ public class Player : MonoBehaviour
 
             //Quaternion aimPos = CalcAimVector(horizontal, vertical);
 
-            Vector3 positionOfIce = new Vector3(2.0f, 0);
+            Vector3 IceVector = new Vector3(2.0f, 0);
 
-            positionOfIce = fireSpell.transform.position;//aimPos * positionOfIce;
+            IceVector = fireSpell.transform.position;//aimPos * positionOfIce;
                                                          //positionOfIce += transform.position;
 
-            GameObject ice = Instantiate(iceSpell, positionOfIce, aimPos);
+            GameObject ice = Instantiate(iceSpell, IceVector, aimPos);
+
+            IceVector.Set(((float)chargeIceSpell * 1.3f) / (float)IceShotMaxCharge, ((float)chargeIceSpell * 1.3f) / (float)IceShotMaxCharge, 1);
+            ice.transform.localScale = IceVector;
 
             Vector2 difference = ice.transform.position - wand.transform.position;
             difference = difference.normalized * IceShotSpeed * 10;
