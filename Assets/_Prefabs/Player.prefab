@@ -838,6 +838,8 @@ MonoBehaviour:
   BombDamage: 100
   BombRadius: 10
   FireDamagePerCheck: 1
+  ManuallyDetonateBomb: 0
+  BombFuseTimer: 3
   bombPlace: {fileID: 6623407247859445974}
   iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
     type: 3}
@@ -862,6 +864,8 @@ MonoBehaviour:
   damageTaken: 0
   health: 0
   MP: 0
+  playerDamagePopup: {fileID: 3447309884958232076, guid: 872b1b9692b006c4481df71e7073a7c4,
+    type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   horizontal: 0
   vertical: 0

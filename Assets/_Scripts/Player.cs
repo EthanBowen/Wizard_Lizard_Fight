@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float maxHealth = 100;
     public float maxMP = 100;
     private bool dead;
+    
 
     [Header("Fire Settings")]
     public ParticleSystem fireSpell;
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         inputs.ReadPlayerInputs();
-        
+
         horizontal = inputs.PLAYER_horiz_move;
         vertical = inputs.PLAYER_vert_move;
         MovePlayer();
@@ -837,6 +838,7 @@ public class Player : MonoBehaviour
         // If the collision object doesn't have a PlayerAttack component, ignore it.
         PlayerAttack attack = other.GetComponent<PlayerAttack>();
         _script_DamageZone damagezone = other.GetComponent<_script_DamageZone>();
+        int takingDamage = 0;
         
         if (damagezone != null && damagezone.PlayerID != ID)
         {
@@ -844,13 +846,18 @@ public class Player : MonoBehaviour
             {
                 damagezone.ReportDamage(damagezone.DamagePerCheck);
                 damageTaken += damagezone.DamagePerCheck;
+                takingDamage = (int)damageTaken;
+                DisplayDamage.Create(GetPosition(), takingDamage);
+                takingDamage = 0;
             }
             else
             {
                 damagezone.ReportDamage(health);
                 damageTaken += health;
+                takingDamage = (int)damageTaken;
+                DisplayDamage.Create(GetPosition(), takingDamage);
+                takingDamage = 0;
             }
-
             health -= damagezone.DamagePerCheck;
             healthupdate.Invoke(ID, health);
 
@@ -866,25 +873,34 @@ public class Player : MonoBehaviour
             {
                 attack.ReportDamage(attack.damage);
                 damageTaken += attack.damage;
+                takingDamage = (int)damageTaken;
+                DisplayDamage.Create(GetPosition(), takingDamage);
+                takingDamage = 0;
             }
             else
             {
                 attack.ReportDamage(health);
                 damageTaken += health;
+                takingDamage = (int)damageTaken;
+                DisplayDamage.Create(GetPosition(), takingDamage);
+                takingDamage = (int)damageTaken;
+                takingDamage = 0;
             }
-
             health -= other.GetComponent<PlayerAttack>().damage;
             healthupdate.Invoke(ID, health);
-
+            
             if (health <= 0)
             {
                 other.GetComponent<PlayerAttack>().ReportPoint();
                 Die();
             }
         }
-
     }
 
+    public Vector3 GetPosition()
+    {
+        return new Vector3(this.gameObject.transform.localPosition.x + 6, this.gameObject.transform.localPosition.y + 3);
+    }
 
     public void IncreaseScore()
     {
