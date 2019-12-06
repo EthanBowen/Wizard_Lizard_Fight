@@ -5,11 +5,14 @@ using UnityEngine;
 public class FireTrail : MonoBehaviour
 {
     private int time;
+    public int ID;
 
     // Start is called before the first frame update
     void Start()
     {
         time = 0;
+
+        ID = gameObject.GetComponent<PlayerAttack>().CheckID();
     }
 
     // Update is called once per frame
@@ -23,8 +26,4 @@ public class FireTrail : MonoBehaviour
         }
     }
 
-    private void OnParticleSystemStopped()
-    {
-        
-    }
 }

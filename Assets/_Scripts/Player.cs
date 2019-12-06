@@ -803,6 +803,11 @@ public class Player : MonoBehaviour
         if (!dead)
         {
             takeDamage(other);
+
+            if(other.GetComponent<FireTrail>() != null && other.GetComponent<FireTrail>().ID != ID)
+            {
+                Destroy(other);
+            }
         }
     }
 
