@@ -38,7 +38,7 @@ public class DisplayDamage : MonoBehaviour
         //sets the timer to deswpan the damage text
         disappearTimer = DISAPPEAR_TIMER_MAX;
         //for effects of damage text moving
-        moveVector = new Vector3(Random.Range(-1f, 1f), Random.Range(0, 3f)) * 60f;
+        moveVector = new Vector3(Random.Range(-1f, 1f), Random.Range(0, 1f)) * 60f;
         //places the text to be above each that is spawned
         sortingOrder++;
         //sets the text sorting order
@@ -49,7 +49,7 @@ public class DisplayDamage : MonoBehaviour
     {
         //moves the damage up and to the right
         transform.position += moveVector * Time.deltaTime;
-        moveVector -= moveVector * 60f * Time.deltaTime;
+        moveVector -= moveVector * 30f * Time.deltaTime;
 
         //increases the size of the damage text
         /*if(disappearTimer > DISAPPEAR_TIMER_MAX *.5f)
@@ -61,7 +61,7 @@ public class DisplayDamage : MonoBehaviour
         */ if(disappearTimer < DISAPPEAR_TIMER_MAX * .5f)
          {
             float decreaseScaleAmount = .5f;
-            transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
+            transform.localScale -= new Vector3(0,1,0) * decreaseScaleAmount * Time.deltaTime;
         }
 
         disappearTimer -= Time.deltaTime;

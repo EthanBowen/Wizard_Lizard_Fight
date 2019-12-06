@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
     public float maxHealth = 100;
     public float maxMP = 100;
     private bool dead;
-    
+    public AudioSource deathSound;
+    public AudioSource respawnSound;
 
     [Header("Fire Settings")]
     public ParticleSystem fireSpell;
     public float FireManaCost = 4f;
+    public AudioSource flmaeThrower;
 
     [Header("Watershot Settings")]
     public GameObject waterSpell;
@@ -131,6 +133,7 @@ public class Player : MonoBehaviour
         score = 0;
         selectCharacter();
         Respawn();
+        respawnSound.Stop();
     }
 
     // Update is called once per frame
@@ -588,9 +591,11 @@ public class Player : MonoBehaviour
         anim.SetBool("Casting", true);
         //fireSpell.GetComponent<PolygonCollider2D>().enabled = true;
         fireActive = true;
+        flmaeThrower.Play();
     }
     public void StopFire()
     {
+        flmaeThrower.Stop();
         fireSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         anim.SetBool("Casting", false);
         // fireSpell.GetComponent<PolygonCollider2D>().enabled = false;
@@ -867,7 +872,6 @@ public class Player : MonoBehaviour
             {
                 attack.ReportDamage(attack.damage);
                 damageTaken += attack.damage;
-                //takingDamage = (int)damageTaken;
                 DisplayDamage.Create(GetPosition(),(int) attack.damage);
                 takingDamage = 0;
             }
@@ -893,7 +897,7 @@ public class Player : MonoBehaviour
 
     public Vector3 GetPosition()
     {
-        return new Vector3(this.gameObject.transform.localPosition.x + 6, this.gameObject.transform.localPosition.y + 3);
+        return new Vector3(this.gameObject.transform.position.x + 10, this.gameObject.transform.position.y + 7);
     }
 
     public void IncreaseScore()
@@ -928,6 +932,7 @@ public class Player : MonoBehaviour
         this.gameObject.SetActive(true);
 
         dead = false;
+        respawnSound.Play();
     }
 
     private void selectCharacter()
