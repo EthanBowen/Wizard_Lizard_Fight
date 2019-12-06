@@ -29,8 +29,11 @@ public class GameEndController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ID = PlayerPrefs.GetInt("NumberOfPlayers");
         endMusic.loop = true;
         endMusic.Play();
+        ActivePlayers();
+        Winner();
     }
 
     // Update is called once per frame
