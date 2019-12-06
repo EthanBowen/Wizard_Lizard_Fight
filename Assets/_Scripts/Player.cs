@@ -846,17 +846,11 @@ public class Player : MonoBehaviour
             {
                 damagezone.ReportDamage(damagezone.DamagePerCheck);
                 damageTaken += damagezone.DamagePerCheck;
-                takingDamage = (int)damageTaken;
-                DisplayDamage.Create(GetPosition(), takingDamage);
-                takingDamage = 0;
             }
             else
             {
                 damagezone.ReportDamage(health);
                 damageTaken += health;
-                takingDamage = (int)damageTaken;
-                DisplayDamage.Create(GetPosition(), takingDamage);
-                takingDamage = 0;
             }
             health -= damagezone.DamagePerCheck;
             healthupdate.Invoke(ID, health);
@@ -873,8 +867,8 @@ public class Player : MonoBehaviour
             {
                 attack.ReportDamage(attack.damage);
                 damageTaken += attack.damage;
-                takingDamage = (int)damageTaken;
-                DisplayDamage.Create(GetPosition(), takingDamage);
+                //takingDamage = (int)damageTaken;
+                DisplayDamage.Create(GetPosition(),(int) attack.damage);
                 takingDamage = 0;
             }
             else
@@ -882,7 +876,7 @@ public class Player : MonoBehaviour
                 attack.ReportDamage(health);
                 damageTaken += health;
                 takingDamage = (int)damageTaken;
-                DisplayDamage.Create(GetPosition(), takingDamage);
+                DisplayDamage.Create(GetPosition(), (int)attack.damage);
                 takingDamage = (int)damageTaken;
                 takingDamage = 0;
             }
