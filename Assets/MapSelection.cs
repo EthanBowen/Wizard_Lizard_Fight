@@ -6,31 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class MapSelection : MonoBehaviour
 {
-    public GameObject currentHoveredMap;
-    public GameObject currentSelectedMap;
-    public List<Sprite> maps;
+   // public GameObject currentSelectedMap;
+    //public GameObject[] maps;
+    //private Sprite displayingMap;
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    void OnMouseOver()
-    {
-        currentHoveredMap.GetComponent<Image>().sprite = maps[1];
-    }
+   
     public void ChangeSceneRR()
     {
-        SceneManager.LoadScene("Game");
+        //SceneManager.LoadScene("Game");
     }
 
     public void ChangeSceneSL()
     {
-        SceneManager.LoadScene("GameSL");
+        //SceneManager.LoadScene("GameSL");
     }
 
     public void ChangeSceneFC()
     {
-        SceneManager.LoadScene("GameFC");
+       //SceneManager.LoadScene("GameFC");
+    }
+
+    public void ChangeScene04()
+    {
+        //SceneManager.LoadScene("GameFC");
     }
 }
