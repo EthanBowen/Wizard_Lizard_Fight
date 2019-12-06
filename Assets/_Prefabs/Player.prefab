@@ -1200,7 +1200,7 @@ MonoBehaviour:
   deathSound: {fileID: 8346948537875324424}
   respawnSound: {fileID: 3801937959960357876}
   fireSpell: {fileID: 3321366637306002938}
-  FireManaCost: 2
+  FireManaCost: 1.25
   flmaeThrower: {fileID: 6181972990679103299}
   waterSpell: {fileID: 9075706933809102355, guid: 41e9e27c245b5c44dab4e28500d3bf91,
     type: 3}
@@ -1220,10 +1220,12 @@ MonoBehaviour:
   rockBuild: {fileID: 401366644555993425}
   attack_bomb: {fileID: 2019683036262963969, guid: 323c7febc96673c40b1f96045497b029,
     type: 3}
-  BombManaCost: 90
+  BombManaCost: 50
   BombDamage: 100
   BombRadius: 10
   FireDamagePerCheck: 1
+  ManuallyDetonateBomb: 0
+  TimeToDetonate: 2.5
   bombPlace: {fileID: 6623407247859445974}
   iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
     type: 3}
