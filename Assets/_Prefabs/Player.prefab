@@ -812,7 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   diagonalMoveSpeedMultiplier: 1
-  maxHealth: 100
+  maxHealth: 125
   maxMP: 100
   fireSpell: {fileID: 3321366637306002938}
   FireManaCost: 2
@@ -838,6 +838,8 @@ MonoBehaviour:
   BombDamage: 100
   BombRadius: 10
   FireDamagePerCheck: 1
+  ManuallyDetonateBomb: 0
+  BombFuseTimer: 3
   bombPlace: {fileID: 6623407247859445974}
   iceSpell: {fileID: 8396085796507904021, guid: b69e48d41d2a0204281b00acc9d0ac72,
     type: 3}
