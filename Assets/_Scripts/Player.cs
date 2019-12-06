@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     public float BombDamage = 100f;
     public float BombRadius = 2f;
     public float FireDamagePerCheck = 1f;
+    public bool ManuallyDetonateBomb = false;
+    public float TimeToDetonate = 2.5f;
     public AudioSource bombPlace;
 
     [Header("Iceshot Settings")]
@@ -290,18 +292,18 @@ public class Player : MonoBehaviour
             // BOMB
             else if (earth && !air && Timer_BombDrop > 0.5f)
             {
-                if (MP >= BombManaCost)
+               
+                if (((Timer_BombDrop > 0.5f) && (ManuallyDetonateBomb)) || ((Timer_BombDrop > TimeToDetonate) && (!ManuallyDetonateBomb)))
                 {
-                    if (Timer_BombDrop > 0.5f)
-                    {
-                        earth = false;
-                        fire = false;
-                        earthReady = false;
+                    earth = false;
+                    fire = false;
+                    earthReady = false;
+                    Debug.Log("Bomb placed");
 
-                        Timer_BombDrop = 0.0f;
-                        PlaceBomb();
-                    }
+                    Timer_BombDrop = 0.0f;
+                    PlaceBomb();
                 }
+                
             }
             // FIRE TRAIL
             else if (air && !earth)
@@ -719,10 +721,14 @@ public class Player : MonoBehaviour
 
                 _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
                 bombscript.SetPlayerID(ID);
-                bombscript.ExplodeManually = true;
+                bombscript.ExplodeManually = ManuallyDetonateBomb;
                 bombscript.ExplosionDamage = BombDamage;
                 bombscript.ExplosionRadius = BombRadius;
                 bombscript.FireDamagePerCheck = FireDamagePerCheck;
+                if (!ManuallyDetonateBomb)
+                {
+                    bombscript.FuseTimer = TimeToDetonate;
+                }
                 bombscript.SetOwner(this);
                 HasPlacedBomb = bomb;
                 bombPlace.Play();
