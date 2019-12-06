@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
     public float BombDamage = 100f;
     public float BombRadius = 2f;
     public float FireDamagePerCheck = 1f;
+    public bool ManuallyDetonateBomb = false;
+    public float BombFuseTimer = 3.0f;
     public AudioSource bombPlace;
 
     [Header("Iceshot Settings")]
@@ -288,7 +290,9 @@ public class Player : MonoBehaviour
             {
                 if (MP >= BombManaCost)
                 {
-                    if (Timer_BombDrop > 0.5f)
+                    // If the bomb detonates on a timer, and the timer is up, then ensure it detonates.
+                    // If the bomb detonates manually, ensure a half-second delay between placing and exploding the bomb.
+                    if (((Timer_BombDrop > BombFuseTimer) && !ManuallyDetonateBomb) || ((Timer_BombDrop > 0.5f) && ManuallyDetonateBomb))
                     {
                         earth = false;
                         fire = false;
@@ -702,10 +706,14 @@ public class Player : MonoBehaviour
 
                 _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
                 bombscript.SetPlayerID(ID);
-                bombscript.ExplodeManually = true;
+                bombscript.ExplodeManually = ManuallyDetonateBomb;
                 bombscript.ExplosionDamage = BombDamage;
                 bombscript.ExplosionRadius = BombRadius;
                 bombscript.FireDamagePerCheck = FireDamagePerCheck;
+                if (!ManuallyDetonateBomb)
+                {
+                    bombscript.FuseTimer = BombFuseTimer;
+                }
                 bombscript.SetOwner(this);
                 HasPlacedBomb = bomb;
                 bombPlace.Play();
