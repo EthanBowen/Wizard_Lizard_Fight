@@ -47,8 +47,6 @@ public class Player : MonoBehaviour
     public float BombDamage = 100f;
     public float BombRadius = 2f;
     public float FireDamagePerCheck = 1f;
-    public bool ManuallyDetonateBomb = false;
-    public float BombFuseTimer = 3.0f;
     public AudioSource bombPlace;
 
     [Header("Iceshot Settings")]
@@ -61,7 +59,7 @@ public class Player : MonoBehaviour
     public AudioSource iceShot;
 
     [Header("Firetrail Settings")]
-    public ParticleSystem fireTrailSpell;
+    public GameObject fireTrailSpell;
     public float FireTrailStartManaCost = 10.0f;
     public float FireTrailSustainManaCost = 4f;
     public AudioSource fireDash;
@@ -291,9 +289,7 @@ public class Player : MonoBehaviour
             {
                 if (MP >= BombManaCost)
                 {
-                    // If the bomb detonates on a timer, and the timer is up, then ensure it detonates.
-                    // If the bomb detonates manually, ensure a half-second delay between placing and exploding the bomb.
-                    if (((Timer_BombDrop > BombFuseTimer) && !ManuallyDetonateBomb) || ((Timer_BombDrop > 0.5f) && ManuallyDetonateBomb))
+                    if (Timer_BombDrop > 0.5f)
                     {
                         earth = false;
                         fire = false;
@@ -522,6 +518,12 @@ public class Player : MonoBehaviour
             //MP -= 4;
             pos.x *= 4;
             pos.y *= 4;
+
+            Vector3 fireTrailPos = new Vector3(transform.position.x, transform.position.y);
+
+            GameObject fireTrail = Instantiate(fireTrailSpell, fireTrailPos, aimPos);
+
+            fireTrail.GetComponent<PlayerAttack>().SetOwner(this);
         }
 
         body.velocity = pos;
@@ -667,7 +669,8 @@ public class Player : MonoBehaviour
         if (MP >= FireTrailStartManaCost)
         {
             MP -= FireTrailStartManaCost;
-            fireTrailSpell.Play();
+
+            //fireTrailSpell.Play();
             anim.SetBool("Casting", true);
             fireTrailActive = true;
             fireDash.Play();
@@ -676,7 +679,7 @@ public class Player : MonoBehaviour
     public void StopFireTrail()
     {
         fireDash.Stop();
-        fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         anim.SetBool("Casting", false);
         fireTrailActive = false;
     }
@@ -688,9 +691,10 @@ public class Player : MonoBehaviour
 
     private void PlaceBomb()
     {
-        if (MP >= BombManaCost)
+        
+        if (HasPlacedBomb == null)
         {
-            if (HasPlacedBomb == null)
+            if (MP >= BombManaCost)
             {
                 MP -= BombManaCost;
 
@@ -707,25 +711,21 @@ public class Player : MonoBehaviour
 
                 _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
                 bombscript.SetPlayerID(ID);
-                bombscript.ExplodeManually = ManuallyDetonateBomb;
+                bombscript.ExplodeManually = true;
                 bombscript.ExplosionDamage = BombDamage;
                 bombscript.ExplosionRadius = BombRadius;
                 bombscript.FireDamagePerCheck = FireDamagePerCheck;
-                if (!ManuallyDetonateBomb)
-                {
-                    bombscript.FuseTimer = BombFuseTimer;
-                }
                 bombscript.SetOwner(this);
                 HasPlacedBomb = bomb;
                 bombPlace.Play();
             }
-            else
-            {
-                _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
-                bombscript.Detonate();
-                HasPlacedBomb = null;
-            }
         }
+        else
+        {
+            _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
+            bombscript.Detonate();
+            HasPlacedBomb = null;
+        }  
     }
 
     //*******************************************************Water/Air************************************************************

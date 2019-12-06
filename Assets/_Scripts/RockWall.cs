@@ -15,4 +15,9 @@ public class RockWall : MonoBehaviour
     {
         
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //Destroy(other);
+    }
 }
