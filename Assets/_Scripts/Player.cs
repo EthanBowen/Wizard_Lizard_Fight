@@ -693,37 +693,37 @@ public class Player : MonoBehaviour
         
         if (HasPlacedBomb == null)
         {
-            MP -= BombManaCost;
+            if (MP >= BombManaCost)
+            {
+                MP -= BombManaCost;
 
-            Vector3 positionOfBomb = new Vector3(2.0f, 0);
+                Vector3 positionOfBomb = new Vector3(2.0f, 0);
 
-            positionOfBomb = aimPos * positionOfBomb;
-            positionOfBomb += wand.transform.position;
+                positionOfBomb = aimPos * positionOfBomb;
+                positionOfBomb += wand.transform.position;
 
-            GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
+                GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
-            PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
-            pa.SetOwner(this);
-            pa.AssignID(ID);
+                PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
+                pa.SetOwner(this);
+                pa.AssignID(ID);
 
-            _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
-            bombscript.SetPlayerID(ID);
-            bombscript.ExplodeManually = true;
-            bombscript.ExplosionDamage = BombDamage;
-            bombscript.ExplosionRadius = BombRadius;
-            bombscript.FireDamagePerCheck = FireDamagePerCheck;
-            bombscript.SetOwner(this);
-            HasPlacedBomb = bomb;
-            bombPlace.Play();
+                _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
+                bombscript.SetPlayerID(ID);
+                bombscript.ExplodeManually = true;
+                bombscript.ExplosionDamage = BombDamage;
+                bombscript.ExplosionRadius = BombRadius;
+                bombscript.FireDamagePerCheck = FireDamagePerCheck;
+                bombscript.SetOwner(this);
+                HasPlacedBomb = bomb;
+                bombPlace.Play();
+            }
         }
         else
         {
-            if (MP >= BombManaCost)
-            {
-                _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
-                bombscript.Detonate();
-                HasPlacedBomb = null;
-            }
+            _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
+            bombscript.Detonate();
+            HasPlacedBomb = null;
         }  
     }
 
