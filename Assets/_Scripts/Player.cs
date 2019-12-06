@@ -849,7 +849,6 @@ public class Player : MonoBehaviour
         // If the collision object doesn't have a PlayerAttack component, ignore it.
         PlayerAttack attack = other.GetComponent<PlayerAttack>();
         _script_DamageZone damagezone = other.GetComponent<_script_DamageZone>();
-        int takingDamage = 0;
         
         if (damagezone != null && damagezone.PlayerID != ID)
         {
@@ -879,16 +878,12 @@ public class Player : MonoBehaviour
                 attack.ReportDamage(attack.damage);
                 damageTaken += attack.damage;
                 DisplayDamage.Create(GetPosition(),(int) attack.damage);
-                takingDamage = 0;
             }
             else
             {
                 attack.ReportDamage(health);
                 damageTaken += health;
-                takingDamage = (int)damageTaken;
                 DisplayDamage.Create(GetPosition(), (int)attack.damage);
-                takingDamage = (int)damageTaken;
-                takingDamage = 0;
             }
             health -= other.GetComponent<PlayerAttack>().damage;
             healthupdate.Invoke(ID, health);
@@ -919,7 +914,8 @@ public class Player : MonoBehaviour
         chargeIceSpell = 0.0f;
 
         health = 0.0f;
-        
+        if (!deathSound.isPlaying)
+            deathSound.Play();
         this.gameObject.SetActive(false);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         Invoke("Respawn", 5);
