@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     public AudioSource iceShot;
 
     [Header("Firetrail Settings")]
-    public ParticleSystem fireTrailSpell;
+    public GameObject fireTrailSpell;
     public float FireTrailStartManaCost = 10.0f;
     public float FireTrailSustainManaCost = 4f;
     public AudioSource fireDash;
@@ -517,6 +517,12 @@ public class Player : MonoBehaviour
             //MP -= 4;
             pos.x *= 4;
             pos.y *= 4;
+
+            Vector3 fireTrailPos = new Vector3(transform.position.x, transform.position.y);
+
+            GameObject fireTrail = Instantiate(fireTrailSpell, fireTrailPos, aimPos);
+
+            fireTrail.GetComponent<PlayerAttack>().SetOwner(this);
         }
 
         body.velocity = pos;
@@ -662,7 +668,8 @@ public class Player : MonoBehaviour
         if (MP >= FireTrailStartManaCost)
         {
             MP -= FireTrailStartManaCost;
-            fireTrailSpell.Play();
+
+            //fireTrailSpell.Play();
             anim.SetBool("Casting", true);
             fireTrailActive = true;
             fireDash.Play();
@@ -671,7 +678,7 @@ public class Player : MonoBehaviour
     public void StopFireTrail()
     {
         fireDash.Stop();
-        fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //fireTrailSpell.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         anim.SetBool("Casting", false);
         fireTrailActive = false;
     }
@@ -683,40 +690,41 @@ public class Player : MonoBehaviour
 
     private void PlaceBomb()
     {
-        if (MP >= BombManaCost)
+        
+        if (HasPlacedBomb == null)
         {
-            if (HasPlacedBomb == null)
-            {
-                MP -= BombManaCost;
+            MP -= BombManaCost;
 
-                Vector3 positionOfBomb = new Vector3(2.0f, 0);
+            Vector3 positionOfBomb = new Vector3(2.0f, 0);
 
-                positionOfBomb = aimPos * positionOfBomb;
-                positionOfBomb += wand.transform.position;
+            positionOfBomb = aimPos * positionOfBomb;
+            positionOfBomb += wand.transform.position;
 
-                GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
+            GameObject bomb = Instantiate(attack_bomb, positionOfBomb, aimPos);
 
-                PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
-                pa.SetOwner(this);
-                pa.AssignID(ID);
+            PlayerAttack pa = bomb.GetComponent<PlayerAttack>();
+            pa.SetOwner(this);
+            pa.AssignID(ID);
 
-                _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
-                bombscript.SetPlayerID(ID);
-                bombscript.ExplodeManually = true;
-                bombscript.ExplosionDamage = BombDamage;
-                bombscript.ExplosionRadius = BombRadius;
-                bombscript.FireDamagePerCheck = FireDamagePerCheck;
-                bombscript.SetOwner(this);
-                HasPlacedBomb = bomb;
-                bombPlace.Play();
-            }
-            else
+            _script_Bomb bombscript = bomb.GetComponent<_script_Bomb>();
+            bombscript.SetPlayerID(ID);
+            bombscript.ExplodeManually = true;
+            bombscript.ExplosionDamage = BombDamage;
+            bombscript.ExplosionRadius = BombRadius;
+            bombscript.FireDamagePerCheck = FireDamagePerCheck;
+            bombscript.SetOwner(this);
+            HasPlacedBomb = bomb;
+            bombPlace.Play();
+        }
+        else
+        {
+            if (MP >= BombManaCost)
             {
                 _script_Bomb bombscript = HasPlacedBomb.GetComponent<_script_Bomb>();
                 bombscript.Detonate();
                 HasPlacedBomb = null;
             }
-        }
+        }  
     }
 
     //*******************************************************Water/Air************************************************************
