@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadingScene : MonoBehaviour
 {
-    [SerializeField] private GameObject progressBar;
+    [SerializeField] private GameObject loadingScreen;
+    public Slider slider; 
     private Transform bar;
     private float loading = 0;
     private float endLoadTime = 100f;
@@ -27,15 +29,16 @@ public class LoadingScene : MonoBehaviour
     {
         //create an async operation
         AsyncOperation gameLevel = SceneManager.LoadSceneAsync(3);
-        float loadTime = loading / endLoadTime;
-        while(gameLevel.progress < 1)
+        
+        while(!gameLevel.isDone)
         {
-            
             //fill async operation
-            loading++;
-            bar.localScale = new Vector3 (loadTime,1f);
+            float progress = Mathf.Clamp01(gameLevel.progress / .9f);
+
+            slider.value = progress;
             
+            yield return new WaitForEndOfFrame();
         }
-        yield return new WaitForEndOfFrame();
+        
     }
 }
